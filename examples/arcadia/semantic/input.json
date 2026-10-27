@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "arcadia",
+  "intent": {
+    "question": "How do ARCADIA layers move from operational analysis to EPBS?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "fw-arcadia"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "OAB 运行分析",
+        "kind": "block",
+        "x": 340,
+        "y": 130,
+        "w": 600,
+        "h": 78,
+        "color": "blue",
+        "sourceId": "Lesson2.fw-arcadia.n0"
+      },
+      {
+        "id": "n1",
+        "label": "SAB 系统分析",
+        "kind": "block",
+        "x": 340,
+        "y": 255,
+        "w": 600,
+        "h": 78,
+        "color": "teal",
+        "sourceId": "Lesson2.fw-arcadia.n1"
+      },
+      {
+        "id": "n2",
+        "label": "LAB 逻辑架构",
+        "kind": "block",
+        "x": 340,
+        "y": 380,
+        "w": 600,
+        "h": 78,
+        "color": "amber",
+        "sourceId": "Lesson2.fw-arcadia.n2"
+      },
+      {
+        "id": "n3",
+        "label": "PAB／EPBS 物理实现",
+        "kind": "block",
+        "x": 340,
+        "y": 505,
+        "w": 600,
+        "h": 78,
+        "color": "violet",
+        "sourceId": "Lesson2.fw-arcadia.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "dependency",
+        "color": "blue"
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "dependency",
+        "color": "blue"
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "dependency",
+        "color": "blue"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · ARCADIA｜五层工程分析 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜ARCADIA｜五层工程分析",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

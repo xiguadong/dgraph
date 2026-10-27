@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "package",
+  "question": "CanSat 模型如何按需求、架构、行为和验证分包，依赖方向是否清晰？",
+  "issues": [],
+  "omissions": []
+}

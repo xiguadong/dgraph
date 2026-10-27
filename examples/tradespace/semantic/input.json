@@ -1,0 +1,120 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "tradespace",
+  "intent": {
+    "question": "Which alternatives dominate in the objective space?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "se-tradespace"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "LiPo 850",
+        "kind": "block",
+        "x": 90,
+        "y": 555,
+        "w": 240,
+        "h": 65,
+        "color": "blue",
+        "sourceId": "Lesson2.se-tradespace.n0"
+      },
+      {
+        "id": "n1",
+        "label": "Li-ion 18650",
+        "kind": "block",
+        "x": 950,
+        "y": 555,
+        "w": 240,
+        "h": 65,
+        "color": "teal",
+        "sourceId": "Lesson2.se-tradespace.n1"
+      }
+    ],
+    "edges": [],
+    "groups": [],
+    "matrices": [],
+    "charts": [
+      {
+        "id": "se-tradespace-chart",
+        "kind": "scatter",
+        "x": 170,
+        "y": 150,
+        "w": 900,
+        "h": 340,
+        "xLabel": "LiFePO4",
+        "yLabel": "Pareto 前沿",
+        "series": [
+          {
+            "id": "planned",
+            "label": "LiPo 850",
+            "color": "gray",
+            "points": [
+              [
+                20,
+                80
+              ],
+              [
+                50,
+                60
+              ],
+              [
+                85,
+                35
+              ]
+            ]
+          },
+          {
+            "id": "actual",
+            "label": "Li-ion 18650",
+            "color": "teal",
+            "points": [
+              [
+                15,
+                30
+              ],
+              [
+                45,
+                55
+              ],
+              [
+                70,
+                75
+              ],
+              [
+                90,
+                88
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · Tradespace／Pareto｜方案权衡 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜Tradespace／Pareto｜方案权衡",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

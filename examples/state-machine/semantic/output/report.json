@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "state-machine",
+  "question": "CS-1 的任务状态如何迁移，低电压安全模式如何打断正常任务链？",
+  "issues": [],
+  "omissions": []
+}

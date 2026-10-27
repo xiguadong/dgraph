@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "call-graph",
+  "question": "Which functions call each other?",
+  "issues": [],
+  "omissions": []
+}

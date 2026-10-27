@@ -1,0 +1,120 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "burndown",
+  "intent": {
+    "question": "How does remaining work change across the iteration?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "pm-burndown"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "计划剩余",
+        "kind": "block",
+        "x": 90,
+        "y": 555,
+        "w": 240,
+        "h": 65,
+        "color": "blue",
+        "sourceId": "Lesson2.pm-burndown.n0"
+      },
+      {
+        "id": "n1",
+        "label": "实际剩余",
+        "kind": "block",
+        "x": 950,
+        "y": 555,
+        "w": 240,
+        "h": 65,
+        "color": "teal",
+        "sourceId": "Lesson2.pm-burndown.n1"
+      }
+    ],
+    "edges": [],
+    "groups": [],
+    "matrices": [],
+    "charts": [
+      {
+        "id": "pm-burndown-chart",
+        "kind": "line",
+        "x": 170,
+        "y": 150,
+        "w": 900,
+        "h": 340,
+        "xLabel": "迭代结束",
+        "yLabel": "剩余小时",
+        "series": [
+          {
+            "id": "planned",
+            "label": "计划剩余",
+            "color": "gray",
+            "points": [
+              [
+                0,
+                100
+              ],
+              [
+                50,
+                50
+              ],
+              [
+                100,
+                0
+              ]
+            ]
+          },
+          {
+            "id": "actual",
+            "label": "实际剩余",
+            "color": "teal",
+            "points": [
+              [
+                0,
+                95
+              ],
+              [
+                35,
+                65
+              ],
+              [
+                70,
+                30
+              ],
+              [
+                100,
+                12
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · 燃尽图｜剩余工作趋势 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜燃尽图｜剩余工作趋势",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

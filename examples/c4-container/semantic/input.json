@@ -1,0 +1,121 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "c4-container",
+  "intent": {
+    "question": "Which deployable containers form the software system?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "x-c4-container"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "飞控固件",
+        "kind": "block",
+        "x": 45,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "gray",
+        "sourceId": "Lesson2.x-c4-container.n0"
+      },
+      {
+        "id": "n1",
+        "label": "遥测服务",
+        "kind": "block",
+        "x": 350,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "blue",
+        "sourceId": "Lesson2.x-c4-container.n1"
+      },
+      {
+        "id": "n2",
+        "label": "地面 API",
+        "kind": "block",
+        "x": 655,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "amber",
+        "sourceId": "Lesson2.x-c4-container.n2"
+      },
+      {
+        "id": "n3",
+        "label": "数据存储",
+        "kind": "block",
+        "x": 960,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "violet",
+        "sourceId": "Lesson2.x-c4-container.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "flow",
+        "color": "teal",
+        "label": "builds",
+        "labelPosition": [
+          293.5,
+          255
+        ]
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "flow",
+        "color": "teal",
+        "label": "produces",
+        "labelPosition": [
+          590.5,
+          255
+        ]
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal",
+        "label": "publishes",
+        "labelPosition": [
+          891.5,
+          255
+        ]
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · C4 Container｜可部署容器 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜C4 Container｜可部署容器",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

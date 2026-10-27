@@ -1,0 +1,55 @@
+schema: "diagram-ir/v1"
+type: "gantt"
+nodes:
+  - id: "n0"
+    label: "里程碑 / 验收点"
+    kind: "block"
+    x: 90
+    y: 555
+    w: 250
+    h: 65
+    color: "amber"
+    sourceId: "Lesson2.pm-gantt.n0"
+edges: []
+groups: []
+matrices: []
+charts: []
+timelines:
+  - id: "pm-gantt-timeline"
+    x: 95
+    y: 150
+    w: 1060
+    rowHeight: 82
+    labelWidth: 210
+    rows:
+      - id: "row0"
+        label: "需求分析"
+        start: 0
+        end: 45
+        color: "blue"
+        sourceId: "Lesson2.pm-gantt.row0"
+      - id: "row1"
+        label: "架构设计"
+        start: 14
+        end: 59
+        color: "teal"
+        sourceId: "Lesson2.pm-gantt.row1"
+      - id: "row2"
+        label: "采购制造"
+        start: 28
+        end: 73
+        color: "amber"
+        sourceId: "Lesson2.pm-gantt.row2"
+      - id: "row3"
+        label: "集成验证"
+        start: 42
+        end: 87
+        color: "violet"
+        sourceId: "Lesson2.pm-gantt.row3"
+    markers:
+      - position: 58
+        label: "PDR / 评审"
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · Gantt｜任务、工期与里程碑 · 统一 CanSat／dgraph 教学示例"

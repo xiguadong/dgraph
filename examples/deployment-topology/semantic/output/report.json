@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "deployment-topology",
+  "question": "Which networks, nodes, services, and links form runtime topology?",
+  "issues": [],
+  "omissions": []
+}

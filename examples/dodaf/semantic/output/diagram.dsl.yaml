@@ -1,0 +1,60 @@
+schema: "diagram-ir/v1"
+type: "dodaf"
+nodes:
+  - id: "n0"
+    label: "AV 全视点"
+    kind: "block"
+    x: 340
+    y: 130
+    w: 600
+    h: 78
+    color: "blue"
+    sourceId: "Lesson2.fw-dodaf.n0"
+  - id: "n1"
+    label: "OV 运行视点"
+    kind: "block"
+    x: 340
+    y: 255
+    w: 600
+    h: 78
+    color: "teal"
+    sourceId: "Lesson2.fw-dodaf.n1"
+  - id: "n2"
+    label: "SV 系统视点"
+    kind: "block"
+    x: 340
+    y: 380
+    w: 600
+    h: 78
+    color: "amber"
+    sourceId: "Lesson2.fw-dodaf.n2"
+  - id: "n3"
+    label: "PV 项目视点"
+    kind: "block"
+    x: 340
+    y: 505
+    w: 600
+    h: 78
+    color: "violet"
+    sourceId: "Lesson2.fw-dodaf.n3"
+edges:
+  - source: "n0"
+    target: "n1"
+    kind: "dependency"
+    color: "blue"
+  - source: "n1"
+    target: "n2"
+    kind: "dependency"
+    color: "blue"
+  - source: "n2"
+    target: "n3"
+    kind: "dependency"
+    color: "blue"
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · DoDAF／UAF｜视点全景 · 统一 CanSat／dgraph 教学示例"

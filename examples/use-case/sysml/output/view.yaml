@@ -1,0 +1,139 @@
+schema: "diagram-view/v1"
+type: "use-case"
+intent:
+  question: "操作员与科学用户在 CS-1 系统边界上分别使用哪些能力？"
+sources:
+  - kind: "sysml"
+    model: "CanSat"
+presentation:
+  title: "CanSat CS-1｜用例图 Use Case"
+  subtitle: "参与者、系统边界与目标"
+  theme: "lesson"
+  width: 1280
+  height: 720
+selection:
+  groups:
+    - id: "subject"
+      label: "CS-1 探空仪"
+      kind: "subject"
+      color: "blue"
+      x: 310
+      y: 140
+      w: 650
+      h: 450
+  nodes:
+    - id: "operator"
+      label: "发射操作员"
+      kind: "actor"
+      color: "blue"
+      x: 90
+      y: 225
+      w: 90
+      h: 100
+      sourceId: "CanSat.Operator"
+    - id: "scientist"
+      label: "科学用户"
+      kind: "actor"
+      color: "teal"
+      x: 1080
+      y: 225
+      w: 90
+      h: 100
+      sourceId: "CanSat.Scientist"
+    - id: "arm"
+      label: "执行自检与待发射"
+      kind: "usecase"
+      color: "blue"
+      x: 390
+      y: 200
+      w: 230
+      h: 75
+      sourceId: "CanSat.UCArm"
+    - id: "collect"
+      label: "采集大气与姿态数据"
+      kind: "usecase"
+      color: "blue"
+      x: 660
+      y: 200
+      w: 240
+      h: 75
+      sourceId: "CanSat.UCCollect"
+    - id: "telemetry"
+      label: "实时接收遥测"
+      kind: "usecase"
+      color: "teal"
+      x: 390
+      y: 390
+      w: 230
+      h: 75
+      sourceId: "CanSat.UCTelemetry"
+    - id: "replay"
+      label: "回收后回放数据"
+      kind: "usecase"
+      color: "teal"
+      x: 660
+      y: 390
+      w: 240
+      h: 75
+      sourceId: "CanSat.UCReplay"
+  edges:
+    - source: "operator"
+      target: "arm"
+      kind: "association"
+      points:
+        - - 180
+- 280
+        - - 390
+- 240
+      labelPosition:
+        - 275
+        - 235
+    - source: "operator"
+      target: "collect"
+      kind: "association"
+      points:
+        - - 180
+- 280
+        - - 660
+- 260
+      labelPosition:
+        - 280
+        - 290
+    - source: "scientist"
+      target: "telemetry"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 1080
+- 280
+        - - 620
+- 425
+      labelPosition:
+        - 900
+        - 350
+    - source: "scientist"
+      target: "replay"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 1080
+- 280
+        - - 900
+- 425
+      labelPosition:
+        - 1010
+        - 350
+  annotations:
+    - x: 330
+      y: 620
+      text: "用例椭圆位于系统边界内；参与者位于边界外。用例表达目标，不表达内部实现步骤。"
+  matrices: []
+  charts: []
+  timelines: []
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/use-case/sysml/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

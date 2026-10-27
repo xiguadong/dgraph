@@ -1,0 +1,168 @@
+schema: "diagram-ir/v1"
+type: "requirements"
+nodes:
+  - id: "sr01"
+    label: "SR-01 采样率 ≥ 1 Hz"
+    kind: "requirement"
+    stereotype: "requirement"
+    color: "amber"
+    x: 55
+    y: 160
+    w: 300
+    h: 85
+    sourceId: "CanSat.SR01"
+  - id: "sr04"
+    label: "SR-04 连续供电 ≥ 30 min"
+    kind: "requirement"
+    stereotype: "requirement"
+    color: "amber"
+    x: 55
+    y: 330
+    w: 300
+    h: 85
+    sourceId: "CanSat.SR04"
+  - id: "dr01"
+    label: "DR-01 采样周期 ≤ 500 ms"
+    kind: "requirement"
+    stereotype: "requirement"
+    color: "amber"
+    x: 55
+    y: 500
+    w: 300
+    h: 85
+    sourceId: "CanSat.DR01"
+  - id: "sensor"
+    label: "传感器采样模块"
+    kind: "block"
+    color: "blue"
+    compartment: "realizes sampling"
+    x: 490
+    y: 230
+    w: 280
+    h: 95
+    sourceId: "CanSat.Sampling"
+  - id: "power"
+    label: "电池与电源管理"
+    kind: "block"
+    color: "blue"
+    compartment: "10 Wh budget"
+    x: 490
+    y: 420
+    w: 280
+    h: 95
+    sourceId: "CanSat.Power"
+  - id: "test01"
+    label: "TC-01 采样率测试"
+    kind: "requirement"
+    stereotype: "testCase"
+    color: "teal"
+    x: 925
+    y: 160
+    w: 290
+    h: 85
+    sourceId: "CanSat.TC01"
+  - id: "test04"
+    label: "TC-04 续航试验"
+    kind: "requirement"
+    stereotype: "testCase"
+    color: "teal"
+    x: 925
+    y: 330
+    w: 290
+    h: 85
+    sourceId: "CanSat.TC04"
+  - id: "analysis"
+    label: "AN-01 周期预算分析"
+    kind: "requirement"
+    stereotype: "analysisCase"
+    color: "teal"
+    x: 925
+    y: 500
+    w: 290
+    h: 85
+    sourceId: "CanSat.AN01"
+edges:
+  - source: "dr01"
+    target: "sr01"
+    kind: "derive"
+    color: "amber"
+    label: "«deriveReqt»"
+    points:
+      - - 205
+- 500
+      - - 205
+- 245
+    labelPosition:
+      - 370
+      - 290
+  - source: "sensor"
+    target: "sr01"
+    kind: "satisfy"
+    label: "«satisfy»"
+    points:
+      - - 490
+- 275
+      - - 355
+- 205
+    labelPosition:
+      - 390
+      - 225
+  - source: "power"
+    target: "sr04"
+    kind: "satisfy"
+    label: "«satisfy»"
+    points:
+      - - 490
+- 465
+      - - 355
+- 375
+    labelPosition:
+      - 390
+      - 420
+  - source: "test01"
+    target: "sr01"
+    kind: "verify"
+    color: "teal"
+    label: "«verify»"
+    points:
+      - - 925
+- 205
+      - - 355
+- 205
+    labelPosition:
+      - 650
+      - 180
+  - source: "test04"
+    target: "sr04"
+    kind: "verify"
+    color: "teal"
+    label: "«verify»"
+    points:
+      - - 925
+- 375
+      - - 355
+- 375
+    labelPosition:
+      - 650
+      - 350
+  - source: "analysis"
+    target: "dr01"
+    kind: "verify"
+    color: "teal"
+    label: "«verify»"
+    points:
+      - - 925
+- 545
+      - - 355
+- 545
+    labelPosition:
+      - 650
+      - 555
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 55
+    y: 630
+    text: "需求是约束，设计块是满足者，测试／分析用例是验证者；三者角色不混画。"

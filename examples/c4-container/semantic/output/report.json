@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "c4-container",
+  "question": "Which deployable containers form the software system?",
+  "issues": [],
+  "omissions": []
+}

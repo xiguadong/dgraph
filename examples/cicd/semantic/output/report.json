@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "cicd",
+  "question": "Which checks, artifacts, gates, and deployments form delivery automation?",
+  "issues": [],
+  "omissions": []
+}

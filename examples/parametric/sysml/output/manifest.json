@@ -1,0 +1,11 @@
+{
+  "schema": "dgraph-manifest/v1",
+  "type": "parametric",
+  "inputSha256": "200a5cd4aa870d56895da99c3120178e443b04fb8c52ab508ed7ebd77f267b70",
+  "files": {
+    "view.yaml": "a0723c6d2fa646fdae768d86b6dd17a0c3f635dc1d446dc88c0fecae71295ca5",
+    "diagram.dsl.yaml": "3dbeb35eb6ba3bc09f8aa9b318b4aa21a6948b9b4db2ce1de7668ca314c43aef",
+    "diagram.svg": "eaf72c3e5386d4fa32625f53c3f132ae4ff12e54d90de77898d4eaef2af52777",
+    "report.json": "5449b3b891a3e66e6e9a8282df4936b1d34ccea3dd7b1728fced66ee3e3fee16"
+  }
+}

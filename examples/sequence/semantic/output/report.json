@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "sequence",
+  "question": "一次下降段遥测交互中，传感器、飞控、电台与地面站按什么顺序交换消息？",
+  "issues": [],
+  "omissions": []
+}

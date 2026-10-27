@@ -1,0 +1,17 @@
+{
+  "command": "check",
+  "ok": true,
+  "library": "built in (2026-05)",
+  "unreadable": [],
+  "elements": 66182,
+  "parseErrors": [],
+  "resolved": 17415,
+  "references": 17415,
+  "unresolved": [],
+  "collisions": [],
+  "violations": [],
+  "rules": {
+    "held": 27,
+    "unevaluated": 26
+  }
+}

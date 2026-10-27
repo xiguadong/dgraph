@@ -1,0 +1,297 @@
+{
+  "ok": true,
+  "compiler": {
+    "project": "haradama/sysml-v2-rs",
+    "version": "v0.1.4",
+    "sha256": "674fce28512a772d1886ff2397f5f02dda66265299c67c01f5cc36eaf00207f6",
+    "nativeVersion": "sysml 0.1.4 (standard library 2026-05)"
+  },
+  "diagnostics": [],
+  "model": {
+    "format": "SysML v2 native semantic interchange",
+    "totalElements": 259,
+    "elements": [
+      {
+        "id": "1a532322-1e1d-5983-8cbd-dac5ced6f2a7",
+        "kind": "Package",
+        "name": "CanSat",
+        "qualifiedName": "CanSat"
+      },
+      {
+        "id": "8ec9bab7-3da7-5dfa-b1f9-354dab5e9a1f",
+        "kind": "PartDefinition",
+        "name": "CS1",
+        "qualifiedName": "CanSat::CS1"
+      },
+      {
+        "id": "2bb46633-b11f-59d1-8b63-2f4d6bc8e6b7",
+        "kind": "PartUsage",
+        "name": "structure",
+        "qualifiedName": "CanSat::CS1::structure"
+      },
+      {
+        "id": "41e666b7-f6da-5435-9c0f-38f34c8a139b",
+        "kind": "PartUsage",
+        "name": "power",
+        "qualifiedName": "CanSat::CS1::power"
+      },
+      {
+        "id": "7ac1055b-7808-5852-a81a-d0060a9503e2",
+        "kind": "PartUsage",
+        "name": "fcu",
+        "qualifiedName": "CanSat::CS1::fcu"
+      },
+      {
+        "id": "caa86374-c3f7-59d5-93b5-6f1e711789d2",
+        "kind": "PartUsage",
+        "name": "sensors",
+        "qualifiedName": "CanSat::CS1::sensors"
+      },
+      {
+        "id": "4d29a726-38e0-5e03-ae8f-5def91b1cf62",
+        "kind": "PartUsage",
+        "name": "comms",
+        "qualifiedName": "CanSat::CS1::comms"
+      },
+      {
+        "id": "a2b8d89a-00f0-5d67-b32c-1d2c081f46f7",
+        "kind": "PartDefinition",
+        "name": "Structure",
+        "qualifiedName": "CanSat::Structure"
+      },
+      {
+        "id": "4137c3c4-a785-5ca2-a113-2859faaf78fa",
+        "kind": "PartDefinition",
+        "name": "Power",
+        "qualifiedName": "CanSat::Power"
+      },
+      {
+        "id": "d548718a-fd1a-51f5-8b78-19edbc82c5d0",
+        "kind": "PartDefinition",
+        "name": "FlightComputer",
+        "qualifiedName": "CanSat::FlightComputer"
+      },
+      {
+        "id": "d9c589bb-3824-547a-a9f5-8836f385b43c",
+        "kind": "PartDefinition",
+        "name": "Sensors",
+        "qualifiedName": "CanSat::Sensors"
+      },
+      {
+        "id": "e5a7342f-9150-5b71-a182-65a5176ed587",
+        "kind": "PartDefinition",
+        "name": "Comms",
+        "qualifiedName": "CanSat::Comms"
+      },
+      {
+        "id": "d76f32bb-b7db-5345-865a-ede8795c8519",
+        "kind": "PartDefinition",
+        "name": "GroundStation",
+        "qualifiedName": "CanSat::GroundStation"
+      },
+      {
+        "id": "a0e6f323-4266-53cd-ae87-65fb7276fb27",
+        "kind": "RequirementDefinition",
+        "name": "SampleRate",
+        "qualifiedName": "CanSat::SampleRate"
+      },
+      {
+        "id": "8521b930-890c-5acc-8987-5679ba2389f2",
+        "kind": "RequirementDefinition",
+        "name": "SupplyDuration",
+        "qualifiedName": "CanSat::SupplyDuration"
+      },
+      {
+        "id": "9cfdee56-4441-572e-975b-26f8c450b18d",
+        "kind": "RequirementDefinition",
+        "name": "SamplingPeriod",
+        "qualifiedName": "CanSat::SamplingPeriod"
+      },
+      {
+        "id": "ab036311-0acd-5ed5-b6e7-e0caafcd6b65",
+        "kind": "RequirementUsage",
+        "name": "sampleRate",
+        "qualifiedName": "CanSat::sampleRate"
+      },
+      {
+        "id": "7110db26-90df-5c91-9de6-b5fedf1dfbc2",
+        "kind": "RequirementUsage",
+        "name": "supplyDuration",
+        "qualifiedName": "CanSat::supplyDuration"
+      },
+      {
+        "id": "ecad71be-bec9-5ea1-b730-16b57566bd58",
+        "kind": "RequirementUsage",
+        "name": "samplingPeriod",
+        "qualifiedName": "CanSat::samplingPeriod"
+      },
+      {
+        "id": "c0d0451b-e251-583a-8c96-7d6a0884ff15",
+        "kind": "ActionDefinition",
+        "name": "SelfTest",
+        "qualifiedName": "CanSat::SelfTest"
+      },
+      {
+        "id": "7ee2492f-6b27-515e-83a0-aa1c2e1edc5e",
+        "kind": "ActionDefinition",
+        "name": "SamplePack",
+        "qualifiedName": "CanSat::SamplePack"
+      },
+      {
+        "id": "ecf2266b-4835-5d2b-a923-e0b0881feca6",
+        "kind": "ActionDefinition",
+        "name": "Transmit",
+        "qualifiedName": "CanSat::Transmit"
+      },
+      {
+        "id": "ec41b7bc-45f2-5adb-a4cc-52ac6b779b72",
+        "kind": "ActionDefinition",
+        "name": "EnterSafe",
+        "qualifiedName": "CanSat::EnterSafe"
+      },
+      {
+        "id": "50aaa5fc-a355-57bf-bcbc-6946747628de",
+        "kind": "ActionDefinition",
+        "name": "Heartbeat",
+        "qualifiedName": "CanSat::Heartbeat"
+      },
+      {
+        "id": "0e5d9fd8-4e03-540f-b93c-ce2514425f87",
+        "kind": "ActionDefinition",
+        "name": "StoreData",
+        "qualifiedName": "CanSat::StoreData"
+      },
+      {
+        "id": "522ed271-48bd-50d8-8589-142b303b68e1",
+        "kind": "StateDefinition",
+        "name": "Mission",
+        "qualifiedName": "CanSat::Mission"
+      },
+      {
+        "id": "760fd4b2-7ca9-573d-9e33-b791038e5884",
+        "kind": "StateUsage",
+        "name": "standby",
+        "qualifiedName": "CanSat::Mission::standby"
+      },
+      {
+        "id": "a20c56fb-2ae3-58da-87d0-480b08bef979",
+        "kind": "StateUsage",
+        "name": "armed",
+        "qualifiedName": "CanSat::Mission::armed"
+      },
+      {
+        "id": "a2ed1f42-4e2d-5609-98e0-d30063f57ec1",
+        "kind": "StateUsage",
+        "name": "ascent",
+        "qualifiedName": "CanSat::Mission::ascent"
+      },
+      {
+        "id": "fa4600a4-ab58-56d3-8422-93200a18bff3",
+        "kind": "StateUsage",
+        "name": "descent",
+        "qualifiedName": "CanSat::Mission::descent"
+      },
+      {
+        "id": "a310f6a1-8a1a-558b-9673-a3efa69aa5af",
+        "kind": "StateUsage",
+        "name": "landed",
+        "qualifiedName": "CanSat::Mission::landed"
+      },
+      {
+        "id": "8fbb6b58-acda-5a26-a0cd-b8e6e3b0a9d8",
+        "kind": "StateUsage",
+        "name": "replay",
+        "qualifiedName": "CanSat::Mission::replay"
+      },
+      {
+        "id": "65f715ab-ebee-5075-834b-951656608ef0",
+        "kind": "StateUsage",
+        "name": "safe",
+        "qualifiedName": "CanSat::Mission::safe"
+      },
+      {
+        "id": "56a89948-913a-595a-b7de-1437d8d6cb42",
+        "kind": "TransitionUsage",
+        "name": "armed_to_ascent",
+        "qualifiedName": "CanSat::Mission::armed_to_ascent"
+      },
+      {
+        "id": "b7eb5378-4010-558d-89ca-b9ccfee762ed",
+        "kind": "TransitionUsage",
+        "name": "ascent_to_descent",
+        "qualifiedName": "CanSat::Mission::ascent_to_descent"
+      },
+      {
+        "id": "97a06bf0-0e6a-5016-a08f-47b04d0acbeb",
+        "kind": "TransitionUsage",
+        "name": "descent_to_landed",
+        "qualifiedName": "CanSat::Mission::descent_to_landed"
+      },
+      {
+        "id": "0bcf3006-b6e6-5bd7-a3ce-7fc7505d16f6",
+        "kind": "TransitionUsage",
+        "name": "landed_to_replay",
+        "qualifiedName": "CanSat::Mission::landed_to_replay"
+      },
+      {
+        "id": "45b74c1c-7570-5f73-a052-d327e6a87c93",
+        "kind": "Feature",
+        "name": "armed",
+        "qualifiedName": null
+      },
+      {
+        "id": "049af5eb-70b6-5c73-82be-4771db772a5b",
+        "kind": "Feature",
+        "name": "ascent",
+        "qualifiedName": null
+      },
+      {
+        "id": "c58d875b-d363-5273-8f11-838df5f35898",
+        "kind": "Feature",
+        "name": "ascent",
+        "qualifiedName": null
+      },
+      {
+        "id": "3e4e8b70-041f-586a-929f-b98a5b4a1830",
+        "kind": "Feature",
+        "name": "descent",
+        "qualifiedName": null
+      },
+      {
+        "id": "22cb6d81-c137-5d74-89b6-c1854aa2b5b8",
+        "kind": "Feature",
+        "name": "descent",
+        "qualifiedName": null
+      },
+      {
+        "id": "0540a242-898a-5c67-9a47-f0f8d0274cfa",
+        "kind": "Feature",
+        "name": "landed",
+        "qualifiedName": null
+      },
+      {
+        "id": "0fa9d6ad-6b8f-5909-b10c-8384f3f49f43",
+        "kind": "Feature",
+        "name": "landed",
+        "qualifiedName": null
+      },
+      {
+        "id": "589f5ce9-b914-5367-9470-368d89c61f05",
+        "kind": "Feature",
+        "name": "replay",
+        "qualifiedName": null
+      }
+    ]
+  },
+  "artifacts": {
+    "sources": "/Users/xigua/life/SE/dgraph/examples/internal-block/sysml/output/sysml-analysis/sources",
+    "parse": "/Users/xigua/life/SE/dgraph/examples/internal-block/sysml/output/sysml-analysis/parse.json",
+    "check": "/Users/xigua/life/SE/dgraph/examples/internal-block/sysml/output/sysml-analysis/check.json",
+    "export": "/Users/xigua/life/SE/dgraph/examples/internal-block/sysml/output/sysml-analysis/export.json",
+    "report": "/Users/xigua/life/SE/dgraph/examples/internal-block/sysml/output/sysml-analysis/report.json"
+  },
+  "rules": {
+    "held": 48,
+    "unevaluated": 25
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "event-storming",
+  "intent": {
+    "question": "How do events, commands, aggregates, and policies form a business narrative?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "x-eventstorm"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "发射命令",
+        "kind": "block",
+        "x": 45,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "gray",
+        "sourceId": "Lesson2.x-eventstorm.n0"
+      },
+      {
+        "id": "n1",
+        "label": "已进入下降",
+        "kind": "block",
+        "x": 350,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "blue",
+        "sourceId": "Lesson2.x-eventstorm.n1"
+      },
+      {
+        "id": "n2",
+        "label": "遥测已生成",
+        "kind": "block",
+        "x": 655,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "amber",
+        "sourceId": "Lesson2.x-eventstorm.n2"
+      },
+      {
+        "id": "n3",
+        "label": "地面已接收",
+        "kind": "block",
+        "x": 960,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "violet",
+        "sourceId": "Lesson2.x-eventstorm.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · 事件风暴｜业务事件链 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜事件风暴｜业务事件链",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

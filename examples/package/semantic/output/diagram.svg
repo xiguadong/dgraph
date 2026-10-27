@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<rect width="1280" height="720" fill="#fff"/>
+<text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜包图 Package</text>
+<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">模型组织与依赖方向</text>
+<line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
+<path d="M 220,350 L 220,280 L 540,280 L 540,230" fill="none" stroke="#a16207" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 640.0,350 L 640.0,230" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 920,400 L 780,400" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 1060,350 L 1060,280 L 740,280 L 740,230" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 500,575 L 220,575 L 220,450" fill="none" stroke="#6d28d9" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 640.0,535 L 640.0,450" fill="none" stroke="#6d28d9" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<g data-node-id="common" data-source-id="CanSat.Common" data-kind="package"><title>Common
+单位与类型</title><rect x="490" y="140" width="300" height="90" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><path d="M 490 140 H 580 V 120 H 490 Z" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="640.0" y="180.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">Common</text><text x="640.0" y="200.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">单位与类型</text></g>
+<g data-node-id="req" data-source-id="CanSat.Requirements" data-kind="package"><title>Requirements
+需求与派生</title><rect x="80" y="350" width="280" height="100" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><path d="M 80 350 H 170 V 330 H 80 Z" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="220.0" y="395.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">Requirements</text><text x="220.0" y="415.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">需求与派生</text></g>
+<g data-node-id="arch" data-source-id="CanSat.Architecture" data-kind="package"><title>Architecture
+结构与接口</title><rect x="500" y="350" width="280" height="100" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><path d="M 500 350 H 590 V 330 H 500 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="640.0" y="395.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">Architecture</text><text x="640.0" y="415.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">结构与接口</text></g>
+<g data-node-id="behavior" data-source-id="CanSat.Behavior" data-kind="package"><title>Behavior
+活动与状态</title><rect x="920" y="350" width="280" height="100" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><path d="M 920 350 H 1010 V 330 H 920 Z" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="1060.0" y="395.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">Behavior</text><text x="1060.0" y="415.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">活动与状态</text></g>
+<g data-node-id="verification" data-source-id="CanSat.Verification" data-kind="package"><title>Verification
+测试与分析</title><rect x="500" y="535" width="280" height="85" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><path d="M 500 535 H 590 V 515 H 500 Z" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="640.0" y="572.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">Verification</text><text x="640.0" y="592.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">测试与分析</text></g>
+<rect x="245" y="249" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="282" y="265" font-size="13" fill="#a16207" text-anchor="middle" font-weight="500">«import»</text>
+<rect x="655" y="259" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="692" y="275" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">«import»</text>
+<rect x="815" y="359" width="50" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="840" y="375" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">«use»</text>
+<rect x="945" y="249" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="982" y="265" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">«import»</text>
+<rect x="315" y="534" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="352" y="550" font-size="13" fill="#6d28d9" text-anchor="middle" font-weight="500">«verify»</text>
+<rect x="675" y="479" width="58" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="704" y="495" font-size="13" fill="#6d28d9" text-anchor="middle" font-weight="500">«test»</text>
+<text x="70" y="655" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">包依赖指向被使用者；需求、设计、行为和验证分包便于追溯，而不是按图件截图堆叠。</text>
+<text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">CanSat 模型如何按需求、架构、行为和验证分包，依赖方向是否清晰？</text>
+<text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
+</svg>

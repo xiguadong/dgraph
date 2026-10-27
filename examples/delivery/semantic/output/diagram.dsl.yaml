@@ -1,0 +1,89 @@
+schema: "diagram-ir/v1"
+type: "delivery"
+nodes:
+  - id: "n0"
+    label: "源码仓库"
+    kind: "block"
+    x: 25
+    y: 290
+    w: 220
+    h: 105
+    color: "gray"
+    sourceId: "Lesson2.delivery.n0"
+  - id: "n1"
+    label: "构建与测试"
+    kind: "block"
+    x: 275
+    y: 290
+    w: 220
+    h: 105
+    color: "blue"
+    sourceId: "Lesson2.delivery.n1"
+  - id: "n2"
+    label: "版本化交付物"
+    kind: "block"
+    x: 525
+    y: 290
+    w: 220
+    h: 105
+    color: "amber"
+    sourceId: "Lesson2.delivery.n2"
+  - id: "n3"
+    label: "制品库／Release"
+    kind: "block"
+    x: 775
+    y: 290
+    w: 220
+    h: 105
+    color: "violet"
+    sourceId: "Lesson2.delivery.n3"
+  - id: "n4"
+    label: "部署与运行"
+    kind: "block"
+    x: 1025
+    y: 290
+    w: 220
+    h: 105
+    color: "teal"
+    sourceId: "Lesson2.delivery.n4"
+edges:
+  - source: "n0"
+    target: "n1"
+    kind: "flow"
+    color: "teal"
+    label: "builds"
+    labelPosition:
+      - 236.0
+      - 255
+  - source: "n1"
+    target: "n2"
+    kind: "flow"
+    color: "teal"
+    label: "produces"
+    labelPosition:
+      - 478.0
+      - 255
+  - source: "n2"
+    target: "n3"
+    kind: "flow"
+    color: "teal"
+    label: "publishes"
+    labelPosition:
+      - 724.0
+      - 255
+  - source: "n3"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "deploys / runs"
+    labelPosition:
+      - 954.0
+      - 255
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · Delivery View｜源码到运行交付链 · 统一 CanSat／dgraph 教学示例"

@@ -1,0 +1,79 @@
+schema: "diagram-view/v1"
+type: "impact-map"
+intent:
+  question: "How do goals connect actors, impacts, and deliverables?"
+sources:
+  - kind: "lesson"
+    figure: "x-impactmap"
+selection:
+  nodes:
+    - id: "n0"
+      label: "获得可靠探空数据"
+      kind: "block"
+      x: 500
+      y: 135
+      w: 280
+      h: 85
+      color: "violet"
+      sourceId: "Lesson2.x-impactmap.n0"
+    - id: "n1"
+      label: "科学用户"
+      kind: "block"
+      x: 80
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.x-impactmap.n1"
+    - id: "n2"
+      label: "提高数据完整性"
+      kind: "block"
+      x: 480
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.x-impactmap.n2"
+    - id: "n3"
+      label: "本地存储与下传"
+      kind: "block"
+      x: 880
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.x-impactmap.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "composition"
+      label: "1"
+    - source: "n0"
+      target: "n2"
+      kind: "composition"
+      label: "1"
+    - source: "n0"
+      target: "n3"
+      kind: "composition"
+      label: "1"
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · 影响地图｜目标到交付 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜影响地图｜目标到交付"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/impact-map/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

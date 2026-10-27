@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "object",
+  "intent": {
+    "question": "Which instances and links form an object snapshot?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "uml-object"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "imu1 : Sensor",
+        "kind": "block",
+        "x": 45,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "gray",
+        "sourceId": "Lesson2.uml-object.n0"
+      },
+      {
+        "id": "n1",
+        "label": "frame42 : Frame",
+        "kind": "block",
+        "x": 350,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "blue",
+        "sourceId": "Lesson2.uml-object.n1"
+      },
+      {
+        "id": "n2",
+        "label": "flight7 : Mission",
+        "kind": "block",
+        "x": 655,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "amber",
+        "sourceId": "Lesson2.uml-object.n2"
+      },
+      {
+        "id": "n3",
+        "label": "gs1 : GroundStation",
+        "kind": "block",
+        "x": 960,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "violet",
+        "sourceId": "Lesson2.uml-object.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · UML｜对象图 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜UML｜对象图",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

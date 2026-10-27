@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "deployment",
+  "question": "Which artifacts and software instances run on which nodes?",
+  "issues": [],
+  "omissions": []
+}

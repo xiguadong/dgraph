@@ -1,0 +1,12 @@
+flowchart TD
+  common["Common<br/>单位与类型"]
+  req["Requirements<br/>需求与派生"]
+  arch["Architecture<br/>结构与接口"]
+  behavior["Behavior<br/>活动与状态"]
+  verification["Verification<br/>测试与分析"]
+  req -.->|«import»| common
+  arch -.->|«import»| common
+  behavior -.->|«use»| arch
+  behavior -.->|«import»| common
+  verification -.->|«verify»| req
+  verification -.->|«test»| arch

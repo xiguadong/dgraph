@@ -1,0 +1,85 @@
+schema: "diagram-view/v1"
+type: "context"
+intent:
+  question: "Where is the system boundary and which external interfaces cross it?"
+sources:
+  - kind: "lesson"
+    figure: "se-context"
+selection:
+  nodes:
+    - id: "n0"
+      label: "发射操作员"
+      kind: "block"
+      x: 65
+      y: 260
+      w: 200
+      h: 90
+      color: "gray"
+      sourceId: "Lesson2.se-context.n0"
+    - id: "n1"
+      label: "CS-1 探空仪"
+      kind: "block"
+      x: 500
+      y: 285
+      w: 280
+      h: 110
+      color: "blue"
+      sourceId: "Lesson2.se-context.n1"
+    - id: "n2"
+      label: "地面站"
+      kind: "block"
+      x: 1010
+      y: 260
+      w: 200
+      h: 90
+      color: "teal"
+      sourceId: "Lesson2.se-context.n2"
+    - id: "n3"
+      label: "科学用户"
+      kind: "block"
+      x: 500
+      y: 455
+      w: 280
+      h: 70
+      color: "violet"
+      sourceId: "Lesson2.se-context.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "association"
+    - source: "n1"
+      target: "n2"
+      kind: "flow"
+      label: "interface"
+    - source: "n3"
+      target: "n1"
+      kind: "dependency"
+  groups:
+    - id: "boundary"
+      label: "CS-1 探空仪"
+      kind: "boundary"
+      x: 330
+      y: 150
+      w: 620
+      h: 400
+      color: "blue"
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · 经典 SE｜系统上下文图 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜经典 SE｜系统上下文图"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/context/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

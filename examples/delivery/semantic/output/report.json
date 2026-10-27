@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "delivery",
+  "question": "How do source, builds, artifacts, storage, deployment, and runtime connect?",
+  "issues": [],
+  "omissions": []
+}

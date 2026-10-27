@@ -1,0 +1,11 @@
+{
+  "schema": "dgraph-manifest/v1",
+  "type": "sfd",
+  "inputSha256": "e7bd033535b46b4d91b54d1345b91ad2fc452afae001735c2a9b89adf5d0c296",
+  "files": {
+    "view.yaml": "34393ca102fa456d1f9cf32ee9605e814b2c62a14d8d589d943212aeb0e15d16",
+    "diagram.dsl.yaml": "29b87211378cfc31added4b9c4c85ba8e18ac5419d71a9d43454099799512563",
+    "diagram.svg": "2e023da1cb3395f05b24f529a25763650acb3d97291697e59bd0006745d38d11",
+    "report.json": "9dc5b0e97927ec406de9d2969cffc281dd77f8d141b099c246d8094b129aa0f2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "flame-graph",
+  "question": "Which stack frames dominate execution time?",
+  "issues": [],
+  "omissions": []
+}

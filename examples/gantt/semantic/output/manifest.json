@@ -1,0 +1,11 @@
+{
+  "schema": "dgraph-manifest/v1",
+  "type": "gantt",
+  "inputSha256": "32f42d9ea94e0c44ce016f55ba833c04052f91679bd1f4d3ed836bc1c5634ebf",
+  "files": {
+    "view.yaml": "25fc1d506795b41e31601855e6f48969ad8ee7c637c3c3e9ce26eebcd754a40f",
+    "diagram.dsl.yaml": "e47d0d157098c0ab57193766c9c5cc28764ec9992dc135468e9c78506b74fee9",
+    "diagram.svg": "48d21d1a2735345ece7f2b11c16406800281ac2dba81fa209eb0f46494cfc929",
+    "report.json": "ce1a930e6874b56cd87e2a81532593c1ee3c30d0ec3fdac4a2255bd2a077257a"
+  }
+}

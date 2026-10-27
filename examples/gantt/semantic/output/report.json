@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "gantt",
+  "question": "Which tasks, dependencies, and milestones form the schedule?",
+  "issues": [],
+  "omissions": []
+}

@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "module-dependency",
+  "question": "Which modules depend on each other?",
+  "issues": [],
+  "omissions": []
+}

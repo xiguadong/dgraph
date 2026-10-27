@@ -1,0 +1,79 @@
+schema: "diagram-view/v1"
+type: "archimate"
+intent:
+  question: "How do business, application, and technology layers relate?"
+sources:
+  - kind: "lesson"
+    figure: "x-archimate"
+selection:
+  nodes:
+    - id: "n0"
+      label: "探空业务服务"
+      kind: "block"
+      x: 340
+      y: 130
+      w: 600
+      h: 78
+      color: "blue"
+      sourceId: "Lesson2.x-archimate.n0"
+    - id: "n1"
+      label: "遥测应用服务"
+      kind: "block"
+      x: 340
+      y: 255
+      w: 600
+      h: 78
+      color: "teal"
+      sourceId: "Lesson2.x-archimate.n1"
+    - id: "n2"
+      label: "飞控软件"
+      kind: "block"
+      x: 340
+      y: 380
+      w: 600
+      h: 78
+      color: "amber"
+      sourceId: "Lesson2.x-archimate.n2"
+    - id: "n3"
+      label: "嵌入式节点"
+      kind: "block"
+      x: 340
+      y: 505
+      w: 600
+      h: 78
+      color: "violet"
+      sourceId: "Lesson2.x-archimate.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "dependency"
+      color: "blue"
+    - source: "n1"
+      target: "n2"
+      kind: "dependency"
+      color: "blue"
+    - source: "n2"
+      target: "n3"
+      kind: "dependency"
+      color: "blue"
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · ArchiMate｜业务—应用—技术 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜ArchiMate｜业务—应用—技术"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/archimate/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

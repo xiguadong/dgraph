@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dgraph-mcp"
+version = "0.2.0"
+description = "Deterministic SysML and engineering diagram MCP"
+requires-python = ">=3.10"
+
+[project.scripts]
+dgraph-mcp = "dgraph.server:main"
+
+[tool.setuptools]
+packages = ["dgraph"]

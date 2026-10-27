@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "c4",
+  "intent": {
+    "question": "How do C4 zoom levels explain software architecture?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "c4-language"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "Context 系统上下文",
+        "kind": "block",
+        "x": 340,
+        "y": 130,
+        "w": 600,
+        "h": 78,
+        "color": "blue",
+        "sourceId": "Lesson2.c4-language.n0"
+      },
+      {
+        "id": "n1",
+        "label": "Container 容器",
+        "kind": "block",
+        "x": 340,
+        "y": 255,
+        "w": 600,
+        "h": 78,
+        "color": "teal",
+        "sourceId": "Lesson2.c4-language.n1"
+      },
+      {
+        "id": "n2",
+        "label": "Component 组件",
+        "kind": "block",
+        "x": 340,
+        "y": 380,
+        "w": 600,
+        "h": 78,
+        "color": "amber",
+        "sourceId": "Lesson2.c4-language.n2"
+      },
+      {
+        "id": "n3",
+        "label": "Code 代码",
+        "kind": "block",
+        "x": 340,
+        "y": 505,
+        "w": 600,
+        "h": 78,
+        "color": "violet",
+        "sourceId": "Lesson2.c4-language.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "dependency",
+        "color": "blue"
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "dependency",
+        "color": "blue"
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "dependency",
+        "color": "blue"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · C4 Model｜四个缩放层级 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜C4 Model｜四个缩放层级",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

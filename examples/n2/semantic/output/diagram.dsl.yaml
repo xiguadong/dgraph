@@ -1,0 +1,52 @@
+schema: "diagram-ir/v1"
+type: "n2"
+nodes:
+  - id: "n0"
+    label: "结构"
+    kind: "block"
+    x: 55
+    y: 145
+    w: 190
+    h: 75
+    color: "gray"
+    sourceId: "Lesson2.se-n2.n0"
+edges: []
+groups: []
+matrices:
+  - id: "se-n2-matrix"
+    x: 300
+    y: 150
+    cellWidth: 160
+    cellHeight: 75
+    columns:
+      - "结构"
+      - "电源"
+      - "飞控"
+      - "通信"
+    rows:
+      - "结构"
+      - "电源"
+      - "飞控"
+      - "通信"
+    cells:
+      - row: 0
+        column: 1
+        label: "I-01"
+        color: "amber"
+        sourceId: "Lesson2.se-n2.cell01"
+      - row: 1
+        column: 2
+        label: "I-02"
+        color: "teal"
+        sourceId: "Lesson2.se-n2.cell12"
+      - row: 2
+        column: 0
+        label: "I-03"
+        color: "violet"
+        sourceId: "Lesson2.se-n2.cell20"
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · N²／DSM｜接口矩阵 · 统一 CanSat／dgraph 教学示例"

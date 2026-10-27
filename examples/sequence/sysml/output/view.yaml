@@ -1,0 +1,149 @@
+schema: "diagram-view/v1"
+type: "sequence"
+intent:
+  question: "一次下降段遥测交互中，传感器、飞控、电台与地面站按什么顺序交换消息？"
+sources:
+  - kind: "sysml"
+    model: "CanSat"
+presentation:
+  title: "CanSat CS-1｜序列图 Sequence"
+  subtitle: "下降段遥测场景 · 消息自上而下排列"
+  theme: "lesson"
+  width: 1280
+  height: 720
+selection:
+  nodes:
+    - id: "sensor"
+      label: "传感器"
+      kind: "block"
+      color: "teal"
+      x: 75
+      y: 130
+      w: 180
+      h: 55
+      sourceId: "CanSat.CS1.sensors"
+    - id: "fcu"
+      label: "飞控"
+      kind: "block"
+      color: "blue"
+      x: 385
+      y: 130
+      w: 180
+      h: 55
+      sourceId: "CanSat.CS1.fcu"
+    - id: "radio"
+      label: "电台"
+      kind: "block"
+      color: "violet"
+      x: 695
+      y: 130
+      w: 180
+      h: 55
+      sourceId: "CanSat.CS1.comms"
+    - id: "ground"
+      label: "地面站"
+      kind: "block"
+      color: "gray"
+      x: 1005
+      y: 130
+      w: 180
+      h: 55
+      sourceId: "CanSat.GroundStation"
+  edges:
+    - source: "fcu"
+      target: "sensor"
+      kind: "message"
+      color: "teal"
+      label: "1 读取采样"
+      points:
+        - - 475
+- 235
+        - - 165
+- 235
+      labelPosition:
+        - 280
+        - 215
+    - source: "sensor"
+      target: "fcu"
+      kind: "return"
+      color: "teal"
+      label: "2 温压湿 / IMU / GPS"
+      points:
+        - - 165
+- 295
+        - - 475
+- 295
+      labelPosition:
+        - 225
+        - 275
+    - source: "fcu"
+      target: "fcu"
+      kind: "message"
+      color: "blue"
+      label: "3 打包 TelemetryFrame"
+      points:
+        - - 475
+- 350
+        - - 590
+- 350
+        - - 590
+- 385
+        - - 475
+- 385
+      labelPosition:
+        - 500
+        - 330
+    - source: "fcu"
+      target: "radio"
+      kind: "message"
+      color: "violet"
+      label: "4 UART 遥测帧"
+      points:
+        - - 475
+- 440
+        - - 785
+- 440
+      labelPosition:
+        - 570
+        - 420
+    - source: "radio"
+      target: "ground"
+      kind: "message"
+      color: "violet"
+      label: "5 433 MHz 下行"
+      points:
+        - - 785
+- 500
+        - - 1095
+- 500
+      labelPosition:
+        - 890
+        - 480
+    - source: "ground"
+      target: "fcu"
+      kind: "return"
+      color: "gray"
+      label: "6 接收确认（下一场景）"
+      points:
+        - - 1095
+- 560
+        - - 475
+- 560
+      labelPosition:
+        - 720
+        - 540
+  annotations:
+    - x: 70
+      y: 625
+      text: "生命线表示参与者；消息顺序是场景语义，不等同于状态迁移或项目时间计划。"
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/sequence/sysml/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

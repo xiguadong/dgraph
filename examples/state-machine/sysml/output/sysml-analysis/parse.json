@@ -1,0 +1,13 @@
+{
+  "command": "parse",
+  "ok": true,
+  "unreadable": [],
+  "errors": 0,
+  "files": [
+    {
+      "path": "/Users/xigua/life/SE/dgraph/examples/state-machine/sysml/output/sysml-analysis/sources/model.sysml",
+      "ok": true,
+      "errors": []
+    }
+  ]
+}

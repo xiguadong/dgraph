@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<rect width="1280" height="720" fill="#fff"/>
+<text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜OPM｜对象—过程对偶</text>
+<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · lesson_2 diagram atlas</text>
+<line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
+<path d="M 285,342.5 L 350,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 590,342.5 L 655,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 895,342.5 L 960,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<g data-node-id="n0" data-source-id="Lesson2.opm.n0" data-kind="block"><title>TelemetryFrame 对象</title><rect x="45" y="290" width="240" height="105" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="165.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">TelemetryFrame 对象</text></g>
+<g data-node-id="n1" data-source-id="Lesson2.opm.n1" data-kind="block"><title>采集过程</title><rect x="350" y="290" width="240" height="105" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="470.0" y="347.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">采集过程</text></g>
+<g data-node-id="n2" data-source-id="Lesson2.opm.n2" data-kind="block"><title>飞控对象</title><rect x="655" y="290" width="240" height="105" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="775.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">飞控对象</text></g>
+<g data-node-id="n3" data-source-id="Lesson2.opm.n3" data-kind="block"><title>下传过程</title><rect x="960" y="290" width="240" height="105" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1080.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">下传过程</text></g>
+
+
+
+<text x="50" y="645" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">lesson_2 图鉴扩展 · OPM｜对象—过程对偶 · 统一 CanSat／dgraph 教学示例</text>
+<text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">How do objects and processes form an OPM concept model?</text>
+<text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
+</svg>

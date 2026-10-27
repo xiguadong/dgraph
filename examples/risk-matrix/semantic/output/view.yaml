@@ -1,0 +1,69 @@
+schema: "diagram-view/v1"
+type: "risk-matrix"
+intent:
+  question: "How do probability and impact prioritize risks?"
+sources:
+  - kind: "lesson"
+    figure: "pm-risk"
+selection:
+  nodes:
+    - id: "n0"
+      label: "链路中断"
+      kind: "block"
+      x: 55
+      y: 145
+      w: 190
+      h: 75
+      color: "gray"
+      sourceId: "Lesson2.pm-risk.n0"
+  edges: []
+  groups: []
+  matrices:
+    - id: "pm-risk-matrix"
+      x: 320
+      y: 150
+      cellWidth: 210
+      cellHeight: 85
+      columns:
+        - "质量超支"
+        - "供电不足"
+        - "降落过快"
+      rows:
+        - "质量超支"
+        - "供电不足"
+        - "降落过快"
+      cells:
+        - row: 0
+          column: 1
+          label: "链路中断"
+          color: "amber"
+          sourceId: "Lesson2.pm-risk.cell01"
+        - row: 1
+          column: 2
+          label: "相关 / 接口"
+          color: "teal"
+          sourceId: "Lesson2.pm-risk.cell12"
+        - row: 2
+          column: 0
+          label: "追溯"
+          color: "violet"
+          sourceId: "Lesson2.pm-risk.cell20"
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · 风险矩阵｜概率与影响 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜风险矩阵｜概率与影响"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/risk-matrix/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

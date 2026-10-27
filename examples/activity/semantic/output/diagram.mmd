@@ -1,0 +1,17 @@
+flowchart TD
+  start["开始"]
+  selftest["自检"]
+  decision["电压 ≥ 6.4 V？"]
+  sample["采样并打包"]
+  safe["进入安全模式"]
+  send["下传遥测帧"]
+  heartbeat["仅发送心跳"]
+  store["写入本地存储"]
+  start --> selftest
+  selftest --> decision
+  decision -->|[是]| sample
+  decision -->|[否]| safe
+  sample --> send
+  safe --> heartbeat
+  send --> store
+  heartbeat --> store

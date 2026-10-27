@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "event-storming",
+  "question": "How do events, commands, aggregates, and policies form a business narrative?",
+  "issues": [],
+  "omissions": []
+}

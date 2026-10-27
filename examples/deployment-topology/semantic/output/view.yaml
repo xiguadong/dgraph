@@ -1,0 +1,91 @@
+schema: "diagram-view/v1"
+type: "deployment-topology"
+intent:
+  question: "Which networks, nodes, services, and links form runtime topology?"
+sources:
+  - kind: "lesson"
+    figure: "x-topology"
+selection:
+  nodes:
+    - id: "n0"
+      label: "CS-1 设备"
+      kind: "block"
+      x: 45
+      y: 290
+      w: 240
+      h: 105
+      color: "gray"
+      sourceId: "Lesson2.x-topology.n0"
+    - id: "n1"
+      label: "433 MHz 链路"
+      kind: "block"
+      x: 350
+      y: 290
+      w: 240
+      h: 105
+      color: "blue"
+      sourceId: "Lesson2.x-topology.n1"
+    - id: "n2"
+      label: "地面网关"
+      kind: "block"
+      x: 655
+      y: 290
+      w: 240
+      h: 105
+      color: "amber"
+      sourceId: "Lesson2.x-topology.n2"
+    - id: "n3"
+      label: "分析工作站"
+      kind: "block"
+      x: 960
+      y: 290
+      w: 240
+      h: 105
+      color: "violet"
+      sourceId: "Lesson2.x-topology.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "flow"
+      color: "teal"
+      label: "builds"
+      labelPosition:
+        - 293.5
+        - 255
+    - source: "n1"
+      target: "n2"
+      kind: "flow"
+      color: "teal"
+      label: "produces"
+      labelPosition:
+        - 590.5
+        - 255
+    - source: "n2"
+      target: "n3"
+      kind: "flow"
+      color: "teal"
+      label: "publishes"
+      labelPosition:
+        - 891.5
+        - 255
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · 部署拓扑｜节点与网络 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜部署拓扑｜节点与网络"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/deployment-topology/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

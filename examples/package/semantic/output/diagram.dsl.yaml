@@ -1,0 +1,134 @@
+schema: "diagram-ir/v1"
+type: "package"
+nodes:
+  - id: "common"
+    label: "Common\n单位与类型"
+    kind: "package"
+    color: "gray"
+    x: 490
+    y: 140
+    w: 300
+    h: 90
+    sourceId: "CanSat.Common"
+  - id: "req"
+    label: "Requirements\n需求与派生"
+    kind: "package"
+    color: "amber"
+    x: 80
+    y: 350
+    w: 280
+    h: 100
+    sourceId: "CanSat.Requirements"
+  - id: "arch"
+    label: "Architecture\n结构与接口"
+    kind: "package"
+    color: "blue"
+    x: 500
+    y: 350
+    w: 280
+    h: 100
+    sourceId: "CanSat.Architecture"
+  - id: "behavior"
+    label: "Behavior\n活动与状态"
+    kind: "package"
+    color: "teal"
+    x: 920
+    y: 350
+    w: 280
+    h: 100
+    sourceId: "CanSat.Behavior"
+  - id: "verification"
+    label: "Verification\n测试与分析"
+    kind: "package"
+    color: "violet"
+    x: 500
+    y: 535
+    w: 280
+    h: 85
+    sourceId: "CanSat.Verification"
+edges:
+  - source: "req"
+    target: "common"
+    kind: "dependency"
+    color: "amber"
+    label: "«import»"
+    points:
+      - - 220
+- 350
+      - - 220
+- 280
+      - - 540
+- 280
+      - - 540
+- 230
+    labelPosition:
+      - 250
+      - 265
+  - source: "arch"
+    target: "common"
+    kind: "dependency"
+    label: "«import»"
+    labelPosition:
+      - 660
+      - 275
+  - source: "behavior"
+    target: "arch"
+    kind: "dependency"
+    color: "teal"
+    label: "«use»"
+    points:
+      - - 920
+- 400
+      - - 780
+- 400
+    labelPosition:
+      - 820
+      - 375
+  - source: "behavior"
+    target: "common"
+    kind: "dependency"
+    color: "teal"
+    label: "«import»"
+    points:
+      - - 1060
+- 350
+      - - 1060
+- 280
+      - - 740
+- 280
+      - - 740
+- 230
+    labelPosition:
+      - 950
+      - 265
+  - source: "verification"
+    target: "req"
+    kind: "dependency"
+    color: "violet"
+    label: "«verify»"
+    points:
+      - - 500
+- 575
+      - - 220
+- 575
+      - - 220
+- 450
+    labelPosition:
+      - 320
+      - 550
+  - source: "verification"
+    target: "arch"
+    kind: "dependency"
+    color: "violet"
+    label: "«test»"
+    labelPosition:
+      - 680
+      - 495
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 70
+    y: 655
+    text: "包依赖指向被使用者；需求、设计、行为和验证分包便于追溯，而不是按图件截图堆叠。"

@@ -1,0 +1,50 @@
+schema: "diagram-ir/v1"
+type: "qfd"
+nodes:
+  - id: "n0"
+    label: "数据完整"
+    kind: "block"
+    x: 55
+    y: 145
+    w: 190
+    h: 75
+    color: "gray"
+    sourceId: "Lesson2.se-qfd.n0"
+edges: []
+groups: []
+matrices:
+  - id: "se-qfd-matrix"
+    x: 320
+    y: 150
+    cellWidth: 210
+    cellHeight: 85
+    columns:
+      - "续航充足"
+      - "质量受限"
+      - "链路可靠"
+    rows:
+      - "续航充足"
+      - "质量受限"
+      - "链路可靠"
+    cells:
+      - row: 0
+        column: 1
+        label: "数据完整"
+        color: "amber"
+        sourceId: "Lesson2.se-qfd.cell01"
+      - row: 1
+        column: 2
+        label: "相关 / 接口"
+        color: "teal"
+        sourceId: "Lesson2.se-qfd.cell12"
+      - row: 2
+        column: 0
+        label: "追溯"
+        color: "violet"
+        sourceId: "Lesson2.se-qfd.cell20"
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · QFD 质量屋｜需求到工程特性 · 统一 CanSat／dgraph 教学示例"

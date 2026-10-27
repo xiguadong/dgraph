@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "idef0",
+  "intent": {
+    "question": "Which inputs, outputs, controls, and mechanisms surround a function?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "se-idef0"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "任务数据",
+        "kind": "block",
+        "x": 55,
+        "y": 290,
+        "w": 230,
+        "h": 90,
+        "color": "gray",
+        "sourceId": "Lesson2.se-idef0.n0"
+      },
+      {
+        "id": "n1",
+        "label": "采集大气数据",
+        "kind": "block",
+        "x": 500,
+        "y": 290,
+        "w": 280,
+        "h": 100,
+        "color": "teal",
+        "sourceId": "Lesson2.se-idef0.n1"
+      },
+      {
+        "id": "n2",
+        "label": "采样规范",
+        "kind": "block",
+        "x": 500,
+        "y": 135,
+        "w": 280,
+        "h": 80,
+        "color": "amber",
+        "sourceId": "Lesson2.se-idef0.n2"
+      },
+      {
+        "id": "n3",
+        "label": "传感器与飞控",
+        "kind": "block",
+        "x": 500,
+        "y": 480,
+        "w": 280,
+        "h": 80,
+        "color": "blue",
+        "sourceId": "Lesson2.se-idef0.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "flow",
+        "label": "input"
+      },
+      {
+        "source": "n2",
+        "target": "n1",
+        "kind": "dependency",
+        "label": "control"
+      },
+      {
+        "source": "n3",
+        "target": "n1",
+        "kind": "association",
+        "label": "mechanism"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · IDEF0｜功能、输入、控制与机制 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜IDEF0｜功能、输入、控制与机制",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

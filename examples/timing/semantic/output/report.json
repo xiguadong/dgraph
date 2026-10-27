@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "timing",
+  "question": "Which states and messages satisfy time constraints?",
+  "issues": [],
+  "omissions": []
+}

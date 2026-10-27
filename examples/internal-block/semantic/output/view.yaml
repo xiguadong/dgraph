@@ -1,0 +1,175 @@
+schema: "diagram-view/v1"
+type: "internal-block"
+intent:
+  question: "CS-1 内部部件通过哪些端口和接口连接，外部下行链路在哪里？"
+sources:
+  - kind: "sysml"
+    model: "CanSat"
+presentation:
+  title: "CanSat CS-1｜内部块图 IBD"
+  subtitle: "系统边界、部件、端口与接口"
+  theme: "lesson"
+  width: 1280
+  height: 720
+selection:
+  groups:
+    - id: "boundary"
+      label: "CS-1 探空仪系统边界"
+      kind: "boundary"
+      color: "blue"
+      x: 180
+      y: 135
+      w: 850
+      h: 455
+  nodes:
+    - id: "power"
+      label: "电源 : Power"
+      kind: "part"
+      color: "amber"
+      compartment: "5 V / 3.3 V"
+      x: 250
+      y: 220
+      w: 220
+      h: 100
+      sourceId: "CanSat.CS1.power"
+    - id: "sensors"
+      label: "传感器 : Sensors"
+      kind: "part"
+      color: "teal"
+      compartment: "I²C / SPI"
+      x: 525
+      y: 205
+      w: 220
+      h: 100
+      sourceId: "CanSat.CS1.sensors"
+    - id: "fcu"
+      label: "飞控 : FlightComputer"
+      kind: "part"
+      color: "blue"
+      compartment: "采样 · 存储 · 打包"
+      x: 525
+      y: 405
+      w: 220
+      h: 100
+      sourceId: "CanSat.CS1.fcu"
+    - id: "comms"
+      label: "电台 : Comms"
+      kind: "part"
+      color: "violet"
+      compartment: "UART → 433 MHz"
+      x: 780
+      y: 405
+      w: 200
+      h: 100
+      sourceId: "CanSat.CS1.comms"
+    - id: "ground"
+      label: "地面站"
+      kind: "block"
+      color: "gray"
+      x: 1080
+      y: 235
+      w: 150
+      h: 80
+      sourceId: "CanSat.GroundStation"
+    - id: "p1"
+      label: "I-01"
+      kind: "port"
+      color: "amber"
+      x: 470
+      y: 440
+      w: 24
+      h: 24
+      sourceId: "CanSat.I01"
+    - id: "p2"
+      label: "I-02"
+      kind: "port"
+      color: "teal"
+      x: 625
+      y: 305
+      w: 24
+      h: 24
+      sourceId: "CanSat.I02"
+    - id: "p3"
+      label: "I-03"
+      kind: "port"
+      color: "violet"
+      x: 745
+      y: 440
+      w: 24
+      h: 24
+      sourceId: "CanSat.I03"
+  edges:
+    - source: "power"
+      target: "fcu"
+      kind: "connection"
+      color: "amber"
+      label: "供电"
+      points:
+        - - 470
+- 270
+        - - 495
+- 270
+        - - 495
+- 455
+        - - 525
+- 455
+      labelPosition:
+        - 465
+        - 360
+    - source: "sensors"
+      target: "fcu"
+      kind: "flow"
+      color: "teal"
+      label: "采样数据"
+      points:
+        - - 635
+- 305
+        - - 635
+- 405
+      labelPosition:
+        - 650
+        - 350
+    - source: "fcu"
+      target: "comms"
+      kind: "flow"
+      color: "violet"
+      label: "遥测帧"
+      points:
+        - - 745
+- 455
+        - - 780
+- 455
+      labelPosition:
+        - 700
+        - 390
+    - source: "comms"
+      target: "ground"
+      kind: "flow"
+      color: "violet"
+      label: "433 MHz 下行"
+      points:
+        - - 980
+- 455
+        - - 1045
+- 455
+        - - 1045
+- 275
+        - - 1080
+- 275
+      labelPosition:
+        - 975
+        - 430
+  annotations:
+    - x: 200
+      y: 620
+      text: "接口编号保留在端口旁；系统边界外部只显示地面站，不把外部环境混入内部组成。"
+  matrices: []
+  charts: []
+  timelines: []
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/internal-block/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

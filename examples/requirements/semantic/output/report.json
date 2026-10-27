@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "requirements",
+  "question": "关键需求如何派生、由谁满足，并由哪些验证用例提供证据？",
+  "issues": [],
+  "omissions": []
+}

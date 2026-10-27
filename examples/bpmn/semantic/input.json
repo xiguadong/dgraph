@@ -1,0 +1,106 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "bpmn",
+  "intent": {
+    "question": "How do participants, tasks, gateways, and events form a business process?"
+  },
+  "sources": [
+    {
+      "kind": "lesson",
+      "figure": "x-bpmn"
+    }
+  ],
+  "selection": {
+    "nodes": [
+      {
+        "id": "n0",
+        "label": "开始任务",
+        "kind": "block",
+        "x": 45,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "gray",
+        "sourceId": "Lesson2.x-bpmn.n0"
+      },
+      {
+        "id": "n1",
+        "label": "采集与打包",
+        "kind": "block",
+        "x": 350,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "blue",
+        "sourceId": "Lesson2.x-bpmn.n1"
+      },
+      {
+        "id": "n2",
+        "label": "链路可用？",
+        "kind": "block",
+        "x": 655,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "amber",
+        "sourceId": "Lesson2.x-bpmn.n2"
+      },
+      {
+        "id": "n3",
+        "label": "发送或存储",
+        "kind": "block",
+        "x": 960,
+        "y": 290,
+        "w": 240,
+        "h": 105,
+        "color": "violet",
+        "sourceId": "Lesson2.x-bpmn.n3"
+      }
+    ],
+    "edges": [
+      {
+        "source": "n0",
+        "target": "n1",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n1",
+        "target": "n2",
+        "kind": "flow",
+        "color": "teal"
+      },
+      {
+        "source": "n2",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal"
+      }
+    ],
+    "groups": [],
+    "matrices": [],
+    "charts": [],
+    "timelines": [],
+    "annotations": [
+      {
+        "x": 50,
+        "y": 645,
+        "text": "lesson_2 图鉴扩展 · BPMN｜业务流程 · 统一 CanSat／dgraph 教学示例"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "CanSat CS-1｜BPMN｜业务流程",
+    "subtitle": "dgraph · lesson_2 diagram atlas",
+    "theme": "lesson"
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

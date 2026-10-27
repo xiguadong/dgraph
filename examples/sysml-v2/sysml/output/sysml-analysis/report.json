@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "compiler": {
+    "project": "haradama/sysml-v2-rs",
+    "version": "v0.1.4",
+    "sha256": "674fce28512a772d1886ff2397f5f02dda66265299c67c01f5cc36eaf00207f6",
+    "nativeVersion": "sysml 0.1.4 (standard library 2026-05)"
+  },
+  "diagnostics": [],
+  "model": {
+    "format": "SysML v2 native semantic interchange",
+    "totalElements": 29,
+    "elements": [
+      {
+        "id": "61aa5784-fe37-545d-ac0a-bda61acc21a3",
+        "kind": "Package",
+        "name": "CanSatViews",
+        "qualifiedName": "CanSatViews"
+      },
+      {
+        "id": "21bc5389-1897-5e48-a78b-429fad283627",
+        "kind": "PartDefinition",
+        "name": "CS1",
+        "qualifiedName": "CanSatViews::CS1"
+      },
+      {
+        "id": "bacf7fc6-35cf-5229-82b2-7286c9d19f1a",
+        "kind": "PartUsage",
+        "name": "power",
+        "qualifiedName": "CanSatViews::CS1::power"
+      },
+      {
+        "id": "1ee7b1c9-01ee-515c-8037-eef51e301dd2",
+        "kind": "PartUsage",
+        "name": "sensors",
+        "qualifiedName": "CanSatViews::CS1::sensors"
+      },
+      {
+        "id": "274b9d63-115f-5f46-90be-ad678e24a457",
+        "kind": "PartDefinition",
+        "name": "Power",
+        "qualifiedName": "CanSatViews::Power"
+      },
+      {
+        "id": "29caae49-59b8-5587-93a3-313060c8a3d5",
+        "kind": "PartDefinition",
+        "name": "Sensors",
+        "qualifiedName": "CanSatViews::Sensors"
+      },
+      {
+        "id": "d6e5060e-e09e-51f4-bdad-3be41446a133",
+        "kind": "ViewUsage",
+        "name": "existingView",
+        "qualifiedName": "CanSatViews::existingView"
+      }
+    ]
+  },
+  "artifacts": {
+    "sources": "/Users/xigua/life/SE/dgraph/examples/sysml-v2/sysml/output/sysml-analysis/sources",
+    "parse": "/Users/xigua/life/SE/dgraph/examples/sysml-v2/sysml/output/sysml-analysis/parse.json",
+    "check": "/Users/xigua/life/SE/dgraph/examples/sysml-v2/sysml/output/sysml-analysis/check.json",
+    "export": "/Users/xigua/life/SE/dgraph/examples/sysml-v2/sysml/output/sysml-analysis/export.json",
+    "report": "/Users/xigua/life/SE/dgraph/examples/sysml-v2/sysml/output/sysml-analysis/report.json"
+  },
+  "rules": {
+    "held": 27,
+    "unevaluated": 26
+  }
+}

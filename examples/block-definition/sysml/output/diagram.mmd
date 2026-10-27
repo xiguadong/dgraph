@@ -1,0 +1,12 @@
+flowchart TD
+  cs1["CS-1 探空仪"]
+  structure["结构与回收"]
+  power["电源"]
+  fcu["飞控计算"]
+  sensors["传感器"]
+  comms["通信"]
+  cs1 -->|1| structure
+  cs1 -->|1| power
+  cs1 -->|1| fcu
+  cs1 -->|1..*| sensors
+  cs1 -->|1| comms

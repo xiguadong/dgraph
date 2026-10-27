@@ -1,0 +1,60 @@
+schema: "diagram-ir/v1"
+type: "sv1"
+nodes:
+  - id: "n0"
+    label: "传感器"
+    kind: "block"
+    x: 45
+    y: 290
+    w: 240
+    h: 105
+    color: "gray"
+    sourceId: "Lesson2.fw-sv1.n0"
+  - id: "n1"
+    label: "飞控"
+    kind: "block"
+    x: 350
+    y: 290
+    w: 240
+    h: 105
+    color: "blue"
+    sourceId: "Lesson2.fw-sv1.n1"
+  - id: "n2"
+    label: "通信"
+    kind: "block"
+    x: 655
+    y: 290
+    w: 240
+    h: 105
+    color: "amber"
+    sourceId: "Lesson2.fw-sv1.n2"
+  - id: "n3"
+    label: "地面站"
+    kind: "block"
+    x: 960
+    y: 290
+    w: 240
+    h: 105
+    color: "violet"
+    sourceId: "Lesson2.fw-sv1.n3"
+edges:
+  - source: "n0"
+    target: "n1"
+    kind: "flow"
+    color: "teal"
+  - source: "n1"
+    target: "n2"
+    kind: "flow"
+    color: "teal"
+  - source: "n2"
+    target: "n3"
+    kind: "flow"
+    color: "teal"
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · DoDAF SV-1｜系统接口描述 · 统一 CanSat／dgraph 教学示例"

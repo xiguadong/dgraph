@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "type": "burndown",
+  "question": "How does remaining work change across the iteration?",
+  "issues": [],
+  "omissions": []
+}

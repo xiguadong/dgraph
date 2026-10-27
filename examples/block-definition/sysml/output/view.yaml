@@ -1,0 +1,112 @@
+schema: "diagram-view/v1"
+type: "block-definition"
+intent:
+  question: "CS-1 由哪些子系统组成，整体与部件的组合关系是什么？"
+sources:
+  - kind: "sysml"
+    model: "CanSat"
+presentation:
+  title: "CanSat CS-1｜块定义图 BDD"
+  subtitle: "类型与组合结构 · SysML semantic projection"
+  theme: "lesson"
+  width: 1280
+  height: 720
+selection:
+  nodes:
+    - id: "cs1"
+      label: "CS-1 探空仪"
+      kind: "block"
+      stereotype: "block"
+      compartment: "mission: atmospheric sensing"
+      x: 480
+      y: 135
+      w: 320
+      h: 105
+      sourceId: "CanSat.CS1"
+    - id: "structure"
+      label: "结构与回收"
+      kind: "block"
+      stereotype: "block"
+      compartment: "壳体 · 降落伞"
+      x: 40
+      y: 410
+      w: 200
+      h: 105
+      sourceId: "CanSat.Structure"
+    - id: "power"
+      label: "电源"
+      kind: "block"
+      stereotype: "block"
+      compartment: "电池 · 电源管理"
+      x: 288
+      y: 410
+      w: 200
+      h: 105
+      sourceId: "CanSat.Power"
+    - id: "fcu"
+      label: "飞控计算"
+      kind: "block"
+      stereotype: "block"
+      compartment: "MCU · 存储器"
+      x: 536
+      y: 410
+      w: 200
+      h: 105
+      sourceId: "CanSat.FlightComputer"
+    - id: "sensors"
+      label: "传感器"
+      kind: "block"
+      stereotype: "block"
+      compartment: "温压湿 · IMU · GPS"
+      x: 784
+      y: 410
+      w: 200
+      h: 105
+      sourceId: "CanSat.Sensors"
+    - id: "comms"
+      label: "通信"
+      kind: "block"
+      stereotype: "block"
+      compartment: "电台 · 天线"
+      x: 1032
+      y: 410
+      w: 200
+      h: 105
+      sourceId: "CanSat.Comms"
+  edges:
+    - source: "cs1"
+      target: "structure"
+      kind: "composition"
+      label: "1"
+    - source: "cs1"
+      target: "power"
+      kind: "composition"
+      label: "1"
+    - source: "cs1"
+      target: "fcu"
+      kind: "composition"
+      label: "1"
+    - source: "cs1"
+      target: "sensors"
+      kind: "composition"
+      label: "1..*"
+    - source: "cs1"
+      target: "comms"
+      kind: "composition"
+      label: "1"
+  annotations:
+    - x: 48
+      y: 610
+      text: "实心菱形位于整体端； multiplicity 描述部件实例数量。地面站是外部实体，不属于 CS-1 分解。"
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/block-definition/sysml/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "mmd"
+    - "svg"
+    - "report"

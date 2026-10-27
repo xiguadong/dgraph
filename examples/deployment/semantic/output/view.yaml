@@ -1,0 +1,91 @@
+schema: "diagram-view/v1"
+type: "deployment"
+intent:
+  question: "Which artifacts and software instances run on which nodes?"
+sources:
+  - kind: "lesson"
+    figure: "uml-deployment"
+selection:
+  nodes:
+    - id: "n0"
+      label: "固件交付物"
+      kind: "block"
+      x: 45
+      y: 290
+      w: 240
+      h: 105
+      color: "gray"
+      sourceId: "Lesson2.uml-deployment.n0"
+    - id: "n1"
+      label: "CS-1 MCU"
+      kind: "block"
+      x: 350
+      y: 290
+      w: 240
+      h: 105
+      color: "blue"
+      sourceId: "Lesson2.uml-deployment.n1"
+    - id: "n2"
+      label: "遥测包"
+      kind: "block"
+      x: 655
+      y: 290
+      w: 240
+      h: 105
+      color: "amber"
+      sourceId: "Lesson2.uml-deployment.n2"
+    - id: "n3"
+      label: "地面站节点"
+      kind: "block"
+      x: 960
+      y: 290
+      w: 240
+      h: 105
+      color: "violet"
+      sourceId: "Lesson2.uml-deployment.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "flow"
+      color: "teal"
+      label: "builds"
+      labelPosition:
+        - 293.5
+        - 255
+    - source: "n1"
+      target: "n2"
+      kind: "flow"
+      color: "teal"
+      label: "produces"
+      labelPosition:
+        - 590.5
+        - 255
+    - source: "n2"
+      target: "n3"
+      kind: "flow"
+      color: "teal"
+      label: "publishes"
+      labelPosition:
+        - 891.5
+        - 255
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · UML｜部署图 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜UML｜部署图"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/deployment/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

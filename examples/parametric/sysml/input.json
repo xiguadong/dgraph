@@ -1,0 +1,248 @@
+{
+  "schema": "diagram-view/v1",
+  "type": "parametric",
+  "intent": {
+    "question": "总质量约束如何绑定各子系统质量参数，并证明不超过 350 g？"
+  },
+  "sources": [
+    {
+      "kind": "sysml",
+      "model": "CanSat"
+    }
+  ],
+  "presentation": {
+    "title": "CanSat CS-1｜参数图 Parametric",
+    "subtitle": "质量预算与参数绑定",
+    "theme": "lesson"
+  },
+  "selection": {
+    "nodes": [
+      {
+        "id": "constraint",
+        "label": "质量预算 MassBudget",
+        "kind": "constraint",
+        "stereotype": "constraint",
+        "color": "amber",
+        "compartment": "m_total = Σ m_i ≤ 0.35 kg",
+        "x": 420,
+        "y": 275,
+        "w": 440,
+        "h": 170,
+        "sourceId": "CanSat.MassBudget"
+      },
+      {
+        "id": "mt",
+        "label": "m_total",
+        "kind": "block",
+        "color": "amber",
+        "compartment": "0.35 kg max",
+        "x": 70,
+        "y": 140,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mTotal"
+      },
+      {
+        "id": "ms",
+        "label": "m_structure",
+        "kind": "block",
+        "color": "blue",
+        "compartment": "120 g",
+        "x": 70,
+        "y": 300,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mStructure"
+      },
+      {
+        "id": "mp",
+        "label": "m_power",
+        "kind": "block",
+        "color": "blue",
+        "compartment": "95 g",
+        "x": 70,
+        "y": 460,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mPower"
+      },
+      {
+        "id": "mf",
+        "label": "m_fcu",
+        "kind": "block",
+        "color": "blue",
+        "compartment": "45 g",
+        "x": 1010,
+        "y": 140,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mFCU"
+      },
+      {
+        "id": "mse",
+        "label": "m_sensors",
+        "kind": "block",
+        "color": "blue",
+        "compartment": "50 g",
+        "x": 1010,
+        "y": 300,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mSensors"
+      },
+      {
+        "id": "mc",
+        "label": "m_comms",
+        "kind": "block",
+        "color": "blue",
+        "compartment": "40 g",
+        "x": 1010,
+        "y": 460,
+        "w": 200,
+        "h": 75,
+        "sourceId": "CanSat.mComms"
+      }
+    ],
+    "edges": [
+      {
+        "source": "constraint",
+        "target": "mt",
+        "kind": "binding",
+        "color": "amber",
+        "label": "total",
+        "points": [
+          [
+            420,
+            320
+          ],
+          [
+            270,
+            180
+          ]
+        ],
+        "labelPosition": [
+          310,
+          235
+        ]
+      },
+      {
+        "source": "constraint",
+        "target": "ms",
+        "kind": "binding",
+        "label": "m1",
+        "points": [
+          [
+            420,
+            350
+          ],
+          [
+            270,
+            338
+          ]
+        ],
+        "labelPosition": [
+          300,
+          315
+        ]
+      },
+      {
+        "source": "constraint",
+        "target": "mp",
+        "kind": "binding",
+        "label": "m2",
+        "points": [
+          [
+            420,
+            390
+          ],
+          [
+            270,
+            498
+          ]
+        ],
+        "labelPosition": [
+          300,
+          455
+        ]
+      },
+      {
+        "source": "constraint",
+        "target": "mf",
+        "kind": "binding",
+        "label": "m3",
+        "points": [
+          [
+            860,
+            320
+          ],
+          [
+            1010,
+            180
+          ]
+        ],
+        "labelPosition": [
+          900,
+          235
+        ]
+      },
+      {
+        "source": "constraint",
+        "target": "mse",
+        "kind": "binding",
+        "label": "m4",
+        "points": [
+          [
+            860,
+            350
+          ],
+          [
+            1010,
+            338
+          ]
+        ],
+        "labelPosition": [
+          900,
+          315
+        ]
+      },
+      {
+        "source": "constraint",
+        "target": "mc",
+        "kind": "binding",
+        "label": "m5",
+        "points": [
+          [
+            860,
+            390
+          ],
+          [
+            1010,
+            498
+          ]
+        ],
+        "labelPosition": [
+          900,
+          455
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "x": 420,
+        "y": 540,
+        "text": "Σ 120 + 95 + 45 + 50 + 40 = 350 g · 达到预算上限，无剩余质量余量",
+        "color": "#b42318",
+        "fontSize": 15
+      }
+    ]
+  },
+  "outputs": {
+    "directory": "/absolute/output",
+    "formats": [
+      "viewspec",
+      "dsl",
+      "svg",
+      "report"
+    ]
+  }
+}

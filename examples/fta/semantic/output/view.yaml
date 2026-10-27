@@ -1,0 +1,79 @@
+schema: "diagram-view/v1"
+type: "fta"
+intent:
+  question: "Which basic events combine into a top failure event?"
+sources:
+  - kind: "lesson"
+    figure: "se-fta"
+selection:
+  nodes:
+    - id: "n0"
+      label: "遥测中断"
+      kind: "block"
+      x: 500
+      y: 135
+      w: 280
+      h: 85
+      color: "violet"
+      sourceId: "Lesson2.se-fta.n0"
+    - id: "n1"
+      label: "供电失效"
+      kind: "block"
+      x: 80
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.se-fta.n1"
+    - id: "n2"
+      label: "电台失效"
+      kind: "block"
+      x: 480
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.se-fta.n2"
+    - id: "n3"
+      label: "天线故障"
+      kind: "block"
+      x: 880
+      y: 410
+      w: 300
+      h: 100
+      color: "blue"
+      sourceId: "Lesson2.se-fta.n3"
+  edges:
+    - source: "n0"
+      target: "n1"
+      kind: "composition"
+      label: "1"
+    - source: "n0"
+      target: "n2"
+      kind: "composition"
+      label: "1"
+    - source: "n0"
+      target: "n3"
+      kind: "composition"
+      label: "1"
+  groups: []
+  matrices: []
+  charts: []
+  timelines: []
+  annotations:
+    - x: 50
+      y: 645
+      text: "lesson_2 图鉴扩展 · FTA｜故障树分析 · 统一 CanSat／dgraph 教学示例"
+presentation:
+  title: "CanSat CS-1｜FTA｜故障树分析"
+  subtitle: "dgraph · lesson_2 diagram atlas"
+  theme: "lesson"
+  width: 1280
+  height: 720
+outputs:
+  directory: "/Users/xigua/life/SE/dgraph/examples/fta/semantic/output"
+  formats:
+    - "viewspec"
+    - "dsl"
+    - "svg"
+    - "report"

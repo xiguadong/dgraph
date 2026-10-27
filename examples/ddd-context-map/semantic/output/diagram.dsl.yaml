@@ -1,0 +1,66 @@
+schema: "diagram-ir/v1"
+type: "ddd-context-map"
+nodes:
+  - id: "n0"
+    label: "任务上下文"
+    kind: "block"
+    x: 65
+    y: 260
+    w: 200
+    h: 90
+    color: "gray"
+    sourceId: "Lesson2.x-ddd.n0"
+  - id: "n1"
+    label: "遥测上下文"
+    kind: "block"
+    x: 500
+    y: 285
+    w: 280
+    h: 110
+    color: "blue"
+    sourceId: "Lesson2.x-ddd.n1"
+  - id: "n2"
+    label: "通信上下文"
+    kind: "block"
+    x: 1010
+    y: 260
+    w: 200
+    h: 90
+    color: "teal"
+    sourceId: "Lesson2.x-ddd.n2"
+  - id: "n3"
+    label: "分析上下文"
+    kind: "block"
+    x: 500
+    y: 455
+    w: 280
+    h: 70
+    color: "violet"
+    sourceId: "Lesson2.x-ddd.n3"
+edges:
+  - source: "n0"
+    target: "n1"
+    kind: "association"
+  - source: "n1"
+    target: "n2"
+    kind: "flow"
+    label: "interface"
+  - source: "n3"
+    target: "n1"
+    kind: "dependency"
+groups:
+  - id: "boundary"
+    label: "遥测上下文"
+    kind: "boundary"
+    x: 330
+    y: 150
+    w: 620
+    h: 400
+    color: "blue"
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 50
+    y: 645
+    text: "lesson_2 图鉴扩展 · DDD｜限界上下文映射 · 统一 CanSat／dgraph 教学示例"

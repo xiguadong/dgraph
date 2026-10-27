@@ -1,0 +1,11 @@
+{
+  "schema": "dgraph-manifest/v1",
+  "type": "risk-matrix",
+  "inputSha256": "dda87f8d29e93c9984ce88623706060ecf7c9d2545b5215a6969e740d23b9208",
+  "files": {
+    "view.yaml": "c0bfd4dd806bdbaa0cf7f823a0fa5023e96e50200cb0cee7049806adb0d8d27f",
+    "diagram.dsl.yaml": "dbb6a4355b9fc5ef63b4bbb3f673d768700066bbbe7b3a9cc10487bea950aabe",
+    "diagram.svg": "51e9fab71dc9683e1384dc37422410e6761b2e0a38d1169f45d909c5e89f95d4",
+    "report.json": "78465d147174b8e46f367c83114b6f0d4b51313be6a6942ae558af46925fa74a"
+  }
+}

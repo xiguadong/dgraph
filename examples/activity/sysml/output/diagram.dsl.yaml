@@ -1,0 +1,142 @@
+schema: "diagram-ir/v1"
+type: "activity"
+nodes:
+  - id: "start"
+    label: "开始"
+    kind: "initial"
+    color: "gray"
+    x: 615
+    y: 115
+    w: 30
+    h: 30
+    sourceId: "CanSat.Activity.start"
+  - id: "selftest"
+    label: "自检"
+    kind: "action"
+    color: "teal"
+    x: 500
+    y: 175
+    w: 260
+    h: 55
+    sourceId: "CanSat.SelfTest"
+  - id: "decision"
+    label: "电压 ≥ 6.4 V？"
+    kind: "decision"
+    color: "amber"
+    x: 550
+    y: 270
+    w: 160
+    h: 85
+    sourceId: "CanSat.VoltageDecision"
+  - id: "sample"
+    label: "采样并打包"
+    kind: "action"
+    color: "teal"
+    x: 790
+    y: 280
+    w: 260
+    h: 60
+    sourceId: "CanSat.SamplePack"
+  - id: "safe"
+    label: "进入安全模式"
+    kind: "action"
+    color: "red"
+    x: 210
+    y: 280
+    w: 250
+    h: 60
+    sourceId: "CanSat.EnterSafe"
+  - id: "send"
+    label: "下传遥测帧"
+    kind: "action"
+    color: "teal"
+    x: 790
+    y: 410
+    w: 260
+    h: 60
+    sourceId: "CanSat.Transmit"
+  - id: "heartbeat"
+    label: "仅发送心跳"
+    kind: "action"
+    color: "red"
+    x: 210
+    y: 410
+    w: 250
+    h: 60
+    sourceId: "CanSat.Heartbeat"
+  - id: "store"
+    label: "写入本地存储"
+    kind: "action"
+    color: "blue"
+    x: 500
+    y: 520
+    w: 260
+    h: 55
+    sourceId: "CanSat.StoreData"
+edges:
+  - source: "start"
+    target: "selftest"
+    kind: "control"
+  - source: "selftest"
+    target: "decision"
+    kind: "control"
+  - source: "decision"
+    target: "sample"
+    kind: "control"
+    color: "teal"
+    label: "[是]"
+    labelPosition:
+      - 740
+      - 270
+  - source: "decision"
+    target: "safe"
+    kind: "control"
+    color: "red"
+    label: "[否]"
+    labelPosition:
+      - 450
+      - 270
+  - source: "sample"
+    target: "send"
+    kind: "control"
+    color: "teal"
+  - source: "safe"
+    target: "heartbeat"
+    kind: "control"
+    color: "red"
+  - source: "send"
+    target: "store"
+    kind: "control"
+    color: "teal"
+    points:
+      - - 920
+- 470
+      - - 920
+- 548
+      - - 760
+- 548
+    labelPosition:
+      - 845
+      - 520
+  - source: "heartbeat"
+    target: "store"
+    kind: "control"
+    color: "red"
+    points:
+      - - 335
+- 470
+      - - 335
+- 548
+      - - 500
+- 548
+    labelPosition:
+      - 420
+      - 520
+groups: []
+matrices: []
+charts: []
+timelines: []
+annotations:
+  - x: 55
+    y: 630
+    text: "守卫条件留在分支旁；安全模式与正常遥测最终都保留本地数据。"
