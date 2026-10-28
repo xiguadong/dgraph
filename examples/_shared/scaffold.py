@@ -151,6 +151,10 @@ def _readme(kind, mode, spec):
 
 适用于需要把这一问题讲清楚的评审、设计或维护场景。不要把它当作通用装饰图；问题改变时，应重新选择图种或视图。
 
+## 示例图
+
+![{title}示例](output/diagram.svg)
+
 ## 自然语言输入示例
 
 {prompt}

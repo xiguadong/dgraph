@@ -6,7 +6,7 @@ from dgraph.catalog import CATALOG
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
 SYSML_TYPES = {"block-definition", "internal-block", "requirements", "parametric", "use-case", "activity", "sequence", "state-machine", "package", "sysml-v2"}
-README_SECTIONS = ["图种与用途", "自然语言输入示例", "输入文件", "如何运行", "输出文件", "如何改成自己的图", "当前边界与常见问题"]
+README_SECTIONS = ["图种与用途", "示例图", "自然语言输入示例", "输入文件", "如何运行", "输出文件", "如何改成自己的图", "当前边界与常见问题"]
 
 
 class ExampleLayoutTests(unittest.TestCase):

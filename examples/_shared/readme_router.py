@@ -123,6 +123,28 @@ SysML 模型回答“系统里有哪些事实”，当前用户意图回答“�
 
 每个图种都有独立的 `semantic/` 指南、自然语言参考、`input.json`、`draw.py` 和 `output/`。只有明确列出 SysML 参考的图种提供 `.sysml` 示例；`—` 表示不需要或没有 SysML 参考。
 
+### 五个示例
+
+**块定义图 BDD**
+
+![block-definition 示例](examples/block-definition/semantic/output/diagram.svg)
+
+**N²／DSM 接口矩阵**
+
+![n2 示例](examples/n2/semantic/output/diagram.svg)
+
+**Gantt 任务计划**
+
+![gantt 示例](examples/gantt/semantic/output/diagram.svg)
+
+**C4 Context 系统上下文**
+
+![c4-context 示例](examples/c4-context/semantic/output/diagram.svg)
+
+**Delivery View 交付链**
+
+![delivery 示例](examples/delivery/semantic/output/diagram.svg)
+
 表头为 **视图类型 / 调用方法 / SysML 参考 / 自然语言参考**。调用方法列中的工具均为 `render_diagram`。点击参考链接进入对应目录。
 """]
     family = None
