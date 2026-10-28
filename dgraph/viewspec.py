@@ -34,6 +34,18 @@ def _validate_domain(kind, selection):
         _require(isinstance(model, dict), "missing-faultTree", "faultTree is required for fault-tree diagrams.")
         _require(isinstance(model.get("top"), dict), "invalid-faultTree", "faultTree needs a top event.")
         _require(bool(model.get("gates")) and bool(model.get("events")), "invalid-faultTree", "faultTree needs gates and basic events.")
+    elif kind == "c4-container":
+        model = selection.get("c4Container")
+        _require(isinstance(model, dict), "missing-c4Container", "c4Container is required for C4 container diagrams.")
+        _require(bool(model.get("containers")) and bool(model.get("boundary")), "invalid-c4Container", "c4Container needs containers and a system boundary.")
+    elif kind == "class":
+        model = selection.get("umlClass")
+        _require(isinstance(model, dict), "missing-umlClass", "umlClass is required for UML class diagrams.")
+        _require(bool(model.get("classes")) and isinstance(model.get("relations"), list), "invalid-umlClass", "umlClass needs classes and relations.")
+    elif kind == "sequence":
+        model = selection.get("sequenceModel")
+        _require(isinstance(model, dict), "missing-sequenceModel", "sequenceModel is required for UML sequence diagrams.")
+        _require(bool(model.get("participants")) and bool(model.get("messages")), "invalid-sequenceModel", "sequenceModel needs participants and ordered messages.")
 
 
 def validate_spec(spec):

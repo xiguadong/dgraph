@@ -65,6 +65,9 @@ selection:
   qfd: null
   gantt: null
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜燃尽图｜剩余工作趋势"

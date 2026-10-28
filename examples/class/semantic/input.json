@@ -92,6 +92,113 @@
     "qfd": null,
     "gantt": null,
     "faultTree": null,
+    "c4Container": null,
+    "umlClass": {
+      "classes": [
+        {
+          "id": "GroundStation",
+          "x": 70,
+          "y": 150,
+          "attributes": [
+            "stationId: String",
+            "mode: Mode"
+          ],
+          "operations": [
+            "startSession()"
+          ]
+        },
+        {
+          "id": "Mission",
+          "x": 700,
+          "y": 150,
+          "attributes": [
+            "id: String",
+            "startTime: Time"
+          ],
+          "operations": [
+            "archive()"
+          ]
+        },
+        {
+          "id": "Sensor",
+          "x": 70,
+          "y": 410,
+          "attributes": [
+            "kind: SensorType",
+            "rateHz: int"
+          ],
+          "operations": [
+            "sample()"
+          ]
+        },
+        {
+          "id": "TelemetryFrame",
+          "x": 700,
+          "y": 410,
+          "attributes": [
+            "ts: Time",
+            "t, p, rh: float"
+          ],
+          "operations": [
+            "crcOk(): bool"
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "id": "manages",
+          "source": "GroundStation",
+          "target": "Mission",
+          "sourceMultiplicity": "1",
+          "targetMultiplicity": "1",
+          "points": [
+            [
+              350,
+              235
+            ],
+            [
+              700,
+              235
+            ]
+          ]
+        },
+        {
+          "id": "records",
+          "source": "Mission",
+          "target": "TelemetryFrame",
+          "sourceMultiplicity": "1",
+          "targetMultiplicity": "0..*",
+          "points": [
+            [
+              840,
+              300
+            ],
+            [
+              840,
+              410
+            ]
+          ]
+        },
+        {
+          "id": "produces",
+          "source": "Sensor",
+          "target": "TelemetryFrame",
+          "sourceMultiplicity": "1",
+          "targetMultiplicity": "0..*",
+          "points": [
+            [
+              350,
+              495
+            ],
+            [
+              700,
+              495
+            ]
+          ]
+        }
+      ]
+    },
+    "sequenceModel": null,
     "annotations": []
   },
   "presentation": {

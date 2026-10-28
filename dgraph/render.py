@@ -22,6 +22,9 @@ def to_ir(spec):
         "qfd": selection.get("qfd"),
         "gantt": selection.get("gantt"),
         "faultTree": selection.get("faultTree"),
+        "c4Container": selection.get("c4Container"),
+        "umlClass": selection.get("umlClass"),
+        "sequenceModel": selection.get("sequenceModel"),
         "annotations": selection.get("annotations", []),
     }
 

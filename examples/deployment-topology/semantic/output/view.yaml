@@ -83,6 +83,9 @@ selection:
   qfd: null
   gantt: null
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜部署拓扑｜节点与网络"

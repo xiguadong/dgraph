@@ -131,6 +131,9 @@ selection:
         type: "plus"
   gantt: null
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜QFD 质量屋｜需求到工程特性"

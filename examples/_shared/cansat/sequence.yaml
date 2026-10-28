@@ -15,6 +15,22 @@
    {"source":"fcu","target":"radio","kind":"message","color":"violet","label":"4 UART 遥测帧","points":[[475,440],[785,440]],"labelPosition":[570,420]},
    {"source":"radio","target":"ground","kind":"message","color":"violet","label":"5 433 MHz 下行","points":[[785,500],[1095,500]],"labelPosition":[890,480]},
    {"source":"ground","target":"fcu","kind":"return","color":"gray","label":"6 接收确认（下一场景）","points":[[1095,560],[475,560]],"labelPosition":[720,540]}
-  ],"annotations":[{"x":70,"y":625,"text":"生命线表示参与者；消息顺序是场景语义，不等同于状态迁移或项目时间计划。"}]
+  ],"annotations":[{"x":70,"y":625,"text":"生命线表示参与者；消息顺序是场景语义，不等同于状态迁移或项目时间计划。"}],
+  "sequenceModel":{
+   "participants":[
+    {"id":"sensor","label":"传感器","x":150},
+    {"id":"fcu","label":"飞控","x":450},
+    {"id":"radio","label":"电台","x":750},
+    {"id":"ground","label":"地面站","x":1050}
+   ],
+   "messages":[
+    {"source":"fcu","target":"sensor","label":"1 读取采样","kind":"sync","activate":true},
+    {"source":"sensor","target":"fcu","label":"2 温压湿 / IMU / GPS","kind":"return"},
+    {"source":"fcu","target":"fcu","label":"3 打包 TelemetryFrame","kind":"sync","activate":true},
+    {"source":"fcu","target":"radio","label":"4 UART 遥测帧","kind":"sync","activate":true},
+    {"source":"radio","target":"ground","label":"5 433 MHz 下行","kind":"sync"},
+    {"source":"ground","target":"fcu","label":"6 接收确认（下一场景）","kind":"return"}
+   ]
+  }
  },"outputs":{"directory":"/absolute/output","formats":["viewspec","dsl","svg","report"]}
 }

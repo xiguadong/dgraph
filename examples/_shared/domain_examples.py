@@ -67,3 +67,58 @@ FTA_MODEL = {
         {"id": "ground-lock", "label": "地面站失锁", "note": "遮挡 / 干扰"},
     ],
 }
+
+C4_CONTAINER_MODEL = {
+    "boundary": {"id": "ground-station", "label": "地面站软件"},
+    "actors": [
+        {"id": "operator", "label": "操作员", "note": "发射 / 回收", "x": 80, "y": 190},
+        {"id": "scientist", "label": "科学用户", "note": "查看 / 导出", "x": 80, "y": 430},
+    ],
+    "containers": [
+        {"id": "web-ui", "label": "Web UI", "note": "操作与查看界面", "x": 390, "y": 180},
+        {"id": "mission-service", "label": "任务服务", "note": "任务计划 / 指令", "x": 720, "y": 180},
+        {"id": "timeseries-db", "label": "时序数据库", "note": "帧表 + 索引", "x": 390, "y": 390},
+        {"id": "telemetry-service", "label": "遥测服务", "note": "接收 / 解码 / 路由", "x": 720, "y": 390},
+        {"id": "receiver", "label": "接收机", "note": "433 MHz → USB", "x": 1010, "y": 390, "external": True},
+    ],
+    "relations": [
+        {"source": "operator", "target": "web-ui", "label": "操作"},
+        {"source": "scientist", "target": "web-ui", "label": "查看数据"},
+        {"source": "web-ui", "target": "mission-service", "label": "REST"},
+        {"source": "web-ui", "target": "timeseries-db", "label": "查询"},
+        {"source": "mission-service", "target": "timeseries-db", "label": "写入"},
+        {"source": "mission-service", "target": "telemetry-service", "label": "计划下发"},
+        {"source": "receiver", "target": "telemetry-service", "label": "串口"},
+    ],
+}
+
+UML_CLASS_MODEL = {
+    "classes": [
+        {"id": "GroundStation", "x": 70, "y": 150, "attributes": ["stationId: String", "mode: Mode"], "operations": ["startSession()"]},
+        {"id": "Mission", "x": 700, "y": 150, "attributes": ["id: String", "startTime: Time"], "operations": ["archive()"]},
+        {"id": "Sensor", "x": 70, "y": 410, "attributes": ["kind: SensorType", "rateHz: int"], "operations": ["sample()"]},
+        {"id": "TelemetryFrame", "x": 700, "y": 410, "attributes": ["ts: Time", "t, p, rh: float"], "operations": ["crcOk(): bool"]},
+    ],
+    "relations": [
+        {"id": "manages", "source": "GroundStation", "target": "Mission", "sourceMultiplicity": "1", "targetMultiplicity": "1", "points": [[350, 235], [700, 235]]},
+        {"id": "records", "source": "Mission", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[840, 300], [840, 410]]},
+        {"id": "produces", "source": "Sensor", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[350, 495], [700, 495]]},
+    ],
+}
+
+SEQUENCE_MODEL = {
+    "participants": [
+        {"id": "sensors", "label": "传感器", "x": 150},
+        {"id": "fcu", "label": "飞控", "x": 450},
+        {"id": "radio", "label": "电台", "x": 750},
+        {"id": "ground", "label": "地面站", "x": 1050},
+    ],
+    "messages": [
+        {"source": "fcu", "target": "sensors", "label": "1 读取采样", "kind": "sync", "activate": True},
+        {"source": "sensors", "target": "fcu", "label": "2 温压湿 / IMU / GPS", "kind": "return"},
+        {"source": "fcu", "target": "fcu", "label": "3 打包 TelemetryFrame", "kind": "sync", "activate": True},
+        {"source": "fcu", "target": "radio", "label": "4 UART 遥测帧", "kind": "sync", "activate": True},
+        {"source": "radio", "target": "ground", "label": "5 433 MHz 下行", "kind": "sync"},
+        {"source": "ground", "target": "fcu", "label": "6 接收确认（下一场景）", "kind": "return"},
+    ],
+}

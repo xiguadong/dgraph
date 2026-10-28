@@ -81,6 +81,9 @@ selection:
   qfd: null
   gantt: null
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜IDEF0｜功能、输入、控制与机制"

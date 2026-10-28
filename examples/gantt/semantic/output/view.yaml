@@ -114,6 +114,9 @@ selection:
         label: "评审"
         at: 12
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜Gantt｜任务、工期与里程碑"

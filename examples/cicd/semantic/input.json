@@ -100,6 +100,9 @@
     "qfd": null,
     "gantt": null,
     "faultTree": null,
+    "c4Container": null,
+    "umlClass": null,
+    "sequenceModel": null,
     "annotations": [
       {
         "x": 70,

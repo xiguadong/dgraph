@@ -109,6 +109,9 @@ selection:
       - id: "ground-lock"
         label: "地面站失锁"
         note: "遮挡 / 干扰"
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜FTA｜故障树分析"

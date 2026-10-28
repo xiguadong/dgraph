@@ -73,6 +73,9 @@ selection:
   qfd: null
   gantt: null
   faultTree: null
+  c4Container: null
+  umlClass: null
+  sequenceModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜C4 Context｜系统上下文"

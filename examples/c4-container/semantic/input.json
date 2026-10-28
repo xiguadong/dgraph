@@ -103,6 +103,105 @@
     "qfd": null,
     "gantt": null,
     "faultTree": null,
+    "c4Container": {
+      "boundary": {
+        "id": "ground-station",
+        "label": "地面站软件"
+      },
+      "actors": [
+        {
+          "id": "operator",
+          "label": "操作员",
+          "note": "发射 / 回收",
+          "x": 80,
+          "y": 190
+        },
+        {
+          "id": "scientist",
+          "label": "科学用户",
+          "note": "查看 / 导出",
+          "x": 80,
+          "y": 430
+        }
+      ],
+      "containers": [
+        {
+          "id": "web-ui",
+          "label": "Web UI",
+          "note": "操作与查看界面",
+          "x": 390,
+          "y": 180
+        },
+        {
+          "id": "mission-service",
+          "label": "任务服务",
+          "note": "任务计划 / 指令",
+          "x": 720,
+          "y": 180
+        },
+        {
+          "id": "timeseries-db",
+          "label": "时序数据库",
+          "note": "帧表 + 索引",
+          "x": 390,
+          "y": 390
+        },
+        {
+          "id": "telemetry-service",
+          "label": "遥测服务",
+          "note": "接收 / 解码 / 路由",
+          "x": 720,
+          "y": 390
+        },
+        {
+          "id": "receiver",
+          "label": "接收机",
+          "note": "433 MHz → USB",
+          "x": 1010,
+          "y": 390,
+          "external": true
+        }
+      ],
+      "relations": [
+        {
+          "source": "operator",
+          "target": "web-ui",
+          "label": "操作"
+        },
+        {
+          "source": "scientist",
+          "target": "web-ui",
+          "label": "查看数据"
+        },
+        {
+          "source": "web-ui",
+          "target": "mission-service",
+          "label": "REST"
+        },
+        {
+          "source": "web-ui",
+          "target": "timeseries-db",
+          "label": "查询"
+        },
+        {
+          "source": "mission-service",
+          "target": "timeseries-db",
+          "label": "写入"
+        },
+        {
+          "source": "mission-service",
+          "target": "telemetry-service",
+          "label": "计划下发"
+        },
+        {
+          "source": "receiver",
+          "target": "telemetry-service",
+          "label": "串口"
+        }
+      ]
+    },
+    "umlClass": null,
+    "sequenceModel": null,
     "annotations": []
   },
   "presentation": {

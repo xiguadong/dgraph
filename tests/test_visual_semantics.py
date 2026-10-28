@@ -24,7 +24,7 @@ class VisualSemanticTests(unittest.TestCase):
             "fta": 'data-fta-gate="or"',
             "cld": "B 调节回路",
             "sfd": 'data-kind="stock"',
-            "class": "methods",
+            "class": 'data-uml-class="Sensor"',
             "object": 'data-kind="object"',
             "component": 'data-kind="component"',
             "deployment": 'data-kind="node3d"',

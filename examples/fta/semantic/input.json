@@ -152,6 +152,9 @@
         }
       ]
     },
+    "c4Container": null,
+    "umlClass": null,
+    "sequenceModel": null,
     "annotations": []
   },
   "presentation": {

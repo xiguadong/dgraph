@@ -1,10 +1,10 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "archimate",
-  "inputSha256": "5fd7224eb851a090f63181270459ce31451a3466e6dbe2425d7560eaf5cee67d",
+  "inputSha256": "d304fff87207f5992ab0d0280bbb6f3c7ab82696d4eba63088c2c1d90649283e",
   "files": {
-    "view.yaml": "0697b0f7ded3b633e62bff58bb5d796c94cbcb5890a6afa22fef1c7afb116fb0",
-    "diagram.dsl.yaml": "20667535962560c1c579da0aa741b9048e0cc2dea749ce7dfa6a1680a8b02538",
+    "view.yaml": "2c3aa48d98c155ddd6e526176fa7447c384bdbd53b3af9ffe57bd8bcdd54508d",
+    "diagram.dsl.yaml": "7fa876e50bc56cd7f007ff2ccdc38e792e3df5af17e2f6b05e66e187e71bdf47",
     "diagram.svg": "3f83b4ed3272d23d182d805d8fe6422a114741e8df10e78a4a2b46c2845193a4",
     "report.json": "5172728921d66cdf6402127b8451a82b4326007ea338845adc8ccbcd18694cd0"
   }
