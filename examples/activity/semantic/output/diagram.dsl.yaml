@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "activity"
+layout: "activity"
 nodes:
   - id: "start"
     label: "开始"
@@ -136,6 +137,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 55
     y: 630

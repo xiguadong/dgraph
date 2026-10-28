@@ -1,60 +1,64 @@
 schema: "diagram-ir/v1"
 type: "component"
+layout: "component"
 nodes:
   - id: "n0"
     label: "采样组件"
-    kind: "block"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.uml-component.n0"
-  - id: "n1"
-    label: "遥测组件"
-    kind: "block"
-    x: 350
-    y: 290
+    kind: "component"
+    x: 60
+    y: 280
     w: 240
     h: 105
     color: "blue"
-    sourceId: "Lesson2.uml-component.n1"
+    sourceId: "Example.uml-component.n0"
+  - id: "n1"
+    label: "遥测组件"
+    kind: "component"
+    x: 365
+    y: 280
+    w: 240
+    h: 105
+    color: "teal"
+    sourceId: "Example.uml-component.n1"
   - id: "n2"
     label: "存储组件"
-    kind: "block"
-    x: 655
-    y: 290
+    kind: "component"
+    x: 670
+    y: 280
     w: 240
     h: 105
     color: "amber"
-    sourceId: "Lesson2.uml-component.n2"
+    sourceId: "Example.uml-component.n2"
   - id: "n3"
     label: "地面接收组件"
-    kind: "block"
-    x: 960
-    y: 290
+    kind: "component"
+    x: 975
+    y: 280
     w: 240
     h: 105
     color: "violet"
-    sourceId: "Lesson2.uml-component.n3"
+    sourceId: "Example.uml-component.n3"
 edges:
   - source: "n0"
     target: "n1"
-    kind: "flow"
+    kind: "dependency"
     color: "teal"
+    label: "provided"
   - source: "n1"
     target: "n2"
-    kind: "flow"
+    kind: "dependency"
     color: "teal"
+    label: "required"
   - source: "n2"
     target: "n3"
-    kind: "flow"
+    kind: "dependency"
     color: "teal"
+    label: "consumed"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · UML｜组件与接口 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

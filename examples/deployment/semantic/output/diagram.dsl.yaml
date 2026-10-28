@@ -1,72 +1,70 @@
 schema: "diagram-ir/v1"
 type: "deployment"
+layout: "deployment"
 nodes:
   - id: "n0"
     label: "固件交付物"
-    kind: "block"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.uml-deployment.n0"
+    kind: "artifact"
+    x: 200
+    y: 280
+    w: 280
+    h: 100
+    color: "amber"
+    sourceId: "Example.uml-deployment.n0"
   - id: "n1"
     label: "CS-1 MCU"
-    kind: "block"
-    x: 350
-    y: 290
-    w: 240
-    h: 105
+    kind: "node3d"
+    x: 150
+    y: 205
+    w: 170
+    h: 70
     color: "blue"
-    sourceId: "Lesson2.uml-deployment.n1"
+    sourceId: "Example.uml-deployment.n1"
   - id: "n2"
     label: "遥测包"
-    kind: "block"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
-    sourceId: "Lesson2.uml-deployment.n2"
+    kind: "artifact"
+    x: 790
+    y: 280
+    w: 280
+    h: 100
+    color: "violet"
+    sourceId: "Example.uml-deployment.n2"
   - id: "n3"
     label: "地面站节点"
-    kind: "block"
-    x: 960
-    y: 290
-    w: 240
-    h: 105
-    color: "violet"
-    sourceId: "Lesson2.uml-deployment.n3"
+    kind: "node3d"
+    x: 850
+    y: 205
+    w: 170
+    h: 70
+    color: "teal"
+    sourceId: "Example.uml-deployment.n3"
 edges:
   - source: "n0"
-    target: "n1"
-    kind: "flow"
-    color: "teal"
-    label: "builds"
-    labelPosition:
-      - 293.5
-      - 255
-  - source: "n1"
     target: "n2"
     kind: "flow"
     color: "teal"
-    label: "produces"
-    labelPosition:
-      - 590.5
-      - 255
-  - source: "n2"
-    target: "n3"
-    kind: "flow"
+    label: "deploys / runs"
+groups:
+  - id: "device"
+    label: "CS-1 MCU"
+    kind: "boundary"
+    x: 120
+    y: 160
+    w: 460
+    h: 360
+    color: "blue"
+  - id: "ground"
+    label: "地面站节点"
+    kind: "boundary"
+    x: 720
+    y: 160
+    w: 430
+    h: 360
     color: "teal"
-    label: "publishes"
-    labelPosition:
-      - 891.5
-      - 255
-groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · UML｜部署图 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

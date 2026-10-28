@@ -1,15 +1,16 @@
 schema: "diagram-ir/v1"
 type: "risk-matrix"
+layout: "risk-matrix"
 nodes:
   - id: "n0"
-    label: "链路中断"
+    label: "矩阵读法"
     kind: "block"
     x: 55
     y: 145
     w: 190
     h: 75
     color: "gray"
-    sourceId: "Lesson2.pm-risk.n0"
+    sourceId: "Example.pm-risk.n0"
 edges: []
 groups: []
 matrices:
@@ -31,20 +32,20 @@ matrices:
         column: 1
         label: "链路中断"
         color: "amber"
-        sourceId: "Lesson2.pm-risk.cell01"
+        sourceId: "Example.pm-risk.cell01"
       - row: 1
         column: 2
-        label: "相关 / 接口"
+        label: "相关"
         color: "teal"
-        sourceId: "Lesson2.pm-risk.cell12"
+        sourceId: "Example.pm-risk.cell12"
       - row: 2
         column: 0
         label: "追溯"
         color: "violet"
-        sourceId: "Lesson2.pm-risk.cell20"
+        sourceId: "Example.pm-risk.cell20"
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · 风险矩阵｜概率与影响 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

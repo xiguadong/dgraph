@@ -5,6 +5,7 @@ from pathlib import Path
 
 from dgraph.catalog import CATALOG
 from dgraph.render import inspect_svg, render_diagram
+from examples._shared.domain_examples import FTA_MODEL, GANTT_MODEL, QFD_MODEL
 
 
 def spec(output, kind="block-definition", label="CS-1 <System>"):
@@ -14,6 +15,9 @@ def spec(output, kind="block-definition", label="CS-1 <System>"):
         "selection": {
             "nodes": [{"id": "a", "label": label, "kind": "block", "x": 100, "y": 140, "w": 220, "h": 80, "sourceId": "native-a"}],
             "edges": [], "groups": [], "annotations": [],
+            "qfd": QFD_MODEL if kind == "qfd" else None,
+            "gantt": GANTT_MODEL if kind == "gantt" else None,
+            "faultTree": FTA_MODEL if kind == "fta" else None,
         },
         "presentation": {"title": "A & B", "subtitle": kind},
         "outputs": {"directory": output, "formats": ["viewspec", "dsl", "svg", "report"]},

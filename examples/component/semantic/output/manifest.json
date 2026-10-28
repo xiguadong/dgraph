@@ -1,11 +1,11 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "component",
-  "inputSha256": "257d7a81b47ba69c2243492fe7b44d038bf69f33f7b855cdf0a16f8961336c6f",
+  "inputSha256": "6cc11ace30662236b2e43334538dcf8b213db3362d5098111ca8bddd2808eeed",
   "files": {
-    "view.yaml": "20f337a07e49b5c5355d55ef21839556005ef94fa9ecd604291ac52750917a0f",
-    "diagram.dsl.yaml": "8d278ed8c912e0ca0cedc3c1db71030ef831d94c0d459b002594e99f23df77a3",
-    "diagram.svg": "bfd17fcb56626d9ff213933a9e4ed3639c5585f11ba820081240bbcd5e3152fc",
+    "view.yaml": "00f73facf31243ffb3ca29438e116a1a085b6ed109cd33793a674ac3826594f6",
+    "diagram.dsl.yaml": "40d035323ffb2afb29729e571ef1df3457665eed4d1247895917f14fa84ad7cb",
+    "diagram.svg": "15699318a62c1ed21f332cd1eeb2d849f2d11c9e6b91ae9b5067767d608d206b",
     "report.json": "09e6b1478a15d05fdb4abb438581ed06e3b13cb20290f54636492d2faed9e45d"
   }
 }

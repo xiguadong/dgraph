@@ -1,20 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="call-graph">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜调用图｜函数关系</text>
-<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · lesson_2 diagram atlas</text>
+<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
 <path d="M 285,342.5 L 350,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
 <path d="M 590,342.5 L 655,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
 <path d="M 895,342.5 L 960,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Lesson2.x-callgraph.n0" data-kind="block"><title>render_diagram</title><rect x="45" y="290" width="240" height="105" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="165.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">render_diagram</text></g>
-<g data-node-id="n1" data-source-id="Lesson2.x-callgraph.n1" data-kind="block"><title>validate_spec</title><rect x="350" y="290" width="240" height="105" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="470.0" y="347.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">validate_spec</text></g>
-<g data-node-id="n2" data-source-id="Lesson2.x-callgraph.n2" data-kind="block"><title>to_ir</title><rect x="655" y="290" width="240" height="105" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="775.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">to_ir</text></g>
-<g data-node-id="n3" data-source-id="Lesson2.x-callgraph.n3" data-kind="block"><title>render_svg</title><rect x="960" y="290" width="240" height="105" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1080.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">render_svg</text></g>
-
-
-
-<text x="50" y="645" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">lesson_2 图鉴扩展 · 调用图｜函数关系 · 统一 CanSat／dgraph 教学示例</text>
+<g data-node-id="n0" data-source-id="Example.x-callgraph.n0" data-kind="component"><title>render_diagram</title><rect x="45" y="290" width="240" height="105" rx="5" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="165.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">render_diagram</text><path d="M 247 302 h 24 v 20 h -24 Z M 241 306 h 6 v 5 h -6 Z M 241 315 h 6 v 5 h -6 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="1.4"/></g>
+<g data-node-id="n1" data-source-id="Example.x-callgraph.n1" data-kind="component"><title>validate_spec</title><rect x="350" y="290" width="240" height="105" rx="5" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="470.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">validate_spec</text><path d="M 552 302 h 24 v 20 h -24 Z M 546 306 h 6 v 5 h -6 Z M 546 315 h 6 v 5 h -6 Z" fill="#e4f3ef" stroke="#0f766e" stroke-width="1.4"/></g>
+<g data-node-id="n2" data-source-id="Example.x-callgraph.n2" data-kind="component"><title>to_ir</title><rect x="655" y="290" width="240" height="105" rx="5" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="775.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">to_ir</text><path d="M 857 302 h 24 v 20 h -24 Z M 851 306 h 6 v 5 h -6 Z M 851 315 h 6 v 5 h -6 Z" fill="#fdf4e1" stroke="#a16207" stroke-width="1.4"/></g>
+<g data-node-id="n3" data-source-id="Example.x-callgraph.n3" data-kind="component"><title>render_svg</title><rect x="960" y="290" width="240" height="105" rx="5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1080.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">render_svg</text><path d="M 1162 302 h 24 v 20 h -24 Z M 1156 306 h 6 v 5 h -6 Z M 1156 315 h 6 v 5 h -6 Z" fill="#f1ebfd" stroke="#6d28d9" stroke-width="1.4"/></g>
+<rect x="312.5" y="326.5" width="50" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="337.5" y="342.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">calls</text>
+<rect x="617.5" y="326.5" width="58" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="646.5" y="342.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">builds</text>
+<rect x="922.5" y="326.5" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="955.5" y="342.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">renders</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">Which functions call each other?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"internal-block","intent":{"question":"CS-1 内部部件通过哪些端口和接口连接，外部下行链路在哪里？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜内部块图 IBD","subtitle":"系统边界、部件、端口与接口","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜内部块图 IBD","subtitle":"系统边界、部件、端口与接口","theme":"dgraph"},
  "selection":{
   "groups":[{"id":"boundary","label":"CS-1 探空仪系统边界","kind":"boundary","color":"blue","x":180,"y":135,"w":850,"h":455}],
   "nodes":[

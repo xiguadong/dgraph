@@ -3,71 +3,97 @@ type: "kanban"
 intent:
   question: "How does work flow across execution lanes and limits?"
 sources:
-  - kind: "lesson"
-    figure: "x-kanban"
+  - kind: "semantic"
+    example: "x-kanban"
 selection:
+  layout: "kanban"
   nodes:
     - id: "n0"
-      label: "待办"
-      kind: "block"
-      x: 45
-      y: 290
-      w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.x-kanban.n0"
-    - id: "n1"
-      label: "进行中"
-      kind: "block"
-      x: 350
-      y: 290
-      w: 240
-      h: 105
+      label: "任务卡 A"
+      kind: "sticky"
+      x: 80
+      y: 220
+      w: 200
+      h: 70
       color: "blue"
-      sourceId: "Lesson2.x-kanban.n1"
+      sourceId: "Example.x-kanban.n0"
+    - id: "n1"
+      label: "任务卡 B"
+      kind: "sticky"
+      x: 385
+      y: 300
+      w: 200
+      h: 70
+      color: "teal"
+      sourceId: "Example.x-kanban.n1"
     - id: "n2"
-      label: "待评审"
-      kind: "block"
-      x: 655
-      y: 290
-      w: 240
-      h: 105
+      label: "任务卡 C"
+      kind: "sticky"
+      x: 690
+      y: 210
+      w: 200
+      h: 70
       color: "amber"
-      sourceId: "Lesson2.x-kanban.n2"
+      sourceId: "Example.x-kanban.n2"
     - id: "n3"
-      label: "已完成"
-      kind: "block"
-      x: 960
-      y: 290
-      w: 240
-      h: 105
+      label: "任务卡 D"
+      kind: "sticky"
+      x: 995
+      y: 400
+      w: 200
+      h: 70
       color: "violet"
-      sourceId: "Lesson2.x-kanban.n3"
-  edges:
-    - source: "n0"
-      target: "n1"
-      kind: "flow"
+      sourceId: "Example.x-kanban.n3"
+  edges: []
+  groups:
+    - id: "lane0"
+      label: "待办"
+      kind: "boundary"
+      x: 45
+      y: 140
+      w: 270
+      h: 440
+      color: "blue"
+    - id: "lane1"
+      label: "进行中"
+      kind: "boundary"
+      x: 350
+      y: 140
+      w: 270
+      h: 440
       color: "teal"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      color: "teal"
-    - source: "n2"
-      target: "n3"
-      kind: "flow"
-      color: "teal"
-  groups: []
+    - id: "lane2"
+      label: "待评审"
+      kind: "boundary"
+      x: 655
+      y: 140
+      w: 270
+      h: 440
+      color: "amber"
+    - id: "lane3"
+      label: "已完成"
+      kind: "boundary"
+      x: 960
+      y: 140
+      w: 270
+      h: 440
+      color: "violet"
   matrices: []
   charts: []
   timelines: []
+  qfd: null
+  gantt: null
+  faultTree: null
   annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · 看板｜工作流与在制品 · 统一 CanSat／dgraph 教学示例"
+    - x: 370
+      y: 545
+      text: "WIP ≤ 2"
+      color: "#b42318"
+      fontSize: 18
 presentation:
   title: "CanSat CS-1｜看板｜工作流与在制品"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

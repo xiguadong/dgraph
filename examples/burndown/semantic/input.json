@@ -6,11 +6,12 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "pm-burndown"
+      "kind": "semantic",
+      "example": "pm-burndown"
     }
   ],
   "selection": {
+    "layout": "burndown",
     "nodes": [
       {
         "id": "n0",
@@ -21,7 +22,7 @@
         "w": 240,
         "h": 65,
         "color": "blue",
-        "sourceId": "Lesson2.pm-burndown.n0"
+        "sourceId": "Example.pm-burndown.n0"
       },
       {
         "id": "n1",
@@ -32,7 +33,7 @@
         "w": 240,
         "h": 65,
         "color": "teal",
-        "sourceId": "Lesson2.pm-burndown.n1"
+        "sourceId": "Example.pm-burndown.n1"
       }
     ],
     "edges": [],
@@ -95,18 +96,15 @@
       }
     ],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · 燃尽图｜剩余工作趋势 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜燃尽图｜剩余工作趋势",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

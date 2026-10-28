@@ -13,7 +13,7 @@
   "presentation": {
     "title": "CanSat CS-1｜包图 Package",
     "subtitle": "模型组织与依赖方向",
-    "theme": "lesson"
+    "theme": "dgraph"
   },
   "selection": {
     "nodes": [

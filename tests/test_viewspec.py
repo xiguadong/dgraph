@@ -26,13 +26,13 @@ def valid_spec(output):
             ],
             "edges": [{"source": "system", "target": "power", "kind": "composition", "label": "1"}],
         },
-        "presentation": {"title": "CS-1 block definition", "theme": "lesson"},
+        "presentation": {"title": "CS-1 block definition", "theme": "dgraph"},
         "outputs": {"directory": output, "formats": ["svg", "viewspec", "dsl", "report"]},
     }
 
 
 class CatalogTests(unittest.TestCase):
-    def test_all_lesson_and_delivery_types_are_renderable(self):
+    def test_all_atlas_and_delivery_types_are_renderable(self):
         renderable = {item["type"] for item in CATALOG if item["status"] == "renderable"}
         self.assertEqual(61, len(renderable))
         self.assertTrue(NINE.issubset(renderable))

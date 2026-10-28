@@ -3,19 +3,20 @@ type: "ov1"
 intent:
   question: "What is the operational concept and mission context?"
 sources:
-  - kind: "lesson"
-    figure: "fw-ov1"
+  - kind: "semantic"
+    example: "fw-ov1"
 selection:
+  layout: "ov1"
   nodes:
     - id: "n0"
       label: "发射操作员"
-      kind: "block"
+      kind: "actor"
       x: 65
       y: 260
       w: 200
       h: 90
       color: "gray"
-      sourceId: "Lesson2.fw-ov1.n0"
+      sourceId: "Example.fw-ov1.n0"
     - id: "n1"
       label: "CS-1 任务"
       kind: "block"
@@ -24,7 +25,7 @@ selection:
       w: 280
       h: 110
       color: "blue"
-      sourceId: "Lesson2.fw-ov1.n1"
+      sourceId: "Example.fw-ov1.n1"
     - id: "n2"
       label: "地面站"
       kind: "block"
@@ -33,7 +34,7 @@ selection:
       w: 200
       h: 90
       color: "teal"
-      sourceId: "Lesson2.fw-ov1.n2"
+      sourceId: "Example.fw-ov1.n2"
     - id: "n3"
       label: "科学用户"
       kind: "block"
@@ -42,18 +43,21 @@ selection:
       w: 280
       h: 70
       color: "violet"
-      sourceId: "Lesson2.fw-ov1.n3"
+      sourceId: "Example.fw-ov1.n3"
   edges:
     - source: "n0"
       target: "n1"
       kind: "association"
+      color: "teal"
     - source: "n1"
       target: "n2"
       kind: "flow"
+      color: "teal"
       label: "interface"
     - source: "n3"
       target: "n1"
       kind: "dependency"
+      color: "teal"
   groups:
     - id: "boundary"
       label: "CS-1 任务"
@@ -66,14 +70,14 @@ selection:
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · DoDAF OV-1｜高级运行概念 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜DoDAF OV-1｜高级运行概念"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

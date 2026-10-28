@@ -14,9 +14,6 @@
 
 不使用 SysML，只根据以下语义画一张C4 Model｜四个缩放层级，回答“如何用 C4 的缩放层级讲清软件架构？”
 
-- Context 系统上下文；
-- Container 容器；
-- Component 组件；
 - Code 代码；
 
 保持来源标识，缺少依据的关系不要补充。
@@ -32,7 +29,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Context 系统上下文、Container 容器、Component 组件、Code 代码。完整输入见 `input.json`。
+示例语义标签：Code 代码。完整输入见 `input.json`。
 
 ## 如何运行
 

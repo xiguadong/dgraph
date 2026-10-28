@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"package","intent":{"question":"CanSat 模型如何按需求、架构、行为和验证分包，依赖方向是否清晰？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜包图 Package","subtitle":"模型组织与依赖方向","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜包图 Package","subtitle":"模型组织与依赖方向","theme":"dgraph"},
  "selection":{
   "nodes":[
    {"id":"common","label":"Common\n单位与类型","kind":"package","color":"gray","x":490,"y":140,"w":300,"h":90,"sourceId":"CanSat.Common"},

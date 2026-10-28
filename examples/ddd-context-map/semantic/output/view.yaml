@@ -3,77 +3,86 @@ type: "ddd-context-map"
 intent:
   question: "How do bounded contexts and their relationships interact?"
 sources:
-  - kind: "lesson"
-    figure: "x-ddd"
+  - kind: "semantic"
+    example: "x-ddd"
 selection:
+  layout: "ddd-context-map"
   nodes:
     - id: "n0"
       label: "任务上下文"
       kind: "block"
-      x: 65
-      y: 260
-      w: 200
+      x: 190
+      y: 280
+      w: 260
       h: 90
-      color: "gray"
-      sourceId: "Lesson2.x-ddd.n0"
+      color: "blue"
+      sourceId: "Example.x-ddd.n0"
     - id: "n1"
       label: "遥测上下文"
       kind: "block"
-      x: 500
-      y: 285
-      w: 280
-      h: 110
-      color: "blue"
-      sourceId: "Lesson2.x-ddd.n1"
+      x: 830
+      y: 280
+      w: 260
+      h: 90
+      color: "teal"
+      sourceId: "Example.x-ddd.n1"
     - id: "n2"
       label: "通信上下文"
       kind: "block"
-      x: 1010
-      y: 260
-      w: 200
-      h: 90
-      color: "teal"
-      sourceId: "Lesson2.x-ddd.n2"
+      x: 480
+      y: 430
+      w: 320
+      h: 75
+      color: "violet"
+      sourceId: "Example.x-ddd.n2"
     - id: "n3"
       label: "分析上下文"
       kind: "block"
-      x: 500
-      y: 455
-      w: 280
-      h: 70
-      color: "violet"
-      sourceId: "Lesson2.x-ddd.n3"
+      x: 830
+      y: 190
+      w: 260
+      h: 65
+      color: "gray"
+      sourceId: "Example.x-ddd.n3"
   edges:
     - source: "n0"
       target: "n1"
-      kind: "association"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      label: "interface"
-    - source: "n3"
+      kind: "dependency"
+      color: "teal"
+      label: "ACL / 发布订阅"
+    - source: "n2"
       target: "n1"
       kind: "dependency"
+      color: "teal"
+      label: "读取"
   groups:
-    - id: "boundary"
+    - id: "mission"
+      label: "任务上下文"
+      kind: "boundary"
+      x: 80
+      y: 160
+      w: 480
+      h: 360
+      color: "blue"
+    - id: "telemetry"
       label: "遥测上下文"
       kind: "boundary"
-      x: 330
-      y: 150
-      w: 620
-      h: 400
-      color: "blue"
+      x: 720
+      y: 160
+      w: 480
+      h: 360
+      color: "teal"
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · DDD｜限界上下文映射 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜DDD｜限界上下文映射"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

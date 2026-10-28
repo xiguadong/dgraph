@@ -1,50 +1,128 @@
 schema: "diagram-ir/v1"
 type: "qfd"
+layout: "qfd"
 nodes:
   - id: "n0"
-    label: "数据完整"
+    label: "矩阵读法"
     kind: "block"
     x: 55
     y: 145
     w: 190
     h: 75
     color: "gray"
-    sourceId: "Lesson2.se-qfd.n0"
+    sourceId: "Example.se-qfd.n0"
 edges: []
 groups: []
-matrices:
-  - id: "se-qfd-matrix"
-    x: 320
-    y: 150
-    cellWidth: 210
-    cellHeight: 85
-    columns:
-      - "续航充足"
-      - "质量受限"
-      - "链路可靠"
-    rows:
-      - "续航充足"
-      - "质量受限"
-      - "链路可靠"
-    cells:
-      - row: 0
-        column: 1
-        label: "数据完整"
-        color: "amber"
-        sourceId: "Lesson2.se-qfd.cell01"
-      - row: 1
-        column: 2
-        label: "相关 / 接口"
-        color: "teal"
-        sourceId: "Lesson2.se-qfd.cell12"
-      - row: 2
-        column: 0
-        label: "追溯"
-        color: "violet"
-        sourceId: "Lesson2.se-qfd.cell20"
+matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · QFD 质量屋｜需求到工程特性 · 统一 CanSat／dgraph 教学示例"
+qfd:
+  customerNeeds:
+    - id: "data-integrity"
+      label: "数据完整"
+      importance: 5
+    - id: "recovery"
+      label: "易回收"
+      importance: 4
+    - id: "low-cost"
+      label: "低成本"
+      importance: 3
+    - id: "usability"
+      label: "易操作"
+      importance: 2
+  engineering:
+    - id: "sample-rate"
+      label: "采样率"
+      unit: "Hz ↑"
+      target: "≥ 1 Hz"
+      weight: 50
+      rank: 3
+    - id: "downlink"
+      label: "下传距离"
+      unit: "km ↑"
+      target: "≥ 2 km"
+      weight: 72
+      rank: 1
+    - id: "mass"
+      label: "总质量"
+      unit: "g ↓"
+      target: "≤ 350 g"
+      weight: 25
+      rank: 5
+    - id: "cost"
+      label: "成本"
+      unit: "元 ↓"
+      target: "≤ ¥1200"
+      weight: 31
+      rank: 4
+    - id: "recovery-speed"
+      label: "回收速度"
+      unit: "m/s ↓"
+      target: "≤ 5 m/s"
+      weight: 54
+      rank: 2
+  relations:
+    - need: "data-integrity"
+      engineering: "sample-rate"
+      strength: 9
+    - need: "data-integrity"
+      engineering: "downlink"
+      strength: 9
+    - need: "data-integrity"
+      engineering: "mass"
+      strength: 1
+    - need: "data-integrity"
+      engineering: "recovery-speed"
+      strength: 3
+    - need: "recovery"
+      engineering: "mass"
+      strength: 3
+    - need: "recovery"
+      engineering: "cost"
+      strength: 1
+    - need: "recovery"
+      engineering: "recovery-speed"
+      strength: 9
+    - need: "low-cost"
+      engineering: "sample-rate"
+      strength: 1
+    - need: "low-cost"
+      engineering: "downlink"
+      strength: 3
+    - need: "low-cost"
+      engineering: "mass"
+      strength: 3
+    - need: "low-cost"
+      engineering: "cost"
+      strength: 9
+    - need: "usability"
+      engineering: "sample-rate"
+      strength: 1
+    - need: "usability"
+      engineering: "downlink"
+      strength: 9
+    - need: "usability"
+      engineering: "recovery-speed"
+      strength: 3
+  roof:
+    - left: "sample-rate"
+      right: "downlink"
+      type: "minus"
+    - left: "sample-rate"
+      right: "mass"
+      type: "minus"
+    - left: "sample-rate"
+      right: "cost"
+      type: "minus"
+    - left: "downlink"
+      right: "mass"
+      type: "minus"
+    - left: "downlink"
+      right: "cost"
+      type: "minus"
+    - left: "mass"
+      right: "recovery-speed"
+      type: "plus"
+gantt: null
+faultTree: null
+annotations: []

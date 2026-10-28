@@ -8,7 +8,7 @@ sources:
 presentation:
   title: "CanSat CS-1｜块定义图 BDD"
   subtitle: "类型与组合结构 · SysML semantic projection"
-  theme: "lesson"
+  theme: "dgraph"
   width: 1280
   height: 720
 selection:

@@ -1,60 +1,96 @@
 schema: "diagram-ir/v1"
 type: "interaction-overview"
+layout: "interaction-overview"
 nodes:
   - id: "n0"
     label: "启动交互"
     kind: "block"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.uml-iov.n0"
+    x: 70
+    y: 260
+    w: 220
+    h: 85
+    color: "blue"
+    sourceId: "Example.uml-iov.n0"
   - id: "n1"
     label: "采样序列"
     kind: "block"
-    x: 350
-    y: 290
-    w: 240
-    h: 105
-    color: "blue"
-    sourceId: "Lesson2.uml-iov.n1"
+    x: 420
+    y: 205
+    w: 200
+    h: 75
+    color: "teal"
+    sourceId: "Example.uml-iov.n1"
   - id: "n2"
     label: "异常序列"
     kind: "block"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
-    sourceId: "Lesson2.uml-iov.n2"
+    x: 730
+    y: 425
+    w: 200
+    h: 75
+    color: "red"
+    sourceId: "Example.uml-iov.n2"
   - id: "n3"
     label: "回放序列"
     kind: "block"
-    x: 960
-    y: 290
-    w: 240
-    h: 105
+    x: 1000
+    y: 260
+    w: 200
+    h: 85
     color: "violet"
-    sourceId: "Lesson2.uml-iov.n3"
+    sourceId: "Example.uml-iov.n3"
+  - id: "n4"
+    label: "链路正常？"
+    kind: "decision"
+    x: 530
+    y: 360
+    w: 150
+    h: 85
+    color: "amber"
+    sourceId: "Example.uml-iov.n4"
 edges:
   - source: "n0"
     target: "n1"
     kind: "flow"
     color: "teal"
   - source: "n1"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+  - source: "n4"
     target: "n2"
     kind: "flow"
     color: "teal"
+    label: "否"
+  - source: "n4"
+    target: "n3"
+    kind: "flow"
+    color: "teal"
+    label: "是"
   - source: "n2"
     target: "n3"
     kind: "flow"
     color: "teal"
-groups: []
+groups:
+  - id: "normal"
+    label: "采样序列"
+    kind: "boundary"
+    x: 390
+    y: 170
+    w: 260
+    h: 150
+    color: "teal"
+  - id: "exception"
+    label: "异常序列"
+    kind: "boundary"
+    x: 700
+    y: 390
+    w: 260
+    h: 150
+    color: "red"
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · UML｜交互概览图 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

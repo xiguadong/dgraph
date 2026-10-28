@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"use-case","intent":{"question":"操作员与科学用户在 CS-1 系统边界上分别使用哪些能力？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜用例图 Use Case","subtitle":"参与者、系统边界与目标","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜用例图 Use Case","subtitle":"参与者、系统边界与目标","theme":"dgraph"},
  "selection":{
   "groups":[{"id":"subject","label":"CS-1 探空仪","kind":"subject","color":"blue","x":310,"y":140,"w":650,"h":450}],
   "nodes":[

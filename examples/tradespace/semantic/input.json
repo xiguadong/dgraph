@@ -6,11 +6,12 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "se-tradespace"
+      "kind": "semantic",
+      "example": "se-tradespace"
     }
   ],
   "selection": {
+    "layout": "tradespace",
     "nodes": [
       {
         "id": "n0",
@@ -21,7 +22,7 @@
         "w": 240,
         "h": 65,
         "color": "blue",
-        "sourceId": "Lesson2.se-tradespace.n0"
+        "sourceId": "Example.se-tradespace.n0"
       },
       {
         "id": "n1",
@@ -32,7 +33,7 @@
         "w": 240,
         "h": 65,
         "color": "teal",
-        "sourceId": "Lesson2.se-tradespace.n1"
+        "sourceId": "Example.se-tradespace.n1"
       }
     ],
     "edges": [],
@@ -46,8 +47,8 @@
         "y": 150,
         "w": 900,
         "h": 340,
-        "xLabel": "LiFePO4",
-        "yLabel": "Pareto 前沿",
+        "xLabel": "质量 / 成本 →",
+        "yLabel": "能量 / 低温性能 →",
         "series": [
           {
             "id": "planned",
@@ -95,18 +96,15 @@
       }
     ],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · Tradespace／Pareto｜方案权衡 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜Tradespace／Pareto｜方案权衡",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

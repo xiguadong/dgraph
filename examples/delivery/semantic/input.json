@@ -6,66 +6,67 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "delivery"
+      "kind": "semantic",
+      "example": "delivery"
     }
   ],
   "selection": {
+    "layout": "delivery",
     "nodes": [
       {
         "id": "n0",
         "label": "源码仓库",
         "kind": "block",
         "x": 25,
-        "y": 290,
+        "y": 265,
         "w": 220,
         "h": 105,
-        "color": "gray",
-        "sourceId": "Lesson2.delivery.n0"
+        "color": "blue",
+        "sourceId": "Example.delivery.n0"
       },
       {
         "id": "n1",
         "label": "构建与测试",
         "kind": "block",
         "x": 275,
-        "y": 290,
+        "y": 265,
         "w": 220,
         "h": 105,
-        "color": "blue",
-        "sourceId": "Lesson2.delivery.n1"
+        "color": "teal",
+        "sourceId": "Example.delivery.n1"
       },
       {
         "id": "n2",
         "label": "版本化交付物",
         "kind": "block",
         "x": 525,
-        "y": 290,
+        "y": 265,
         "w": 220,
         "h": 105,
         "color": "amber",
-        "sourceId": "Lesson2.delivery.n2"
+        "sourceId": "Example.delivery.n2"
       },
       {
         "id": "n3",
         "label": "制品库／Release",
         "kind": "block",
         "x": 775,
-        "y": 290,
+        "y": 265,
         "w": 220,
         "h": 105,
         "color": "violet",
-        "sourceId": "Lesson2.delivery.n3"
+        "sourceId": "Example.delivery.n3"
       },
       {
         "id": "n4",
         "label": "部署与运行",
         "kind": "block",
         "x": 1025,
-        "y": 290,
+        "y": 265,
         "w": 220,
         "h": 105,
-        "color": "teal",
-        "sourceId": "Lesson2.delivery.n4"
+        "color": "gray",
+        "sourceId": "Example.delivery.n4"
       }
     ],
     "edges": [
@@ -77,7 +78,7 @@
         "label": "builds",
         "labelPosition": [
           236.0,
-          255
+          230
         ]
       },
       {
@@ -88,7 +89,7 @@
         "label": "produces",
         "labelPosition": [
           478.0,
-          255
+          230
         ]
       },
       {
@@ -99,7 +100,7 @@
         "label": "publishes",
         "labelPosition": [
           724.0,
-          255
+          230
         ]
       },
       {
@@ -110,26 +111,76 @@
         "label": "deploys / runs",
         "labelPosition": [
           954.0,
-          255
+          230
         ]
       }
     ],
     "groups": [],
-    "matrices": [],
+    "matrices": [
+      {
+        "id": "delivery-map",
+        "x": 240,
+        "y": 450,
+        "cellWidth": 230,
+        "cellHeight": 48,
+        "columns": [
+          "交付物",
+          "存放位置",
+          "部署目标"
+        ],
+        "rows": [
+          "应用包",
+          "文档"
+        ],
+        "cells": [
+          {
+            "row": 0,
+            "column": 0,
+            "label": "app-0.1.0",
+            "color": "amber",
+            "sourceId": "Example.delivery.artifact"
+          },
+          {
+            "row": 0,
+            "column": 1,
+            "label": "Release registry",
+            "color": "violet",
+            "sourceId": "Example.delivery.registry"
+          },
+          {
+            "row": 0,
+            "column": 2,
+            "label": "本地 MCP 进程",
+            "color": "teal",
+            "sourceId": "Example.delivery.runtime"
+          },
+          {
+            "row": 1,
+            "column": 1,
+            "label": "docs/site",
+            "color": "blue",
+            "sourceId": "Example.delivery.docs"
+          }
+        ]
+      }
+    ],
     "charts": [],
     "timelines": [],
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
     "annotations": [
       {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · Delivery View｜源码到运行交付链 · 统一 CanSat／dgraph 教学示例"
+        "x": 70,
+        "y": 435,
+        "text": "交付映射：版本、存放位置、运行目标"
       }
     ]
   },
   "presentation": {
     "title": "CanSat CS-1｜Delivery View｜源码到运行交付链",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

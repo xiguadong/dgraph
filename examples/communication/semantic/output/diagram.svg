@@ -1,20 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="communication">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜UML｜通信图</text>
-<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · lesson_2 diagram atlas</text>
+<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<path d="M 285,342.5 L 350,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 590,342.5 L 655,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 895,342.5 L 960,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Lesson2.uml-communication.n0" data-kind="block"><title>传感器</title><rect x="45" y="290" width="240" height="105" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="165.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">传感器</text></g>
-<g data-node-id="n1" data-source-id="Lesson2.uml-communication.n1" data-kind="block"><title>飞控</title><rect x="350" y="290" width="240" height="105" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="470.0" y="347.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">飞控</text></g>
-<g data-node-id="n2" data-source-id="Lesson2.uml-communication.n2" data-kind="block"><title>电台</title><rect x="655" y="290" width="240" height="105" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="775.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">电台</text></g>
-<g data-node-id="n3" data-source-id="Lesson2.uml-communication.n3" data-kind="block"><title>地面站</title><rect x="960" y="290" width="240" height="105" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1080.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">地面站</text></g>
-
-
-
-<text x="50" y="645" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">lesson_2 图鉴扩展 · UML｜通信图 · 统一 CanSat／dgraph 教学示例</text>
+<path d="M 500,203.68421052631578 L 340,216.31578947368422" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 340,216.31578947368422 L 500,203.68421052631578" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M 720,216.38888888888889 L 860,243.61111111111111" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 899.5652173913044,310 L 680.4347826086956,450" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<g data-node-id="n0" data-source-id="Example.uml-communication.n0" data-kind="object"><title>传感器</title><rect x="120" y="180" width="220" height="90" fill="#e4f3ef" stroke="#0f766e" stroke-width="1.8"/><text x="230.0" y="230.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">传感器</text><line x1="138" y1="240.0" x2="322" y2="240.0" stroke="#0f766e" stroke-width="1.4"/></g>
+<g data-node-id="n1" data-source-id="Example.uml-communication.n1" data-kind="object"><title>飞控</title><rect x="500" y="150" width="220" height="90" fill="#e8f0ff" stroke="#2459a6" stroke-width="1.8"/><text x="610.0" y="200.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">飞控</text><line x1="518" y1="210.0" x2="702" y2="210.0" stroke="#2459a6" stroke-width="1.4"/></g>
+<g data-node-id="n2" data-source-id="Example.uml-communication.n2" data-kind="object"><title>电台</title><rect x="860" y="220" width="220" height="90" fill="#f1ebfd" stroke="#6d28d9" stroke-width="1.8"/><text x="970.0" y="270.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">电台</text><line x1="878" y1="280.0" x2="1062" y2="280.0" stroke="#6d28d9" stroke-width="1.4"/></g>
+<g data-node-id="n3" data-source-id="Example.uml-communication.n3" data-kind="object"><title>地面站</title><rect x="500" y="450" width="220" height="90" fill="#f8fafc" stroke="#64748b" stroke-width="1.8"/><text x="610.0" y="500.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">地面站</text><line x1="518" y1="510.0" x2="702" y2="510.0" stroke="#64748b" stroke-width="1.4"/></g>
+<rect x="415.0" y="194.0" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="448.0" y="210.0" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">1: read</text>
+<rect x="415.0" y="194.0" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="448.0" y="210.0" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">2: data</text>
+<rect x="785.0" y="214.0" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="822.0" y="230.0" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">3: frame</text>
+<rect x="785.0" y="364.0" width="98" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="834.0" y="380.0" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">4: downlink</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">Which interactions connect objects without a time axis?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

@@ -6,11 +6,12 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "sysml-v2"
+      "kind": "semantic",
+      "example": "sysml-v2"
     }
   ],
   "selection": {
+    "layout": "sysml-v2",
     "nodes": [
       {
         "id": "n0",
@@ -21,7 +22,7 @@
         "w": 280,
         "h": 85,
         "color": "violet",
-        "sourceId": "Lesson2.sysml-v2.n0"
+        "sourceId": "Example.sysml-v2.n0"
       },
       {
         "id": "n1",
@@ -32,7 +33,7 @@
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.sysml-v2.n1"
+        "sourceId": "Example.sysml-v2.n1"
       },
       {
         "id": "n2",
@@ -43,7 +44,7 @@
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.sysml-v2.n2"
+        "sourceId": "Example.sysml-v2.n2"
       },
       {
         "id": "n3",
@@ -54,45 +55,42 @@
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.sysml-v2.n3"
+        "sourceId": "Example.sysml-v2.n3"
       }
     ],
     "edges": [
       {
         "source": "n0",
         "target": "n1",
-        "kind": "composition",
-        "label": "1"
+        "kind": "dependency",
+        "color": "blue"
       },
       {
         "source": "n0",
         "target": "n2",
-        "kind": "composition",
-        "label": "1"
+        "kind": "dependency",
+        "color": "blue"
       },
       {
         "source": "n0",
         "target": "n3",
-        "kind": "composition",
-        "label": "1"
+        "kind": "dependency",
+        "color": "blue"
       }
     ],
     "groups": [],
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · SysML v2｜View 与 Viewpoint · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜SysML v2｜View 与 Viewpoint",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

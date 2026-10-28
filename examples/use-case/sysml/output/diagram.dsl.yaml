@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "use-case"
+layout: "use-case"
 nodes:
   - id: "operator"
     label: "发射操作员"
@@ -114,6 +115,9 @@ groups:
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 330
     y: 620

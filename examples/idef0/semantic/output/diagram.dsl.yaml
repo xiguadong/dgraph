@@ -1,15 +1,16 @@
 schema: "diagram-ir/v1"
 type: "idef0"
+layout: "idef0"
 nodes:
   - id: "n0"
     label: "任务数据"
     kind: "block"
-    x: 55
+    x: 45
     y: 290
-    w: 230
+    w: 220
     h: 90
     color: "gray"
-    sourceId: "Lesson2.se-idef0.n0"
+    sourceId: "Example.se-idef0.n0"
   - id: "n1"
     label: "采集大气数据"
     kind: "block"
@@ -18,7 +19,7 @@ nodes:
     w: 280
     h: 100
     color: "teal"
-    sourceId: "Lesson2.se-idef0.n1"
+    sourceId: "Example.se-idef0.n1"
   - id: "n2"
     label: "采样规范"
     kind: "block"
@@ -27,7 +28,7 @@ nodes:
     w: 280
     h: 80
     color: "amber"
-    sourceId: "Lesson2.se-idef0.n2"
+    sourceId: "Example.se-idef0.n2"
   - id: "n3"
     label: "传感器与飞控"
     kind: "block"
@@ -36,25 +37,42 @@ nodes:
     w: 280
     h: 80
     color: "blue"
-    sourceId: "Lesson2.se-idef0.n3"
+    sourceId: "Example.se-idef0.n3"
+  - id: "n4"
+    label: "遥测数据"
+    kind: "block"
+    x: 1000
+    y: 290
+    w: 220
+    h: 90
+    color: "violet"
+    sourceId: "Example.se-idef0.n4"
 edges:
   - source: "n0"
     target: "n1"
     kind: "flow"
+    color: "teal"
     label: "input"
   - source: "n2"
     target: "n1"
     kind: "dependency"
+    color: "teal"
     label: "control"
   - source: "n3"
     target: "n1"
     kind: "association"
+    color: "teal"
     label: "mechanism"
+  - source: "n1"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "output"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · IDEF0｜功能、输入、控制与机制 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

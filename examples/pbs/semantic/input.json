@@ -6,55 +6,56 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "pm-pbs"
+      "kind": "semantic",
+      "example": "pm-pbs"
     }
   ],
   "selection": {
+    "layout": "pbs",
     "nodes": [
       {
         "id": "n0",
         "label": "CS-1 产品",
-        "kind": "block",
+        "kind": "package",
         "x": 500,
         "y": 135,
         "w": 280,
         "h": 85,
         "color": "violet",
-        "sourceId": "Lesson2.pm-pbs.n0"
+        "sourceId": "Example.pm-pbs.n0"
       },
       {
         "id": "n1",
         "label": "结构回收",
-        "kind": "block",
+        "kind": "package",
         "x": 80,
         "y": 410,
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.pm-pbs.n1"
+        "sourceId": "Example.pm-pbs.n1"
       },
       {
         "id": "n2",
         "label": "航电系统",
-        "kind": "block",
+        "kind": "package",
         "x": 480,
         "y": 410,
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.pm-pbs.n2"
+        "sourceId": "Example.pm-pbs.n2"
       },
       {
         "id": "n3",
         "label": "地面设备",
-        "kind": "block",
+        "kind": "package",
         "x": 880,
         "y": 410,
         "w": 300,
         "h": 100,
         "color": "blue",
-        "sourceId": "Lesson2.pm-pbs.n3"
+        "sourceId": "Example.pm-pbs.n3"
       }
     ],
     "edges": [
@@ -62,18 +63,21 @@
         "source": "n0",
         "target": "n1",
         "kind": "composition",
+        "color": "blue",
         "label": "1"
       },
       {
         "source": "n0",
         "target": "n2",
         "kind": "composition",
+        "color": "blue",
         "label": "1"
       },
       {
         "source": "n0",
         "target": "n3",
         "kind": "composition",
+        "color": "blue",
         "label": "1"
       }
     ],
@@ -81,18 +85,15 @@
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · PBS｜产品分解 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜PBS｜产品分解",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

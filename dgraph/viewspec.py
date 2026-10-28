@@ -18,6 +18,24 @@ def _require(condition, code, message):
         raise DgraphError(code, message)
 
 
+def _validate_domain(kind, selection):
+    if kind == "qfd":
+        model = selection.get("qfd")
+        _require(isinstance(model, dict), "missing-qfd", "qfd is required for a house of quality.")
+        _require(bool(model.get("customerNeeds")) and bool(model.get("engineering")), "invalid-qfd", "qfd needs customer needs and engineering characteristics.")
+        _require(isinstance(model.get("relations"), list) and isinstance(model.get("roof"), list), "invalid-qfd", "qfd needs relations and a roof correlation matrix.")
+    elif kind == "gantt":
+        model = selection.get("gantt")
+        _require(isinstance(model, dict), "missing-gantt", "gantt is required for schedule diagrams.")
+        _require(bool(model.get("ticks")) and bool(model.get("tasks")), "invalid-gantt", "gantt needs time ticks and tasks.")
+        _require(isinstance(model.get("milestones"), list), "invalid-gantt", "gantt needs a milestones array.")
+    elif kind == "fta":
+        model = selection.get("faultTree")
+        _require(isinstance(model, dict), "missing-faultTree", "faultTree is required for fault-tree diagrams.")
+        _require(isinstance(model.get("top"), dict), "invalid-faultTree", "faultTree needs a top event.")
+        _require(bool(model.get("gates")) and bool(model.get("events")), "invalid-faultTree", "faultTree needs gates and basic events.")
+
+
 def validate_spec(spec):
     _require(isinstance(spec, dict), "invalid-spec", "ViewSpec must be an object.")
     result = deepcopy(spec)
@@ -53,7 +71,7 @@ def validate_spec(spec):
     presentation = result.setdefault("presentation", {})
     presentation.setdefault("width", 1280)
     presentation.setdefault("height", 720)
-    presentation.setdefault("theme", "lesson")
+    presentation.setdefault("theme", "dgraph")
     presentation.setdefault("title", intent["question"])
     presentation.setdefault("subtitle", kind)
     selection.setdefault("groups", [])
@@ -63,4 +81,5 @@ def validate_spec(spec):
     selection.setdefault("annotations", [])
     result.setdefault("sources", [])
     outputs.setdefault("formats", ["viewspec", "dsl", "svg", "report"])
+    _validate_domain(kind, selection)
     return result

@@ -17,7 +17,7 @@
 - OAB 运行分析；
 - SAB 系统分析；
 - LAB 逻辑架构；
-- PAB／EPBS 物理实现；
+- PAB 物理架构；
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +32,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：OAB 运行分析、SAB 系统分析、LAB 逻辑架构、PAB／EPBS 物理实现。完整输入见 `input.json`。
+示例语义标签：OAB 运行分析、SAB 系统分析、LAB 逻辑架构、PAB 物理架构。完整输入见 `input.json`。
 
 ## 如何运行
 

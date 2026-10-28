@@ -6,55 +6,56 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-topology"
+      "kind": "semantic",
+      "example": "x-topology"
     }
   ],
   "selection": {
+    "layout": "deployment-topology",
     "nodes": [
       {
         "id": "n0",
         "label": "CS-1 设备",
-        "kind": "block",
-        "x": 45,
-        "y": 290,
-        "w": 240,
-        "h": 105,
-        "color": "gray",
-        "sourceId": "Lesson2.x-topology.n0"
+        "kind": "node3d",
+        "x": 70,
+        "y": 280,
+        "w": 210,
+        "h": 100,
+        "color": "blue",
+        "sourceId": "Example.x-topology.n0"
       },
       {
         "id": "n1",
         "label": "433 MHz 链路",
-        "kind": "block",
-        "x": 350,
-        "y": 290,
-        "w": 240,
-        "h": 105,
-        "color": "blue",
-        "sourceId": "Lesson2.x-topology.n1"
+        "kind": "node3d",
+        "x": 480,
+        "y": 190,
+        "w": 250,
+        "h": 70,
+        "color": "violet",
+        "sourceId": "Example.x-topology.n1"
       },
       {
         "id": "n2",
         "label": "地面网关",
-        "kind": "block",
-        "x": 655,
-        "y": 290,
-        "w": 240,
-        "h": 105,
-        "color": "amber",
-        "sourceId": "Lesson2.x-topology.n2"
+        "kind": "node3d",
+        "x": 465,
+        "y": 355,
+        "w": 260,
+        "h": 100,
+        "color": "teal",
+        "sourceId": "Example.x-topology.n2"
       },
       {
         "id": "n3",
         "label": "分析工作站",
-        "kind": "block",
-        "x": 960,
-        "y": 290,
-        "w": 240,
-        "h": 105,
-        "color": "violet",
-        "sourceId": "Lesson2.x-topology.n3"
+        "kind": "node3d",
+        "x": 965,
+        "y": 280,
+        "w": 220,
+        "h": 100,
+        "color": "gray",
+        "sourceId": "Example.x-topology.n3"
       }
     ],
     "edges": [
@@ -63,51 +64,57 @@
         "target": "n1",
         "kind": "flow",
         "color": "teal",
-        "label": "builds",
-        "labelPosition": [
-          293.5,
-          255
-        ]
+        "label": "RF"
       },
       {
         "source": "n1",
         "target": "n2",
         "kind": "flow",
         "color": "teal",
-        "label": "produces",
-        "labelPosition": [
-          590.5,
-          255
-        ]
+        "label": "Ethernet"
       },
       {
         "source": "n2",
         "target": "n3",
         "kind": "flow",
         "color": "teal",
-        "label": "publishes",
-        "labelPosition": [
-          891.5,
-          255
-        ]
+        "label": "HTTPS"
       }
     ],
-    "groups": [],
+    "groups": [
+      {
+        "id": "rf",
+        "label": "433 MHz 链路",
+        "kind": "boundary",
+        "x": 330,
+        "y": 160,
+        "w": 580,
+        "h": 360,
+        "color": "violet"
+      },
+      {
+        "id": "ground-zone",
+        "label": "地面网络区",
+        "kind": "boundary",
+        "x": 950,
+        "y": 160,
+        "w": 260,
+        "h": 360,
+        "color": "teal"
+      }
+    ],
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · 部署拓扑｜节点与网络 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜部署拓扑｜节点与网络",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

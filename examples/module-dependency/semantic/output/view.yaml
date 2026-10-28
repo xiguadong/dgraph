@@ -3,71 +3,75 @@ type: "module-dependency"
 intent:
   question: "Which modules depend on each other?"
 sources:
-  - kind: "lesson"
-    figure: "x-moduledep"
+  - kind: "semantic"
+    example: "x-moduledep"
 selection:
+  layout: "module-dependency"
   nodes:
     - id: "n0"
       label: "model"
-      kind: "block"
+      kind: "package"
       x: 45
       y: 290
       w: 240
       h: 105
-      color: "gray"
-      sourceId: "Lesson2.x-moduledep.n0"
+      color: "blue"
+      sourceId: "Example.x-moduledep.n0"
     - id: "n1"
       label: "compiler"
-      kind: "block"
+      kind: "package"
       x: 350
       y: 290
       w: 240
       h: 105
-      color: "blue"
-      sourceId: "Lesson2.x-moduledep.n1"
+      color: "teal"
+      sourceId: "Example.x-moduledep.n1"
     - id: "n2"
       label: "renderer"
-      kind: "block"
+      kind: "package"
       x: 655
       y: 290
       w: 240
       h: 105
       color: "amber"
-      sourceId: "Lesson2.x-moduledep.n2"
+      sourceId: "Example.x-moduledep.n2"
     - id: "n3"
       label: "server"
-      kind: "block"
+      kind: "package"
       x: 960
       y: 290
       w: 240
       h: 105
       color: "violet"
-      sourceId: "Lesson2.x-moduledep.n3"
+      sourceId: "Example.x-moduledep.n3"
   edges:
     - source: "n0"
       target: "n1"
       kind: "flow"
       color: "teal"
+      label: "imports"
     - source: "n1"
       target: "n2"
       kind: "flow"
       color: "teal"
+      label: "uses"
     - source: "n2"
       target: "n3"
       kind: "flow"
       color: "teal"
+      label: "registers"
   groups: []
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · 模块依赖｜代码结构 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜模块依赖｜代码结构"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

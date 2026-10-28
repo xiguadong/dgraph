@@ -47,7 +47,28 @@ def _node(node):
     kind = node.get("kind", "block")
     out = [f'<g data-node-id="{escape(node["id"], quote=True)}" data-source-id="{escape(node["sourceId"], quote=True)}" data-kind="{escape(kind, quote=True)}">']
     out.append(f"<title>{escape(node.get('details', node['label']))}</title>")
-    if kind == "actor":
+    if kind == "gate":
+        out.append(f'<circle cx="{x+w/2}" cy="{y+h/2}" r="{min(w,h)/2}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
+        out.append(_multiline(node, stroke))
+    elif kind == "datastore":
+        out.append(f'<path d="M {x} {y+12} H {x+w} M {x} {y+h-12} H {x+w} M {x+12} {y} V {y+h} M {x+w-12} {y} V {y+h}" fill="none" stroke="{stroke}" stroke-width="2"/>')
+        out.append(_multiline(node, "#334155"))
+    elif kind == "stock":
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="{stroke}" stroke-width="3"/><rect x="{x+7}" y="{y+7}" width="{w-14}" height="{h-14}" fill="none" stroke="{stroke}" stroke-width="1"/>')
+        out.append(_multiline(node, "#334155"))
+    elif kind == "object":
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="{stroke}" stroke-width="1.8"/>')
+        out.append(_multiline(node, "#334155"))
+        out.append(f'<line x1="{x+18}" y1="{y+h/2+15}" x2="{x+w-18}" y2="{y+h/2+15}" stroke="{stroke}" stroke-width="1.4"/>')
+    elif kind == "component":
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="5" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
+        out.append(_multiline(node, "#334155"))
+        out.append(f'<path d="M {x+w-38} {y+12} h 24 v 20 h -24 Z M {x+w-44} {y+16} h 6 v 5 h -6 Z M {x+w-44} {y+25} h 6 v 5 h -6 Z" fill="{fill}" stroke="{stroke}" stroke-width="1.4"/>')
+    elif kind == "node3d":
+        out.append(f'<path d="M {x} {y+15} L {x+18} {y} H {x+w-18} L {x+w} {y+15} V {y+h-12} L {x+w-18} {y+h} H {x+18} L {x} {y+h-12} Z" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
+        out.append(f'<path d="M {x} {y+15} H {x+w-18} L {x+w} {y+15} M {x+w-18} {y+15} V {y+h}" fill="none" stroke="{stroke}" stroke-width="1.4"/>')
+        out.append(_multiline(node, "#334155"))
+    elif kind == "actor":
         cx = x + w / 2
         out.append(f'<circle cx="{cx}" cy="{y + 14}" r="12" fill="#fff" stroke="{stroke}" stroke-width="2"/>')
         out.append(f'<path d="M {cx} {y + 26} V {y + 60} M {cx - 20} {y + 38} H {cx + 20} M {cx} {y + 60} L {cx - 16} {y + 86} M {cx} {y + 60} L {cx + 16} {y + 86}" fill="none" stroke="{stroke}" stroke-width="2"/>')
@@ -199,26 +220,36 @@ def _timeline(timeline):
     return "".join(out)
 
 
+from .domain import fta_svg, gantt_svg, qfd_svg
+
+
 def render_svg(spec):
     p = spec["presentation"]
     width, height = p["width"], p["height"]
     selection = spec["selection"]
     nodes = {node["id"]: node for node in selection["nodes"]}
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">']
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="{escape(selection.get("layout", spec["type"]), quote=True)}">']
     out.append('<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>')
     out.append(f'<rect width="{width}" height="{height}" fill="#fff"/>')
     out.append(_text(48, 52, p["title"], 28, "#15202b", "start", 750))
     out.append(_text(48, 80, p.get("subtitle", ""), 14, "#64748b", "start", 400))
     out.append(f'<line x1="48" y1="102" x2="{width-48}" y2="102" stroke="#e2e8f0"/>')
-    out.extend(_group(group) for group in selection.get("groups", []))
-    out.extend(_matrix(matrix) for matrix in selection.get("matrices", []))
-    out.extend(_chart(chart) for chart in selection.get("charts", []))
-    out.extend(_timeline(timeline) for timeline in selection.get("timelines", []))
-    if spec["type"] == "sequence":
-        out.extend(f'<line x1="{n["x"]+n["w"]/2}" y1="{n["y"]+n["h"]}" x2="{n["x"]+n["w"]/2}" y2="{height-85}" stroke="#94a3b8" stroke-dasharray="5 5"/>' for n in selection["nodes"])
-    out.extend(_edge(edge, nodes) for edge in selection.get("edges", []))
-    out.extend(_node(node) for node in selection["nodes"])
-    out.extend(_edge_label(edge, nodes) for edge in selection.get("edges", []))
+    if spec["type"] == "qfd":
+        out.append(qfd_svg(selection["qfd"]))
+    elif spec["type"] == "gantt":
+        out.append(gantt_svg(selection["gantt"]))
+    elif spec["type"] == "fta":
+        out.append(fta_svg(selection["faultTree"]))
+    else:
+        out.extend(_group(group) for group in selection.get("groups", []))
+        out.extend(_matrix(matrix) for matrix in selection.get("matrices", []))
+        out.extend(_chart(chart) for chart in selection.get("charts", []))
+        out.extend(_timeline(timeline) for timeline in selection.get("timelines", []))
+        if spec["type"] == "sequence":
+            out.extend(f'<line x1="{n["x"]+n["w"]/2}" y1="{n["y"]+n["h"]}" x2="{n["x"]+n["w"]/2}" y2="{height-85}" stroke="#94a3b8" stroke-dasharray="5 5"/>' for n in selection["nodes"])
+        out.extend(_edge(edge, nodes) for edge in selection.get("edges", []))
+        out.extend(_node(node) for node in selection["nodes"])
+        out.extend(_edge_label(edge, nodes) for edge in selection.get("edges", []))
     for note in selection.get("annotations", []):
         out.append(_text(note["x"], note["y"], note["text"], note.get("fontSize", 13), note.get("color", "#64748b"), note.get("anchor", "start"), note.get("fontWeight", 400)))
     out.append(_text(48, height - 30, spec["intent"]["question"], 13, "#64748b", "start", 400))

@@ -42,7 +42,7 @@ class DrawingPrimitiveTests(unittest.TestCase):
 
     def test_timeline_rows_and_markers_are_rendered(self):
         with tempfile.TemporaryDirectory() as tmp:
-            value = spec(tmp, "gantt")
+            value = spec(tmp, "timing")
             value["selection"]["timelines"] = [{
                 "id": "schedule", "x": 220, "y": 160, "w": 850, "rowHeight": 70,
                 "rows": [{"id": "design", "label": "Design", "start": 0, "end": 45, "color": "blue"}],

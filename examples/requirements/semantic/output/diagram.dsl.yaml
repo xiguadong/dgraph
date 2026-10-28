@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "requirements"
+layout: "requirements"
 nodes:
   - id: "sr01"
     label: "SR-01 采样率 ≥ 1 Hz"
@@ -162,6 +163,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 55
     y: 630

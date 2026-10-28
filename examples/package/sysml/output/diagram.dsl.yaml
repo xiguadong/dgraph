@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "package"
+layout: "package"
 nodes:
   - id: "common"
     label: "Common\n单位与类型"
@@ -128,6 +129,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 70
     y: 655

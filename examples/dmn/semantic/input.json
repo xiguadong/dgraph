@@ -6,22 +6,23 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-dmn"
+      "kind": "semantic",
+      "example": "x-dmn"
     }
   ],
   "selection": {
+    "layout": "dmn",
     "nodes": [
       {
         "id": "n0",
-        "label": "电压",
+        "label": "矩阵读法",
         "kind": "block",
         "x": 55,
         "y": 145,
         "w": 190,
         "h": 75,
         "color": "gray",
-        "sourceId": "Lesson2.x-dmn.n0"
+        "sourceId": "Example.x-dmn.n0"
       }
     ],
     "edges": [],
@@ -49,39 +50,36 @@
             "column": 1,
             "label": "电压",
             "color": "amber",
-            "sourceId": "Lesson2.x-dmn.cell01"
+            "sourceId": "Example.x-dmn.cell01"
           },
           {
             "row": 1,
             "column": 2,
-            "label": "相关 / 接口",
+            "label": "相关",
             "color": "teal",
-            "sourceId": "Lesson2.x-dmn.cell12"
+            "sourceId": "Example.x-dmn.cell12"
           },
           {
             "row": 2,
             "column": 0,
             "label": "追溯",
             "color": "violet",
-            "sourceId": "Lesson2.x-dmn.cell20"
+            "sourceId": "Example.x-dmn.cell20"
           }
         ]
       }
     ],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · DMN｜决策规则表 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜DMN｜决策规则表",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

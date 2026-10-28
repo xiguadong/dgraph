@@ -1,42 +1,52 @@
 schema: "diagram-ir/v1"
 type: "bpmn"
+layout: "bpmn"
 nodes:
   - id: "n0"
-    label: "开始任务"
-    kind: "block"
-    x: 45
+    label: "开始"
+    kind: "initial"
+    x: 80
     y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.x-bpmn.n0"
+    w: 45
+    h: 45
+    color: "teal"
+    sourceId: "Example.x-bpmn.n0"
   - id: "n1"
     label: "采集与打包"
-    kind: "block"
-    x: 350
-    y: 290
-    w: 240
-    h: 105
-    color: "blue"
-    sourceId: "Lesson2.x-bpmn.n1"
+    kind: "action"
+    x: 230
+    y: 275
+    w: 230
+    h: 85
+    color: "teal"
+    sourceId: "Example.x-bpmn.n1"
   - id: "n2"
     label: "链路可用？"
-    kind: "block"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
+    kind: "decision"
+    x: 550
+    y: 270
+    w: 160
+    h: 95
     color: "amber"
-    sourceId: "Lesson2.x-bpmn.n2"
+    sourceId: "Example.x-bpmn.n2"
   - id: "n3"
     label: "发送或存储"
-    kind: "block"
-    x: 960
-    y: 290
+    kind: "action"
+    x: 840
+    y: 275
     w: 240
-    h: 105
+    h: 85
     color: "violet"
-    sourceId: "Lesson2.x-bpmn.n3"
+    sourceId: "Example.x-bpmn.n3"
+  - id: "n4"
+    label: "结束"
+    kind: "final"
+    x: 1140
+    y: 290
+    w: 45
+    h: 45
+    color: "red"
+    sourceId: "Example.x-bpmn.n4"
 edges:
   - source: "n0"
     target: "n1"
@@ -50,11 +60,24 @@ edges:
     target: "n3"
     kind: "flow"
     color: "teal"
-groups: []
+    label: "链路可用"
+  - source: "n3"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+groups:
+  - id: "pool"
+    label: "CS-1 任务池"
+    kind: "boundary"
+    x: 45
+    y: 145
+    w: 1190
+    h: 430
+    color: "blue"
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · BPMN｜业务流程 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

@@ -1,7 +1,4 @@
-"""Lesson_2 remaining-figure catalog and representative CanSat ViewSpecs."""
-
-from dgraph.catalog import CATALOG
-
+"""Independent engineering-diagram catalog and representative CanSat ViewSpecs."""
 
 def E(slug, kind, title, labels, template="flow"):
     return {"slug": slug, "type": kind, "title": title, "labels": labels, "template": template}
@@ -67,72 +64,10 @@ ATLAS_ENTRIES = [
     E("delivery", "delivery", "Delivery View｜源码到运行交付链", ["源码仓库", "构建与测试", "版本化交付物", "制品库／Release", "部署与运行"], "delivery"),
 ]
 
-_QUESTIONS = {entry["type"]: entry["question"] for entry in CATALOG}
-
-
-def _node(slug, index, label, x, y, w=240, h=90, color="blue", kind="block"):
-    return {"id": f"n{index}", "label": label, "kind": kind, "x": x, "y": y, "w": w, "h": h, "color": color, "sourceId": f"Lesson2.{slug}.n{index}"}
-
-
-def _edges(count, kind="flow", labels=None):
-    result = []
-    for index in range(count - 1):
-        edge = {"source": f"n{index}", "target": f"n{index+1}", "kind": kind, "color": "teal" if kind == "flow" else "blue"}
-        if labels and index < len(labels):
-            edge["label"] = labels[index]
-        result.append(edge)
-    return result
+from examples._shared.layouts import build_layout
 
 
 def build_spec(entry, output_dir):
-    slug, kind, labels = entry["slug"], entry["type"], entry["labels"]
-    template = entry["template"]
-    nodes, edges, groups, matrices, charts, timelines = [], [], [], [], [], []
-    if template == "hierarchy":
-        nodes = [_node(slug, 0, labels[0], 500, 135, 280, 85, "violet")]
-        nodes += [_node(slug, i + 1, label, 80 + i * 400, 410, 300, 100, "blue") for i, label in enumerate(labels[1:4])]
-        edges = [{"source": "n0", "target": f"n{i}", "kind": "composition", "label": "1"} for i in range(1, 4)]
-    elif template == "layers":
-        nodes = [_node(slug, i, label, 340, 130 + i * 125, 600, 78, ["blue", "teal", "amber", "violet"][i]) for i, label in enumerate(labels[:4])]
-        edges = _edges(4, "dependency")
-    elif template == "context":
-        groups = [{"id": "boundary", "label": labels[1], "kind": "boundary", "x": 330, "y": 150, "w": 620, "h": 400, "color": "blue"}]
-        nodes = [_node(slug, 0, labels[0], 65, 260, 200, 90, "gray"), _node(slug, 1, labels[1], 500, 285, 280, 110, "blue"), _node(slug, 2, labels[2], 1010, 260, 200, 90, "teal"), _node(slug, 3, labels[3], 500, 455, 280, 70, "violet")]
-        edges = [{"source": "n0", "target": "n1", "kind": "association"}, {"source": "n1", "target": "n2", "kind": "flow", "label": "interface"}, {"source": "n3", "target": "n1", "kind": "dependency"}]
-    elif template == "icom":
-        nodes = [_node(slug, 0, labels[0], 55, 290, 230, 90, "gray"), _node(slug, 1, labels[1], 500, 290, 280, 100, "teal"), _node(slug, 2, labels[2], 500, 135, 280, 80, "amber"), _node(slug, 3, labels[3], 500, 480, 280, 80, "blue")]
-        edges = [{"source": "n0", "target": "n1", "kind": "flow", "label": "input"}, {"source": "n2", "target": "n1", "kind": "dependency", "label": "control"}, {"source": "n3", "target": "n1", "kind": "association", "label": "mechanism"}]
-    elif template == "matrix":
-        nodes = [_node(slug, 0, labels[0], 55, 145, 190, 75, "gray")]
-        axis = labels[:4] if kind == "n2" else labels[1:4]
-        matrices = [{"id": f"{slug}-matrix", "x": 300 if kind == "n2" else 320, "y": 150, "cellWidth": 160 if kind == "n2" else 210, "cellHeight": 75 if kind == "n2" else 85, "columns": axis, "rows": axis, "cells": [{"row": 0, "column": 1, "label": "I-01" if kind == "n2" else labels[0], "color": "amber", "sourceId": f"Lesson2.{slug}.cell01"}, {"row": 1, "column": 2, "label": "I-02" if kind == "n2" else "相关 / 接口", "color": "teal", "sourceId": f"Lesson2.{slug}.cell12"}, {"row": 2, "column": 0, "label": "I-03" if kind == "n2" else "追溯", "color": "violet", "sourceId": f"Lesson2.{slug}.cell20"}]}]
-    elif template == "chart":
-        nodes = [_node(slug, 0, labels[0], 90, 555, 240, 65, "blue"), _node(slug, 1, labels[1], 950, 555, 240, 65, "teal")]
-        is_scatter = kind == "tradespace"
-        charts = [{"id": f"{slug}-chart", "kind": "scatter" if is_scatter else "line", "x": 170, "y": 150, "w": 900, "h": 340, "xLabel": labels[2], "yLabel": labels[3], "series": [{"id": "planned", "label": labels[0], "color": "gray", "points": [[20, 80], [50, 60], [85, 35]] if is_scatter else [[0, 100], [50, 50], [100, 0]]}, {"id": "actual", "label": labels[1], "color": "teal", "points": [[15, 30], [45, 55], [70, 75], [90, 88]] if is_scatter else [[0, 95], [35, 65], [70, 30], [100, 12]]}]}]
-    elif template == "timeline":
-        nodes = [_node(slug, 0, "里程碑 / 验收点", 90, 555, 250, 65, "amber")]
-        timelines = [{"id": f"{slug}-timeline", "x": 95, "y": 150, "w": 1060, "rowHeight": 82, "labelWidth": 210, "rows": [{"id": f"row{i}", "label": label, "start": i * 14, "end": min(95, i * 14 + 45), "color": ["blue", "teal", "amber", "violet"][i], "sourceId": f"Lesson2.{slug}.row{i}"} for i, label in enumerate(labels[:4])], "markers": [{"position": 58, "label": "PDR / 评审"}]}]
-    elif template == "flame":
-        nodes = [_node(slug, 0, labels[0], 150, 450, 900, 70, "blue", "flame"), _node(slug, 1, labels[1], 250, 350, 700, 70, "teal", "flame"), _node(slug, 2, labels[2], 350, 250, 500, 70, "amber", "flame"), _node(slug, 3, labels[3], 450, 150, 300, 70, "violet", "flame")]
-        for node, share in zip(nodes, ["100% total", "70% layout", "45% routing", "25% text"]):
-            node["compartment"] = share
-    else:
-        count = len(labels) if template == "delivery" else 4
-        xs = [25, 275, 525, 775, 1025] if count == 5 else [45, 350, 655, 960]
-        width = 220 if count == 5 else 240
-        nodes = [_node(slug, i, labels[i], xs[i], 290, width, 105, ["gray", "blue", "amber", "violet", "teal"][i]) for i in range(count)]
-        edge_labels = ["builds", "produces", "publishes", "deploys / runs"] if template == "delivery" else None
-        edges = _edges(count, "flow", edge_labels)
-        if template == "delivery":
-            for index, edge in enumerate(edges):
-                label = edge["label"]
-                gap_center = (xs[index] + width + xs[index + 1]) / 2
-                edge["labelPosition"] = [gap_center - len(label) * 4, 255]
-    return {
-        "schema": "diagram-view/v1", "type": kind,
-        "intent": {"question": _QUESTIONS[kind]}, "sources": [{"kind": "lesson", "figure": slug}],
-        "selection": {"nodes": nodes, "edges": edges, "groups": groups, "matrices": matrices, "charts": charts, "timelines": timelines, "annotations": [{"x": 50, "y": 645, "text": f"lesson_2 图鉴扩展 · {entry['title']} · 统一 CanSat／dgraph 教学示例"}]},
-        "presentation": {"title": f"CanSat CS-1｜{entry['title']}", "subtitle": "dgraph · lesson_2 diagram atlas", "theme": "lesson"},
-        "outputs": {"directory": output_dir, "formats": ["viewspec", "dsl", "svg", "report"]},
-    }
+    spec = build_layout(entry)
+    spec["outputs"]["directory"] = output_dir
+    return spec

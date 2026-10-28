@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"activity","intent":{"question":"CS-1 从自检到遥测下传的活动顺序和低电压分支是什么？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜活动图 Activity","subtitle":"动作、判断与控制流","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜活动图 Activity","subtitle":"动作、判断与控制流","theme":"dgraph"},
  "selection":{
   "nodes":[
    {"id":"start","label":"开始","kind":"initial","color":"gray","x":615,"y":115,"w":30,"h":30,"sourceId":"CanSat.Activity.start"},

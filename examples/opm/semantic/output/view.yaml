@@ -3,71 +3,75 @@ type: "opm"
 intent:
   question: "How do objects and processes form an OPM concept model?"
 sources:
-  - kind: "lesson"
-    figure: "opm"
+  - kind: "semantic"
+    example: "opm"
 selection:
+  layout: "opm"
   nodes:
     - id: "n0"
       label: "TelemetryFrame 对象"
       kind: "block"
-      x: 45
-      y: 290
+      x: 55
+      y: 280
       w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.opm.n0"
+      h: 100
+      color: "blue"
+      sourceId: "Example.opm.n0"
     - id: "n1"
       label: "采集过程"
-      kind: "block"
-      x: 350
-      y: 290
-      w: 240
-      h: 105
-      color: "blue"
-      sourceId: "Lesson2.opm.n1"
+      kind: "usecase"
+      x: 360
+      y: 280
+      w: 230
+      h: 100
+      color: "teal"
+      sourceId: "Example.opm.n1"
     - id: "n2"
       label: "飞控对象"
       kind: "block"
-      x: 655
-      y: 290
+      x: 670
+      y: 280
       w: 240
-      h: 105
-      color: "amber"
-      sourceId: "Lesson2.opm.n2"
+      h: 100
+      color: "blue"
+      sourceId: "Example.opm.n2"
     - id: "n3"
       label: "下传过程"
-      kind: "block"
-      x: 960
-      y: 290
-      w: 240
-      h: 105
+      kind: "usecase"
+      x: 980
+      y: 280
+      w: 230
+      h: 100
       color: "violet"
-      sourceId: "Lesson2.opm.n3"
+      sourceId: "Example.opm.n3"
   edges:
     - source: "n0"
       target: "n1"
       kind: "flow"
       color: "teal"
+      label: "输入"
     - source: "n1"
       target: "n2"
       kind: "flow"
       color: "teal"
+      label: "生成"
     - source: "n2"
       target: "n3"
       kind: "flow"
       color: "teal"
+      label: "支撑"
   groups: []
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · OPM｜对象—过程对偶 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜OPM｜对象—过程对偶"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

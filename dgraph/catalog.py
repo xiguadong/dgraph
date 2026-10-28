@@ -1,4 +1,4 @@
-"""Renderable diagram catalog and the 65-figure lesson_2 coverage map."""
+"""Renderable diagram catalog and the 65-figure dgraph coverage map."""
 
 _QUESTIONS = {
     "block-definition": "Which types, blocks, and composition relationships make up the system?",
@@ -76,7 +76,7 @@ def _coverage(prefix, mapping):
     return [{"asset": f"02_ex_{prefix}_{asset}.svg", "type": kind} for asset, kind in mapping.items()]
 
 
-LESSON_COVERAGE = (
+ATLAS_COVERAGE = (
     _coverage("sysml", {"bdd": "block-definition", "ibd": "internal-block", "req": "requirements", "par": "parametric", "uc": "use-case", "act": "activity", "sd": "sequence", "stm": "state-machine", "pkg": "package", "v2": "sysml-v2"})
     + _coverage("lang", {"opm": "opm", "c4": "c4"})
     + _coverage("se", {"context": "context", "ffbd": "ffbd", "n2": "n2", "idef0": "idef0", "dfd": "dfd", "qfd": "qfd", "tradespace": "tradespace", "fta": "fta", "cld": "cld", "sfd": "sfd"})

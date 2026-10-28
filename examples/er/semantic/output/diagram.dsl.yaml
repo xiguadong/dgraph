@@ -1,60 +1,78 @@
 schema: "diagram-ir/v1"
 type: "er"
+layout: "er"
 nodes:
   - id: "n0"
     label: "Mission"
     kind: "block"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.x-er.n0"
+    x: 70
+    y: 275
+    w: 230
+    h: 95
+    color: "blue"
+    sourceId: "Example.x-er.n0"
   - id: "n1"
     label: "TelemetryFrame"
     kind: "block"
-    x: 350
-    y: 290
-    w: 240
-    h: 105
-    color: "blue"
-    sourceId: "Lesson2.x-er.n1"
+    x: 525
+    y: 275
+    w: 230
+    h: 95
+    color: "teal"
+    sourceId: "Example.x-er.n1"
   - id: "n2"
     label: "SensorReading"
     kind: "block"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
-    sourceId: "Lesson2.x-er.n2"
-  - id: "n3"
-    label: "GroundStation"
-    kind: "block"
-    x: 960
-    y: 290
-    w: 240
-    h: 105
+    x: 890
+    y: 275
+    w: 230
+    h: 95
     color: "violet"
-    sourceId: "Lesson2.x-er.n3"
+    sourceId: "Example.x-er.n2"
+  - id: "n3"
+    label: "owns / records"
+    kind: "decision"
+    x: 340
+    y: 290
+    w: 150
+    h: 80
+    color: "amber"
+    sourceId: "Example.x-er.n3"
+  - id: "n4"
+    label: "timestamp / values"
+    kind: "usecase"
+    x: 490
+    y: 130
+    w: 280
+    h: 75
+    color: "gray"
+    sourceId: "Example.x-er.n4"
 edges:
   - source: "n0"
-    target: "n1"
-    kind: "flow"
+    target: "n3"
+    kind: "association"
     color: "teal"
+    label: "1"
+  - source: "n3"
+    target: "n1"
+    kind: "association"
+    color: "teal"
+    label: "N"
   - source: "n1"
     target: "n2"
-    kind: "flow"
+    kind: "association"
     color: "teal"
-  - source: "n2"
-    target: "n3"
-    kind: "flow"
+    label: "1 : N"
+  - source: "n4"
+    target: "n1"
+    kind: "dependency"
     color: "teal"
+    label: "attributes"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · ER｜实体与关系 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

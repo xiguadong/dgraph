@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "state-machine"
+layout: "state-machine"
 nodes:
   - id: "standby"
     label: "待机 Standby"
@@ -148,6 +149,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 70
     y: 625

@@ -8,7 +8,7 @@ sources:
 presentation:
   title: "CanSat CS-1｜状态机图 State Machine"
   subtitle: "任务状态、事件与低电压保护"
-  theme: "lesson"
+  theme: "dgraph"
   width: 1280
   height: 720
 selection:

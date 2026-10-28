@@ -1,60 +1,64 @@
 schema: "diagram-ir/v1"
 type: "profile"
+layout: "profile"
 nodes:
   - id: "n0"
     label: "UML Class"
-    kind: "block"
+    kind: "package"
     x: 500
     y: 135
     w: 280
     h: 85
     color: "violet"
-    sourceId: "Lesson2.uml-profile.n0"
+    sourceId: "Example.uml-profile.n0"
   - id: "n1"
     label: "«block»"
-    kind: "block"
+    kind: "package"
     x: 80
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.uml-profile.n1"
+    sourceId: "Example.uml-profile.n1"
   - id: "n2"
     label: "«requirement»"
-    kind: "block"
+    kind: "package"
     x: 480
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.uml-profile.n2"
+    sourceId: "Example.uml-profile.n2"
   - id: "n3"
     label: "«verification»"
-    kind: "block"
+    kind: "package"
     x: 880
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.uml-profile.n3"
+    sourceId: "Example.uml-profile.n3"
 edges:
   - source: "n0"
     target: "n1"
     kind: "composition"
+    color: "blue"
     label: "1"
   - source: "n0"
     target: "n2"
     kind: "composition"
+    color: "blue"
     label: "1"
   - source: "n0"
     target: "n3"
     kind: "composition"
+    color: "blue"
     label: "1"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · UML｜剖面与构造型 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

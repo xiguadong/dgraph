@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "sequence"
+layout: "sequence"
 nodes:
   - id: "sensor"
     label: "传感器"
@@ -124,6 +125,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 70
     y: 625

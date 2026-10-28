@@ -1,60 +1,64 @@
 schema: "diagram-ir/v1"
 type: "wbs"
+layout: "wbs"
 nodes:
   - id: "n0"
     label: "CS-1 项目"
-    kind: "block"
+    kind: "package"
     x: 500
     y: 135
     w: 280
     h: 85
     color: "violet"
-    sourceId: "Lesson2.pm-wbs.n0"
+    sourceId: "Example.pm-wbs.n0"
   - id: "n1"
     label: "需求与设计"
-    kind: "block"
+    kind: "package"
     x: 80
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.pm-wbs.n1"
+    sourceId: "Example.pm-wbs.n1"
   - id: "n2"
     label: "制造与集成"
-    kind: "block"
+    kind: "package"
     x: 480
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.pm-wbs.n2"
+    sourceId: "Example.pm-wbs.n2"
   - id: "n3"
     label: "试验与交付"
-    kind: "block"
+    kind: "package"
     x: 880
     y: 410
     w: 300
     h: 100
     color: "blue"
-    sourceId: "Lesson2.pm-wbs.n3"
+    sourceId: "Example.pm-wbs.n3"
 edges:
   - source: "n0"
     target: "n1"
     kind: "composition"
+    color: "blue"
     label: "1"
   - source: "n0"
     target: "n2"
     kind: "composition"
+    color: "blue"
     label: "1"
   - source: "n0"
     target: "n3"
     kind: "composition"
+    color: "blue"
     label: "1"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · WBS｜工作分解 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

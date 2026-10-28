@@ -6,93 +6,93 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-eta"
+      "kind": "semantic",
+      "example": "x-eta"
     }
   ],
   "selection": {
+    "layout": "eta",
     "nodes": [
       {
         "id": "n0",
         "label": "电池电压下降",
         "kind": "block",
-        "x": 500,
-        "y": 135,
-        "w": 280,
-        "h": 85,
-        "color": "violet",
-        "sourceId": "Lesson2.x-eta.n0"
+        "x": 480,
+        "y": 130,
+        "w": 300,
+        "h": 80,
+        "color": "amber",
+        "sourceId": "Example.x-eta.n0"
       },
       {
         "id": "n1",
         "label": "保护生效？",
-        "kind": "block",
-        "x": 80,
-        "y": 410,
+        "kind": "decision",
+        "x": 480,
+        "y": 270,
         "w": 300,
-        "h": 100,
-        "color": "blue",
-        "sourceId": "Lesson2.x-eta.n1"
+        "h": 85,
+        "color": "violet",
+        "sourceId": "Example.x-eta.n1"
       },
       {
         "id": "n2",
         "label": "降采样",
         "kind": "block",
-        "x": 480,
-        "y": 410,
-        "w": 300,
-        "h": 100,
-        "color": "blue",
-        "sourceId": "Lesson2.x-eta.n2"
+        "x": 190,
+        "y": 450,
+        "w": 270,
+        "h": 85,
+        "color": "red",
+        "sourceId": "Example.x-eta.n2"
       },
       {
         "id": "n3",
         "label": "任务可继续",
         "kind": "block",
-        "x": 880,
-        "y": 410,
-        "w": 300,
-        "h": 100,
-        "color": "blue",
-        "sourceId": "Lesson2.x-eta.n3"
+        "x": 820,
+        "y": 450,
+        "w": 270,
+        "h": 85,
+        "color": "teal",
+        "sourceId": "Example.x-eta.n3"
       }
     ],
     "edges": [
       {
         "source": "n0",
         "target": "n1",
-        "kind": "composition",
-        "label": "1"
+        "kind": "flow",
+        "color": "teal"
       },
       {
-        "source": "n0",
+        "source": "n1",
         "target": "n2",
-        "kind": "composition",
-        "label": "1"
+        "kind": "flow",
+        "color": "teal",
+        "label": "是"
       },
       {
-        "source": "n0",
+        "source": "n1",
         "target": "n3",
-        "kind": "composition",
-        "label": "1"
+        "kind": "flow",
+        "color": "teal",
+        "label": "否"
       }
     ],
     "groups": [],
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · ETA｜事件树分析 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜ETA｜事件树分析",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

@@ -8,7 +8,7 @@ sources:
 presentation:
   title: "CanSat CS-1｜活动图 Activity"
   subtitle: "动作、判断与控制流"
-  theme: "lesson"
+  theme: "dgraph"
   width: 1280
   height: 720
 selection:

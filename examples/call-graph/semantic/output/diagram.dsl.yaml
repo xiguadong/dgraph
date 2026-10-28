@@ -1,60 +1,64 @@
 schema: "diagram-ir/v1"
 type: "call-graph"
+layout: "call-graph"
 nodes:
   - id: "n0"
     label: "render_diagram"
-    kind: "block"
+    kind: "component"
     x: 45
     y: 290
     w: 240
     h: 105
-    color: "gray"
-    sourceId: "Lesson2.x-callgraph.n0"
+    color: "blue"
+    sourceId: "Example.x-callgraph.n0"
   - id: "n1"
     label: "validate_spec"
-    kind: "block"
+    kind: "component"
     x: 350
     y: 290
     w: 240
     h: 105
-    color: "blue"
-    sourceId: "Lesson2.x-callgraph.n1"
+    color: "teal"
+    sourceId: "Example.x-callgraph.n1"
   - id: "n2"
     label: "to_ir"
-    kind: "block"
+    kind: "component"
     x: 655
     y: 290
     w: 240
     h: 105
     color: "amber"
-    sourceId: "Lesson2.x-callgraph.n2"
+    sourceId: "Example.x-callgraph.n2"
   - id: "n3"
     label: "render_svg"
-    kind: "block"
+    kind: "component"
     x: 960
     y: 290
     w: 240
     h: 105
     color: "violet"
-    sourceId: "Lesson2.x-callgraph.n3"
+    sourceId: "Example.x-callgraph.n3"
 edges:
   - source: "n0"
     target: "n1"
     kind: "flow"
     color: "teal"
+    label: "calls"
   - source: "n1"
     target: "n2"
     kind: "flow"
     color: "teal"
+    label: "builds"
   - source: "n2"
     target: "n3"
     kind: "flow"
     color: "teal"
+    label: "renders"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · 调用图｜函数关系 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

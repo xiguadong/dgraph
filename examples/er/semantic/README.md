@@ -17,7 +17,7 @@
 - Mission；
 - TelemetryFrame；
 - SensorReading；
-- GroundStation；
+- owns / records；
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +32,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Mission、TelemetryFrame、SensorReading、GroundStation。完整输入见 `input.json`。
+示例语义标签：Mission、TelemetryFrame、SensorReading、owns / records。完整输入见 `input.json`。
 
 ## 如何运行
 

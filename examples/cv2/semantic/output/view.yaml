@@ -3,9 +3,10 @@ type: "cv2"
 intent:
   question: "How are capabilities decomposed and related?"
 sources:
-  - kind: "lesson"
-    figure: "fw-cv2"
+  - kind: "semantic"
+    example: "fw-cv2"
 selection:
+  layout: "cv2"
   nodes:
     - id: "n0"
       label: "探空任务能力"
@@ -15,7 +16,7 @@ selection:
       w: 280
       h: 85
       color: "violet"
-      sourceId: "Lesson2.fw-cv2.n0"
+      sourceId: "Example.fw-cv2.n0"
     - id: "n1"
       label: "环境感知"
       kind: "block"
@@ -24,7 +25,7 @@ selection:
       w: 300
       h: 100
       color: "blue"
-      sourceId: "Lesson2.fw-cv2.n1"
+      sourceId: "Example.fw-cv2.n1"
     - id: "n2"
       label: "数据传输"
       kind: "block"
@@ -33,7 +34,7 @@ selection:
       w: 300
       h: 100
       color: "blue"
-      sourceId: "Lesson2.fw-cv2.n2"
+      sourceId: "Example.fw-cv2.n2"
     - id: "n3"
       label: "回收回放"
       kind: "block"
@@ -42,32 +43,35 @@ selection:
       w: 300
       h: 100
       color: "blue"
-      sourceId: "Lesson2.fw-cv2.n3"
+      sourceId: "Example.fw-cv2.n3"
   edges:
     - source: "n0"
       target: "n1"
       kind: "composition"
+      color: "blue"
       label: "1"
     - source: "n0"
       target: "n2"
       kind: "composition"
+      color: "blue"
       label: "1"
     - source: "n0"
       target: "n3"
       kind: "composition"
+      color: "blue"
       label: "1"
   groups: []
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · DoDAF CV-2｜能力分类 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜DoDAF CV-2｜能力分类"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"sequence","intent":{"question":"一次下降段遥测交互中，传感器、飞控、电台与地面站按什么顺序交换消息？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜序列图 Sequence","subtitle":"下降段遥测场景 · 消息自上而下排列","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜序列图 Sequence","subtitle":"下降段遥测场景 · 消息自上而下排列","theme":"dgraph"},
  "selection":{
   "nodes":[
    {"id":"sensor","label":"传感器","kind":"block","color":"teal","x":75,"y":130,"w":180,"h":55,"sourceId":"CanSat.CS1.sensors"},

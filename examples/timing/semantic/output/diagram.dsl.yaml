@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "timing"
+layout: "timing"
 nodes:
   - id: "n0"
     label: "里程碑 / 验收点"
@@ -9,7 +10,7 @@ nodes:
     w: 250
     h: 65
     color: "amber"
-    sourceId: "Lesson2.uml-timing.n0"
+    sourceId: "Example.uml-timing.n0"
 edges: []
 groups: []
 matrices: []
@@ -27,29 +28,32 @@ timelines:
         start: 0
         end: 45
         color: "blue"
-        sourceId: "Lesson2.uml-timing.row0"
+        sourceId: "Example.uml-timing.row0"
       - id: "row1"
         label: "打包窗口"
         start: 14
         end: 59
         color: "teal"
-        sourceId: "Lesson2.uml-timing.row1"
+        sourceId: "Example.uml-timing.row1"
       - id: "row2"
         label: "发送窗口"
         start: 28
         end: 73
         color: "amber"
-        sourceId: "Lesson2.uml-timing.row2"
+        sourceId: "Example.uml-timing.row2"
       - id: "row3"
         label: "接收确认"
         start: 42
         end: 87
         color: "violet"
-        sourceId: "Lesson2.uml-timing.row3"
+        sourceId: "Example.uml-timing.row3"
     markers:
       - position: 58
         label: "PDR / 评审"
+qfd: null
+gantt: null
+faultTree: null
 annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · UML｜时序图与时间约束 · 统一 CanSat／dgraph 教学示例"
+  - x: 320
+    y: 565
+    text: "0 ms          100 ms          200 ms          300 ms          500 ms"

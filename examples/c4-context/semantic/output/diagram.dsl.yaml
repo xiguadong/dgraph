@@ -1,15 +1,16 @@
 schema: "diagram-ir/v1"
 type: "c4-context"
+layout: "c4-context"
 nodes:
   - id: "n0"
     label: "操作员"
-    kind: "block"
+    kind: "actor"
     x: 65
     y: 260
     w: 200
     h: 90
     color: "gray"
-    sourceId: "Lesson2.x-c4-context.n0"
+    sourceId: "Example.x-c4-context.n0"
   - id: "n1"
     label: "CS-1 软件"
     kind: "block"
@@ -18,7 +19,7 @@ nodes:
     w: 280
     h: 110
     color: "blue"
-    sourceId: "Lesson2.x-c4-context.n1"
+    sourceId: "Example.x-c4-context.n1"
   - id: "n2"
     label: "地面站软件"
     kind: "block"
@@ -27,7 +28,7 @@ nodes:
     w: 200
     h: 90
     color: "teal"
-    sourceId: "Lesson2.x-c4-context.n2"
+    sourceId: "Example.x-c4-context.n2"
   - id: "n3"
     label: "科学用户"
     kind: "block"
@@ -36,18 +37,21 @@ nodes:
     w: 280
     h: 70
     color: "violet"
-    sourceId: "Lesson2.x-c4-context.n3"
+    sourceId: "Example.x-c4-context.n3"
 edges:
   - source: "n0"
     target: "n1"
     kind: "association"
+    color: "teal"
   - source: "n1"
     target: "n2"
     kind: "flow"
+    color: "teal"
     label: "interface"
   - source: "n3"
     target: "n1"
     kind: "dependency"
+    color: "teal"
 groups:
   - id: "boundary"
     label: "CS-1 软件"
@@ -60,7 +64,7 @@ groups:
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · C4 Context｜系统上下文 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"requirements","intent":{"question":"关键需求如何派生、由谁满足，并由哪些验证用例提供证据？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜需求图 Requirements","subtitle":"派生、满足与验证追溯","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜需求图 Requirements","subtitle":"派生、满足与验证追溯","theme":"dgraph"},
  "selection":{
   "nodes":[
    {"id":"sr01","label":"SR-01 采样率 ≥ 1 Hz","kind":"requirement","stereotype":"requirement","color":"amber","x":55,"y":160,"w":300,"h":85,"sourceId":"CanSat.SR01"},

@@ -3,71 +3,112 @@ type: "story-map"
 intent:
   question: "How do user activities, tasks, and releases organize stories?"
 sources:
-  - kind: "lesson"
-    figure: "x-storymap"
+  - kind: "semantic"
+    example: "x-storymap"
 selection:
+  layout: "story-map"
   nodes:
     - id: "n0"
       label: "准备任务"
-      kind: "block"
-      x: 45
-      y: 290
-      w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.x-storymap.n0"
+      kind: "sticky"
+      x: 90
+      y: 145
+      w: 250
+      h: 75
+      color: "blue"
+      sourceId: "Example.x-storymap.n0"
     - id: "n1"
       label: "执行探空"
-      kind: "block"
-      x: 350
-      y: 290
-      w: 240
-      h: 105
-      color: "blue"
-      sourceId: "Lesson2.x-storymap.n1"
+      kind: "sticky"
+      x: 385
+      y: 145
+      w: 250
+      h: 75
+      color: "teal"
+      sourceId: "Example.x-storymap.n1"
     - id: "n2"
       label: "接收数据"
-      kind: "block"
-      x: 655
-      y: 290
-      w: 240
-      h: 105
+      kind: "sticky"
+      x: 680
+      y: 145
+      w: 250
+      h: 75
       color: "amber"
-      sourceId: "Lesson2.x-storymap.n2"
+      sourceId: "Example.x-storymap.n2"
     - id: "n3"
       label: "回收分析"
-      kind: "block"
-      x: 960
-      y: 290
-      w: 240
-      h: 105
+      kind: "sticky"
+      x: 975
+      y: 145
+      w: 250
+      h: 75
       color: "violet"
-      sourceId: "Lesson2.x-storymap.n3"
-  edges:
-    - source: "n0"
-      target: "n1"
-      kind: "flow"
+      sourceId: "Example.x-storymap.n3"
+    - id: "n4"
+      label: "故事 A"
+      kind: "sticky"
+      x: 110
+      y: 295
+      w: 190
+      h: 65
       color: "teal"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
+      sourceId: "Example.x-storymap.n4"
+    - id: "n5"
+      label: "故事 B"
+      kind: "sticky"
+      x: 405
+      y: 295
+      w: 190
+      h: 65
       color: "teal"
-    - source: "n2"
-      target: "n3"
-      kind: "flow"
+      sourceId: "Example.x-storymap.n5"
+    - id: "n6"
+      label: "故事 C"
+      kind: "sticky"
+      x: 405
+      y: 460
+      w: 190
+      h: 65
+      color: "violet"
+      sourceId: "Example.x-storymap.n6"
+    - id: "n7"
+      label: "故事 D"
+      kind: "sticky"
+      x: 995
+      y: 460
+      w: 190
+      h: 65
+      color: "violet"
+      sourceId: "Example.x-storymap.n7"
+  edges: []
+  groups:
+    - id: "release1"
+      label: "Release 1 · 最小任务"
+      kind: "boundary"
+      x: 70
+      y: 260
+      w: 1140
+      h: 135
       color: "teal"
-  groups: []
+    - id: "release2"
+      label: "Release 2 · 完整分析"
+      kind: "boundary"
+      x: 70
+      y: 425
+      w: 1140
+      h: 135
+      color: "violet"
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · 用户故事地图｜活动与发布 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜用户故事地图｜活动与发布"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

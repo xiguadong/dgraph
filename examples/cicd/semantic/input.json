@@ -6,55 +6,56 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-cicd"
+      "kind": "semantic",
+      "example": "x-cicd"
     }
   ],
   "selection": {
+    "layout": "cicd",
     "nodes": [
       {
         "id": "n0",
         "label": "源码提交",
         "kind": "block",
         "x": 45,
-        "y": 290,
+        "y": 265,
         "w": 240,
         "h": 105,
-        "color": "gray",
-        "sourceId": "Lesson2.x-cicd.n0"
+        "color": "blue",
+        "sourceId": "Example.x-cicd.n0"
       },
       {
         "id": "n1",
         "label": "构建与测试",
         "kind": "block",
         "x": 350,
-        "y": 290,
+        "y": 265,
         "w": 240,
         "h": 105,
-        "color": "blue",
-        "sourceId": "Lesson2.x-cicd.n1"
+        "color": "teal",
+        "sourceId": "Example.x-cicd.n1"
       },
       {
         "id": "n2",
         "label": "制品发布",
         "kind": "block",
         "x": 655,
-        "y": 290,
+        "y": 265,
         "w": 240,
         "h": 105,
         "color": "amber",
-        "sourceId": "Lesson2.x-cicd.n2"
+        "sourceId": "Example.x-cicd.n2"
       },
       {
         "id": "n3",
         "label": "部署验证",
         "kind": "block",
         "x": 960,
-        "y": 290,
+        "y": 265,
         "w": 240,
         "h": 105,
         "color": "violet",
-        "sourceId": "Lesson2.x-cicd.n3"
+        "sourceId": "Example.x-cicd.n3"
       }
     ],
     "edges": [
@@ -66,7 +67,7 @@
         "label": "builds",
         "labelPosition": [
           293.5,
-          255
+          230
         ]
       },
       {
@@ -77,7 +78,7 @@
         "label": "produces",
         "labelPosition": [
           590.5,
-          255
+          230
         ]
       },
       {
@@ -88,7 +89,7 @@
         "label": "publishes",
         "labelPosition": [
           891.5,
-          255
+          230
         ]
       }
     ],
@@ -96,18 +97,21 @@
     "matrices": [],
     "charts": [],
     "timelines": [],
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
     "annotations": [
       {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · CI/CD｜构建、关口与发布 · 统一 CanSat／dgraph 教学示例"
+        "x": 70,
+        "y": 520,
+        "text": "质量关口：tests / signature / approval"
       }
     ]
   },
   "presentation": {
     "title": "CanSat CS-1｜CI/CD｜构建、关口与发布",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

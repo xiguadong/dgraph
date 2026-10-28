@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "internal-block"
+layout: "internal-block"
 nodes:
   - id: "power"
     label: "电源 : Power"
@@ -150,6 +151,9 @@ groups:
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 200
     y: 620

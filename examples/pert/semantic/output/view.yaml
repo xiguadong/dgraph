@@ -3,71 +3,82 @@ type: "pert"
 intent:
   question: "Which dependencies and paths determine project duration?"
 sources:
-  - kind: "lesson"
-    figure: "pm-pert"
+  - kind: "semantic"
+    example: "pm-pert"
 selection:
+  layout: "pert"
   nodes:
     - id: "n0"
       label: "需求基线"
       kind: "block"
       x: 45
-      y: 290
+      y: 280
       w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.pm-pert.n0"
+      h: 110
+      color: "blue"
+      sourceId: "Example.pm-pert.n0"
+      compartment: "ES / EF · 工期"
     - id: "n1"
       label: "架构设计"
       kind: "block"
       x: 350
-      y: 290
+      y: 280
       w: 240
-      h: 105
-      color: "blue"
-      sourceId: "Lesson2.pm-pert.n1"
+      h: 110
+      color: "teal"
+      sourceId: "Example.pm-pert.n1"
+      compartment: "ES / EF · 工期"
     - id: "n2"
       label: "详细设计"
       kind: "block"
       x: 655
-      y: 290
+      y: 280
       w: 240
-      h: 105
+      h: 110
       color: "amber"
-      sourceId: "Lesson2.pm-pert.n2"
+      sourceId: "Example.pm-pert.n2"
+      compartment: "ES / EF · 工期"
     - id: "n3"
       label: "设计评审"
       kind: "block"
       x: 960
-      y: 290
+      y: 280
       w: 240
-      h: 105
+      h: 110
       color: "violet"
-      sourceId: "Lesson2.pm-pert.n3"
+      sourceId: "Example.pm-pert.n3"
+      compartment: "ES / EF · 工期"
   edges:
     - source: "n0"
       target: "n1"
       kind: "flow"
-      color: "teal"
+      color: "red"
+      label: "关键路径"
     - source: "n1"
       target: "n2"
       kind: "flow"
-      color: "teal"
+      color: "red"
+      label: "关键路径"
     - source: "n2"
       target: "n3"
       kind: "flow"
-      color: "teal"
+      color: "red"
+      label: "关键路径"
   groups: []
   matrices: []
   charts: []
   timelines: []
+  qfd: null
+  gantt: null
+  faultTree: null
   annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · PERT｜依赖与关键路径 · 统一 CanSat／dgraph 教学示例"
+    - x: 65
+      y: 540
+      text: "红色 = 关键路径 · 节点内显示最早开始 / 完成与工期"
 presentation:
   title: "CanSat CS-1｜PERT｜依赖与关键路径"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

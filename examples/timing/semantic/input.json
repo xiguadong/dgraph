@@ -6,11 +6,12 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "uml-timing"
+      "kind": "semantic",
+      "example": "uml-timing"
     }
   ],
   "selection": {
+    "layout": "timing",
     "nodes": [
       {
         "id": "n0",
@@ -21,7 +22,7 @@
         "w": 250,
         "h": 65,
         "color": "amber",
-        "sourceId": "Lesson2.uml-timing.n0"
+        "sourceId": "Example.uml-timing.n0"
       }
     ],
     "edges": [],
@@ -43,7 +44,7 @@
             "start": 0,
             "end": 45,
             "color": "blue",
-            "sourceId": "Lesson2.uml-timing.row0"
+            "sourceId": "Example.uml-timing.row0"
           },
           {
             "id": "row1",
@@ -51,7 +52,7 @@
             "start": 14,
             "end": 59,
             "color": "teal",
-            "sourceId": "Lesson2.uml-timing.row1"
+            "sourceId": "Example.uml-timing.row1"
           },
           {
             "id": "row2",
@@ -59,7 +60,7 @@
             "start": 28,
             "end": 73,
             "color": "amber",
-            "sourceId": "Lesson2.uml-timing.row2"
+            "sourceId": "Example.uml-timing.row2"
           },
           {
             "id": "row3",
@@ -67,7 +68,7 @@
             "start": 42,
             "end": 87,
             "color": "violet",
-            "sourceId": "Lesson2.uml-timing.row3"
+            "sourceId": "Example.uml-timing.row3"
           }
         ],
         "markers": [
@@ -78,18 +79,21 @@
         ]
       }
     ],
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
     "annotations": [
       {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · UML｜时序图与时间约束 · 统一 CanSat／dgraph 教学示例"
+        "x": 320,
+        "y": 565,
+        "text": "0 ms          100 ms          200 ms          300 ms          500 ms"
       }
     ]
   },
   "presentation": {
     "title": "CanSat CS-1｜UML｜时序图与时间约束",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

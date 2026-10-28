@@ -1,60 +1,68 @@
 schema: "diagram-ir/v1"
 type: "event-storming"
+layout: "event-storming"
 nodes:
   - id: "n0"
     label: "发射命令"
-    kind: "block"
+    kind: "sticky"
     x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.x-eventstorm.n0"
+    y: 280
+    w: 245
+    h: 110
+    color: "blue"
+    sourceId: "Example.x-eventstorm.n0"
+    compartment: "command / event / policy"
   - id: "n1"
     label: "已进入下降"
-    kind: "block"
+    kind: "sticky"
     x: 350
-    y: 290
-    w: 240
-    h: 105
-    color: "blue"
-    sourceId: "Lesson2.x-eventstorm.n1"
+    y: 280
+    w: 245
+    h: 110
+    color: "amber"
+    sourceId: "Example.x-eventstorm.n1"
+    compartment: "command / event / policy"
   - id: "n2"
     label: "遥测已生成"
-    kind: "block"
+    kind: "sticky"
     x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
-    sourceId: "Lesson2.x-eventstorm.n2"
+    y: 280
+    w: 245
+    h: 110
+    color: "teal"
+    sourceId: "Example.x-eventstorm.n2"
+    compartment: "command / event / policy"
   - id: "n3"
     label: "地面已接收"
-    kind: "block"
+    kind: "sticky"
     x: 960
-    y: 290
-    w: 240
-    h: 105
+    y: 280
+    w: 245
+    h: 110
     color: "violet"
-    sourceId: "Lesson2.x-eventstorm.n3"
+    sourceId: "Example.x-eventstorm.n3"
+    compartment: "command / event / policy"
 edges:
   - source: "n0"
     target: "n1"
     kind: "flow"
     color: "teal"
+    label: "触发"
   - source: "n1"
     target: "n2"
     kind: "flow"
     color: "teal"
+    label: "产生"
   - source: "n2"
     target: "n3"
     kind: "flow"
     color: "teal"
+    label: "通知"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · 事件风暴｜业务事件链 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

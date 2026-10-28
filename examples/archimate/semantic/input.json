@@ -6,55 +6,45 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-archimate"
+      "kind": "semantic",
+      "example": "x-archimate"
     }
   ],
   "selection": {
+    "layout": "archimate",
     "nodes": [
       {
         "id": "n0",
         "label": "探空业务服务",
         "kind": "block",
-        "x": 340,
-        "y": 130,
-        "w": 600,
-        "h": 78,
-        "color": "blue",
-        "sourceId": "Lesson2.x-archimate.n0"
+        "x": 430,
+        "y": 160,
+        "w": 420,
+        "h": 70,
+        "color": "amber",
+        "sourceId": "Example.x-archimate.n0"
       },
       {
         "id": "n1",
         "label": "遥测应用服务",
         "kind": "block",
-        "x": 340,
-        "y": 255,
-        "w": 600,
-        "h": 78,
+        "x": 430,
+        "y": 325,
+        "w": 420,
+        "h": 70,
         "color": "teal",
-        "sourceId": "Lesson2.x-archimate.n1"
+        "sourceId": "Example.x-archimate.n1"
       },
       {
         "id": "n2",
-        "label": "飞控软件",
-        "kind": "block",
-        "x": 340,
-        "y": 380,
-        "w": 600,
-        "h": 78,
-        "color": "amber",
-        "sourceId": "Lesson2.x-archimate.n2"
-      },
-      {
-        "id": "n3",
-        "label": "嵌入式节点",
-        "kind": "block",
-        "x": 340,
-        "y": 505,
-        "w": 600,
-        "h": 78,
-        "color": "violet",
-        "sourceId": "Lesson2.x-archimate.n3"
+        "label": "飞控软件 + 嵌入式节点",
+        "kind": "node3d",
+        "x": 430,
+        "y": 490,
+        "w": 420,
+        "h": 70,
+        "color": "blue",
+        "sourceId": "Example.x-archimate.n2"
       }
     ],
     "edges": [
@@ -62,37 +52,61 @@
         "source": "n0",
         "target": "n1",
         "kind": "dependency",
-        "color": "blue"
+        "color": "teal",
+        "label": "realizes"
       },
       {
         "source": "n1",
         "target": "n2",
         "kind": "dependency",
+        "color": "teal",
+        "label": "hosted by"
+      }
+    ],
+    "groups": [
+      {
+        "id": "layer0",
+        "label": "业务层",
+        "kind": "boundary",
+        "x": 100,
+        "y": 130,
+        "w": 1080,
+        "h": 135,
         "color": "blue"
       },
       {
-        "source": "n2",
-        "target": "n3",
-        "kind": "dependency",
-        "color": "blue"
+        "id": "layer1",
+        "label": "应用层",
+        "kind": "boundary",
+        "x": 100,
+        "y": 295,
+        "w": 1080,
+        "h": 135,
+        "color": "teal"
+      },
+      {
+        "id": "layer2",
+        "label": "技术层",
+        "kind": "boundary",
+        "x": 100,
+        "y": 460,
+        "w": 1080,
+        "h": 135,
+        "color": "amber"
       }
     ],
-    "groups": [],
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · ArchiMate｜业务—应用—技术 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜ArchiMate｜业务—应用—技术",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

@@ -3,83 +3,87 @@ type: "c4-container"
 intent:
   question: "Which deployable containers form the software system?"
 sources:
-  - kind: "lesson"
-    figure: "x-c4-container"
+  - kind: "semantic"
+    example: "x-c4-container"
 selection:
+  layout: "c4-container"
   nodes:
     - id: "n0"
       label: "飞控固件"
-      kind: "block"
-      x: 45
-      y: 290
-      w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.x-c4-container.n0"
-    - id: "n1"
-      label: "遥测服务"
-      kind: "block"
-      x: 350
-      y: 290
-      w: 240
+      kind: "component"
+      x: 95
+      y: 280
+      w: 250
       h: 105
       color: "blue"
-      sourceId: "Lesson2.x-c4-container.n1"
+      sourceId: "Example.x-c4-container.n0"
+      compartment: "deployable container"
+    - id: "n1"
+      label: "遥测服务"
+      kind: "component"
+      x: 390
+      y: 280
+      w: 250
+      h: 105
+      color: "teal"
+      sourceId: "Example.x-c4-container.n1"
+      compartment: "deployable container"
     - id: "n2"
       label: "地面 API"
-      kind: "block"
-      x: 655
-      y: 290
-      w: 240
+      kind: "component"
+      x: 685
+      y: 280
+      w: 250
       h: 105
       color: "amber"
-      sourceId: "Lesson2.x-c4-container.n2"
+      sourceId: "Example.x-c4-container.n2"
+      compartment: "deployable container"
     - id: "n3"
       label: "数据存储"
-      kind: "block"
-      x: 960
-      y: 290
-      w: 240
+      kind: "component"
+      x: 980
+      y: 280
+      w: 250
       h: 105
       color: "violet"
-      sourceId: "Lesson2.x-c4-container.n3"
+      sourceId: "Example.x-c4-container.n3"
+      compartment: "deployable container"
   edges:
     - source: "n0"
       target: "n1"
       kind: "flow"
       color: "teal"
-      label: "builds"
-      labelPosition:
-        - 293.5
-        - 255
+      label: "UART"
     - source: "n1"
       target: "n2"
       kind: "flow"
       color: "teal"
-      label: "produces"
-      labelPosition:
-        - 590.5
-        - 255
+      label: "433 MHz"
     - source: "n2"
       target: "n3"
       kind: "flow"
       color: "teal"
-      label: "publishes"
-      labelPosition:
-        - 891.5
-        - 255
-  groups: []
+      label: "SQL / files"
+  groups:
+    - id: "system"
+      label: "CS-1 软件系统"
+      kind: "boundary"
+      x: 70
+      y: 145
+      w: 1140
+      h: 420
+      color: "blue"
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · C4 Container｜可部署容器 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜C4 Container｜可部署容器"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "burndown"
+layout: "burndown"
 nodes:
   - id: "n0"
     label: "计划剩余"
@@ -9,7 +10,7 @@ nodes:
     w: 240
     h: 65
     color: "blue"
-    sourceId: "Lesson2.pm-burndown.n0"
+    sourceId: "Example.pm-burndown.n0"
   - id: "n1"
     label: "实际剩余"
     kind: "block"
@@ -18,7 +19,7 @@ nodes:
     w: 240
     h: 65
     color: "teal"
-    sourceId: "Lesson2.pm-burndown.n1"
+    sourceId: "Example.pm-burndown.n1"
 edges: []
 groups: []
 matrices: []
@@ -55,7 +56,7 @@ charts:
           - - 100
 - 12
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · 燃尽图｜剩余工作趋势 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

@@ -1,6 +1,6 @@
 {
  "schema":"diagram-view/v1","type":"parametric","intent":{"question":"总质量约束如何绑定各子系统质量参数，并证明不超过 350 g？"},"sources":[{"kind":"sysml","model":"CanSat"}],
- "presentation":{"title":"CanSat CS-1｜参数图 Parametric","subtitle":"质量预算与参数绑定","theme":"lesson"},
+ "presentation":{"title":"CanSat CS-1｜参数图 Parametric","subtitle":"质量预算与参数绑定","theme":"dgraph"},
  "selection":{
   "nodes":[
    {"id":"constraint","label":"质量预算 MassBudget","kind":"constraint","stereotype":"constraint","color":"amber","compartment":"m_total = Σ m_i ≤ 0.35 kg","x":420,"y":275,"w":440,"h":170,"sourceId":"CanSat.MassBudget"},

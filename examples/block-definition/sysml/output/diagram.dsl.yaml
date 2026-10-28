@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "block-definition"
+layout: "block-definition"
 nodes:
   - id: "cs1"
     label: "CS-1 探空仪"
@@ -86,6 +87,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 48
     y: 610

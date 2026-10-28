@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "gantt"
+layout: "gantt"
 nodes:
   - id: "n0"
     label: "里程碑 / 验收点"
@@ -9,7 +10,7 @@ nodes:
     w: 250
     h: 65
     color: "amber"
-    sourceId: "Lesson2.pm-gantt.n0"
+    sourceId: "Example.pm-gantt.n0"
 edges: []
 groups: []
 matrices: []
@@ -27,29 +28,84 @@ timelines:
         start: 0
         end: 45
         color: "blue"
-        sourceId: "Lesson2.pm-gantt.row0"
+        sourceId: "Example.pm-gantt.row0"
       - id: "row1"
         label: "架构设计"
         start: 14
         end: 59
         color: "teal"
-        sourceId: "Lesson2.pm-gantt.row1"
+        sourceId: "Example.pm-gantt.row1"
       - id: "row2"
         label: "采购制造"
         start: 28
         end: 73
         color: "amber"
-        sourceId: "Lesson2.pm-gantt.row2"
+        sourceId: "Example.pm-gantt.row2"
       - id: "row3"
         label: "集成验证"
         start: 42
         end: 87
         color: "violet"
-        sourceId: "Lesson2.pm-gantt.row3"
+        sourceId: "Example.pm-gantt.row3"
     markers:
       - position: 58
         label: "PDR / 评审"
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · Gantt｜任务、工期与里程碑 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt:
+  ticks:
+    - "W1"
+    - "W3"
+    - "W5"
+    - "W7"
+    - "W9"
+    - "W11"
+  tasks:
+    - id: "requirements"
+      label: "需求与任务分析"
+      start: 0
+      end: 2
+      color: "blue"
+      dependencies: []
+    - id: "design"
+      label: "架构 / 详细设计"
+      start: 2
+      end: 5
+      color: "blue"
+      dependencies:
+        - "requirements"
+    - id: "manufacture"
+      label: "采购与制造"
+      start: 4
+      end: 8
+      color: "amber"
+      dependencies:
+        - "design"
+    - id: "integration"
+      label: "子系统集成"
+      start: 8
+      end: 10
+      color: "teal"
+      dependencies:
+        - "manufacture"
+    - id: "verification"
+      label: "试验与验证"
+      start: 10
+      end: 12
+      color: "violet"
+      dependencies:
+        - "integration"
+  milestones:
+    - id: "pdr"
+      label: "PDR"
+      at: 4
+    - id: "cdr"
+      label: "CDR"
+      at: 6
+    - id: "trr"
+      label: "TRR"
+      at: 10
+    - id: "review"
+      label: "评审"
+      at: 12
+faultTree: null
+annotations: []

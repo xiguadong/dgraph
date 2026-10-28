@@ -1,5 +1,6 @@
 schema: "diagram-ir/v1"
 type: "parametric"
+layout: "parametric"
 nodes:
   - id: "constraint"
     label: "质量预算 MassBudget"
@@ -150,6 +151,9 @@ groups: []
 matrices: []
 charts: []
 timelines: []
+qfd: null
+gantt: null
+faultTree: null
 annotations:
   - x: 420
     y: 540

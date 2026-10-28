@@ -6,11 +6,12 @@
   },
   "sources": [
     {
-      "kind": "lesson",
-      "figure": "x-flame"
+      "kind": "semantic",
+      "example": "x-flame"
     }
   ],
   "selection": {
+    "layout": "flame-graph",
     "nodes": [
       {
         "id": "n0",
@@ -21,7 +22,7 @@
         "w": 900,
         "h": 70,
         "color": "blue",
-        "sourceId": "Lesson2.x-flame.n0",
+        "sourceId": "Example.x-flame.n0",
         "compartment": "100% total"
       },
       {
@@ -33,7 +34,7 @@
         "w": 700,
         "h": 70,
         "color": "teal",
-        "sourceId": "Lesson2.x-flame.n1",
+        "sourceId": "Example.x-flame.n1",
         "compartment": "70% layout"
       },
       {
@@ -45,7 +46,7 @@
         "w": 500,
         "h": 70,
         "color": "amber",
-        "sourceId": "Lesson2.x-flame.n2",
+        "sourceId": "Example.x-flame.n2",
         "compartment": "45% routing"
       },
       {
@@ -57,7 +58,7 @@
         "w": 300,
         "h": 70,
         "color": "violet",
-        "sourceId": "Lesson2.x-flame.n3",
+        "sourceId": "Example.x-flame.n3",
         "compartment": "25% text"
       }
     ],
@@ -66,18 +67,15 @@
     "matrices": [],
     "charts": [],
     "timelines": [],
-    "annotations": [
-      {
-        "x": 50,
-        "y": 645,
-        "text": "lesson_2 图鉴扩展 · 火焰图｜栈帧耗时 · 统一 CanSat／dgraph 教学示例"
-      }
-    ]
+    "qfd": null,
+    "gantt": null,
+    "faultTree": null,
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜火焰图｜栈帧耗时",
-    "subtitle": "dgraph · lesson_2 diagram atlas",
-    "theme": "lesson"
+    "subtitle": "dgraph · engineering diagram",
+    "theme": "dgraph"
   },
   "outputs": {
     "directory": "/absolute/output",

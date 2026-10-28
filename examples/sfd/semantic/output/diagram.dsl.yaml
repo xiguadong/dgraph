@@ -1,60 +1,64 @@
 schema: "diagram-ir/v1"
 type: "sfd"
+layout: "sfd"
 nodes:
   - id: "n0"
     label: "电池能量"
-    kind: "block"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
-    color: "gray"
-    sourceId: "Lesson2.se-sfd.n0"
+    kind: "stock"
+    x: 450
+    y: 275
+    w: 340
+    h: 120
+    color: "blue"
+    sourceId: "Example.se-sfd.n0"
   - id: "n1"
     label: "放电速率"
-    kind: "block"
-    x: 350
+    kind: "gate"
+    x: 75
     y: 290
-    w: 240
-    h: 105
-    color: "blue"
-    sourceId: "Lesson2.se-sfd.n1"
+    w: 180
+    h: 80
+    color: "amber"
+    sourceId: "Example.se-sfd.n1"
   - id: "n2"
     label: "剩余任务时间"
     kind: "block"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
-    sourceId: "Lesson2.se-sfd.n2"
+    x: 930
+    y: 275
+    w: 250
+    h: 100
+    color: "violet"
+    sourceId: "Example.se-sfd.n2"
   - id: "n3"
     label: "采样负载"
     kind: "block"
-    x: 960
-    y: 290
+    x: 500
+    y: 490
     w: 240
-    h: 105
-    color: "violet"
-    sourceId: "Lesson2.se-sfd.n3"
+    h: 75
+    color: "teal"
+    sourceId: "Example.se-sfd.n3"
 edges:
-  - source: "n0"
-    target: "n1"
+  - source: "n1"
+    target: "n0"
     kind: "flow"
     color: "teal"
-  - source: "n1"
+    label: "能量流"
+  - source: "n0"
     target: "n2"
     kind: "flow"
     color: "teal"
-  - source: "n2"
-    target: "n3"
-    kind: "flow"
+    label: "消耗"
+  - source: "n3"
+    target: "n1"
+    kind: "dependency"
     color: "teal"
+    label: "影响速率"
 groups: []
 matrices: []
 charts: []
 timelines: []
-annotations:
-  - x: 50
-    y: 645
-    text: "lesson_2 图鉴扩展 · SFD｜存量与流量 · 统一 CanSat／dgraph 教学示例"
+qfd: null
+gantt: null
+faultTree: null
+annotations: []

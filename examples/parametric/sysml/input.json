@@ -13,7 +13,7 @@
   "presentation": {
     "title": "CanSat CS-1｜参数图 Parametric",
     "subtitle": "质量预算与参数绑定",
-    "theme": "lesson"
+    "theme": "dgraph"
   },
   "selection": {
     "nodes": [

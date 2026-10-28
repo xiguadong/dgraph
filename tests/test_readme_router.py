@@ -28,7 +28,7 @@ class ReadmeRouterTests(unittest.TestCase):
 
     def test_legacy_delivery_sections_are_removed(self):
         text = (Path(__file__).resolve().parents[1] / "README.md").read_text()
-        for heading in ("## 九视图交付", "## lesson_2 扩展图鉴", "## 验证", "## 当前边界"):
+        for heading in ("## 九视图交付", "## 扩展图鉴交付", "## 验证", "## 当前边界"):
             self.assertNotIn(heading, text)
 
 

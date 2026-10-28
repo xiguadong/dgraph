@@ -3,71 +3,79 @@ type: "object"
 intent:
   question: "Which instances and links form an object snapshot?"
 sources:
-  - kind: "lesson"
-    figure: "uml-object"
+  - kind: "semantic"
+    example: "uml-object"
 selection:
+  layout: "object"
   nodes:
     - id: "n0"
       label: "imu1 : Sensor"
-      kind: "block"
-      x: 45
-      y: 290
-      w: 240
-      h: 105
-      color: "gray"
-      sourceId: "Lesson2.uml-object.n0"
+      kind: "object"
+      x: 80
+      y: 285
+      w: 250
+      h: 100
+      color: "blue"
+      sourceId: "Example.uml-object.n0"
+      compartment: "instance snapshot"
     - id: "n1"
       label: "frame42 : Frame"
-      kind: "block"
-      x: 350
-      y: 290
-      w: 240
-      h: 105
-      color: "blue"
-      sourceId: "Lesson2.uml-object.n1"
+      kind: "object"
+      x: 385
+      y: 285
+      w: 250
+      h: 100
+      color: "teal"
+      sourceId: "Example.uml-object.n1"
+      compartment: "instance snapshot"
     - id: "n2"
       label: "flight7 : Mission"
-      kind: "block"
-      x: 655
-      y: 290
-      w: 240
-      h: 105
+      kind: "object"
+      x: 690
+      y: 285
+      w: 250
+      h: 100
       color: "amber"
-      sourceId: "Lesson2.uml-object.n2"
+      sourceId: "Example.uml-object.n2"
+      compartment: "instance snapshot"
     - id: "n3"
       label: "gs1 : GroundStation"
-      kind: "block"
-      x: 960
-      y: 290
-      w: 240
-      h: 105
+      kind: "object"
+      x: 995
+      y: 285
+      w: 250
+      h: 100
       color: "violet"
-      sourceId: "Lesson2.uml-object.n3"
+      sourceId: "Example.uml-object.n3"
+      compartment: "instance snapshot"
   edges:
     - source: "n0"
       target: "n1"
-      kind: "flow"
+      kind: "association"
       color: "teal"
+      label: "samples"
     - source: "n1"
       target: "n2"
-      kind: "flow"
+      kind: "association"
       color: "teal"
+      label: "owns"
     - source: "n2"
       target: "n3"
-      kind: "flow"
+      kind: "association"
       color: "teal"
+      label: "receives"
   groups: []
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · UML｜对象图 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜UML｜对象图"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

@@ -3,19 +3,20 @@ type: "context"
 intent:
   question: "Where is the system boundary and which external interfaces cross it?"
 sources:
-  - kind: "lesson"
-    figure: "se-context"
+  - kind: "semantic"
+    example: "se-context"
 selection:
+  layout: "context"
   nodes:
     - id: "n0"
       label: "发射操作员"
-      kind: "block"
+      kind: "actor"
       x: 65
       y: 260
       w: 200
       h: 90
       color: "gray"
-      sourceId: "Lesson2.se-context.n0"
+      sourceId: "Example.se-context.n0"
     - id: "n1"
       label: "CS-1 探空仪"
       kind: "block"
@@ -24,7 +25,7 @@ selection:
       w: 280
       h: 110
       color: "blue"
-      sourceId: "Lesson2.se-context.n1"
+      sourceId: "Example.se-context.n1"
     - id: "n2"
       label: "地面站"
       kind: "block"
@@ -33,7 +34,7 @@ selection:
       w: 200
       h: 90
       color: "teal"
-      sourceId: "Lesson2.se-context.n2"
+      sourceId: "Example.se-context.n2"
     - id: "n3"
       label: "科学用户"
       kind: "block"
@@ -42,18 +43,21 @@ selection:
       w: 280
       h: 70
       color: "violet"
-      sourceId: "Lesson2.se-context.n3"
+      sourceId: "Example.se-context.n3"
   edges:
     - source: "n0"
       target: "n1"
       kind: "association"
+      color: "teal"
     - source: "n1"
       target: "n2"
       kind: "flow"
+      color: "teal"
       label: "interface"
     - source: "n3"
       target: "n1"
       kind: "dependency"
+      color: "teal"
   groups:
     - id: "boundary"
       label: "CS-1 探空仪"
@@ -66,14 +70,14 @@ selection:
   matrices: []
   charts: []
   timelines: []
-  annotations:
-    - x: 50
-      y: 645
-      text: "lesson_2 图鉴扩展 · 经典 SE｜系统上下文图 · 统一 CanSat／dgraph 教学示例"
+  qfd: null
+  gantt: null
+  faultTree: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜经典 SE｜系统上下文图"
-  subtitle: "dgraph · lesson_2 diagram atlas"
-  theme: "lesson"
+  subtitle: "dgraph · engineering diagram"
+  theme: "dgraph"
   width: 1280
   height: 720
 outputs:

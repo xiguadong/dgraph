@@ -12,12 +12,16 @@ def to_ir(spec):
     return {
         "schema": "diagram-ir/v1",
         "type": spec["type"],
+        "layout": selection.get("layout", spec["type"]),
         "nodes": selection["nodes"],
         "edges": selection.get("edges", []),
         "groups": selection.get("groups", []),
         "matrices": selection.get("matrices", []),
         "charts": selection.get("charts", []),
         "timelines": selection.get("timelines", []),
+        "qfd": selection.get("qfd"),
+        "gantt": selection.get("gantt"),
+        "faultTree": selection.get("faultTree"),
         "annotations": selection.get("annotations", []),
     }
 

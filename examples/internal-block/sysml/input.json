@@ -13,7 +13,7 @@
   "presentation": {
     "title": "CanSat CS-1｜内部块图 IBD",
     "subtitle": "系统边界、部件、端口与接口",
-    "theme": "lesson"
+    "theme": "dgraph"
   },
   "selection": {
     "groups": [

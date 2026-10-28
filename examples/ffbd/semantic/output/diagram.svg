@@ -1,20 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="ffbd">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜FFBD｜功能流与分支</text>
-<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · lesson_2 diagram atlas</text>
+<text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<path d="M 285,342.5 L 350,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 590,342.5 L 655,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 895,342.5 L 960,342.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Lesson2.se-ffbd.n0" data-kind="block"><title>自检</title><rect x="45" y="290" width="240" height="105" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="165.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">自检</text></g>
-<g data-node-id="n1" data-source-id="Lesson2.se-ffbd.n1" data-kind="block"><title>采集数据</title><rect x="350" y="290" width="240" height="105" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="470.0" y="347.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">采集数据</text></g>
-<g data-node-id="n2" data-source-id="Lesson2.se-ffbd.n2" data-kind="block"><title>打包遥测</title><rect x="655" y="290" width="240" height="105" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="775.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">打包遥测</text></g>
-<g data-node-id="n3" data-source-id="Lesson2.se-ffbd.n3" data-kind="block"><title>下传数据</title><rect x="960" y="290" width="240" height="105" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1080.0" y="347.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">下传数据</text></g>
+<g data-group-id="parallel"><rect x="350" y="175" width="610" height="330" rx="16" fill="#e4f3ef" fill-opacity="0.35" stroke="#0f766e" stroke-width="1.8"/><text x="366" y="203" font-size="15" fill="#0f766e" text-anchor="start" font-weight="700">并行功能</text></g>
+<path d="M 255,311.5131578947368 L 420,274.60526315789474" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 255,359.86842105263156 L 420,398.94736842105266" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 640,247.75510204081633 L 690,246.73469387755102" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 640,422.7551020408163 L 690,421.734693877551" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 860,267.5 L 1010,307.20588235294116" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 860,398.75 L 1010,361.25" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<g data-node-id="n0" data-source-id="Example.se-ffbd.n0" data-kind="block"><title>自检</title><rect x="45" y="290" width="210" height="90" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="150.0" y="340.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">自检</text></g>
+<g data-node-id="n1" data-source-id="Example.se-ffbd.n1" data-kind="block"><title>采集数据</title><rect x="420" y="210" width="220" height="80" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="530.0" y="255.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">采集数据</text></g>
+<g data-node-id="n2" data-source-id="Example.se-ffbd.n2" data-kind="block"><title>打包遥测</title><rect x="420" y="385" width="220" height="80" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="530.0" y="430.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">打包遥测</text></g>
+<g data-node-id="n3" data-source-id="Example.se-ffbd.n3" data-kind="block"><title>下传数据</title><rect x="1010" y="290" width="210" height="90" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1115.0" y="340.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">下传数据</text></g>
+<g data-node-id="n4" data-source-id="Example.se-ffbd.n4" data-kind="decision"><title>并行开始</title><polygon points="775.0,210 860,245.0 775.0,280 690,245.0" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="775.0" y="250.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">并行开始</text></g>
+<g data-node-id="n5" data-source-id="Example.se-ffbd.n5" data-kind="decision"><title>并行汇合</title><polygon points="775.0,385 860,420.0 775.0,455 690,420.0" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="775.0" y="425.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">并行汇合</text></g>
 
 
 
-<text x="50" y="645" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">lesson_2 图鉴扩展 · FFBD｜功能流与分支 · 统一 CanSat／dgraph 教学示例</text>
+
+
+
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">How do functions flow, iterate, and run in parallel?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>
