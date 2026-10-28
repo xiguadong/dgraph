@@ -73,6 +73,11 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜DoDAF CV-2｜能力分类"

@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张UML｜对象图，回答“某一时刻有哪些对象实例和链接？”
 
-- imu1 : Sensor；
-- frame42 : Frame；
-- flight7 : Mission；
-- gs1 : GroundStation；
+图上的对象：
+- n0：imu1 : Sensor（来源 Example.uml-object.n0）。
+- n1：frame42 : Frame（来源 Example.uml-object.n1）。
+- n2：flight7 : Mission（来源 Example.uml-object.n2）。
+- n3：gs1 : GroundStation（来源 Example.uml-object.n3）。
+有依据的关系：
+- n0 → n1：association samples。
+- n1 → n2：association owns。
+- n2 → n3：association receives。
 
 保持来源标识，缺少依据的关系不要补充。
 

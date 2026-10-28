@@ -18,11 +18,11 @@ class AtlasTests(unittest.TestCase):
                     svg = Path(result["artifacts"]["svg"])
                     self.assertGreater(svg.stat().st_size, 2500)
                     self.assertTrue(inspect_svg(svg)["ok"])
-                    self.assertIn("Example.", svg.read_text())
+                    self.assertIn("data-source-id=", svg.read_text())
 
     def test_specialized_figures_use_their_own_primitives(self):
         with tempfile.TemporaryDirectory() as tmp:
-            cases = {"n2": "data-n2-link", "qfd": "data-qfd", "risk-matrix": "data-matrix", "burndown": "data-chart-series", "tradespace": "data-chart-series", "gantt": "data-gantt-task", "delivery": "publishes"}
+            cases = {"n2": "data-n2-link", "qfd": "data-qfd", "risk-matrix": "data-risk-matrix", "burndown": "data-chart-series", "tradespace": "data-pareto-front", "gantt": "data-gantt-task", "dmn": "data-dmn-rule", "timing": "data-timing-segment", "pert": "data-pert-dependency", "delivery": "publishes"}
             for kind, marker in cases.items():
                 entry = next(item for item in ATLAS_ENTRIES if item["type"] == kind)
                 svg = Path(render_diagram(build_spec(entry, tmp))["artifacts"]["svg"]).read_text()

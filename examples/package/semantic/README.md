@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张包图，回答“模型如何分包，依赖方向是什么？”
 
-- Common 单位与类型；
-- Requirements 需求与派生；
-- Architecture 结构与接口；
-- Behavior 活动与状态；
+图上的对象：
+- common：Common 单位与类型（来源 CanSat.Common）。
+- req：Requirements 需求与派生（来源 CanSat.Requirements）。
+- arch：Architecture 结构与接口（来源 CanSat.Architecture）。
+- behavior：Behavior 活动与状态（来源 CanSat.Behavior）。
+- verification：Verification 测试与分析（来源 CanSat.Verification）。
+有依据的关系：
+- req → common：dependency «import»。
+- arch → common：dependency «import»。
+- behavior → arch：dependency «use»。
+- behavior → common：dependency «import»。
+- verification → req：dependency «verify»。
+- verification → arch：dependency «test»。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Common 单位与类型、Requirements 需求与派生、Architecture 结构与接口、Behavior 活动与状态。完整输入见 `input.json`。
+示例语义标签：Common 单位与类型、Requirements 需求与派生、Architecture 结构与接口、Behavior 活动与状态、Verification 测试与分析。完整输入见 `input.json`。
 
 ## 如何运行
 

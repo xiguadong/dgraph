@@ -1,5 +1,5 @@
 {
- "schema":"diagram-view/v1","type":"requirements","intent":{"question":"关键需求如何派生、由谁满足，并由哪些验证用例提供证据？"},"sources":[{"kind":"sysml","model":"CanSat"}],
+ "schema":"diagram-view/v1","type":"requirements","intent":{"question":"关键需求如何派生、由谁满足，并由哪些验证用例提供证据？"},"sources":[{"kind":"semantic","example":"lesson2-cansat"}],
  "presentation":{"title":"CanSat CS-1｜需求图 Requirements","subtitle":"派生、满足与验证追溯","theme":"dgraph"},
  "selection":{
   "nodes":[
@@ -10,7 +10,7 @@
    {"id":"power","label":"电池与电源管理","kind":"block","color":"blue","compartment":"10 Wh budget","x":490,"y":420,"w":280,"h":95,"sourceId":"CanSat.Power"},
    {"id":"test01","label":"TC-01 采样率测试","kind":"requirement","stereotype":"testCase","color":"teal","x":925,"y":160,"w":290,"h":85,"sourceId":"CanSat.TC01"},
    {"id":"test04","label":"TC-04 续航试验","kind":"requirement","stereotype":"testCase","color":"teal","x":925,"y":330,"w":290,"h":85,"sourceId":"CanSat.TC04"},
-   {"id":"analysis","label":"AN-01 周期预算分析","kind":"requirement","stereotype":"analysisCase","color":"teal","x":925,"y":500,"w":290,"h":85,"sourceId":"CanSat.AN01"}
+   {"id":"analysis","label":"TC-DR01 采样周期测试","kind":"requirement","stereotype":"testCase","color":"teal","x":925,"y":500,"w":290,"h":85,"sourceId":"CanSat.TCDR01"}
   ],
   "edges":[
    {"source":"dr01","target":"sr01","kind":"derive","color":"amber","label":"«deriveReqt»","points":[[205,500],[205,245]],"labelPosition":[370,290]},

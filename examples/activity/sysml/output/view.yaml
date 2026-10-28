@@ -3,8 +3,8 @@ type: "activity"
 intent:
   question: "CS-1 从自检到遥测下传的活动顺序和低电压分支是什么？"
 sources:
-  - kind: "sysml"
-    model: "CanSat"
+  - kind: "semantic"
+    example: "lesson2-cansat"
 presentation:
   title: "CanSat CS-1｜活动图 Activity"
   subtitle: "动作、判断与控制流"
@@ -147,7 +147,7 @@ selection:
   annotations:
     - x: 55
       y: 630
-      text: "守卫条件留在分支旁；安全模式与正常遥测最终都保留本地数据。"
+      text: "正常遥测与安全心跳均保留本地数据；低电压时降低采样率。"
   groups: []
   matrices: []
   charts: []

@@ -26,7 +26,7 @@ class DomainSemanticTests(unittest.TestCase):
             svg = self.render("gantt", tmp)
             for tick in ("W1", "W3", "W5", "W7", "W9", "W11"):
                 self.assertIn(tick, svg)
-            self.assertIn('data-gantt-dependency="design:manufacture"', svg)
+            self.assertIn('data-gantt-dependency="requirements:manufacture"', svg)
             self.assertIn('data-gantt-milestone="pdr"', svg)
             self.assertIn('data-gantt-milestone="cdr"', svg)
 

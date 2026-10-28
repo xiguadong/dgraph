@@ -14,9 +14,13 @@
 
 不使用 SysML，只根据以下语义画一张ArchiMate｜业务—应用—技术，回答“业务、应用和技术层如何关联？”
 
-- 探空业务服务；
-- 遥测应用服务；
-- 飞控软件 + 嵌入式节点；
+图上的对象：
+- n0：探空业务服务（来源 Example.x-archimate.n0）。
+- n1：遥测应用服务（来源 Example.x-archimate.n1）。
+- n2：飞控软件 + 嵌入式节点（来源 Example.x-archimate.n2）。
+有依据的关系：
+- n0 → n1：dependency realizes。
+- n1 → n2：dependency hosted by。
 
 保持来源标识，缺少依据的关系不要补充。
 

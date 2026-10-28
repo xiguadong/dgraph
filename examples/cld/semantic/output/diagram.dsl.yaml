@@ -5,39 +5,93 @@ nodes:
   - id: "n0"
     label: "采样率"
     kind: "block"
-    x: 520
-    y: 130
-    w: 240
-    h: 75
+    x: 70
+    y: 150
+    w: 170
+    h: 65
     color: "blue"
     sourceId: "Example.se-cld.n0"
   - id: "n1"
-    label: "数据价值"
+    label: "数据量"
     kind: "block"
-    x: 900
-    y: 320
-    w: 240
-    h: 75
+    x: 300
+    y: 150
+    w: 170
+    h: 65
     color: "teal"
     sourceId: "Example.se-cld.n1"
   - id: "n2"
     label: "功耗"
     kind: "block"
-    x: 520
-    y: 500
-    w: 240
-    h: 75
+    x: 530
+    y: 150
+    w: 170
+    h: 65
     color: "amber"
     sourceId: "Example.se-cld.n2"
   - id: "n3"
-    label: "供电时间"
+    label: "电池质量"
     kind: "block"
-    x: 140
-    y: 320
-    w: 240
-    h: 75
+    x: 760
+    y: 150
+    w: 170
+    h: 65
     color: "violet"
     sourceId: "Example.se-cld.n3"
+  - id: "n4"
+    label: "总质量"
+    kind: "block"
+    x: 990
+    y: 150
+    w: 170
+    h: 65
+    color: "gray"
+    sourceId: "Example.se-cld.n4"
+  - id: "n5"
+    label: "下降速度"
+    kind: "block"
+    x: 990
+    y: 370
+    w: 170
+    h: 65
+    color: "blue"
+    sourceId: "Example.se-cld.n5"
+  - id: "n6"
+    label: "振动"
+    kind: "block"
+    x: 760
+    y: 370
+    w: 170
+    h: 65
+    color: "teal"
+    sourceId: "Example.se-cld.n6"
+  - id: "n7"
+    label: "误码率"
+    kind: "block"
+    x: 530
+    y: 370
+    w: 170
+    h: 65
+    color: "amber"
+    sourceId: "Example.se-cld.n7"
+  - id: "n8"
+    label: "重传"
+    kind: "block"
+    x: 300
+    y: 370
+    w: 170
+    h: 65
+    color: "violet"
+    sourceId: "Example.se-cld.n8"
+  - id: "n9"
+    label: "剩余能量"
+    kind: "block"
+    x: 70
+    y: 370
+    w: 170
+    h: 65
+    color: "gray"
+    sourceId: "Example.se-cld.n9"
 edges:
   - source: "n0"
     target: "n1"
@@ -55,10 +109,68 @@ edges:
     color: "teal"
     label: "+"
   - source: "n3"
-    target: "n0"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+  - source: "n4"
+    target: "n5"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+  - source: "n5"
+    target: "n6"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+  - source: "n6"
+    target: "n7"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+  - source: "n7"
+    target: "n8"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+  - source: "n8"
+    target: "n2"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+    points:
+      - - 385
+- 370
+      - - 385
+- 290
+      - - 615
+- 290
+      - - 615
+- 215
+  - source: "n2"
+    target: "n9"
     kind: "flow"
     color: "teal"
     label: "−"
+    points:
+      - - 615
+- 215
+      - - 615
+- 530
+      - - 155
+- 530
+      - - 155
+- 435
+  - source: "n9"
+    target: "n0"
+    kind: "flow"
+    color: "teal"
+    label: "+"
+    points:
+      - - 155
+- 370
+      - - 155
+- 215
 groups: []
 matrices: []
 charts: []
@@ -72,12 +184,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations:
-  - x: 565
-    y: 350
-    text: "B 调节回路"
-    fontSize: 22
-    color: "#b42318"
-  - x: 510
-    y: 380
-    text: "极性与反馈方向必须可读"
+  - x: 450
+    y: 580
+    text: "R：重传增加功耗；B：剩余能量降低触发降采样"

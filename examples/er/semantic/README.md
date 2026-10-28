@@ -14,10 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张ER｜实体与关系，回答“实体、属性和基数如何描述数据？”
 
-- Mission；
-- TelemetryFrame；
-- SensorReading；
-- owns / records；
+图上的对象：
+- n0：Mission（来源 Example.x-er.n0）。
+- n1：TelemetryFrame（来源 Example.x-er.n1）。
+- n2：SensorReading（来源 Example.x-er.n2）。
+- n3：owns / records（来源 Example.x-er.n3）。
+- n4：timestamp / values（来源 Example.x-er.n4）。
+有依据的关系：
+- n0 → n3：association 1。
+- n3 → n1：association N。
+- n1 → n2：association 1 : N。
+- n4 → n1：dependency attributes。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +39,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Mission、TelemetryFrame、SensorReading、owns / records。完整输入见 `input.json`。
+示例语义标签：Mission、TelemetryFrame、SensorReading、owns / records、timestamp / values。完整输入见 `input.json`。
 
 ## 如何运行
 

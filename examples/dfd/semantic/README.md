@@ -14,10 +14,20 @@
 
 不使用 SysML，只根据以下语义画一张DFD｜数据流与存储，回答“数据如何在处理、存储和外部实体之间流动？”
 
-- 传感器；
-- 采样处理；
-- 数据存储；
-- 地面站；
+以 `selection.dfdModel` 为图的语义模型：
+- entities：sensors（传感器）（x=55；y=255）。
+- entities：ground（地面站）（x=1010；y=255）。
+- entities：scientist（科学用户）（x=1010；y=455）。
+- processes：sampling（采样与打包）（x=355；y=255）。
+- processes：routing（遥测路由）（x=665；y=255）。
+- processes：replay（回放数据）（x=710；y=455）。
+- stores：telemetry-log（遥测数据存储）（x=355；y=455）。
+- flows：原始采样（source="sensors"；target="sampling"；points=[[255, 305], [310, 305], [310, 310], [355, 310]]）。
+- flows：遥测帧（source="sampling"；target="routing"；points=[[585, 310], [665, 310]]）。
+- flows：433 MHz 下行（source="routing"；target="ground"；points=[[895, 310], [1010, 305]]）。
+- flows：同步写入（source="sampling"；target="telemetry-log"；points=[[470, 365], [470, 467]]）。
+- flows：存储帧（source="telemetry-log"；target="replay"；points=[[603, 500], [660, 500], [660, 510], [710, 510]]）。
+- flows：回放数据（source="replay"；target="scientist"；points=[[940, 510], [1010, 505]]）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -26,13 +36,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.dfdModel`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：传感器、采样处理、数据存储、地面站。完整输入见 `input.json`。
+示例语义标签：采样与打包、遥测路由、回放数据。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -59,7 +69,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.dfdModel` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="internal-block">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜内部块图 IBD</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">系统边界、部件、端口与接口</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
 <g data-group-id="boundary"><rect x="180" y="135" width="850" height="455" rx="16" fill="#e8f0ff" fill-opacity="0.35" stroke="#2459a6" stroke-width="1.8"/><text x="196" y="163" font-size="15" fill="#2459a6" text-anchor="start" font-weight="700">CS-1 探空仪系统边界</text></g>
-<path d="M 470,270 L 495,270 L 495,455 L 525,455" fill="none" stroke="#a16207" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 470,270 L 495,270 L 495,455 L 525,455" fill="none" stroke="#a16207" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
 <path d="M 635,305 L 635,405" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
 <path d="M 745,455 L 780,455" fill="none" stroke="#6d28d9" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
 <path d="M 980,455 L 1045,455 L 1045,275 L 1080,275" fill="none" stroke="#6d28d9" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>

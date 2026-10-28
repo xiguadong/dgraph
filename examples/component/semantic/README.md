@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张UML｜组件与接口，回答“组件如何通过提供和需要的接口协作？”
 
-- 采样组件；
-- 遥测组件；
-- 存储组件；
-- 地面接收组件；
+图上的对象：
+- n0：gs.ui（来源 Example.uml-component.n0）。
+- n1：gs.telemetry（来源 Example.uml-component.n1）。
+- n2：gs.storage（来源 Example.uml-component.n2）。
+- n3：required-interface（来源 Example.uml-component.n3）。
+- n4：provided-interface（来源 Example.uml-component.n4）。
+- n5：required-interface（来源 Example.uml-component.n5）。
+- n6：provided-interface（来源 Example.uml-component.n6）。
+有依据的关系：
+- n0 → n3：connection 。
+- n4 → n1：connection 。
+- n1 → n5：connection 。
+- n6 → n2：connection 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：采样组件、遥测组件、存储组件、地面接收组件。完整输入见 `input.json`。
+示例语义标签：gs.ui、gs.telemetry、gs.storage、、、、。完整输入见 `input.json`。
 
 ## 如何运行
 

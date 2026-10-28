@@ -1,7 +1,7 @@
 {
   "schema":"diagram-view/v1","type":"block-definition",
-  "intent":{"question":"CS-1 由哪些子系统组成，整体与部件的组合关系是什么？"},"sources":[{"kind":"sysml","model":"CanSat"}],
-  "presentation":{"title":"CanSat CS-1｜块定义图 BDD","subtitle":"类型与组合结构 · SysML semantic projection","theme":"dgraph"},
+  "intent":{"question":"CS-1 由哪些子系统组成，整体与部件的组合关系是什么？"},"sources":[{"kind":"semantic","example":"lesson2-cansat"}],
+  "presentation":{"title":"CanSat CS-1｜块定义图 BDD","subtitle":"类型与组合结构 · 教学示意","theme":"dgraph"},
   "selection":{
     "nodes":[
       {"id":"cs1","label":"CS-1 探空仪","kind":"block","stereotype":"block","compartment":"mission: atmospheric sensing","x":480,"y":135,"w":320,"h":105,"sourceId":"CanSat.CS1"},

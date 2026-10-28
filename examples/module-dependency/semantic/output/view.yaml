@@ -9,57 +9,43 @@ selection:
   layout: "module-dependency"
   nodes:
     - id: "n0"
-      label: "model"
+      label: "gs.ui\n页面 / 交互"
       kind: "package"
-      x: 45
-      y: 290
-      w: 240
-      h: 105
+      x: 430
+      y: 160
+      w: 420
+      h: 90
       color: "blue"
       sourceId: "Example.x-moduledep.n0"
     - id: "n1"
-      label: "compiler"
+      label: "gs.core\n领域模型 / 用例服务"
       kind: "package"
-      x: 350
-      y: 290
-      w: 240
-      h: 105
+      x: 430
+      y: 325
+      w: 420
+      h: 90
       color: "teal"
       sourceId: "Example.x-moduledep.n1"
     - id: "n2"
-      label: "renderer"
+      label: "gs.io\n电台驱动 / 存储适配"
       kind: "package"
-      x: 655
-      y: 290
-      w: 240
-      h: 105
-      color: "amber"
-      sourceId: "Example.x-moduledep.n2"
-    - id: "n3"
-      label: "server"
-      kind: "package"
-      x: 960
-      y: 290
-      w: 240
-      h: 105
+      x: 430
+      y: 490
+      w: 420
+      h: 90
       color: "violet"
-      sourceId: "Example.x-moduledep.n3"
+      sourceId: "Example.x-moduledep.n2"
   edges:
     - source: "n0"
       target: "n1"
-      kind: "flow"
+      kind: "dependency"
       color: "teal"
-      label: "imports"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      color: "teal"
-      label: "uses"
+      label: "依赖"
     - source: "n2"
-      target: "n3"
-      kind: "flow"
+      target: "n1"
+      kind: "dependency"
       color: "teal"
-      label: "registers"
+      label: "实现接口"
   groups: []
   matrices: []
   charts: []
@@ -73,7 +59,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 65
+      y: 620
+      text: "依赖方向指向领域；禁止领域层反向依赖界面或基础设施"
 presentation:
   title: "CanSat CS-1｜模块依赖｜代码结构"
   subtitle: "dgraph · engineering diagram"

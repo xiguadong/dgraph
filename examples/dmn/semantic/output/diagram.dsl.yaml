@@ -1,48 +1,10 @@
 schema: "diagram-ir/v1"
 type: "dmn"
 layout: "dmn"
-nodes:
-  - id: "n0"
-    label: "矩阵读法"
-    kind: "block"
-    x: 55
-    y: 145
-    w: 190
-    h: 75
-    color: "gray"
-    sourceId: "Example.x-dmn.n0"
+nodes: []
 edges: []
 groups: []
-matrices:
-  - id: "x-dmn-matrix"
-    x: 320
-    y: 150
-    cellWidth: 210
-    cellHeight: 85
-    columns:
-      - "链路质量"
-      - "采样策略"
-      - "发送策略"
-    rows:
-      - "链路质量"
-      - "采样策略"
-      - "发送策略"
-    cells:
-      - row: 0
-        column: 1
-        label: "电压"
-        color: "amber"
-        sourceId: "Example.x-dmn.cell01"
-      - row: 1
-        column: 2
-        label: "相关"
-        color: "teal"
-        sourceId: "Example.x-dmn.cell12"
-      - row: 2
-        column: 0
-        label: "追溯"
-        color: "violet"
-        sourceId: "Example.x-dmn.cell20"
+matrices: []
 charts: []
 timelines: []
 qfd: null
@@ -54,4 +16,69 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel:
+  title: "发射许可 Go / No-Go"
+  hitPolicy: "F"
+  inputs:
+    - id: "wind"
+      label: "风速"
+      unit: "m/s"
+    - id: "voltage"
+      label: "电池电压"
+      unit: "V"
+    - id: "selftest"
+      label: "自检"
+      unit: "通过 / 失败"
+    - id: "margin"
+      label: "链路裕度"
+      unit: "dB"
+  output:
+    label: "发射决策"
+  rules:
+    - id: "1"
+      conditions:
+        - "> 8"
+        - "—"
+        - "—"
+        - "—"
+      result: "No-Go"
+    - id: "2"
+      conditions:
+        - "—"
+        - "< 6.4"
+        - "—"
+        - "—"
+      result: "No-Go"
+    - id: "3"
+      conditions:
+        - "—"
+        - "—"
+        - "失败"
+        - "—"
+      result: "No-Go"
+    - id: "4"
+      conditions:
+        - "—"
+        - "[6.4, 7.0)"
+        - "—"
+        - "—"
+      result: "Hold"
+    - id: "5"
+      conditions:
+        - "—"
+        - "—"
+        - "—"
+        - "< 6"
+      result: "Hold"
+    - id: "6"
+      conditions:
+        - "≤ 8"
+        - "≥ 7.0"
+        - "通过"
+        - "≥ 6"
+      result: "Go"
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations: []

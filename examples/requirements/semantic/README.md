@@ -14,10 +14,22 @@
 
 不使用 SysML，只根据以下语义画一张需求图，回答“需求如何派生、由谁满足，并由什么验证？”
 
-- SR-01 采样率 ≥ 1 Hz；
-- SR-04 连续供电 ≥ 30 min；
-- DR-01 采样周期 ≤ 500 ms；
-- 传感器采样模块；
+图上的对象：
+- sr01：SR-01 采样率 ≥ 1 Hz（来源 CanSat.SR01）。
+- sr04：SR-04 连续供电 ≥ 30 min（来源 CanSat.SR04）。
+- dr01：DR-01 采样周期 ≤ 500 ms（来源 CanSat.DR01）。
+- sensor：传感器采样模块（来源 CanSat.Sampling）。
+- power：电池与电源管理（来源 CanSat.Power）。
+- test01：TC-01 采样率测试（来源 CanSat.TC01）。
+- test04：TC-04 续航试验（来源 CanSat.TC04）。
+- analysis：TC-DR01 采样周期测试（来源 CanSat.TCDR01）。
+有依据的关系：
+- dr01 → sr01：derive «deriveReqt»。
+- sensor → sr01：satisfy «satisfy»。
+- power → sr04：satisfy «satisfy»。
+- test01 → sr01：verify «verify»。
+- test04 → sr04：verify «verify»。
+- analysis → dr01：verify «verify»。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +44,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：SR-01 采样率 ≥ 1 Hz、SR-04 连续供电 ≥ 30 min、DR-01 采样周期 ≤ 500 ms、传感器采样模块。完整输入见 `input.json`。
+示例语义标签：SR-01 采样率 ≥ 1 Hz、SR-04 连续供电 ≥ 30 min、DR-01 采样周期 ≤ 500 ms、传感器采样模块、电池与电源管理、TC-01 采样率测试、TC-04 续航试验、TC-DR01 采样周期测试。完整输入见 `input.json`。
 
 ## 如何运行
 

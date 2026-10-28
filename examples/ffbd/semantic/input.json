@@ -15,69 +15,102 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "自检",
+        "label": "准备 / 自检",
         "kind": "block",
-        "x": 45,
-        "y": 290,
-        "w": 210,
-        "h": 90,
+        "x": 35,
+        "y": 310,
+        "w": 170,
+        "h": 70,
         "color": "blue",
         "sourceId": "Example.se-ffbd.n0"
       },
       {
         "id": "n1",
-        "label": "采集数据",
+        "label": "释放 / 投放",
         "kind": "block",
-        "x": 420,
-        "y": 210,
-        "w": 220,
-        "h": 80,
-        "color": "teal",
+        "x": 235,
+        "y": 310,
+        "w": 170,
+        "h": 70,
+        "color": "blue",
         "sourceId": "Example.se-ffbd.n1"
       },
       {
         "id": "n2",
-        "label": "打包遥测",
-        "kind": "block",
-        "x": 420,
-        "y": 385,
-        "w": 220,
-        "h": 80,
-        "color": "teal",
+        "label": "AND",
+        "kind": "parallel",
+        "x": 440,
+        "y": 230,
+        "w": 12,
+        "h": 245,
+        "color": "gray",
         "sourceId": "Example.se-ffbd.n2"
       },
       {
         "id": "n3",
-        "label": "下传数据",
+        "label": "采集温压湿 ≥1 Hz",
         "kind": "block",
-        "x": 1010,
-        "y": 290,
+        "x": 500,
+        "y": 210,
         "w": 210,
-        "h": 90,
-        "color": "violet",
+        "h": 70,
+        "color": "teal",
         "sourceId": "Example.se-ffbd.n3"
       },
       {
         "id": "n4",
-        "label": "并行开始",
-        "kind": "decision",
-        "x": 690,
-        "y": 210,
-        "w": 170,
+        "label": "采集姿态 / 位置",
+        "kind": "block",
+        "x": 500,
+        "y": 320,
+        "w": 210,
         "h": 70,
-        "color": "gray",
+        "color": "teal",
         "sourceId": "Example.se-ffbd.n4"
       },
       {
         "id": "n5",
-        "label": "并行汇合",
-        "kind": "decision",
-        "x": 690,
-        "y": 385,
+        "label": "下传遥测 I-04",
+        "kind": "block",
+        "x": 500,
+        "y": 430,
+        "w": 210,
+        "h": 70,
+        "color": "teal",
+        "sourceId": "Example.se-ffbd.n5"
+      },
+      {
+        "id": "n6",
+        "label": "AND",
+        "kind": "parallel",
+        "x": 765,
+        "y": 230,
+        "w": 12,
+        "h": 245,
+        "color": "gray",
+        "sourceId": "Example.se-ffbd.n6"
+      },
+      {
+        "id": "n7",
+        "label": "着陆 / 回收",
+        "kind": "block",
+        "x": 820,
+        "y": 310,
         "w": 170,
         "h": 70,
-        "color": "gray",
-        "sourceId": "Example.se-ffbd.n5"
+        "color": "violet",
+        "sourceId": "Example.se-ffbd.n7"
+      },
+      {
+        "id": "n8",
+        "label": "分析 / 回放",
+        "kind": "block",
+        "x": 1030,
+        "y": 310,
+        "w": 180,
+        "h": 70,
+        "color": "violet",
+        "sourceId": "Example.se-ffbd.n8"
       }
     ],
     "edges": [
@@ -88,48 +121,154 @@
         "color": "teal"
       },
       {
-        "source": "n0",
+        "source": "n1",
         "target": "n2",
         "kind": "flow",
         "color": "teal"
       },
       {
-        "source": "n1",
+        "source": "n2",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal",
+        "points": [
+          [
+            452,
+            245
+          ],
+          [
+            500,
+            245
+          ]
+        ]
+      },
+      {
+        "source": "n2",
         "target": "n4",
         "kind": "flow",
-        "color": "teal"
+        "color": "teal",
+        "points": [
+          [
+            452,
+            355
+          ],
+          [
+            500,
+            355
+          ]
+        ]
       },
       {
         "source": "n2",
         "target": "n5",
         "kind": "flow",
-        "color": "teal"
+        "color": "teal",
+        "points": [
+          [
+            452,
+            465
+          ],
+          [
+            500,
+            465
+          ]
+        ]
+      },
+      {
+        "source": "n3",
+        "target": "n6",
+        "kind": "flow",
+        "color": "teal",
+        "points": [
+          [
+            710,
+            245
+          ],
+          [
+            765,
+            245
+          ]
+        ]
       },
       {
         "source": "n4",
-        "target": "n3",
+        "target": "n6",
+        "kind": "flow",
+        "color": "teal",
+        "points": [
+          [
+            710,
+            355
+          ],
+          [
+            765,
+            355
+          ]
+        ]
+      },
+      {
+        "source": "n5",
+        "target": "n6",
+        "kind": "flow",
+        "color": "teal",
+        "points": [
+          [
+            710,
+            465
+          ],
+          [
+            765,
+            465
+          ]
+        ]
+      },
+      {
+        "source": "n6",
+        "target": "n7",
         "kind": "flow",
         "color": "teal"
       },
       {
-        "source": "n5",
-        "target": "n3",
+        "source": "n7",
+        "target": "n8",
         "kind": "flow",
         "color": "teal"
-      }
-    ],
-    "groups": [
+      },
       {
-        "id": "parallel",
-        "label": "并行功能",
-        "kind": "boundary",
-        "x": 350,
-        "y": 175,
-        "w": 610,
-        "h": 330,
-        "color": "teal"
+        "source": "n0",
+        "target": "n0",
+        "kind": "flow",
+        "color": "amber",
+        "label": "自检不通过：重新准备",
+        "points": [
+          [
+            120,
+            310
+          ],
+          [
+            120,
+            190
+          ],
+          [
+            20,
+            190
+          ],
+          [
+            20,
+            345
+          ],
+          [
+            35,
+            345
+          ]
+        ],
+        "labelPosition": [
+          35,
+          165
+        ]
       }
     ],
+    "groups": [],
     "matrices": [],
     "charts": [],
     "timelines": [],
@@ -142,7 +281,18 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
-    "annotations": []
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
+    "annotations": [
+      {
+        "x": 480,
+        "y": 570,
+        "text": "AND 并行支路全部汇合后进入着陆与回收"
+      }
+    ]
   },
   "presentation": {
     "title": "CanSat CS-1｜FFBD｜功能流与分支",

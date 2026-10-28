@@ -1,59 +1,8 @@
 schema: "diagram-ir/v1"
 type: "dfd"
 layout: "dfd"
-nodes:
-  - id: "n0"
-    label: "传感器"
-    kind: "block"
-    x: 55
-    y: 280
-    w: 210
-    h: 95
-    color: "gray"
-    sourceId: "Example.se-dfd.n0"
-  - id: "n1"
-    label: "采样处理"
-    kind: "usecase"
-    x: 370
-    y: 280
-    w: 230
-    h: 100
-    color: "teal"
-    sourceId: "Example.se-dfd.n1"
-  - id: "n2"
-    label: "数据存储"
-    kind: "datastore"
-    x: 680
-    y: 280
-    w: 220
-    h: 95
-    color: "amber"
-    sourceId: "Example.se-dfd.n2"
-  - id: "n3"
-    label: "地面站"
-    kind: "block"
-    x: 1000
-    y: 280
-    w: 210
-    h: 95
-    color: "violet"
-    sourceId: "Example.se-dfd.n3"
-edges:
-  - source: "n0"
-    target: "n1"
-    kind: "flow"
-    color: "teal"
-    label: "原始采样"
-  - source: "n1"
-    target: "n2"
-    kind: "flow"
-    color: "teal"
-    label: "遥测帧"
-  - source: "n2"
-    target: "n3"
-    kind: "flow"
-    color: "teal"
-    label: "回放 / 下传"
+nodes: []
+edges: []
 groups: []
 matrices: []
 charts: []
@@ -75,8 +24,8 @@ dfdModel:
       label: "地面站"
       x: 1010
       y: 255
-    - id: "operator"
-      label: "回收人员"
+    - id: "scientist"
+      label: "科学用户"
       x: 1010
       y: 455
   processes:
@@ -88,26 +37,76 @@ dfdModel:
       label: "遥测路由"
       x: 665
       y: 255
+    - id: "replay"
+      label: "回放数据"
+      x: 710
+      y: 455
   stores:
     - id: "telemetry-log"
       label: "遥测数据存储"
-      x: 520
+      x: 355
       y: 455
   flows:
     - source: "sensors"
       target: "sampling"
       label: "原始采样"
+      points:
+        - - 255
+- 305
+        - - 310
+- 305
+        - - 310
+- 310
+        - - 355
+- 310
     - source: "sampling"
       target: "routing"
       label: "遥测帧"
+      points:
+        - - 585
+- 310
+        - - 665
+- 310
     - source: "routing"
       target: "ground"
       label: "433 MHz 下行"
+      points:
+        - - 895
+- 310
+        - - 1010
+- 305
     - source: "sampling"
       target: "telemetry-log"
       label: "同步写入"
-    - source: "operator"
-      target: "telemetry-log"
-      label: "回收后回放"
+      points:
+        - - 470
+- 365
+        - - 470
+- 467
+    - source: "telemetry-log"
+      target: "replay"
+      label: "存储帧"
+      points:
+        - - 603
+- 500
+        - - 660
+- 500
+        - - 660
+- 510
+        - - 710
+- 510
+    - source: "replay"
+      target: "scientist"
+      label: "回放数据"
+      points:
+        - - 940
+- 510
+        - - 1010
+- 505
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations: []

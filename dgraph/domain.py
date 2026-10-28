@@ -70,8 +70,13 @@ def gantt_svg(model):
     cw = width / max_time
     out = ['<g data-gantt="schedule" data-source-id="Example.gantt">']
     for index, tick in enumerate(ticks):
-        tx = x + index * cw
-        out.append(_text(tx + cw / 2, y - 22, tick, 12, "#64748b"))
+        if isinstance(tick, dict):
+            at, label = tick["at"], tick["label"]
+        else:
+            label = str(tick)
+            at = int(label[1:]) - 1 if label.startswith("W") and label[1:].isdigit() else index
+        tx = x + at * cw
+        out.append(_text(tx, y - 22, label, 12, "#64748b"))
         out.append(f'<line x1="{tx}" y1="{y-10}" x2="{tx}" y2="{y + len(tasks)*rh + 65}" stroke="#e2e8f0"/>')
     for index, task in enumerate(tasks):
         ry = y + index * rh

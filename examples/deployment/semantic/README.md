@@ -14,10 +14,13 @@
 
 不使用 SysML，只根据以下语义画一张UML｜部署图，回答“交付物和软件实例部署到哪些节点？”
 
-- 固件交付物；
-- CS-1 MCU；
-- 遥测包；
-- 地面站节点；
+图上的对象：
+- n0：固件交付物（来源 Example.uml-deployment.n0）。
+- n1：CS-1 MCU（来源 Example.uml-deployment.n1）。
+- n2：遥测包（来源 Example.uml-deployment.n2）。
+- n3：地面站节点（来源 Example.uml-deployment.n3）。
+有依据的关系：
+- n0 → n2：flow deploys / runs。
 
 保持来源标识，缺少依据的关系不要补充。
 

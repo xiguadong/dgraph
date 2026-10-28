@@ -160,9 +160,14 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations:
   - x: 420
     y: 540
-    text: "Σ 120 + 95 + 45 + 50 + 40 = 350 g · 达到预算上限，无剩余质量余量"
+    text: "教学分配：120 + 95 + 45 + 50 + 40 = 350 g；达到预算上限，无质量余量"
     color: "#b42318"
     fontSize: 15

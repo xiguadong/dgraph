@@ -14,10 +14,13 @@
 
 不使用 SysML，只根据以下语义画一张模块依赖｜代码结构，回答“代码模块之间有哪些依赖？”
 
-- model；
-- compiler；
-- renderer；
-- server；
+图上的对象：
+- n0：gs.ui 页面 / 交互（来源 Example.x-moduledep.n0）。
+- n1：gs.core 领域模型 / 用例服务（来源 Example.x-moduledep.n1）。
+- n2：gs.io 电台驱动 / 存储适配（来源 Example.x-moduledep.n2）。
+有依据的关系：
+- n0 → n1：dependency 依赖。
+- n2 → n1：dependency 实现接口。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +35,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：model、compiler、renderer、server。完整输入见 `input.json`。
+示例语义标签：gs.ui 页面 / 交互、gs.core 领域模型 / 用例服务、gs.io 电台驱动 / 存储适配。完整输入见 `input.json`。
 
 ## 如何运行
 

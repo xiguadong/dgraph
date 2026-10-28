@@ -9,52 +9,80 @@ selection:
   layout: "dodaf"
   nodes:
     - id: "n0"
-      label: "视点选择"
+      label: "AV 全视点\nAV-1 概述"
       kind: "block"
-      x: 55
-      y: 145
-      w: 190
-      h: 75
-      color: "gray"
+      x: 80
+      y: 180
+      w: 260
+      h: 110
+      color: "blue"
       sourceId: "Example.fw-dodaf.n0"
+    - id: "n1"
+      label: "CV 能力\nCV-2 能力分类"
+      kind: "block"
+      x: 380
+      y: 180
+      w: 260
+      h: 110
+      color: "teal"
+      sourceId: "Example.fw-dodaf.n1"
+    - id: "n2"
+      label: "OV 运行\nOV-1 运行概念"
+      kind: "block"
+      x: 680
+      y: 180
+      w: 260
+      h: 110
+      color: "amber"
+      sourceId: "Example.fw-dodaf.n2"
+    - id: "n3"
+      label: "SV 系统\nSV-1 系统接口"
+      kind: "block"
+      x: 980
+      y: 180
+      w: 260
+      h: 110
+      color: "violet"
+      sourceId: "Example.fw-dodaf.n3"
+    - id: "n4"
+      label: "SvcV 服务\nSvcV-1 服务描述"
+      kind: "block"
+      x: 80
+      y: 365
+      w: 260
+      h: 110
+      color: "gray"
+      sourceId: "Example.fw-dodaf.n4"
+    - id: "n5"
+      label: "DIV 数据\nDIV-1 概念数据模型"
+      kind: "block"
+      x: 380
+      y: 365
+      w: 260
+      h: 110
+      color: "blue"
+      sourceId: "Example.fw-dodaf.n5"
+    - id: "n6"
+      label: "StdV 标准\nStdV-1 标准概览"
+      kind: "block"
+      x: 680
+      y: 365
+      w: 260
+      h: 110
+      color: "teal"
+      sourceId: "Example.fw-dodaf.n6"
+    - id: "n7"
+      label: "PV 项目\nPV-1 项目关联"
+      kind: "block"
+      x: 980
+      y: 365
+      w: 260
+      h: 110
+      color: "amber"
+      sourceId: "Example.fw-dodaf.n7"
   edges: []
   groups: []
-  matrices:
-    - id: "dodaf-viewpoints"
-      x: 300
-      y: 150
-      cellWidth: 210
-      cellHeight: 85
-      columns:
-        - "结构"
-        - "行为"
-        - "映射"
-      rows:
-        - "AV 全视点"
-        - "OV 运行视点"
-        - "SV 系统视点"
-        - "PV 项目视点"
-      cells:
-        - row: 0
-          column: 0
-          label: "AV-1"
-          color: "violet"
-          sourceId: "Example.dodaf.av1"
-        - row: 1
-          column: 1
-          label: "OV-1"
-          color: "teal"
-          sourceId: "Example.dodaf.ov1"
-        - row: 2
-          column: 2
-          label: "SV-1"
-          color: "blue"
-          sourceId: "Example.dodaf.sv1"
-        - row: 3
-          column: 0
-          label: "PV-1"
-          color: "amber"
-          sourceId: "Example.dodaf.pv1"
+  matrices: []
   charts: []
   timelines: []
   qfd: null
@@ -66,7 +94,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 260
+      y: 600
+      text: "同一架构模型的八类视点：先确定关注问题，再选择视图"
 presentation:
   title: "CanSat CS-1｜DoDAF／UAF｜视点全景"
   subtitle: "dgraph · engineering diagram"

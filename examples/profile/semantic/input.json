@@ -15,70 +15,63 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "UML Class",
-        "kind": "package",
-        "x": 500,
-        "y": 135,
-        "w": 280,
-        "h": 85,
-        "color": "violet",
+        "label": "«metaclass» Class",
+        "kind": "class",
+        "x": 240,
+        "y": 170,
+        "w": 260,
+        "h": 80,
+        "color": "gray",
         "sourceId": "Example.uml-profile.n0"
       },
       {
         "id": "n1",
-        "label": "«block»",
-        "kind": "package",
-        "x": 80,
-        "y": 410,
-        "w": 300,
-        "h": 100,
-        "color": "blue",
+        "label": "«metaclass» Property",
+        "kind": "class",
+        "x": 780,
+        "y": 170,
+        "w": 260,
+        "h": 80,
+        "color": "gray",
         "sourceId": "Example.uml-profile.n1"
       },
       {
         "id": "n2",
-        "label": "«requirement»",
-        "kind": "package",
-        "x": 480,
-        "y": 410,
-        "w": 300,
-        "h": 100,
-        "color": "blue",
+        "label": "«stereotype» sensor",
+        "kind": "class",
+        "x": 240,
+        "y": 385,
+        "w": 260,
+        "h": 80,
+        "color": "violet",
         "sourceId": "Example.uml-profile.n2"
       },
       {
         "id": "n3",
-        "label": "«verification»",
-        "kind": "package",
-        "x": 880,
-        "y": 410,
-        "w": 300,
-        "h": 100,
-        "color": "blue",
+        "label": "«stereotype» telemetry",
+        "kind": "class",
+        "x": 780,
+        "y": 385,
+        "w": 260,
+        "h": 80,
+        "color": "violet",
         "sourceId": "Example.uml-profile.n3"
       }
     ],
     "edges": [
       {
-        "source": "n0",
+        "source": "n2",
+        "target": "n0",
+        "kind": "extension",
+        "color": "teal",
+        "label": "«extension»"
+      },
+      {
+        "source": "n3",
         "target": "n1",
-        "kind": "composition",
-        "color": "blue",
-        "label": "1"
-      },
-      {
-        "source": "n0",
-        "target": "n2",
-        "kind": "composition",
-        "color": "blue",
-        "label": "1"
-      },
-      {
-        "source": "n0",
-        "target": "n3",
-        "kind": "composition",
-        "color": "blue",
-        "label": "1"
+        "kind": "extension",
+        "color": "teal",
+        "label": "«extension»"
       }
     ],
     "groups": [],
@@ -94,7 +87,18 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
-    "annotations": []
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
+    "annotations": [
+      {
+        "x": 380,
+        "y": 570,
+        "text": "构造型扩展元类；可用于标注领域语义"
+      }
+    ]
   },
   "presentation": {
     "title": "CanSat CS-1｜UML｜剖面与构造型",

@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张块定义图 BDD，回答“系统由哪些类型、部件和组合关系构成？”
 
-- CS-1 探空仪；
-- 结构与回收；
-- 电源；
-- 飞控计算；
+图上的对象：
+- cs1：CS-1 探空仪（来源 CanSat.CS1）。
+- structure：结构与回收（来源 CanSat.Structure）。
+- power：电源（来源 CanSat.Power）。
+- fcu：飞控计算（来源 CanSat.FlightComputer）。
+- sensors：传感器（来源 CanSat.Sensors）。
+- comms：通信（来源 CanSat.Comms）。
+有依据的关系：
+- cs1 → structure：composition 1。
+- cs1 → power：composition 1。
+- cs1 → fcu：composition 1。
+- cs1 → sensors：composition 1..*。
+- cs1 → comms：composition 1。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：CS-1 探空仪、结构与回收、电源、飞控计算。完整输入见 `input.json`。
+示例语义标签：CS-1 探空仪、结构与回收、电源、飞控计算、传感器、通信。完整输入见 `input.json`。
 
 ## 如何运行
 

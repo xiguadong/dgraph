@@ -61,8 +61,8 @@ edges:
     target: "arm"
     kind: "association"
     points:
-      - - 180
-- 280
+      - - 155
+- 263
       - - 390
 - 240
     labelPosition:
@@ -72,10 +72,16 @@ edges:
     target: "collect"
     kind: "association"
     points:
-      - - 180
-- 280
-      - - 660
-- 260
+      - - 155
+- 263
+      - - 190
+- 263
+      - - 190
+- 175
+      - - 780
+- 175
+      - - 780
+- 200
     labelPosition:
       - 280
       - 290
@@ -84,10 +90,16 @@ edges:
     kind: "association"
     color: "teal"
     points:
-      - - 1080
-- 280
-      - - 620
-- 425
+      - - 1105
+- 263
+      - - 1060
+- 263
+      - - 1060
+- 490
+      - - 505
+- 490
+      - - 505
+- 465
     labelPosition:
       - 900
       - 350
@@ -96,8 +108,12 @@ edges:
     kind: "association"
     color: "teal"
     points:
-      - - 1080
-- 280
+      - - 1105
+- 263
+      - - 980
+- 263
+      - - 980
+- 425
       - - 900
 - 425
     labelPosition:
@@ -124,6 +140,11 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations:
   - x: 330
     y: 620

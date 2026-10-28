@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张PERT｜依赖与关键路径，回答“哪些依赖和路径决定项目工期？”
 
-- 需求基线；
-- 架构设计；
-- 详细设计；
-- 设计评审；
+以 `selection.pertModel` 为图的语义模型：
+- tasks：A（需求分析）（duration=2；dependencies=[]；x=50；y=230）。
+- tasks：B（架构设计）（duration=2；dependencies=["A"]；x=215；y=230）。
+- tasks：C（详细设计）（duration=2；dependencies=["B"]；x=380；y=230）。
+- tasks：D（采购制造）（duration=4；dependencies=["C"]；x=545；y=230）。
+- tasks：E（系统集成）（duration=2；dependencies=["D", "H"]；x=710；y=230）。
+- tasks：F（系统试验）（duration=3；dependencies=["E"]；x=875；y=230）。
+- tasks：G（评审冻结）（duration=1；dependencies=["F"]；x=1040；y=230）。
+- tasks：H（地面站软件）（duration=3；dependencies=["B"]；x=465；y=420）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -26,13 +31,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.pertModel`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：需求基线、架构设计、详细设计、设计评审。完整输入见 `input.json`。
+示例语义标签：需求分析、架构设计、详细设计、采购制造、系统集成、系统试验、评审冻结、地面站软件。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -59,7 +64,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.pertModel` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

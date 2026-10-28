@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张调用图｜函数关系，回答“函数之间如何调用？”
 
-- render_diagram；
-- validate_spec；
-- to_ir；
-- render_svg；
+图上的对象：
+- n0：main()（来源 Example.x-callgraph.n0）。
+- n1：radio_read()（来源 Example.x-callgraph.n1）。
+- n2：decode_frame()（来源 Example.x-callgraph.n2）。
+- n3：store_batch()（来源 Example.x-callgraph.n3）。
+- n4：crc16()（来源 Example.x-callgraph.n4）。
+- n5：parse_fields()（来源 Example.x-callgraph.n5）。
+有依据的关系：
+- n0 → n1：flow ×1200。
+- n0 → n2：flow ×1200。
+- n0 → n3：flow ×50。
+- n2 → n4：flow ×1200。
+- n2 → n5：flow ×1200。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：render_diagram、validate_spec、to_ir、render_svg。完整输入见 `input.json`。
+示例语义标签：main()、radio_read()、decode_frame()、store_batch()、crc16()、parse_fields()。完整输入见 `input.json`。
 
 ## 如何运行
 

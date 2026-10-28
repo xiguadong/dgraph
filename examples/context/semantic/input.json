@@ -15,82 +15,109 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "发射操作员",
-        "kind": "actor",
-        "x": 65,
-        "y": 260,
-        "w": 200,
-        "h": 90,
-        "color": "gray",
+        "label": "CS-1 探空仪\n黑盒系统",
+        "kind": "block",
+        "x": 495,
+        "y": 275,
+        "w": 290,
+        "h": 110,
+        "color": "blue",
         "sourceId": "Example.se-context.n0"
       },
       {
         "id": "n1",
-        "label": "CS-1 探空仪",
+        "label": "发射装置",
         "kind": "block",
-        "x": 500,
-        "y": 285,
-        "w": 280,
-        "h": 110,
-        "color": "blue",
+        "x": 70,
+        "y": 150,
+        "w": 200,
+        "h": 75,
+        "color": "gray",
         "sourceId": "Example.se-context.n1"
       },
       {
         "id": "n2",
-        "label": "地面站",
+        "label": "环境",
         "kind": "block",
-        "x": 1010,
-        "y": 260,
+        "x": 70,
+        "y": 420,
         "w": 200,
-        "h": 90,
-        "color": "teal",
+        "h": 75,
+        "color": "gray",
         "sourceId": "Example.se-context.n2"
       },
       {
         "id": "n3",
-        "label": "科学用户",
+        "label": "地面站",
         "kind": "block",
-        "x": 500,
-        "y": 455,
-        "w": 280,
-        "h": 70,
-        "color": "violet",
+        "x": 1010,
+        "y": 150,
+        "w": 200,
+        "h": 75,
+        "color": "teal",
         "sourceId": "Example.se-context.n3"
+      },
+      {
+        "id": "n4",
+        "label": "空域管理",
+        "kind": "actor",
+        "x": 1010,
+        "y": 420,
+        "w": 200,
+        "h": 75,
+        "color": "gray",
+        "sourceId": "Example.se-context.n4"
+      },
+      {
+        "id": "n5",
+        "label": "科学用户",
+        "kind": "actor",
+        "x": 510,
+        "y": 535,
+        "w": 250,
+        "h": 75,
+        "color": "violet",
+        "sourceId": "Example.se-context.n5"
       }
     ],
     "edges": [
       {
-        "source": "n0",
-        "target": "n1",
-        "kind": "association",
-        "color": "teal"
-      },
-      {
         "source": "n1",
-        "target": "n2",
+        "target": "n0",
         "kind": "flow",
         "color": "teal",
-        "label": "interface"
+        "label": "机械释放"
       },
       {
-        "source": "n3",
-        "target": "n1",
-        "kind": "dependency",
-        "color": "teal"
-      }
-    ],
-    "groups": [
+        "source": "n2",
+        "target": "n0",
+        "kind": "flow",
+        "color": "teal",
+        "label": "环境扰动"
+      },
       {
-        "id": "boundary",
-        "label": "CS-1 探空仪",
-        "kind": "boundary",
-        "x": 330,
-        "y": 150,
-        "w": 620,
-        "h": 400,
-        "color": "blue"
+        "source": "n0",
+        "target": "n3",
+        "kind": "flow",
+        "color": "teal",
+        "label": "I-04 遥测下行"
+      },
+      {
+        "source": "n4",
+        "target": "n0",
+        "kind": "dependency",
+        "color": "teal",
+        "label": "空域约束"
+      },
+      {
+        "source": "n0",
+        "target": "n5",
+        "kind": "flow",
+        "color": "teal",
+        "label": "回收后回放"
       }
     ],
+    "groups": [],
     "matrices": [],
     "charts": [],
     "timelines": [],
@@ -103,6 +130,11 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
     "annotations": []
   },
   "presentation": {

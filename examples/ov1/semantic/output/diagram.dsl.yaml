@@ -5,62 +5,75 @@ nodes:
   - id: "n0"
     label: "发射操作员"
     kind: "actor"
-    x: 65
-    y: 260
+    x: 60
+    y: 185
     w: 200
-    h: 90
+    h: 80
     color: "gray"
     sourceId: "Example.fw-ov1.n0"
   - id: "n1"
-    label: "CS-1 任务"
+    label: "CS-1 探空仪"
     kind: "block"
-    x: 500
-    y: 285
-    w: 280
-    h: 110
+    x: 410
+    y: 185
+    w: 250
+    h: 90
     color: "blue"
     sourceId: "Example.fw-ov1.n1"
   - id: "n2"
     label: "地面站"
     kind: "block"
-    x: 1010
-    y: 260
-    w: 200
+    x: 820
+    y: 185
+    w: 230
     h: 90
     color: "teal"
     sourceId: "Example.fw-ov1.n2"
   - id: "n3"
-    label: "科学用户"
-    kind: "block"
-    x: 500
-    y: 455
-    w: 280
-    h: 70
-    color: "violet"
+    label: "回收人员"
+    kind: "actor"
+    x: 410
+    y: 450
+    w: 250
+    h: 80
+    color: "gray"
     sourceId: "Example.fw-ov1.n3"
+  - id: "n4"
+    label: "科学用户"
+    kind: "actor"
+    x: 820
+    y: 450
+    w: 230
+    h: 80
+    color: "violet"
+    sourceId: "Example.fw-ov1.n4"
 edges:
   - source: "n0"
     target: "n1"
-    kind: "association"
+    kind: "flow"
     color: "teal"
+    label: "投放"
   - source: "n1"
     target: "n2"
     kind: "flow"
     color: "teal"
-    label: "interface"
-  - source: "n3"
-    target: "n1"
-    kind: "dependency"
+    label: "433 MHz 遥测"
+  - source: "n1"
+    target: "n3"
+    kind: "flow"
     color: "teal"
-groups:
-  - id: "boundary"
-    label: "CS-1 任务"
-    kind: "boundary"
-    x: 330
-    y: 150
-    w: 620
-    h: 400
-    color: "blue"
+    label: "回收"
+  - source: "n3"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "回放数据"
+  - source: "n2"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "数据产品"
+groups: []
 matrices: []
 charts: []
 timelines: []
@@ -73,4 +86,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
-annotations: []
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
+annotations:
+  - x: 70
+    y: 590
+    text: "任务阶段：投放 → 下降采集 → 下传 → 回收回放；不展开内部结构"

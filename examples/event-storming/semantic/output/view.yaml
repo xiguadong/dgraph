@@ -9,61 +9,160 @@ selection:
   layout: "event-storming"
   nodes:
     - id: "n0"
-      label: "发射命令"
+      label: "操作员"
       kind: "sticky"
-      x: 45
-      y: 280
-      w: 245
-      h: 110
-      color: "blue"
+      x: 85
+      y: 145
+      w: 230
+      h: 60
+      color: "gray"
       sourceId: "Example.x-eventstorm.n0"
-      compartment: "command / event / policy"
-    - id: "n1"
-      label: "已进入下降"
-      kind: "sticky"
-      x: 350
-      y: 280
-      w: 245
-      h: 110
-      color: "amber"
-      sourceId: "Example.x-eventstorm.n1"
-      compartment: "command / event / policy"
-    - id: "n2"
-      label: "遥测已生成"
-      kind: "sticky"
-      x: 655
-      y: 280
-      w: 245
-      h: 110
-      color: "teal"
-      sourceId: "Example.x-eventstorm.n2"
-      compartment: "command / event / policy"
     - id: "n3"
-      label: "地面已接收"
+      label: "创建任务"
       kind: "sticky"
-      x: 960
-      y: 280
-      w: 245
-      h: 110
-      color: "violet"
+      x: 85
+      y: 245
+      w: 230
+      h: 65
+      color: "blue"
       sourceId: "Example.x-eventstorm.n3"
-      compartment: "command / event / policy"
+    - id: "n6"
+      label: "任务已创建"
+      kind: "sticky"
+      x: 85
+      y: 365
+      w: 230
+      h: 65
+      color: "amber"
+      sourceId: "Example.x-eventstorm.n6"
+    - id: "n9"
+      label: "Mission 聚合"
+      kind: "sticky"
+      x: 85
+      y: 485
+      w: 230
+      h: 65
+      color: "violet"
+      sourceId: "Example.x-eventstorm.n9"
+    - id: "n1"
+      label: "遥测服务"
+      kind: "sticky"
+      x: 480
+      y: 145
+      w: 230
+      h: 60
+      color: "gray"
+      sourceId: "Example.x-eventstorm.n1"
+    - id: "n4"
+      label: "接收帧"
+      kind: "sticky"
+      x: 480
+      y: 245
+      w: 230
+      h: 65
+      color: "blue"
+      sourceId: "Example.x-eventstorm.n4"
+    - id: "n7"
+      label: "帧已收录"
+      kind: "sticky"
+      x: 480
+      y: 365
+      w: 230
+      h: 65
+      color: "amber"
+      sourceId: "Example.x-eventstorm.n7"
+    - id: "n10"
+      label: "TelemetryFrame 聚合"
+      kind: "sticky"
+      x: 480
+      y: 485
+      w: 230
+      h: 65
+      color: "violet"
+      sourceId: "Example.x-eventstorm.n10"
+    - id: "n2"
+      label: "科学用户"
+      kind: "sticky"
+      x: 875
+      y: 145
+      w: 230
+      h: 60
+      color: "gray"
+      sourceId: "Example.x-eventstorm.n2"
+    - id: "n5"
+      label: "生成报告"
+      kind: "sticky"
+      x: 875
+      y: 245
+      w: 230
+      h: 65
+      color: "blue"
+      sourceId: "Example.x-eventstorm.n5"
+    - id: "n8"
+      label: "报告已生成"
+      kind: "sticky"
+      x: 875
+      y: 365
+      w: 230
+      h: 65
+      color: "amber"
+      sourceId: "Example.x-eventstorm.n8"
+    - id: "n11"
+      label: "回收看板 · 读模型"
+      kind: "sticky"
+      x: 875
+      y: 485
+      w: 230
+      h: 65
+      color: "violet"
+      sourceId: "Example.x-eventstorm.n11"
   edges:
     - source: "n0"
-      target: "n1"
-      kind: "flow"
-      color: "teal"
-      label: "触发"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      color: "teal"
-      label: "产生"
-    - source: "n2"
       target: "n3"
       kind: "flow"
       color: "teal"
-      label: "通知"
+    - source: "n1"
+      target: "n4"
+      kind: "flow"
+      color: "teal"
+    - source: "n2"
+      target: "n5"
+      kind: "flow"
+      color: "teal"
+    - source: "n3"
+      target: "n6"
+      kind: "flow"
+      color: "teal"
+    - source: "n4"
+      target: "n7"
+      kind: "flow"
+      color: "teal"
+    - source: "n5"
+      target: "n8"
+      kind: "flow"
+      color: "teal"
+    - source: "n6"
+      target: "n9"
+      kind: "flow"
+      color: "teal"
+    - source: "n7"
+      target: "n10"
+      kind: "flow"
+      color: "teal"
+    - source: "n8"
+      target: "n11"
+      kind: "flow"
+      color: "teal"
+    - source: "n6"
+      target: "n7"
+      kind: "dependency"
+      color: "teal"
+      label: "时间 →"
+    - source: "n7"
+      target: "n8"
+      kind: "dependency"
+      color: "teal"
+      label: "时间 →"
   groups: []
   matrices: []
   charts: []
@@ -77,7 +176,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 420
+      y: 620
+      text: "角色 → 命令 → 领域事件 → 聚合 / 读模型；横向表示时间"
 presentation:
   title: "CanSat CS-1｜事件风暴｜业务事件链"
   subtitle: "dgraph · engineering diagram"

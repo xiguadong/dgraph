@@ -85,7 +85,7 @@ selection:
         end: 8
         color: "amber"
         dependencies:
-          - "design"
+          - "requirements"
       - id: "integration"
         label: "子系统集成"
         start: 8
@@ -120,6 +120,11 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜Gantt｜任务、工期与里程碑"

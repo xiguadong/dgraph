@@ -14,7 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张Gantt｜任务、工期与里程碑，回答“任务何时开始和结束，依赖与里程碑在哪里？”
 
-- 里程碑 / 验收点；
+以 `selection.gantt` 为图的语义模型：
+- ticks：W1、W3、W5、W7、W9、W11。
+- tasks：requirements（需求与任务分析）（start=0；end=2；color="blue"；dependencies=[]）。
+- tasks：design（架构 / 详细设计）（start=2；end=5；color="blue"；dependencies=["requirements"]）。
+- tasks：manufacture（采购与制造）（start=4；end=8；color="amber"；dependencies=["requirements"]）。
+- tasks：integration（子系统集成）（start=8；end=10；color="teal"；dependencies=["manufacture"]）。
+- tasks：verification（试验与验证）（start=10；end=12；color="violet"；dependencies=["integration"]）。
+- milestones：pdr（PDR）（at=4）。
+- milestones：cdr（CDR）（at=6）。
+- milestones：trr（TRR）（at=10）。
+- milestones：review（评审）（at=12）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -23,13 +33,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.gantt`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：里程碑 / 验收点。完整输入见 `input.json`。
+示例语义标签：需求与任务分析、架构 / 详细设计、采购与制造、子系统集成、试验与验证。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -56,7 +66,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.gantt` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

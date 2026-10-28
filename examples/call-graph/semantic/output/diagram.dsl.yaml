@@ -3,57 +3,85 @@ type: "call-graph"
 layout: "call-graph"
 nodes:
   - id: "n0"
-    label: "render_diagram"
-    kind: "component"
-    x: 45
-    y: 290
-    w: 240
-    h: 105
+    label: "main()"
+    kind: "block"
+    x: 500
+    y: 150
+    w: 220
+    h: 70
     color: "blue"
     sourceId: "Example.x-callgraph.n0"
   - id: "n1"
-    label: "validate_spec"
-    kind: "component"
-    x: 350
-    y: 290
-    w: 240
-    h: 105
-    color: "teal"
+    label: "radio_read()"
+    kind: "block"
+    x: 100
+    y: 310
+    w: 230
+    h: 70
+    color: "gray"
     sourceId: "Example.x-callgraph.n1"
   - id: "n2"
-    label: "to_ir"
-    kind: "component"
-    x: 655
-    y: 290
-    w: 240
-    h: 105
-    color: "amber"
+    label: "decode_frame()"
+    kind: "block"
+    x: 510
+    y: 310
+    w: 230
+    h: 70
+    color: "teal"
     sourceId: "Example.x-callgraph.n2"
   - id: "n3"
-    label: "render_svg"
-    kind: "component"
-    x: 960
-    y: 290
-    w: 240
-    h: 105
+    label: "store_batch()"
+    kind: "block"
+    x: 925
+    y: 310
+    w: 230
+    h: 70
     color: "violet"
     sourceId: "Example.x-callgraph.n3"
+  - id: "n4"
+    label: "crc16()"
+    kind: "block"
+    x: 350
+    y: 500
+    w: 230
+    h: 70
+    color: "amber"
+    sourceId: "Example.x-callgraph.n4"
+  - id: "n5"
+    label: "parse_fields()"
+    kind: "block"
+    x: 700
+    y: 500
+    w: 230
+    h: 70
+    color: "blue"
+    sourceId: "Example.x-callgraph.n5"
 edges:
   - source: "n0"
     target: "n1"
     kind: "flow"
     color: "teal"
-    label: "calls"
-  - source: "n1"
+    label: "×1200"
+  - source: "n0"
     target: "n2"
     kind: "flow"
     color: "teal"
-    label: "builds"
-  - source: "n2"
+    label: "×1200"
+  - source: "n0"
     target: "n3"
     kind: "flow"
     color: "teal"
-    label: "renders"
+    label: "×50"
+  - source: "n2"
+    target: "n4"
+    kind: "flow"
+    color: "teal"
+    label: "×1200"
+  - source: "n2"
+    target: "n5"
+    kind: "flow"
+    color: "teal"
+    label: "×1200"
 groups: []
 matrices: []
 charts: []
@@ -67,4 +95,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
-annotations: []
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
+annotations:
+  - x: 80
+    y: 625
+    text: "调用次数为教学示例，并非实测插桩统计"

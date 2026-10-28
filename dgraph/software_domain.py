@@ -3,15 +3,20 @@
 from html import escape
 from .domain import _rect
 from .svg import PALETTE, _text
+from .routing import relation_label, relation_path, relation_points
 
 
 def c4_container_svg(model):
     out = ['<g data-c4="container">']
     boundary = model["boundary"]
     out.append(f'<g data-c4-boundary="{escape(boundary["id"], quote=True)}" data-source-id="Example.c4.boundary">')
-    out.append(_rect(300, 125, 720, 485, "#fbfdff", "#94a3b8", 1.8, 14, 'stroke-dasharray="6 4"'))
+    out.append(_rect(300, 125, 690, 485, "#fbfdff", "#94a3b8", 1.8, 14, 'stroke-dasharray="6 4"'))
     out.append(_text(320, 585, boundary["label"] + "（系统边界）", 13, "#64748b", "start"))
     out.append('</g>')
+    boxes = {item["id"]: (item["x"], item["y"], 240, 120) for item in model["containers"]}
+    boxes.update({item["id"]: (item["x"] - 20, item["y"], 40, 72) for item in model["actors"]})
+    for relation in model["relations"]:
+        out.append(relation_path(relation_points(relation, boxes)))
     for actor in model["actors"]:
         x, y = actor["x"], actor["y"]
         out.append(f'<g data-c4-actor="{escape(actor["id"], quote=True)}" data-source-id="Example.c4.{escape(actor["id"], quote=True)}">')
@@ -29,13 +34,8 @@ def c4_container_svg(model):
         out.append(_text(x + 120, y + 58, container["label"], 17, "#173d73", weight=700))
         out.append(_text(x + 120, y + 90, container["note"], 12, "#334155"))
         out.append('</g>')
-    positions = {item["id"]: (item["x"] + 120, item["y"] + 60) for item in model["containers"]}
-    positions.update({item["id"]: (item["x"], item["y"] + 45) for item in model["actors"]})
     for relation in model["relations"]:
-        source, target = positions[relation["source"]], positions[relation["target"]]
-        out.append(f'<path d="M {source[0]} {source[1]} L {target[0]} {target[1]}" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow)"/>')
-        lx, ly = (source[0] + target[0]) / 2, (source[1] + target[1]) / 2 - 12
-        out.append(_text(lx, ly, relation["label"], 12, "#475569", weight=500))
+        out.append(relation_label(relation_points(relation, boxes), relation["label"]))
     out.append('</g>')
     return "".join(out)
 

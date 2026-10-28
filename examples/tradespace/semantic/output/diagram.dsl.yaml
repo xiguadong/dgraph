@@ -1,60 +1,11 @@
 schema: "diagram-ir/v1"
 type: "tradespace"
 layout: "tradespace"
-nodes:
-  - id: "n0"
-    label: "LiPo 850"
-    kind: "block"
-    x: 90
-    y: 555
-    w: 240
-    h: 65
-    color: "blue"
-    sourceId: "Example.se-tradespace.n0"
-  - id: "n1"
-    label: "Li-ion 18650"
-    kind: "block"
-    x: 950
-    y: 555
-    w: 240
-    h: 65
-    color: "teal"
-    sourceId: "Example.se-tradespace.n1"
+nodes: []
 edges: []
 groups: []
 matrices: []
-charts:
-  - id: "se-tradespace-chart"
-    kind: "scatter"
-    x: 170
-    y: 150
-    w: 900
-    h: 340
-    xLabel: "质量 / 成本 →"
-    yLabel: "能量 / 低温性能 →"
-    series:
-      - id: "planned"
-        label: "LiPo 850"
-        color: "gray"
-        points:
-          - - 20
-- 80
-          - - 50
-- 60
-          - - 85
-- 35
-      - id: "actual"
-        label: "Li-ion 18650"
-        color: "teal"
-        points:
-          - - 15
-- 30
-          - - 45
-- 55
-          - - 70
-- 75
-          - - 90
-- 88
+charts: []
 timelines: []
 qfd: null
 gantt: null
@@ -65,4 +16,74 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel:
+  x:
+    label: "电池质量（g）"
+    min: 0
+    max: 180
+  y:
+    label: "可用能量（Wh）"
+    min: 0
+    max: 25
+  thresholds:
+    maxX: 120
+    minY: 10
+  alternatives:
+    - id: "lipo450"
+      label: "LiPo 2S 450"
+      x: 28
+      y: 3.3
+      cost: 55
+    - id: "lipo850"
+      label: "LiPo 2S 850"
+      x: 48
+      y: 6.3
+      cost: 85
+      labelDx: -112
+      labelDy: -16
+    - id: "lifepo"
+      label: "LiFePO4 2S 700"
+      x: 52
+      y: 4.5
+      cost: 110
+    - id: "lipo1000"
+      label: "LiPo 2S 1000"
+      x: 56
+      y: 7.4
+      cost: 95
+      labelDx: 12
+      labelDy: -4
+    - id: "lipo3s"
+      label: "LiPo 3S 850"
+      x: 66
+      y: 9.4
+      cost: 110
+      labelDx: 12
+      labelDy: -12
+    - id: "liion18650"
+      label: "Li-ion 2S 18650"
+      x: 94
+      y: 15.8
+      cost: 120
+    - id: "liion21700"
+      label: "Li-ion 2S 21700"
+      x: 140
+      y: 21.6
+      cost: 180
+    - id: "nimh"
+      label: "NiMH 2S"
+      x: 110
+      y: 7.2
+      cost: 70
+  paretoIds:
+    - "lipo450"
+    - "lipo850"
+    - "lipo1000"
+    - "lipo3s"
+    - "liion18650"
+    - "liion21700"
+pertModel: null
 annotations: []

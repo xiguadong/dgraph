@@ -3,8 +3,8 @@ type: "internal-block"
 intent:
   question: "CS-1 内部部件通过哪些端口和接口连接，外部下行链路在哪里？"
 sources:
-  - kind: "sysml"
-    model: "CanSat"
+  - kind: "semantic"
+    example: "lesson2-cansat"
 presentation:
   title: "CanSat CS-1｜内部块图 IBD"
   subtitle: "系统边界、部件、端口与接口"

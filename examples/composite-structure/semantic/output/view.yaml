@@ -9,63 +9,75 @@ selection:
   layout: "composite-structure"
   nodes:
     - id: "n0"
-      label: "CS-1"
-      kind: "block"
-      x: 65
-      y: 260
-      w: 200
+      label: "ui : UI"
+      kind: "part"
+      x: 210
+      y: 275
+      w: 230
       h: 90
-      color: "gray"
+      color: "blue"
       sourceId: "Example.uml-composite.n0"
     - id: "n1"
-      label: "传感器部件"
+      label: "mission : MissionManager"
       kind: "part"
-      x: 500
-      y: 285
-      w: 280
-      h: 110
-      color: "blue"
-      sourceId: "Example.uml-composite.n1"
-    - id: "n2"
-      label: "飞控部件"
-      kind: "part"
-      x: 1010
-      y: 260
-      w: 200
+      x: 525
+      y: 275
+      w: 230
       h: 90
       color: "teal"
+      sourceId: "Example.uml-composite.n1"
+    - id: "n2"
+      label: "radio : RadioGateway"
+      kind: "part"
+      x: 840
+      y: 275
+      w: 230
+      h: 90
+      color: "violet"
       sourceId: "Example.uml-composite.n2"
     - id: "n3"
-      label: "通信部件"
-      kind: "block"
-      x: 500
-      y: 455
-      w: 280
-      h: 70
-      color: "violet"
+      label: "pUser"
+      kind: "port"
+      x: 90
+      y: 305
+      w: 20
+      h: 20
+      color: "blue"
       sourceId: "Example.uml-composite.n3"
+    - id: "n4"
+      label: "pRf"
+      kind: "port"
+      x: 1170
+      y: 305
+      w: 20
+      h: 20
+      color: "violet"
+      sourceId: "Example.uml-composite.n4"
   edges:
+    - source: "n3"
+      target: "n0"
+      kind: "connection"
+      color: "teal"
     - source: "n0"
       target: "n1"
-      kind: "association"
+      kind: "connection"
       color: "teal"
     - source: "n1"
       target: "n2"
-      kind: "flow"
+      kind: "connection"
       color: "teal"
-      label: "interface"
-    - source: "n3"
-      target: "n1"
-      kind: "dependency"
+    - source: "n2"
+      target: "n4"
+      kind: "connection"
       color: "teal"
   groups:
-    - id: "boundary"
-      label: "传感器部件"
+    - id: "ground"
+      label: "«component» GroundStation"
       kind: "boundary"
-      x: 330
-      y: 150
-      w: 620
-      h: 400
+      x: 100
+      y: 130
+      w: 1080
+      h: 420
       color: "blue"
   matrices: []
   charts: []
@@ -79,7 +91,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 300
+      y: 600
+      text: "part 是运行时实例；port 是可见交互点；connector 连接部件"
 presentation:
   title: "CanSat CS-1｜UML｜组合结构图"
   subtitle: "dgraph · engineering diagram"

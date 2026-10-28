@@ -9,45 +9,68 @@ selection:
   layout: "flame-graph"
   nodes:
     - id: "n0"
-      label: "render"
+      label: "decode_loop 100%"
       kind: "flame"
-      x: 150
-      y: 450
-      w: 900
-      h: 70
+      x: 120
+      y: 470
+      w: 1040
+      h: 65
       color: "blue"
       sourceId: "Example.x-flame.n0"
-      compartment: "100% total"
     - id: "n1"
-      label: "layout"
+      label: "radio_read 20%"
       kind: "flame"
-      x: 250
-      y: 350
-      w: 700
-      h: 70
-      color: "teal"
+      x: 120
+      y: 385
+      w: 208
+      h: 65
+      color: "gray"
       sourceId: "Example.x-flame.n1"
-      compartment: "70% layout"
     - id: "n2"
-      label: "route_edges"
+      label: "decode_frame 62%"
       kind: "flame"
-      x: 350
-      y: 250
-      w: 500
-      h: 70
-      color: "amber"
+      x: 328
+      y: 385
+      w: 645
+      h: 65
+      color: "teal"
       sourceId: "Example.x-flame.n2"
-      compartment: "45% routing"
     - id: "n3"
-      label: "measure_text"
+      label: "store_batch 18%"
       kind: "flame"
-      x: 450
-      y: 150
-      w: 300
-      h: 70
+      x: 973
+      y: 385
+      w: 187
+      h: 65
       color: "violet"
       sourceId: "Example.x-flame.n3"
-      compartment: "25% text"
+    - id: "n4"
+      label: "crc16 32%"
+      kind: "flame"
+      x: 328
+      y: 300
+      w: 333
+      h: 65
+      color: "amber"
+      sourceId: "Example.x-flame.n4"
+    - id: "n5"
+      label: "parse_fields 20%"
+      kind: "flame"
+      x: 661
+      y: 300
+      w: 208
+      h: 65
+      color: "blue"
+      sourceId: "Example.x-flame.n5"
+    - id: "n6"
+      label: "filter 10%"
+      kind: "flame"
+      x: 869
+      y: 300
+      w: 104
+      h: 65
+      color: "teal"
+      sourceId: "Example.x-flame.n6"
   edges: []
   groups: []
   matrices: []
@@ -62,7 +85,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 125
+      y: 575
+      text: "示例采样占比；块宽表示耗时比例，栈由下向上展开"
 presentation:
   title: "CanSat CS-1｜火焰图｜栈帧耗时"
   subtitle: "dgraph · engineering diagram"

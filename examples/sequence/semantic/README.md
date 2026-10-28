@@ -14,10 +14,16 @@
 
 不使用 SysML，只根据以下语义画一张序列图，回答“生命线之间按什么顺序交换消息？”
 
-- 传感器；
-- 飞控；
-- 电台；
-- 地面站；
+以 `selection.sequenceModel` 为图的语义模型：
+- participants：sensor（传感器）（x=150）。
+- participants：fcu（飞控）（x=450）。
+- participants：radio（电台）（x=750）。
+- participants：ground（地面站）（x=1050）。
+- messages：1 读取采样（source="fcu"；target="sensor"；kind="sync"；activate=true）。
+- messages：2 温压湿 / IMU / GPS（source="sensor"；target="fcu"；kind="return"）。
+- messages：3 打包 TelemetryFrame（source="fcu"；target="fcu"；kind="sync"；activate=true）。
+- messages：4 UART 遥测帧（source="fcu"；target="radio"；kind="sync"；activate=true）。
+- messages：5 433 MHz 下行（source="radio"；target="ground"；kind="sync"）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -26,8 +32,8 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.sequenceModel`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
@@ -59,7 +65,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.sequenceModel` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

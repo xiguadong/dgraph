@@ -1,12 +1,12 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "state-machine",
-  "inputSha256": "59c1b6d0825b30f1dd66d2580c0097973d5ec349917470c89c00593eedc69ce1",
+  "inputSha256": "e1c09986ebfc21c7b28121a042d6d46b6c8822202d739f06de5e6b3d5214ef77",
   "files": {
-    "view.yaml": "7fde5a0b7222ee500eff07bc8d95eabe9280d73c5554512ad54cc78d40c5ecd5",
-    "diagram.dsl.yaml": "d70a7a0d19d453ef2398532a2ea8defb9540a819bb1dcad7f447eeb6328d75f6",
-    "diagram.svg": "353992021a495c9f7b74ad84684983bc4c5b4f6a66d617cb8069cfc307e84965",
+    "view.yaml": "146fd567b3d38e5957d20a29f7e73ea53943278beceb5368004721162280251e",
+    "diagram.dsl.yaml": "2baaebb88c2657a5dc1104d2d471b0ed892f62cb02529d2ed0a7b95799cbd90e",
+    "diagram.svg": "b5bbf5bb431d09c65c97cdda37f8f1c0eba9784b93436b54141ccb0fc9221796",
     "report.json": "fcaf85e005cd7c50c46df1351b2543f178f23aac91d372251f1552153694aed3",
-    "diagram.mmd": "ffd080136abf148e8cb2a06bb1f5f2068036616d4d053682727cf8daa010bbb2"
+    "diagram.mmd": "d7c12a5ebb6c24a23b82f966fe777fa8c616629eacc5685b0c6561f35779915f"
   }
 }

@@ -14,10 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张Delivery View｜源码到运行交付链，回答“源码如何构建成交付物，存储、部署并进入运行与维护？”
 
-- 源码仓库；
-- 构建与测试；
-- 版本化交付物；
-- 制品库／Release；
+图上的对象：
+- n0：源码仓库（来源 Example.delivery.n0）。
+- n1：构建与测试（来源 Example.delivery.n1）。
+- n2：版本化交付物（来源 Example.delivery.n2）。
+- n3：制品库／Release（来源 Example.delivery.n3）。
+- n4：部署与运行（来源 Example.delivery.n4）。
+有依据的关系：
+- n0 → n1：flow builds。
+- n1 → n2：flow produces。
+- n2 → n3：flow publishes。
+- n3 → n4：flow deploys / runs。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +39,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：源码仓库、构建与测试、版本化交付物、制品库／Release。完整输入见 `input.json`。
+示例语义标签：源码仓库、构建与测试、版本化交付物、制品库／Release、部署与运行。完整输入见 `input.json`。
 
 ## 如何运行
 

@@ -9,7 +9,7 @@ from test_render import spec
 class DrawingPrimitiveTests(unittest.TestCase):
     def test_matrix_cells_are_rendered_with_coordinates(self):
         with tempfile.TemporaryDirectory() as tmp:
-            value = spec(tmp, "risk-matrix")
+            value = spec(tmp, "wbs")
             value["selection"]["matrices"] = [{
                 "id": "interfaces", "x": 300, "y": 160, "cellWidth": 100, "cellHeight": 60,
                 "columns": ["Power", "FCU"], "rows": ["Power", "FCU"],
@@ -33,7 +33,7 @@ class DrawingPrimitiveTests(unittest.TestCase):
 
     def test_scatter_chart_has_points_without_connecting_line(self):
         with tempfile.TemporaryDirectory() as tmp:
-            value = spec(tmp, "tradespace")
+            value = spec(tmp, "burndown")
             value["selection"]["charts"] = [{"id": "trade", "kind": "scatter", "x": 180, "y": 150, "w": 800, "h": 380, "series": [{"id": "options", "label": "Options", "points": [[20, 70], [80, 40]]}]}]
             svg = Path(render_diagram(value)["artifacts"]["svg"]).read_text()
             series = svg.split('data-chart-series="options"', 1)[1].split("</g>", 1)[0]
@@ -42,7 +42,7 @@ class DrawingPrimitiveTests(unittest.TestCase):
 
     def test_timeline_rows_and_markers_are_rendered(self):
         with tempfile.TemporaryDirectory() as tmp:
-            value = spec(tmp, "timing")
+            value = spec(tmp, "wbs")
             value["selection"]["timelines"] = [{
                 "id": "schedule", "x": 220, "y": 160, "w": 850, "rowHeight": 70,
                 "rows": [{"id": "design", "label": "Design", "start": 0, "end": 45, "color": "blue"}],

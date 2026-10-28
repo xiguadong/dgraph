@@ -14,7 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张DoDAF／UAF｜视点全景，回答“不同视点如何共同描述体系架构？”
 
-- 视点选择；
+图上的对象：
+- n0：AV 全视点 AV-1 概述（来源 Example.fw-dodaf.n0）。
+- n1：CV 能力 CV-2 能力分类（来源 Example.fw-dodaf.n1）。
+- n2：OV 运行 OV-1 运行概念（来源 Example.fw-dodaf.n2）。
+- n3：SV 系统 SV-1 系统接口（来源 Example.fw-dodaf.n3）。
+- n4：SvcV 服务 SvcV-1 服务描述（来源 Example.fw-dodaf.n4）。
+- n5：DIV 数据 DIV-1 概念数据模型（来源 Example.fw-dodaf.n5）。
+- n6：StdV 标准 StdV-1 标准概览（来源 Example.fw-dodaf.n6）。
+- n7：PV 项目 PV-1 项目关联（来源 Example.fw-dodaf.n7）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -29,7 +37,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：视点选择。完整输入见 `input.json`。
+示例语义标签：AV 全视点 AV-1 概述、CV 能力 CV-2 能力分类、OV 运行 OV-1 运行概念、SV 系统 SV-1 系统接口、SvcV 服务 SvcV-1 服务描述、DIV 数据 DIV-1 概念数据模型、StdV 标准 StdV-1 标准概览、PV 项目 PV-1 项目关联。完整输入见 `input.json`。
 
 ## 如何运行
 

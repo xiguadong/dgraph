@@ -14,10 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张UML｜组合结构图，回答“类内部的部件和连接器如何组织？”
 
-- CS-1；
-- 传感器部件；
-- 飞控部件；
-- 通信部件；
+图上的对象：
+- n0：ui : UI（来源 Example.uml-composite.n0）。
+- n1：mission : MissionManager（来源 Example.uml-composite.n1）。
+- n2：radio : RadioGateway（来源 Example.uml-composite.n2）。
+- n3：pUser（来源 Example.uml-composite.n3）。
+- n4：pRf（来源 Example.uml-composite.n4）。
+有依据的关系：
+- n3 → n0：connection 。
+- n0 → n1：connection 。
+- n1 → n2：connection 。
+- n2 → n4：connection 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +39,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：CS-1、传感器部件、飞控部件、通信部件。完整输入见 `input.json`。
+示例语义标签：ui : UI、mission : MissionManager、radio : RadioGateway、pUser、pRf。完整输入见 `input.json`。
 
 ## 如何运行
 

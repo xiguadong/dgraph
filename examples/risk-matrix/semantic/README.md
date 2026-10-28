@@ -14,7 +14,14 @@
 
 不使用 SysML，只根据以下语义画一张风险矩阵｜概率与影响，回答“概率与影响如何共同决定风险优先级？”
 
-- 矩阵读法；
+以 `selection.riskMatrix` 为图的语义模型：
+- probability：极低、低、中、高、极高。
+- consequence：可忽略、轻微、中等、严重、灾难。
+- risks：R-01（电池低温）（probability=4；consequence=3）。
+- risks：R-02（链路失锁）（probability=3；consequence=4）。
+- risks：R-03（进度压缩）（probability=4；consequence=4）。
+- risks：R-04（开伞失效）（probability=2；consequence=5）。
+- risks：R-05（质量超限）（probability=3；consequence=3）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -23,13 +30,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.riskMatrix`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：矩阵读法。完整输入见 `input.json`。
+示例语义标签：电池低温、链路失锁、进度压缩、开伞失效、质量超限。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -56,7 +63,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.riskMatrix` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

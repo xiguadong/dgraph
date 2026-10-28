@@ -15,70 +15,106 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "TelemetryFrame 对象",
-        "kind": "block",
-        "x": 55,
-        "y": 280,
-        "w": 240,
+        "label": "执行探空任务",
+        "kind": "usecase",
+        "x": 480,
+        "y": 285,
+        "w": 300,
         "h": 100,
-        "color": "blue",
+        "color": "teal",
         "sourceId": "Example.opm.n0"
       },
       {
         "id": "n1",
-        "label": "采集过程",
-        "kind": "usecase",
-        "x": 360,
-        "y": 280,
-        "w": 230,
-        "h": 100,
-        "color": "teal",
+        "label": "探空仪\n待机 / 运行",
+        "kind": "block",
+        "x": 65,
+        "y": 145,
+        "w": 240,
+        "h": 85,
+        "color": "blue",
         "sourceId": "Example.opm.n1"
       },
       {
         "id": "n2",
-        "label": "飞控对象",
+        "label": "科学数据\n未采集 / 完整",
         "kind": "block",
-        "x": 670,
-        "y": 280,
+        "x": 950,
+        "y": 145,
         "w": 240,
-        "h": 100,
+        "h": 85,
         "color": "blue",
         "sourceId": "Example.opm.n2"
       },
       {
         "id": "n3",
-        "label": "下传过程",
-        "kind": "usecase",
-        "x": 980,
-        "y": 280,
-        "w": 230,
-        "h": 100,
-        "color": "violet",
+        "label": "电池能量\n充足 / 耗尽",
+        "kind": "block",
+        "x": 65,
+        "y": 470,
+        "w": 240,
+        "h": 85,
+        "color": "amber",
         "sourceId": "Example.opm.n3"
+      },
+      {
+        "id": "n4",
+        "label": "地面站\n空闲 / 接收",
+        "kind": "block",
+        "x": 950,
+        "y": 470,
+        "w": 240,
+        "h": 85,
+        "color": "violet",
+        "sourceId": "Example.opm.n4"
+      },
+      {
+        "id": "n5",
+        "label": "操作员\n待命 / 监控",
+        "kind": "actor",
+        "x": 480,
+        "y": 115,
+        "w": 300,
+        "h": 85,
+        "color": "gray",
+        "sourceId": "Example.opm.n5"
       }
     ],
     "edges": [
       {
-        "source": "n0",
-        "target": "n1",
+        "source": "n1",
+        "target": "n0",
         "kind": "flow",
         "color": "teal",
-        "label": "输入"
+        "label": "执行"
       },
       {
-        "source": "n1",
+        "source": "n0",
         "target": "n2",
         "kind": "flow",
         "color": "teal",
-        "label": "生成"
+        "label": "产生"
       },
       {
-        "source": "n2",
-        "target": "n3",
+        "source": "n3",
+        "target": "n0",
         "kind": "flow",
         "color": "teal",
-        "label": "支撑"
+        "label": "消耗"
+      },
+      {
+        "source": "n0",
+        "target": "n4",
+        "kind": "flow",
+        "color": "teal",
+        "label": "影响"
+      },
+      {
+        "source": "n5",
+        "target": "n0",
+        "kind": "association",
+        "color": "teal",
+        "label": "操作"
       }
     ],
     "groups": [],
@@ -94,6 +130,11 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
     "annotations": []
   },
   "presentation": {

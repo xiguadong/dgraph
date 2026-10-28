@@ -14,10 +14,14 @@
 
 不使用 SysML，只根据以下语义画一张UML｜类图，回答“类、特征和关系如何描述软件类型？”
 
-- Sensor；
-- TelemetryFrame；
-- Mission；
-- GroundStation；
+以 `selection.umlClass` 为图的语义模型：
+- classes：GroundStation（x=70；y=150；attributes=["stationId: String", "mode: Mode"]；operations=["startSession()"]）。
+- classes：Mission（x=700；y=150；attributes=["id: String", "startTime: Time"]；operations=["archive()"]）。
+- classes：Sensor（x=70；y=410；attributes=["kind: SensorType", "rateHz: int"]；operations=["sample()"]）。
+- classes：TelemetryFrame（x=700；y=410；attributes=["ts: Time", "t, p, rh: float"]；operations=["crcOk(): bool"]）。
+- relations：manages（source="GroundStation"；target="Mission"；sourceMultiplicity="1"；targetMultiplicity="1"；points=[[350, 235], [700, 235]]）。
+- relations：records（source="Mission"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[840, 300], [840, 410]]）。
+- relations：produces（source="Sensor"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[350, 495], [700, 495]]）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -26,13 +30,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.umlClass`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Sensor、TelemetryFrame、Mission、GroundStation。完整输入见 `input.json`。
+示例语义标签：GroundStation、Mission、Sensor、TelemetryFrame。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -59,7 +63,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.umlClass` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

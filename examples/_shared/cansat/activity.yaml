@@ -1,5 +1,5 @@
 {
- "schema":"diagram-view/v1","type":"activity","intent":{"question":"CS-1 从自检到遥测下传的活动顺序和低电压分支是什么？"},"sources":[{"kind":"sysml","model":"CanSat"}],
+ "schema":"diagram-view/v1","type":"activity","intent":{"question":"CS-1 从自检到遥测下传的活动顺序和低电压分支是什么？"},"sources":[{"kind":"semantic","example":"lesson2-cansat"}],
  "presentation":{"title":"CanSat CS-1｜活动图 Activity","subtitle":"动作、判断与控制流","theme":"dgraph"},
  "selection":{
   "nodes":[
@@ -20,6 +20,6 @@
    {"source":"safe","target":"heartbeat","kind":"control","color":"red"},
    {"source":"send","target":"store","kind":"control","color":"teal","points":[[920,470],[920,548],[760,548]],"labelPosition":[845,520]},
    {"source":"heartbeat","target":"store","kind":"control","color":"red","points":[[335,470],[335,548],[500,548]],"labelPosition":[420,520]}
-  ],"annotations":[{"x":55,"y":630,"text":"守卫条件留在分支旁；安全模式与正常遥测最终都保留本地数据。"}]
+  ],"annotations":[{"x":55,"y":630,"text":"正常遥测与安全心跳均保留本地数据；低电压时降低采样率。"}]
  },"outputs":{"directory":"/absolute/output","formats":["viewspec","dsl","mmd","svg","report"]}
 }

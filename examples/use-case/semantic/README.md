@@ -14,10 +14,18 @@
 
 不使用 SysML，只根据以下语义画一张用例图，回答“哪些参与者在系统边界上使用哪些能力？”
 
-- 发射操作员；
-- 科学用户；
-- 执行自检与待发射；
-- 采集大气与姿态数据；
+图上的对象：
+- operator：发射操作员（来源 CanSat.Operator）。
+- scientist：科学用户（来源 CanSat.Scientist）。
+- arm：执行自检与待发射（来源 CanSat.UCArm）。
+- collect：采集大气与姿态数据（来源 CanSat.UCCollect）。
+- telemetry：实时接收遥测（来源 CanSat.UCTelemetry）。
+- replay：回收后回放数据（来源 CanSat.UCReplay）。
+有依据的关系：
+- operator → arm：association 。
+- operator → collect：association 。
+- scientist → telemetry：association 。
+- scientist → replay：association 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +40,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：发射操作员、科学用户、执行自检与待发射、采集大气与姿态数据。完整输入见 `input.json`。
+示例语义标签：发射操作员、科学用户、执行自检与待发射、采集大气与姿态数据、实时接收遥测、回收后回放数据。完整输入见 `input.json`。
 
 ## 如何运行
 

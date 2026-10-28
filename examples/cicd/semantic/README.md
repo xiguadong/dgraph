@@ -14,10 +14,21 @@
 
 不使用 SysML，只根据以下语义画一张CI/CD｜构建、关口与发布，回答“代码如何经过检查、制品、关口和部署？”
 
-- 源码提交；
-- 构建与测试；
-- 制品发布；
-- 部署验证；
+图上的对象：
+- n0：提交 git push（来源 Example.x-cicd.n0）。
+- n1：构建 编译 / 单测（来源 Example.x-cicd.n1）。
+- n2：测试 覆盖率（来源 Example.x-cicd.n2）。
+- n3：镜像 版本化制品（来源 Example.x-cicd.n3）。
+- n4：部署 灰度发布（来源 Example.x-cicd.n4）。
+- n5：测试失败 阻断合并（来源 Example.x-cicd.n5）。
+- n6：部署失败 回滚上一版（来源 Example.x-cicd.n6）。
+有依据的关系：
+- n0 → n1：flow 触发。
+- n1 → n2：flow 验证。
+- n2 → n3：flow 通过。
+- n3 → n4：flow 审批。
+- n2 → n5：flow 失败。
+- n4 → n6：flow 失败。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +43,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：源码提交、构建与测试、制品发布、部署验证。完整输入见 `input.json`。
+示例语义标签：提交 git push、构建 编译 / 单测、测试 覆盖率、镜像 版本化制品、部署 灰度发布、测试失败 阻断合并、部署失败 回滚上一版。完整输入见 `input.json`。
 
 ## 如何运行
 

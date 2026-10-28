@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张用户故事地图｜活动与发布，回答“用户活动、任务和发布如何组织故事？”
 
-- 准备任务；
-- 执行探空；
-- 接收数据；
-- 回收分析；
+图上的对象：
+- n0：准备任务（来源 Example.x-storymap.n0）。
+- n1：执行探空（来源 Example.x-storymap.n1）。
+- n2：接收数据（来源 Example.x-storymap.n2）。
+- n3：回收分析（来源 Example.x-storymap.n3）。
+- n4：配置站点（来源 Example.x-storymap.n4）。
+- n5：看实时遥测（来源 Example.x-storymap.n5）。
+- n6：导入存储帧（来源 Example.x-storymap.n6）。
+- n7：画曲线（来源 Example.x-storymap.n7）。
+- n8：多站点模板（来源 Example.x-storymap.n8）。
+- n9：异常告警（来源 Example.x-storymap.n9）。
+- n10：异常帧回放（来源 Example.x-storymap.n10）。
+- n11：导出报告（来源 Example.x-storymap.n11）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：准备任务、执行探空、接收数据、回收分析。完整输入见 `input.json`。
+示例语义标签：准备任务、执行探空、接收数据、回收分析、配置站点、看实时遥测、导入存储帧、画曲线、多站点模板、异常告警、异常帧回放、导出报告。完整输入见 `input.json`。
 
 ## 如何运行
 

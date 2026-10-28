@@ -56,6 +56,11 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations:
     - x: 285
       y: 585

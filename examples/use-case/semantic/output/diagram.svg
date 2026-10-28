@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="use-case">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜用例图 Use Case</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">参与者、系统边界与目标</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
 <g data-group-id="subject"><rect x="310" y="140" width="650" height="450" rx="16" fill="#e8f0ff" fill-opacity="0.35" stroke="#2459a6" stroke-width="1.8"/><text x="326" y="168" font-size="15" fill="#2459a6" text-anchor="start" font-weight="700">CS-1 探空仪</text></g>
-<path d="M 180,280 L 390,240" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
-<path d="M 180,280 L 660,260" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
-<path d="M 1080,280 L 620,425" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
-<path d="M 1080,280 L 900,425" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 155,263 L 390,240" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 155,263 L 190,263 L 190,175 L 780,175 L 780,200" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 1105,263 L 1060,263 L 1060,490 L 505,490 L 505,465" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 1105,263 L 980,263 L 980,425 L 900,425" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
 <g data-node-id="operator" data-source-id="CanSat.Operator" data-kind="actor"><title>发射操作员</title><circle cx="135.0" cy="239" r="12" fill="#fff" stroke="#2459a6" stroke-width="2"/><path d="M 135.0 251 V 285 M 115.0 263 H 155.0 M 135.0 285 L 119.0 311 M 135.0 285 L 151.0 311" fill="none" stroke="#2459a6" stroke-width="2"/><text x="135.0" y="335" font-size="15" fill="#334155" text-anchor="middle" font-weight="400">发射操作员</text></g>
 <g data-node-id="scientist" data-source-id="CanSat.Scientist" data-kind="actor"><title>科学用户</title><circle cx="1125.0" cy="239" r="12" fill="#fff" stroke="#0f766e" stroke-width="2"/><path d="M 1125.0 251 V 285 M 1105.0 263 H 1145.0 M 1125.0 285 L 1109.0 311 M 1125.0 285 L 1141.0 311" fill="none" stroke="#0f766e" stroke-width="2"/><text x="1125.0" y="335" font-size="15" fill="#334155" text-anchor="middle" font-weight="400">科学用户</text></g>
 <g data-node-id="arm" data-source-id="CanSat.UCArm" data-kind="usecase"><title>执行自检与待发射</title><ellipse cx="505.0" cy="237.5" rx="115.0" ry="37.5" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="505.0" y="242.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">执行自检与待发射</text></g>

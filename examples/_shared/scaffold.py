@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from dgraph.catalog import CATALOG
+from dgraph.viewspec import DOMAIN_FIELDS
 from examples._shared.atlas_data import ATLAS_ENTRIES, build_spec
 
 
@@ -120,29 +121,84 @@ def semantic_spec(kind):
 
 
 def _labels(spec):
-    return [node["label"].replace("\n", " ") for node in spec["selection"]["nodes"][:4]]
+    field = DOMAIN_FIELDS.get(spec["type"])
+    if field:
+        model = spec["selection"].get(field) or {}
+        for name in ("customerNeeds", "tasks", "events", "containers", "classes", "participants", "elements", "processes", "risks", "inputs", "lifelines", "alternatives"):
+            if model.get(name):
+                return [item.get("label", item.get("id", "")) for item in model[name]]
+    return [node["label"].replace("\n", " ") for node in spec["selection"].get("nodes", [])]
+
+
+def _facts(kind, spec):
+    field = DOMAIN_FIELDS.get(kind)
+    selection = spec["selection"]
+    if field:
+        model = selection[field]
+        lines = [f"以 `selection.{field}` 为图的语义模型："]
+        for name, value in model.items():
+            if isinstance(value, list):
+                if value and isinstance(value[0], dict):
+                    for item in value:
+                        identity = f"{item['id']}（{item['label']}）" if item.get("id") and item.get("label") else item.get("label", item.get("id", f"{item.get('source', '')} → {item.get('target', '')}"))
+                        detail = "；".join(f"{key}={json.dumps(child, ensure_ascii=False)}" for key, child in item.items() if key not in {"id", "label"})
+                        lines.append(f"- {name}：{identity}" + (f"（{detail}）" if detail else "") + "。")
+                else:
+                    lines.append(f"- {name}：{'、'.join(map(str, value))}。")
+            elif isinstance(value, dict):
+                detail = "；".join(f"{key}={json.dumps(child, ensure_ascii=False)}" for key, child in value.items())
+                lines.append(f"- {name}：{detail}。")
+            else:
+                lines.append(f"- {name}：{value}。")
+        return "\n".join(lines)
+    lines = ["图上的对象："]
+    for node in selection.get("nodes", []):
+        label = node["label"].replace("\n", " ") or node.get("kind", "图元")
+        lines.append(f"- {node['id']}：{label}（来源 {node['sourceId']}）。")
+    if selection.get("edges"):
+        lines.append("有依据的关系：")
+        for edge in selection["edges"]:
+            lines.append(f"- {edge['source']} → {edge['target']}：{edge.get('kind', '')} {edge.get('label', '')}。")
+    return "\n".join(lines)
 
 
 def _prompt(kind, spec):
-    labels = _labels(spec)
-    lines = "\n".join(f"- {label}；" for label in labels)
-    return f"不使用 SysML，只根据以下语义画一张{title_for(kind)}，回答“{question_for(kind)}”\n\n{lines}\n\n保持来源标识，缺少依据的关系不要补充。"
+    return f"不使用 SysML，只根据以下语义画一张{title_for(kind)}，回答“{question_for(kind)}”\n\n{_facts(kind, spec)}\n\n保持来源标识，缺少依据的关系不要补充。"
 
 
 def _readme(kind, mode, spec):
     title = title_for(kind)
     labels = _labels(spec)
     is_sysml = mode == "sysml"
-    input_description = "`model.sysml` 提供模型事实，`input.json` 选择本次视图；两者职责不同。" if is_sysml else "`input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。"
-    prompt = _prompt(kind, spec) if not is_sysml else f"读取 `model.sysml`，结合“{question_for(kind)}”重新选择视图元素，不自动采用模型已有的 view，然后绘制{title}。"
+    field = DOMAIN_FIELDS.get(kind)
+    kinds = {source.get("kind") for source in spec.get("sources", [])}
+    overlay = is_sysml and kinds == {"semantic"}
+    input_description = ("`model.sysml` 先经过编译检查；`input.json` 声明图的来源与视图内容。"
+                         if is_sysml else "`input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。")
+    prompt = _prompt(kind, spec) if not is_sysml else (
+        f"先编译 `model.sysml`。本图采用课件教学语义，按 `input.json` 的对象、关系和来源绘制{title}；不要把教学补充内容称为已编译模型事实。"
+        if overlay else f"读取 `model.sysml`，核对 `sourceId` 所指的真实模型元素，结合“{question_for(kind)}”选择视图并绘制{title}。")
     model_section = """
 ## 模型与视图的关系
 
-- `model.sysml` 只提供系统事实，原文件只读；
-- `input.json` 决定本次要回答的问题和选择的元素；
+- `model.sysml` 先经过解析和语义检查，原文件只读；
+- `input.json` 的 `sources.kind` 标明图的来源；`semantic` 表示课件教学补充语义，不能冒充模型元素；
+- 仅当 `sources.kind=sysml` 且 `sourceId` 与编译导出的元素匹配时，才声明该视图直接引用模型事实；
 - 不自动继承模型已有的 `view`；
-- 先运行 `analyze_sysml`，成功后再运行 `render_diagram`；编译通过不等于视图选择或工程验证正确。
+- 先运行 `analyze_sysml`，核对 `view-provenance.json`，再运行 `render_diagram`；编译通过不等于图义或工程验证正确。
 """ if is_sysml else ""
+    semantic_description = (
+        f"- `selection.{field}`：本图权威语义，包含领域对象、数值与关系；\n"
+        "- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；"
+        if field else
+        "- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；\n"
+        "- `selection.edges`：有依据的关系；"
+    )
+    editing_steps = (
+        f"1. 修改 `selection.{field}` 中的对象、数值与关系，保持内部 ID 引用一致；"
+        if field else
+        "1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；"
+    )
     return f"""# {title}（`{kind}`）
 
 ## 图种与用途
@@ -164,8 +220,7 @@ def _readme(kind, mode, spec):
 {input_description}
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+{semantic_description}
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
@@ -197,7 +252,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+{editing_steps}
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 
@@ -248,5 +303,5 @@ def gallery_html():
     cards = []
     for entry in CATALOG:
         kind = entry["type"]
-        cards.append(f'<a class="card" href="{kind}/semantic/output/diagram.svg"><img loading="lazy" src="{kind}/semantic/output/diagram.svg"><span>{title_for(kind)}</span><small>{kind} · <a href="{kind}/semantic/README.md">语义指南</a></small></a>')
+        cards.append(f'<div class="card"><a href="{kind}/semantic/output/diagram.svg"><img loading="lazy" src="{kind}/semantic/output/diagram.svg"><span>{title_for(kind)}</span></a><small>{kind} · <a href="{kind}/semantic/README.md">语义指南</a></small></div>')
     return """<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>dgraph 图种路由</title><style>body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;margin:32px;background:#f5f7fb;color:#15202b}h1{font-size:30px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:white;border:1px solid #dbe3ef;border-radius:12px;padding:10px;text-decoration:none;color:#173d73}.card img{width:100%}.card span{display:block;font-weight:700;margin-top:8px}.card small{color:#64748b}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><h1>dgraph 图种路由</h1><p>61 个独立语义示例；点击图查看 SVG，点击语义指南查看输入和调用。</p><div class="grid">""" + "".join(cards) + "</div></body></html>"

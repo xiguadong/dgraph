@@ -9,57 +9,255 @@ selection:
   layout: "wbs"
   nodes:
     - id: "n0"
-      label: "CS-1 项目"
-      kind: "package"
+      label: "CS-1 研制项目"
+      kind: "block"
       x: 500
-      y: 135
+      y: 120
       w: 280
-      h: 85
+      h: 75
       color: "violet"
       sourceId: "Example.pm-wbs.n0"
     - id: "n1"
-      label: "需求与设计"
-      kind: "package"
-      x: 80
-      y: 410
-      w: 300
-      h: 100
+      label: "1.1 需求分析"
+      kind: "block"
+      x: 25
+      y: 290
+      w: 220
+      h: 70
       color: "blue"
       sourceId: "Example.pm-wbs.n1"
+    - id: "n6"
+      label: "1.1.1 任务书"
+      kind: "block"
+      x: 25
+      y: 420
+      w: 220
+      h: 60
+      color: "blue"
+      sourceId: "Example.pm-wbs.n6"
+    - id: "n11"
+      label: "1.1.2 需求基线"
+      kind: "block"
+      x: 25
+      y: 515
+      w: 220
+      h: 60
+      color: "blue"
+      sourceId: "Example.pm-wbs.n11"
     - id: "n2"
-      label: "制造与集成"
-      kind: "package"
-      x: 480
-      y: 410
-      w: 300
-      h: 100
-      color: "blue"
+      label: "1.2 设计"
+      kind: "block"
+      x: 275
+      y: 290
+      w: 220
+      h: 70
+      color: "teal"
       sourceId: "Example.pm-wbs.n2"
+    - id: "n7"
+      label: "1.2.1 架构设计"
+      kind: "block"
+      x: 275
+      y: 420
+      w: 220
+      h: 60
+      color: "teal"
+      sourceId: "Example.pm-wbs.n7"
+    - id: "n12"
+      label: "1.2.2 详细设计"
+      kind: "block"
+      x: 275
+      y: 515
+      w: 220
+      h: 60
+      color: "teal"
+      sourceId: "Example.pm-wbs.n12"
     - id: "n3"
-      label: "试验与交付"
-      kind: "package"
-      x: 880
-      y: 410
-      w: 300
-      h: 100
-      color: "blue"
+      label: "1.3 采购制造"
+      kind: "block"
+      x: 525
+      y: 290
+      w: 220
+      h: 70
+      color: "amber"
       sourceId: "Example.pm-wbs.n3"
+    - id: "n8"
+      label: "1.3.1 器材采购"
+      kind: "block"
+      x: 525
+      y: 420
+      w: 220
+      h: 60
+      color: "amber"
+      sourceId: "Example.pm-wbs.n8"
+    - id: "n13"
+      label: "1.3.2 结构加工"
+      kind: "block"
+      x: 525
+      y: 515
+      w: 220
+      h: 60
+      color: "amber"
+      sourceId: "Example.pm-wbs.n13"
+    - id: "n4"
+      label: "1.4 集成"
+      kind: "block"
+      x: 775
+      y: 290
+      w: 220
+      h: 70
+      color: "violet"
+      sourceId: "Example.pm-wbs.n4"
+    - id: "n9"
+      label: "1.4.1 系统集成"
+      kind: "block"
+      x: 775
+      y: 420
+      w: 220
+      h: 60
+      color: "violet"
+      sourceId: "Example.pm-wbs.n9"
+    - id: "n14"
+      label: "1.4.2 总装联调"
+      kind: "block"
+      x: 775
+      y: 515
+      w: 220
+      h: 60
+      color: "violet"
+      sourceId: "Example.pm-wbs.n14"
+    - id: "n5"
+      label: "1.5 试验评审"
+      kind: "block"
+      x: 1025
+      y: 290
+      w: 220
+      h: 70
+      color: "gray"
+      sourceId: "Example.pm-wbs.n5"
+    - id: "n10"
+      label: "1.5.1 环境试验"
+      kind: "block"
+      x: 1025
+      y: 420
+      w: 220
+      h: 60
+      color: "gray"
+      sourceId: "Example.pm-wbs.n10"
+    - id: "n15"
+      label: "1.5.2 飞行试验"
+      kind: "block"
+      x: 1025
+      y: 515
+      w: 220
+      h: 60
+      color: "gray"
+      sourceId: "Example.pm-wbs.n15"
   edges:
     - source: "n0"
       target: "n1"
-      kind: "composition"
-      color: "blue"
-      label: "1"
+      kind: "association"
+      color: "teal"
+    - source: "n1"
+      target: "n6"
+      kind: "association"
+      color: "teal"
+    - source: "n1"
+      target: "n11"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 240
+- 360
+        - - 260
+- 360
+        - - 260
+- 545
+        - - 245
+- 545
     - source: "n0"
       target: "n2"
-      kind: "composition"
-      color: "blue"
-      label: "1"
+      kind: "association"
+      color: "teal"
+    - source: "n2"
+      target: "n7"
+      kind: "association"
+      color: "teal"
+    - source: "n2"
+      target: "n12"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 490
+- 360
+        - - 510
+- 360
+        - - 510
+- 545
+        - - 495
+- 545
     - source: "n0"
       target: "n3"
-      kind: "composition"
-      color: "blue"
-      label: "1"
+      kind: "association"
+      color: "teal"
+    - source: "n3"
+      target: "n8"
+      kind: "association"
+      color: "teal"
+    - source: "n3"
+      target: "n13"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 740
+- 360
+        - - 760
+- 360
+        - - 760
+- 545
+        - - 745
+- 545
+    - source: "n0"
+      target: "n4"
+      kind: "association"
+      color: "teal"
+    - source: "n4"
+      target: "n9"
+      kind: "association"
+      color: "teal"
+    - source: "n4"
+      target: "n14"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 990
+- 360
+        - - 1010
+- 360
+        - - 1010
+- 545
+        - - 995
+- 545
+    - source: "n0"
+      target: "n5"
+      kind: "association"
+      color: "teal"
+    - source: "n5"
+      target: "n10"
+      kind: "association"
+      color: "teal"
+    - source: "n5"
+      target: "n15"
+      kind: "association"
+      color: "teal"
+      points:
+        - - 1240
+- 360
+        - - 1260
+- 360
+        - - 1260
+- 545
+        - - 1245
+- 545
   groups: []
   matrices: []
   charts: []
@@ -73,7 +271,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 350
+      y: 635
+      text: "叶子工作包可估算、分配和验收；WBS 分解工作而非产品"
 presentation:
   title: "CanSat CS-1｜WBS｜工作分解"
   subtitle: "dgraph · engineering diagram"

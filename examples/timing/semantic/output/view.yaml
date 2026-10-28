@@ -7,55 +7,12 @@ sources:
     example: "uml-timing"
 selection:
   layout: "timing"
-  nodes:
-    - id: "n0"
-      label: "里程碑 / 验收点"
-      kind: "block"
-      x: 90
-      y: 555
-      w: 250
-      h: 65
-      color: "amber"
-      sourceId: "Example.uml-timing.n0"
+  nodes: []
   edges: []
   groups: []
   matrices: []
   charts: []
-  timelines:
-    - id: "uml-timing-timeline"
-      x: 95
-      y: 150
-      w: 1060
-      rowHeight: 82
-      labelWidth: 210
-      rows:
-        - id: "row0"
-          label: "采样脉冲"
-          start: 0
-          end: 45
-          color: "blue"
-          sourceId: "Example.uml-timing.row0"
-        - id: "row1"
-          label: "打包窗口"
-          start: 14
-          end: 59
-          color: "teal"
-          sourceId: "Example.uml-timing.row1"
-        - id: "row2"
-          label: "发送窗口"
-          start: 28
-          end: 73
-          color: "amber"
-          sourceId: "Example.uml-timing.row2"
-        - id: "row3"
-          label: "接收确认"
-          start: 42
-          end: 87
-          color: "violet"
-          sourceId: "Example.uml-timing.row3"
-      markers:
-        - position: 58
-          label: "PDR / 评审"
+  timelines: []
   qfd: null
   gantt: null
   faultTree: null
@@ -65,10 +22,81 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations:
-    - x: 320
-      y: 565
-      text: "0 ms          100 ms          200 ms          300 ms          500 ms"
+  riskMatrix: null
+  dmnModel: null
+  timingModel:
+    durationMs: 2000
+    ticks:
+      - 0
+      - 500
+      - 1000
+      - 1500
+      - 2000
+    lifelines:
+      - id: "sensor"
+        label: "传感器"
+        segments:
+          - from: 0
+            to: 80
+            state: "采样"
+          - from: 80
+            to: 1000
+            state: "等待"
+          - from: 1000
+            to: 1080
+            state: "采样"
+          - from: 1080
+            to: 2000
+            state: "等待"
+      - id: "ground"
+        label: "地面站"
+        segments:
+          - from: 0
+            to: 130
+            state: "等待"
+          - from: 130
+            to: 230
+            state: "处理"
+          - from: 230
+            to: 1130
+            state: "等待"
+          - from: 1130
+            to: 1230
+            state: "处理"
+          - from: 1230
+            to: 2000
+            state: "等待"
+      - id: "radio"
+        label: "电台"
+        segments:
+          - from: 0
+            to: 80
+            state: "空闲"
+          - from: 80
+            to: 130
+            state: "发送"
+          - from: 130
+            to: 1080
+            state: "空闲"
+          - from: 1080
+            to: 1130
+            state: "发送"
+          - from: 1130
+            to: 2000
+            state: "空闲"
+    constraints:
+      - label: "采样周期 T = 1000 ms"
+        from: 0
+        to: 1000
+      - label: "发送 ≤ 50 ms"
+        from: 80
+        to: 130
+      - label: "处理 ≤ 100 ms"
+        from: 130
+        to: 230
+  tradespaceModel: null
+  pertModel: null
+  annotations: []
 presentation:
   title: "CanSat CS-1｜UML｜时序图与时间约束"
   subtitle: "dgraph · engineering diagram"

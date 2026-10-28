@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张经典 SE｜系统上下文图，回答“系统边界在哪里，哪些外部实体与系统交互？”
 
-- 发射操作员；
-- CS-1 探空仪；
-- 地面站；
-- 科学用户；
+图上的对象：
+- n0：CS-1 探空仪 黑盒系统（来源 Example.se-context.n0）。
+- n1：发射装置（来源 Example.se-context.n1）。
+- n2：环境（来源 Example.se-context.n2）。
+- n3：地面站（来源 Example.se-context.n3）。
+- n4：空域管理（来源 Example.se-context.n4）。
+- n5：科学用户（来源 Example.se-context.n5）。
+有依据的关系：
+- n1 → n0：flow 机械释放。
+- n2 → n0：flow 环境扰动。
+- n0 → n3：flow I-04 遥测下行。
+- n4 → n0：dependency 空域约束。
+- n0 → n5：flow 回收后回放。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：发射操作员、CS-1 探空仪、地面站、科学用户。完整输入见 `input.json`。
+示例语义标签：CS-1 探空仪 黑盒系统、发射装置、环境、地面站、空域管理、科学用户。完整输入见 `input.json`。
 
 ## 如何运行
 

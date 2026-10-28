@@ -14,7 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张UML｜时序图与时间约束，回答“状态和消息如何满足时间约束？”
 
-- 里程碑 / 验收点；
+以 `selection.timingModel` 为图的语义模型：
+- durationMs：2000。
+- ticks：0、500、1000、1500、2000。
+- lifelines：sensor（传感器）（segments=[{"from": 0, "to": 80, "state": "采样"}, {"from": 80, "to": 1000, "state": "等待"}, {"from": 1000, "to": 1080, "state": "采样"}, {"from": 1080, "to": 2000, "state": "等待"}]）。
+- lifelines：ground（地面站）（segments=[{"from": 0, "to": 130, "state": "等待"}, {"from": 130, "to": 230, "state": "处理"}, {"from": 230, "to": 1130, "state": "等待"}, {"from": 1130, "to": 1230, "state": "处理"}, {"from": 1230, "to": 2000, "state": "等待"}]）。
+- lifelines：radio（电台）（segments=[{"from": 0, "to": 80, "state": "空闲"}, {"from": 80, "to": 130, "state": "发送"}, {"from": 130, "to": 1080, "state": "空闲"}, {"from": 1080, "to": 1130, "state": "发送"}, {"from": 1130, "to": 2000, "state": "空闲"}]）。
+- constraints：采样周期 T = 1000 ms（from=0；to=1000）。
+- constraints：发送 ≤ 50 ms（from=80；to=130）。
+- constraints：处理 ≤ 100 ms（from=130；to=230）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -23,13 +31,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.timingModel`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：里程碑 / 验收点。完整输入见 `input.json`。
+示例语义标签：传感器、地面站、电台。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -56,7 +64,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.timingModel` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

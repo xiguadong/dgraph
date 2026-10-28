@@ -73,15 +73,15 @@ nodes:
     h: 85
     sourceId: "CanSat.TC04"
   - id: "analysis"
-    label: "AN-01 周期预算分析"
+    label: "TC-DR01 采样周期测试"
     kind: "requirement"
-    stereotype: "analysisCase"
+    stereotype: "testCase"
     color: "teal"
     x: 925
     y: 500
     w: 290
     h: 85
-    sourceId: "CanSat.AN01"
+    sourceId: "CanSat.TCDR01"
 edges:
   - source: "dr01"
     target: "sr01"
@@ -172,6 +172,11 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations:
   - x: 55
     y: 630

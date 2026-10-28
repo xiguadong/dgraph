@@ -1,11 +1,11 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "activity",
-  "inputSha256": "ff259245c39e71a06912da13fed14926332b36edfed53ff8ecb02e9e6e6fd9f6",
+  "inputSha256": "dfe70497efd62702eb817fcbaf647e12f8c1c85101a4de7cb7b9362e1575737f",
   "files": {
-    "view.yaml": "513aa3c766dc0b5a65ecefc3466e61b14a63dd31c766918bd4bf079a157b0486",
-    "diagram.dsl.yaml": "0d4d7866505ff6201423832d9455fe0d68db22d173bcc178834f5302287409e6",
-    "diagram.svg": "a945ac6acd314b386410422176c0286e48ebf99f0d2bf7e771fba27a521352d0",
+    "view.yaml": "c86b014a5e82f2d8c62fc77a97e1dcee22f337d965a43644ee952c62e3fe44bd",
+    "diagram.dsl.yaml": "7114e74aa01c14cd60c01a5260683703d167dc2fc717dd89bed0f332748dfc4b",
+    "diagram.svg": "33d8c9cad6a24609ff9a8d43a578dca9cb24c5f6eb30aa38d8868a47cc6713a5",
     "report.json": "8d9277948fe12049a15d8f2435ff3647567e5b00e2b83a1a4141e2e013d19098",
     "diagram.mmd": "503ea3a63545647c3de3d1d189fe1248ddc6b6849b89158c6a13158e6e4ab6bf"
   }

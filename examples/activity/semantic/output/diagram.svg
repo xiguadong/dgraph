@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="activity">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜活动图 Activity</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">动作、判断与控制流</text>
@@ -28,7 +28,7 @@
 
 
 
-<text x="55" y="630" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">守卫条件留在分支旁；安全模式与正常遥测最终都保留本地数据。</text>
+<text x="55" y="630" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">正常遥测与安全心跳均保留本地数据；低电压时降低采样率。</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">CS-1 从自检到遥测下传的活动顺序和低电压分支是什么？</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

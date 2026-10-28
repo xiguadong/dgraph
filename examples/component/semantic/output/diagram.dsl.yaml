@@ -3,57 +3,85 @@ type: "component"
 layout: "component"
 nodes:
   - id: "n0"
-    label: "采样组件"
+    label: "gs.ui"
     kind: "component"
-    x: 60
-    y: 280
-    w: 240
-    h: 105
+    x: 100
+    y: 290
+    w: 230
+    h: 100
     color: "blue"
     sourceId: "Example.uml-component.n0"
   - id: "n1"
-    label: "遥测组件"
+    label: "gs.telemetry"
     kind: "component"
-    x: 365
-    y: 280
-    w: 240
-    h: 105
+    x: 520
+    y: 290
+    w: 230
+    h: 100
     color: "teal"
     sourceId: "Example.uml-component.n1"
   - id: "n2"
-    label: "存储组件"
+    label: "gs.storage"
     kind: "component"
-    x: 670
-    y: 280
-    w: 240
-    h: 105
-    color: "amber"
+    x: 950
+    y: 290
+    w: 230
+    h: 100
+    color: "violet"
     sourceId: "Example.uml-component.n2"
   - id: "n3"
-    label: "地面接收组件"
-    kind: "component"
-    x: 975
-    y: 280
-    w: 240
-    h: 105
-    color: "violet"
+    label: ""
+    kind: "required-interface"
+    x: 385
+    y: 325
+    w: 24
+    h: 24
+    color: "blue"
     sourceId: "Example.uml-component.n3"
+  - id: "n4"
+    label: ""
+    kind: "provided-interface"
+    x: 410
+    y: 325
+    w: 24
+    h: 24
+    color: "teal"
+    sourceId: "Example.uml-component.n4"
+  - id: "n5"
+    label: ""
+    kind: "required-interface"
+    x: 810
+    y: 325
+    w: 24
+    h: 24
+    color: "teal"
+    sourceId: "Example.uml-component.n5"
+  - id: "n6"
+    label: ""
+    kind: "provided-interface"
+    x: 835
+    y: 325
+    w: 24
+    h: 24
+    color: "violet"
+    sourceId: "Example.uml-component.n6"
 edges:
   - source: "n0"
-    target: "n1"
-    kind: "dependency"
-    color: "teal"
-    label: "provided"
-  - source: "n1"
-    target: "n2"
-    kind: "dependency"
-    color: "teal"
-    label: "required"
-  - source: "n2"
     target: "n3"
-    kind: "dependency"
+    kind: "connection"
     color: "teal"
-    label: "consumed"
+  - source: "n4"
+    target: "n1"
+    kind: "connection"
+    color: "teal"
+  - source: "n1"
+    target: "n5"
+    kind: "connection"
+    color: "teal"
+  - source: "n6"
+    target: "n2"
+    kind: "connection"
+    color: "teal"
 groups: []
 matrices: []
 charts: []
@@ -67,4 +95,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
-annotations: []
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
+annotations:
+  - x: 230
+    y: 570
+    text: "ITelemetry                                  IFrameStore · 棒棒糖为提供接口，插座为需要接口"

@@ -29,7 +29,7 @@ class ProcessSemanticTests(unittest.TestCase):
             svg = self.render("dfd", tmp)
             self.assertIn('data-dfd-process="sampling"', svg)
             self.assertIn('data-dfd-store="telemetry-log"', svg)
-            for flow in ("原始采样", "遥测帧", "433 MHz 下行", "回收后回放"):
+            for flow in ("原始采样", "遥测帧", "433 MHz 下行", "存储帧", "回放数据"):
                 self.assertIn(flow, svg)
 
     def test_bpmn_has_events_gateway_and_two_paths(self):
@@ -37,9 +37,10 @@ class ProcessSemanticTests(unittest.TestCase):
             svg = self.render("bpmn", tmp)
             self.assertIn('data-bpmn-event="start"', svg)
             self.assertIn('data-bpmn-event="end"', svg)
-            self.assertIn('data-bpmn-gateway="link-ok"', svg)
-            self.assertIn("发送遥测", svg)
-            self.assertIn("写入本地存储", svg)
+            self.assertIn('data-bpmn-gateway="quality"', svg)
+            self.assertIn("接收并解码帧", svg)
+            self.assertIn("入库", svg)
+            self.assertIn("标记异常", svg)
             self.assertIn('data-bpmn-branch="unavailable"', svg)
 
     def test_process_domains_reject_missing_models(self):

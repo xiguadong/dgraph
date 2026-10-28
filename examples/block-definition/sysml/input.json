@@ -6,13 +6,13 @@
   },
   "sources": [
     {
-      "kind": "sysml",
-      "model": "CanSat"
+      "kind": "semantic",
+      "example": "lesson2-cansat"
     }
   ],
   "presentation": {
     "title": "CanSat CS-1｜块定义图 BDD",
-    "subtitle": "类型与组合结构 · SysML semantic projection",
+    "subtitle": "类型与组合结构 · 教学示意",
     "theme": "dgraph"
   },
   "selection": {

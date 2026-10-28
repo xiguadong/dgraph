@@ -1,20 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="composite-structure">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜UML｜组合结构图</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<g data-group-id="boundary"><rect x="330" y="150" width="620" height="400" rx="16" fill="#e8f0ff" fill-opacity="0.35" stroke="#2459a6" stroke-width="1.8"/><text x="346" y="178" font-size="15" fill="#2459a6" text-anchor="start" font-weight="700">传感器部件</text></g>
-<path d="M 265,312.36842105263156 L 500,329.6842105263158" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
-<path d="M 780,329.5744680851064 L 1010,312.4468085106383" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 640.0,455 L 640.0,395" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Example.uml-composite.n0" data-kind="block"><title>CS-1</title><rect x="65" y="260" width="200" height="90" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="165.0" y="310.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">CS-1</text></g>
-<g data-node-id="n1" data-source-id="Example.uml-composite.n1" data-kind="part"><title>传感器部件</title><rect x="500" y="285" width="280" height="110" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="640.0" y="345.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">传感器部件</text></g>
-<g data-node-id="n2" data-source-id="Example.uml-composite.n2" data-kind="part"><title>飞控部件</title><rect x="1010" y="260" width="200" height="90" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="1110.0" y="310.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">飞控部件</text></g>
-<g data-node-id="n3" data-source-id="Example.uml-composite.n3" data-kind="block"><title>通信部件</title><rect x="500" y="455" width="280" height="70" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="640.0" y="495.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">通信部件</text></g>
+<g data-group-id="ground"><rect x="100" y="130" width="1080" height="420" rx="16" fill="#e8f0ff" fill-opacity="0.35" stroke="#2459a6" stroke-width="1.8"/><text x="116" y="158" font-size="15" fill="#2459a6" text-anchor="start" font-weight="700">«component» GroundStation</text></g>
+<path d="M 110,315.22222222222223 L 210,317.44444444444446" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 440,320.0 L 525,320.0" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 755,320.0 L 840,320.0" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 1070,317.44444444444446 L 1170,315.22222222222223" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<g data-node-id="n0" data-source-id="Example.uml-composite.n0" data-kind="part"><title>ui : UI</title><rect x="210" y="275" width="230" height="90" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="325.0" y="325.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">ui : UI</text></g>
+<g data-node-id="n1" data-source-id="Example.uml-composite.n1" data-kind="part"><title>mission : MissionManager</title><rect x="525" y="275" width="230" height="90" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="640.0" y="325.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">mission : MissionManager</text></g>
+<g data-node-id="n2" data-source-id="Example.uml-composite.n2" data-kind="part"><title>radio : RadioGateway</title><rect x="840" y="275" width="230" height="90" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="955.0" y="325.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">radio : RadioGateway</text></g>
+<g data-node-id="n3" data-source-id="Example.uml-composite.n3" data-kind="port"><title>pUser</title><rect x="90" y="305" width="20" height="20" fill="#fff" stroke="#2459a6" stroke-width="2"/><text x="116" y="320.0" font-size="12" fill="#2459a6" text-anchor="start" font-weight="400">pUser</text></g>
+<g data-node-id="n4" data-source-id="Example.uml-composite.n4" data-kind="port"><title>pRf</title><rect x="1170" y="305" width="20" height="20" fill="#fff" stroke="#6d28d9" stroke-width="2"/><text x="1196" y="320.0" font-size="12" fill="#6d28d9" text-anchor="start" font-weight="400">pRf</text></g>
 
-<rect x="890.0" y="305.01063829787233" width="82" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="931.0" y="321.01063829787233" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">interface</text>
 
+
+
+<text x="300" y="600" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">part 是运行时实例；port 是可见交互点；connector 连接部件</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">How are parts and connectors arranged inside a class?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

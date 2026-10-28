@@ -12,11 +12,11 @@
 
 ## 自然语言输入示例
 
-读取 `model.sysml`，结合“动作、判断和控制流如何推进？”重新选择视图元素，不自动采用模型已有的 view，然后绘制活动图。
+先编译 `model.sysml`。本图采用课件教学语义，按 `input.json` 的对象、关系和来源绘制活动图；不要把教学补充内容称为已编译模型事实。
 
 ## 输入文件与语义说明
 
-`model.sysml` 提供模型事实，`input.json` 选择本次视图；两者职责不同。
+`model.sysml` 先经过编译检查；`input.json` 声明图的来源与视图内容。
 
 - `intent.question`：本图回答的问题；
 - `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
@@ -25,14 +25,15 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：开始、自检、电压 ≥ 6.4 V？、采样并打包。完整输入见 `input.json`。
+示例语义标签：开始、自检、电压 ≥ 6.4 V？、采样并打包、进入安全模式、下传遥测帧、仅发送心跳、写入本地存储。完整输入见 `input.json`。
 
 ## 模型与视图的关系
 
-- `model.sysml` 只提供系统事实，原文件只读；
-- `input.json` 决定本次要回答的问题和选择的元素；
+- `model.sysml` 先经过解析和语义检查，原文件只读；
+- `input.json` 的 `sources.kind` 标明图的来源；`semantic` 表示课件教学补充语义，不能冒充模型元素；
+- 仅当 `sources.kind=sysml` 且 `sourceId` 与编译导出的元素匹配时，才声明该视图直接引用模型事实；
 - 不自动继承模型已有的 `view`；
-- 先运行 `analyze_sysml`，成功后再运行 `render_diagram`；编译通过不等于视图选择或工程验证正确。
+- 先运行 `analyze_sysml`，核对 `view-provenance.json`，再运行 `render_diagram`；编译通过不等于图义或工程验证正确。
 
 ## 如何运行
 

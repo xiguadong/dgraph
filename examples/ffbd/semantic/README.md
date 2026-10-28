@@ -14,10 +14,28 @@
 
 不使用 SysML，只根据以下语义画一张FFBD｜功能流与分支，回答“功能如何串联、并行和迭代？”
 
-- 自检；
-- 采集数据；
-- 打包遥测；
-- 下传数据；
+图上的对象：
+- n0：准备 / 自检（来源 Example.se-ffbd.n0）。
+- n1：释放 / 投放（来源 Example.se-ffbd.n1）。
+- n2：AND（来源 Example.se-ffbd.n2）。
+- n3：采集温压湿 ≥1 Hz（来源 Example.se-ffbd.n3）。
+- n4：采集姿态 / 位置（来源 Example.se-ffbd.n4）。
+- n5：下传遥测 I-04（来源 Example.se-ffbd.n5）。
+- n6：AND（来源 Example.se-ffbd.n6）。
+- n7：着陆 / 回收（来源 Example.se-ffbd.n7）。
+- n8：分析 / 回放（来源 Example.se-ffbd.n8）。
+有依据的关系：
+- n0 → n1：flow 。
+- n1 → n2：flow 。
+- n2 → n3：flow 。
+- n2 → n4：flow 。
+- n2 → n5：flow 。
+- n3 → n6：flow 。
+- n4 → n6：flow 。
+- n5 → n6：flow 。
+- n6 → n7：flow 。
+- n7 → n8：flow 。
+- n0 → n0：flow 自检不通过：重新准备。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +50,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：自检、采集数据、打包遥测、下传数据。完整输入见 `input.json`。
+示例语义标签：准备 / 自检、释放 / 投放、AND、采集温压湿 ≥1 Hz、采集姿态 / 位置、下传遥测 I-04、AND、着陆 / 回收、分析 / 回放。完整输入见 `input.json`。
 
 ## 如何运行
 

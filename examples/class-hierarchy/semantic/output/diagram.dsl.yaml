@@ -3,54 +3,58 @@ type: "class-hierarchy"
 layout: "class-hierarchy"
 nodes:
   - id: "n0"
-    label: "Diagram"
+    label: "«abstract» Frame"
     kind: "class"
     x: 500
-    y: 135
-    w: 280
-    h: 85
-    color: "violet"
+    y: 145
+    w: 260
+    h: 80
+    color: "gray"
     sourceId: "Example.x-classhier.n0"
   - id: "n1"
-    label: "GraphDiagram"
+    label: "TelemetryFrame"
     kind: "class"
-    x: 80
-    y: 410
-    w: 300
-    h: 100
+    x: 200
+    y: 360
+    w: 240
+    h: 90
     color: "blue"
     sourceId: "Example.x-classhier.n1"
   - id: "n2"
-    label: "MatrixDiagram"
+    label: "HousekeepingFrame"
     kind: "class"
-    x: 480
-    y: 410
-    w: 300
-    h: 100
-    color: "blue"
+    x: 510
+    y: 360
+    w: 240
+    h: 90
+    color: "teal"
     sourceId: "Example.x-classhier.n2"
   - id: "n3"
-    label: "TimelineDiagram"
+    label: "SensorReading"
     kind: "class"
-    x: 880
-    y: 410
-    w: 300
-    h: 100
-    color: "blue"
+    x: 200
+    y: 510
+    w: 240
+    h: 90
+    color: "violet"
     sourceId: "Example.x-classhier.n3"
 edges:
-  - source: "n0"
-    target: "n1"
+  - source: "n1"
+    target: "n0"
     kind: "generalization"
-    color: "blue"
-  - source: "n0"
-    target: "n2"
+    color: "teal"
+  - source: "n2"
+    target: "n0"
     kind: "generalization"
-    color: "blue"
-  - source: "n0"
+    color: "teal"
+  - source: "n1"
     target: "n3"
-    kind: "generalization"
-    color: "blue"
+    kind: "composition"
+    color: "teal"
+    label: "1..*"
+    labelPosition:
+      - 365
+      - 480
 groups: []
 matrices: []
 charts: []
@@ -64,4 +68,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
-annotations: []
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
+annotations:
+  - x: 480
+    y: 620
+    text: "空心三角指向父类；子类继承 Frame 的共同语义"

@@ -5,7 +5,7 @@ from pathlib import Path
 
 from dgraph.catalog import CATALOG
 from dgraph.render import inspect_svg, render_diagram
-from examples._shared.domain_examples import BPMN_MODEL, C4_CONTAINER_MODEL, DFD_MODEL, FTA_MODEL, GANTT_MODEL, N2_MODEL, QFD_MODEL, SEQUENCE_MODEL, UML_CLASS_MODEL
+from examples._shared.domain_examples import BPMN_MODEL, C4_CONTAINER_MODEL, DFD_MODEL, DMN_MODEL, FTA_MODEL, GANTT_MODEL, N2_MODEL, PERT_MODEL, QFD_MODEL, RISK_MATRIX_MODEL, SEQUENCE_MODEL, TIMING_MODEL, TRADESPACE_MODEL, UML_CLASS_MODEL
 
 
 def spec(output, kind="block-definition", label="CS-1 <System>"):
@@ -24,6 +24,11 @@ def spec(output, kind="block-definition", label="CS-1 <System>"):
             "n2Model": N2_MODEL if kind == "n2" else None,
             "dfdModel": DFD_MODEL if kind == "dfd" else None,
             "bpmnModel": BPMN_MODEL if kind == "bpmn" else None,
+            "riskMatrix": RISK_MATRIX_MODEL if kind == "risk-matrix" else None,
+            "dmnModel": DMN_MODEL if kind == "dmn" else None,
+            "timingModel": TIMING_MODEL if kind == "timing" else None,
+            "tradespaceModel": TRADESPACE_MODEL if kind == "tradespace" else None,
+            "pertModel": PERT_MODEL if kind == "pert" else None,
         },
         "presentation": {"title": "A & B", "subtitle": kind},
         "outputs": {"directory": output, "formats": ["viewspec", "dsl", "svg", "report"]},
@@ -71,6 +76,14 @@ class RenderTests(unittest.TestCase):
             report = inspect_svg(path)
             self.assertFalse(report["ok"])
             self.assertTrue(any(issue["code"] == "out-of-canvas" for issue in report["issues"]))
+
+    def test_inspector_rejects_text_extent_and_shape_overflow(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "bad.svg"
+            path.write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g data-source-id="x"><rect x="90" y="20" width="20" height="20"/><text x="95" y="50" font-size="20">Overflows</text></g></svg>')
+            report = inspect_svg(path)
+            self.assertFalse(report["ok"])
+            self.assertGreaterEqual(sum(issue["code"] == "out-of-canvas" for issue in report["issues"]), 2)
 
     def test_edge_labels_are_above_nodes_and_associations_have_no_arrow(self):
         with tempfile.TemporaryDirectory() as tmp:

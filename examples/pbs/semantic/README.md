@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张PBS｜产品分解，回答“产品如何分解为物理组成部分？”
 
-- CS-1 产品；
-- 结构回收；
-- 航电系统；
-- 地面设备；
+图上的对象：
+- n0：CS-1 探空仪（来源 Example.pm-pbs.n0）。
+- n1：结构与回收（来源 Example.pm-pbs.n1）。
+- n2：电源（来源 Example.pm-pbs.n2）。
+- n3：飞控（来源 Example.pm-pbs.n3）。
+- n4：传感器（来源 Example.pm-pbs.n4）。
+- n5：通信（来源 Example.pm-pbs.n5）。
+有依据的关系：
+- n0 → n1：composition 。
+- n0 → n2：composition 。
+- n0 → n3：composition 。
+- n0 → n4：composition 。
+- n0 → n5：composition 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：CS-1 产品、结构回收、航电系统、地面设备。完整输入见 `input.json`。
+示例语义标签：CS-1 探空仪、结构与回收、电源、飞控、传感器、通信。完整输入见 `input.json`。
 
 ## 如何运行
 

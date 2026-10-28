@@ -14,10 +14,39 @@
 
 不使用 SysML，只根据以下语义画一张WBS｜工作分解，回答“项目工作如何分解为可管理活动？”
 
-- CS-1 项目；
-- 需求与设计；
-- 制造与集成；
-- 试验与交付；
+图上的对象：
+- n0：CS-1 研制项目（来源 Example.pm-wbs.n0）。
+- n1：1.1 需求分析（来源 Example.pm-wbs.n1）。
+- n6：1.1.1 任务书（来源 Example.pm-wbs.n6）。
+- n11：1.1.2 需求基线（来源 Example.pm-wbs.n11）。
+- n2：1.2 设计（来源 Example.pm-wbs.n2）。
+- n7：1.2.1 架构设计（来源 Example.pm-wbs.n7）。
+- n12：1.2.2 详细设计（来源 Example.pm-wbs.n12）。
+- n3：1.3 采购制造（来源 Example.pm-wbs.n3）。
+- n8：1.3.1 器材采购（来源 Example.pm-wbs.n8）。
+- n13：1.3.2 结构加工（来源 Example.pm-wbs.n13）。
+- n4：1.4 集成（来源 Example.pm-wbs.n4）。
+- n9：1.4.1 系统集成（来源 Example.pm-wbs.n9）。
+- n14：1.4.2 总装联调（来源 Example.pm-wbs.n14）。
+- n5：1.5 试验评审（来源 Example.pm-wbs.n5）。
+- n10：1.5.1 环境试验（来源 Example.pm-wbs.n10）。
+- n15：1.5.2 飞行试验（来源 Example.pm-wbs.n15）。
+有依据的关系：
+- n0 → n1：association 。
+- n1 → n6：association 。
+- n1 → n11：association 。
+- n0 → n2：association 。
+- n2 → n7：association 。
+- n2 → n12：association 。
+- n0 → n3：association 。
+- n3 → n8：association 。
+- n3 → n13：association 。
+- n0 → n4：association 。
+- n4 → n9：association 。
+- n4 → n14：association 。
+- n0 → n5：association 。
+- n5 → n10：association 。
+- n5 → n15：association 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +61,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：CS-1 项目、需求与设计、制造与集成、试验与交付。完整输入见 `input.json`。
+示例语义标签：CS-1 研制项目、1.1 需求分析、1.1.1 任务书、1.1.2 需求基线、1.2 设计、1.2.1 架构设计、1.2.2 详细设计、1.3 采购制造、1.3.1 器材采购、1.3.2 结构加工、1.4 集成、1.4.1 系统集成、1.4.2 总装联调、1.5 试验评审、1.5.1 环境试验、1.5.2 飞行试验。完整输入见 `input.json`。
 
 ## 如何运行
 

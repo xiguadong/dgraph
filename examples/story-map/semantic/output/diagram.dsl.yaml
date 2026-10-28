@@ -39,7 +39,7 @@ nodes:
     color: "violet"
     sourceId: "Example.x-storymap.n3"
   - id: "n4"
-    label: "故事 A"
+    label: "配置站点"
     kind: "sticky"
     x: 110
     y: 295
@@ -48,7 +48,7 @@ nodes:
     color: "teal"
     sourceId: "Example.x-storymap.n4"
   - id: "n5"
-    label: "故事 B"
+    label: "看实时遥测"
     kind: "sticky"
     x: 405
     y: 295
@@ -57,23 +57,59 @@ nodes:
     color: "teal"
     sourceId: "Example.x-storymap.n5"
   - id: "n6"
-    label: "故事 C"
+    label: "导入存储帧"
+    kind: "sticky"
+    x: 700
+    y: 295
+    w: 190
+    h: 65
+    color: "teal"
+    sourceId: "Example.x-storymap.n6"
+  - id: "n7"
+    label: "画曲线"
+    kind: "sticky"
+    x: 995
+    y: 295
+    w: 190
+    h: 65
+    color: "teal"
+    sourceId: "Example.x-storymap.n7"
+  - id: "n8"
+    label: "多站点模板"
+    kind: "sticky"
+    x: 110
+    y: 460
+    w: 190
+    h: 65
+    color: "violet"
+    sourceId: "Example.x-storymap.n8"
+  - id: "n9"
+    label: "异常告警"
     kind: "sticky"
     x: 405
     y: 460
     w: 190
     h: 65
     color: "violet"
-    sourceId: "Example.x-storymap.n6"
-  - id: "n7"
-    label: "故事 D"
+    sourceId: "Example.x-storymap.n9"
+  - id: "n10"
+    label: "异常帧回放"
+    kind: "sticky"
+    x: 700
+    y: 460
+    w: 190
+    h: 65
+    color: "violet"
+    sourceId: "Example.x-storymap.n10"
+  - id: "n11"
+    label: "导出报告"
     kind: "sticky"
     x: 995
     y: 460
     w: 190
     h: 65
     color: "violet"
-    sourceId: "Example.x-storymap.n7"
+    sourceId: "Example.x-storymap.n11"
 edges: []
 groups:
   - id: "release1"
@@ -104,4 +140,9 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations: []

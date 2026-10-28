@@ -47,7 +47,24 @@ def _node(node):
     kind = node.get("kind", "block")
     out = [f'<g data-node-id="{escape(node["id"], quote=True)}" data-source-id="{escape(node["sourceId"], quote=True)}" data-kind="{escape(kind, quote=True)}">']
     out.append(f"<title>{escape(node.get('details', node['label']))}</title>")
-    if kind == "gate":
+    if kind == "parallel":
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="2" fill="#334155"/>')
+        if node.get("label"):
+            out.append(_text(x + w / 2, y - 12, node["label"], 12, "#334155", weight=700))
+    elif kind == "provided-interface":
+        out.append(f'<circle cx="{x+w/2}" cy="{y+h/2}" r="{min(w,h)/2-2}" fill="#fff" stroke="{stroke}" stroke-width="2"/>')
+        if node.get("label"):
+            out.append(_text(x+w/2, y-7, node["label"], 12, stroke, weight=600))
+    elif kind == "required-interface":
+        out.append(f'<path d="M {x+w-3},{y+2} A {min(w,h)/2-2},{min(w,h)/2-2} 0 0 0 {x+w-3},{y+h-2}" fill="none" stroke="{stroke}" stroke-width="2.5"/>')
+        if node.get("label"):
+            out.append(_text(x+w/2, y-7, node["label"], 12, stroke, weight=600))
+    elif kind == "valve":
+        cx, cy = x + w / 2, y + h / 2
+        out.append(f'<circle cx="{cx}" cy="{cy}" r="{min(w,h)/2}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
+        out.append(f'<path d="M {cx-15},{cy-12} L {cx},{cy} L {cx-15},{cy+12} Z M {cx+15},{cy-12} L {cx},{cy} L {cx+15},{cy+12} Z" fill="#fff" stroke="{stroke}" stroke-width="1.5"/>')
+        out.append(_text(cx, y - 11, node["label"], 14, stroke, weight=650))
+    elif kind == "gate":
         out.append(f'<circle cx="{x+w/2}" cy="{y+h/2}" r="{min(w,h)/2}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
         out.append(_multiline(node, stroke))
     elif kind == "datastore":
@@ -133,8 +150,10 @@ def _edge(edge, nodes):
     points = _edge_geometry(edge, nodes)
     _, stroke = _color(edge)
     path = "M " + " L ".join(f"{x},{y}" for x, y in points)
-    dashed = edge["kind"] in {"dependency", "verify", "satisfy", "derive", "return", "reference"}
-    marker = "none" if edge["kind"] in {"composition", "aggregation", "association", "binding"} else "url(#arrow)"
+    dashed = edge["kind"] in {"dependency", "verify", "satisfy", "derive", "return", "reference", "extension"}
+    marker = ("url(#triangle)" if edge["kind"] in {"generalization", "extension"} else
+              "none" if edge["kind"] in {"composition", "aggregation", "association", "binding", "connection"} else
+              "url(#arrow)")
     out = [f'<path d="{path}" fill="none" stroke="{stroke}" stroke-width="2" stroke-dasharray="{("6 4" if dashed else None)}" marker-end="{marker}"/>']
     if edge["kind"] in {"composition", "aggregation"}:
         x, y = points[0]
@@ -223,6 +242,7 @@ def _timeline(timeline):
 from .domain import fta_svg, gantt_svg, qfd_svg
 from .software_domain import c4_container_svg, sequence_svg, uml_class_svg
 from .process_domain import bpmn_svg, dfd_svg, n2_svg
+from .atlas_domain import dmn_svg, pert_svg, risk_matrix_svg, timing_svg, tradespace_svg
 
 
 def render_svg(spec):
@@ -231,7 +251,7 @@ def render_svg(spec):
     selection = spec["selection"]
     nodes = {node["id"]: node for node in selection["nodes"]}
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="{escape(selection.get("layout", spec["type"]), quote=True)}">']
-    out.append('<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>')
+    out.append('<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>')
     out.append(f'<rect width="{width}" height="{height}" fill="#fff"/>')
     out.append(_text(48, 52, p["title"], 28, "#15202b", "start", 750))
     out.append(_text(48, 80, p.get("subtitle", ""), 14, "#64748b", "start", 400))
@@ -254,6 +274,16 @@ def render_svg(spec):
         out.append(dfd_svg(selection["dfdModel"]))
     elif spec["type"] == "bpmn":
         out.append(bpmn_svg(selection["bpmnModel"]))
+    elif spec["type"] == "risk-matrix":
+        out.append(risk_matrix_svg(selection["riskMatrix"]))
+    elif spec["type"] == "dmn":
+        out.append(dmn_svg(selection["dmnModel"]))
+    elif spec["type"] == "timing":
+        out.append(timing_svg(selection["timingModel"]))
+    elif spec["type"] == "tradespace":
+        out.append(tradespace_svg(selection["tradespaceModel"]))
+    elif spec["type"] == "pert":
+        out.append(pert_svg(selection["pertModel"]))
     else:
         out.extend(_group(group) for group in selection.get("groups", []))
         out.extend(_matrix(matrix) for matrix in selection.get("matrices", []))

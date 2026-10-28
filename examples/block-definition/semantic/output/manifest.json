@@ -1,11 +1,11 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "block-definition",
-  "inputSha256": "f6bae8b7c918673f1b5cd1d431f09b770d22f1a296f190b4f02c1f977880d916",
+  "inputSha256": "7ddb78c45e38d81ac33b8b9c653234fa55190a8ed985488b060261932417a242",
   "files": {
-    "view.yaml": "6e05063a58429ff8442208220d1597785468d2b3c1be3ac750b0fe7be22a4dc9",
-    "diagram.dsl.yaml": "fda675928ef009501e16ac1e79fb8bc19fe45f369739de3d187aed4b4da13ca7",
-    "diagram.svg": "7cb16220bc744a1c7ecd45d04a24cbdb61eb77ce7f1524fa0973441953952f1c",
+    "view.yaml": "c0e6bd73804275d7e530af369edd6c79216b25a267b3001ed8ffc35ae7902111",
+    "diagram.dsl.yaml": "6acd1c08e2b029a1b79edb466a6ef3a73af4a9186956abcf3b81a995f03a7956",
+    "diagram.svg": "a7a462e8452015627ddbe7034d77c0f6b88c021c933ee37730cb9ee43ef8a919",
     "report.json": "dd3edab071281a42943cea4c7aa41ee5bddcdf66b5e5c52576cf3b2803aa6897",
     "diagram.mmd": "bea59e8e094c1787223d4ef3db3f8abfc5f0710c01bad2bbe38e03d5a85b3886"
   }

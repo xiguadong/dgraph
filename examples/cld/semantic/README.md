@@ -14,10 +14,29 @@
 
 不使用 SysML，只根据以下语义画一张CLD｜因果反馈回路，回答“变量之间有哪些增强和调节反馈回路？”
 
-- 采样率；
-- 数据价值；
-- 功耗；
-- 供电时间；
+图上的对象：
+- n0：采样率（来源 Example.se-cld.n0）。
+- n1：数据量（来源 Example.se-cld.n1）。
+- n2：功耗（来源 Example.se-cld.n2）。
+- n3：电池质量（来源 Example.se-cld.n3）。
+- n4：总质量（来源 Example.se-cld.n4）。
+- n5：下降速度（来源 Example.se-cld.n5）。
+- n6：振动（来源 Example.se-cld.n6）。
+- n7：误码率（来源 Example.se-cld.n7）。
+- n8：重传（来源 Example.se-cld.n8）。
+- n9：剩余能量（来源 Example.se-cld.n9）。
+有依据的关系：
+- n0 → n1：flow +。
+- n1 → n2：flow +。
+- n2 → n3：flow +。
+- n3 → n4：flow +。
+- n4 → n5：flow +。
+- n5 → n6：flow +。
+- n6 → n7：flow +。
+- n7 → n8：flow +。
+- n8 → n2：flow +。
+- n2 → n9：flow −。
+- n9 → n0：flow +。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +51,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：采样率、数据价值、功耗、供电时间。完整输入见 `input.json`。
+示例语义标签：采样率、数据量、功耗、电池质量、总质量、下降速度、振动、误码率、重传、剩余能量。完整输入见 `input.json`。
 
 ## 如何运行
 

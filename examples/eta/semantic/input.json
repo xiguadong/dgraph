@@ -15,47 +15,91 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "电池电压下降",
+        "label": "遥测中断",
         "kind": "block",
-        "x": 480,
-        "y": 130,
-        "w": 300,
-        "h": 80,
+        "x": 40,
+        "y": 290,
+        "w": 180,
+        "h": 75,
         "color": "amber",
         "sourceId": "Example.x-eta.n0"
       },
       {
         "id": "n1",
-        "label": "保护生效？",
+        "label": "重传成功？",
         "kind": "decision",
-        "x": 480,
-        "y": 270,
-        "w": 300,
-        "h": 85,
+        "x": 275,
+        "y": 290,
+        "w": 150,
+        "h": 75,
         "color": "violet",
         "sourceId": "Example.x-eta.n1"
       },
       {
         "id": "n2",
-        "label": "降采样",
+        "label": "数据可恢复\nP = 0.80",
         "kind": "block",
-        "x": 190,
-        "y": 450,
-        "w": 270,
-        "h": 85,
-        "color": "red",
+        "x": 505,
+        "y": 130,
+        "w": 205,
+        "h": 75,
+        "color": "teal",
         "sourceId": "Example.x-eta.n2"
       },
       {
         "id": "n3",
-        "label": "任务可继续",
-        "kind": "block",
-        "x": 820,
-        "y": 450,
-        "w": 270,
-        "h": 85,
-        "color": "teal",
+        "label": "降级成功？",
+        "kind": "decision",
+        "x": 505,
+        "y": 360,
+        "w": 150,
+        "h": 75,
+        "color": "violet",
         "sourceId": "Example.x-eta.n3"
+      },
+      {
+        "id": "n4",
+        "label": "任务降级\nP = 0.10",
+        "kind": "block",
+        "x": 760,
+        "y": 250,
+        "w": 210,
+        "h": 75,
+        "color": "amber",
+        "sourceId": "Example.x-eta.n4"
+      },
+      {
+        "id": "n5",
+        "label": "回收成功？",
+        "kind": "decision",
+        "x": 760,
+        "y": 450,
+        "w": 150,
+        "h": 75,
+        "color": "violet",
+        "sourceId": "Example.x-eta.n5"
+      },
+      {
+        "id": "n6",
+        "label": "数据部分保留\nP = 0.06",
+        "kind": "block",
+        "x": 1020,
+        "y": 390,
+        "w": 220,
+        "h": 75,
+        "color": "amber",
+        "sourceId": "Example.x-eta.n6"
+      },
+      {
+        "id": "n7",
+        "label": "任务失败\nP = 0.04",
+        "kind": "block",
+        "x": 1020,
+        "y": 520,
+        "w": 220,
+        "h": 75,
+        "color": "red",
+        "sourceId": "Example.x-eta.n7"
       }
     ],
     "edges": [
@@ -70,14 +114,42 @@
         "target": "n2",
         "kind": "flow",
         "color": "teal",
-        "label": "是"
+        "label": "成功 0.80"
       },
       {
         "source": "n1",
         "target": "n3",
         "kind": "flow",
         "color": "teal",
-        "label": "否"
+        "label": "失败 0.20"
+      },
+      {
+        "source": "n3",
+        "target": "n4",
+        "kind": "flow",
+        "color": "teal",
+        "label": "成功 0.50"
+      },
+      {
+        "source": "n3",
+        "target": "n5",
+        "kind": "flow",
+        "color": "teal",
+        "label": "失败 0.50"
+      },
+      {
+        "source": "n5",
+        "target": "n6",
+        "kind": "flow",
+        "color": "teal",
+        "label": "成功 0.60"
+      },
+      {
+        "source": "n5",
+        "target": "n7",
+        "kind": "flow",
+        "color": "teal",
+        "label": "失败 0.40"
       }
     ],
     "groups": [],
@@ -93,7 +165,18 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
-    "annotations": []
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
+    "annotations": [
+      {
+        "x": 60,
+        "y": 625,
+        "text": "各出口概率为沿途分支概率乘积；各后果合计为 1（教学示意）"
+      }
+    ]
   },
   "presentation": {
     "title": "CanSat CS-1｜ETA｜事件树分析",

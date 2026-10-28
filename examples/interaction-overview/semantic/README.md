@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张UML｜交互概览图，回答“多个交互片段如何编排？”
 
-- 启动交互；
-- 采样序列；
-- 异常序列；
-- 回放序列；
+图上的对象：
+- n0：帧到达（来源 Example.uml-iov.n0）。
+- n1：正常接收帧（来源 Example.uml-iov.n1）。
+- n2：CRC 合格？（来源 Example.uml-iov.n2）。
+- n3：完成（来源 Example.uml-iov.n3）。
+- n4：丢包重试（来源 Example.uml-iov.n4）。
+- n5：失败处理（来源 Example.uml-iov.n5）。
+有依据的关系：
+- n0 → n1：flow 。
+- n1 → n2：flow 。
+- n2 → n3：flow 是。
+- n2 → n4：flow 否。
+- n4 → n5：flow 重试失败。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：启动交互、采样序列、异常序列、回放序列。完整输入见 `input.json`。
+示例语义标签：帧到达、正常接收帧、CRC 合格？、完成、丢包重试、失败处理。完整输入见 `input.json`。
 
 ## 如何运行
 

@@ -3,8 +3,8 @@ type: "sequence"
 intent:
   question: "一次下降段遥测交互中，传感器、飞控、电台与地面站按什么顺序交换消息？"
 sources:
-  - kind: "sysml"
-    model: "CanSat"
+  - kind: "semantic"
+    example: "lesson2-cansat"
 presentation:
   title: "CanSat CS-1｜序列图 Sequence"
   subtitle: "下降段遥测场景 · 消息自上而下排列"
@@ -119,19 +119,6 @@ selection:
       labelPosition:
         - 890
         - 480
-    - source: "ground"
-      target: "fcu"
-      kind: "return"
-      color: "gray"
-      label: "6 接收确认（下一场景）"
-      points:
-        - - 1095
-- 560
-        - - 475
-- 560
-      labelPosition:
-        - 720
-        - 540
   annotations:
     - x: 70
       y: 625
@@ -174,10 +161,6 @@ selection:
         target: "ground"
         label: "5 433 MHz 下行"
         kind: "sync"
-      - source: "ground"
-        target: "fcu"
-        label: "6 接收确认（下一场景）"
-        kind: "return"
   groups: []
   matrices: []
   charts: []

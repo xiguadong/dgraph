@@ -145,6 +145,11 @@ selection:
         strong: true
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜N²／DSM｜接口矩阵"

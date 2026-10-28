@@ -7,79 +7,9 @@ sources:
     example: "x-bpmn"
 selection:
   layout: "bpmn"
-  nodes:
-    - id: "n0"
-      label: "开始"
-      kind: "initial"
-      x: 80
-      y: 290
-      w: 45
-      h: 45
-      color: "teal"
-      sourceId: "Example.x-bpmn.n0"
-    - id: "n1"
-      label: "采集与打包"
-      kind: "action"
-      x: 230
-      y: 275
-      w: 230
-      h: 85
-      color: "teal"
-      sourceId: "Example.x-bpmn.n1"
-    - id: "n2"
-      label: "链路可用？"
-      kind: "decision"
-      x: 550
-      y: 270
-      w: 160
-      h: 95
-      color: "amber"
-      sourceId: "Example.x-bpmn.n2"
-    - id: "n3"
-      label: "发送或存储"
-      kind: "action"
-      x: 840
-      y: 275
-      w: 240
-      h: 85
-      color: "violet"
-      sourceId: "Example.x-bpmn.n3"
-    - id: "n4"
-      label: "结束"
-      kind: "final"
-      x: 1140
-      y: 290
-      w: 45
-      h: 45
-      color: "red"
-      sourceId: "Example.x-bpmn.n4"
-  edges:
-    - source: "n0"
-      target: "n1"
-      kind: "flow"
-      color: "teal"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      color: "teal"
-    - source: "n2"
-      target: "n3"
-      kind: "flow"
-      color: "teal"
-      label: "链路可用"
-    - source: "n3"
-      target: "n4"
-      kind: "flow"
-      color: "teal"
-  groups:
-    - id: "pool"
-      label: "CS-1 任务池"
-      kind: "boundary"
-      x: 45
-      y: 145
-      w: 1190
-      h: 430
-      color: "blue"
+  nodes: []
+  edges: []
+  groups: []
   matrices: []
   charts: []
   timelines: []
@@ -92,58 +22,128 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel:
-    pool: "CS-1 任务池"
+    pool: "地面站遥测处理"
+    lanes:
+      - id: "telemetry"
+        label: "遥测服务\n接收 · 质控 · 归档"
+        y: 180
+        height: 205
+      - id: "science"
+        label: "科学分析\n查看 · 分析"
+        y: 385
+        height: 215
     events:
       - id: "start"
-        label: "开始"
+        label: "帧到达"
         kind: "start"
-        x: 90
-        y: 310
-      - id: "end"
-        label: "结束"
+        lane: "telemetry"
+        x: 228
+        y: 247
+      - id: "abnormal-end"
+        label: "终止"
         kind: "end"
-        x: 1180
-        y: 310
+        lane: "telemetry"
+        x: 1060
+        y: 337
+      - id: "end"
+        label: "完成"
+        kind: "end"
+        lane: "science"
+        x: 1150
+        y: 477
     tasks:
-      - id: "sample"
-        label: "采集与打包"
-        x: 220
-        y: 270
-      - id: "send"
-        label: "发送遥测"
-        x: 780
-        y: 190
-      - id: "store"
-        label: "写入本地存储"
-        x: 780
-        y: 420
+      - id: "receive"
+        label: "接收并解码帧"
+        lane: "telemetry"
+        x: 290
+        y: 205
+      - id: "archive"
+        label: "入库"
+        lane: "telemetry"
+        x: 730
+        y: 205
+      - id: "reject"
+        label: "标记异常"
+        lane: "telemetry"
+        x: 730
+        y: 295
+      - id: "analyze"
+        label: "查看与分析"
+        lane: "science"
+        x: 840
+        y: 435
     gateways:
-      - id: "link-ok"
-        label: "链路可用？"
-        x: 530
-        y: 270
-      - id: "join"
-        label: "汇合"
-        x: 1010
-        y: 270
+      - id: "quality"
+        label: "质控合格？"
+        lane: "telemetry"
+        x: 520
+        y: 205
     flows:
       - source: "start"
-        target: "sample"
-      - source: "sample"
-        target: "link-ok"
-      - source: "link-ok"
-        target: "send"
-        label: "是"
-      - source: "link-ok"
-        target: "store"
-        label: "否"
+        target: "receive"
+        points:
+          - - 250
+- 247
+          - - 290
+- 247
+      - source: "receive"
+        target: "quality"
+        points:
+          - - 500
+- 247
+          - - 520
+- 247
+      - source: "quality"
+        target: "archive"
+        label: "合格"
+        points:
+          - - 650
+- 247
+          - - 730
+- 247
+      - source: "quality"
+        target: "reject"
+        label: "不合格"
         branch: "unavailable"
-      - source: "send"
-        target: "join"
-      - source: "store"
-        target: "join"
-      - source: "join"
+        points:
+          - - 585
+- 289
+          - - 585
+- 337
+          - - 730
+- 337
+      - source: "reject"
+        target: "abnormal-end"
+        points:
+          - - 940
+- 337
+          - - 1038
+- 337
+      - source: "archive"
+        target: "analyze"
+        points:
+          - - 940
+- 247
+          - - 985
+- 247
+          - - 985
+- 410
+          - - 945
+- 410
+          - - 945
+- 435
+      - source: "analyze"
         target: "end"
+        points:
+          - - 1050
+- 477
+          - - 1128
+- 477
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜BPMN｜业务流程"

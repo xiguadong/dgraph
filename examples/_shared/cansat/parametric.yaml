@@ -1,5 +1,5 @@
 {
- "schema":"diagram-view/v1","type":"parametric","intent":{"question":"总质量约束如何绑定各子系统质量参数，并证明不超过 350 g？"},"sources":[{"kind":"sysml","model":"CanSat"}],
+ "schema":"diagram-view/v1","type":"parametric","intent":{"question":"总质量约束如何绑定子系统质量，并检查 350 g 限值？"},"sources":[{"kind":"semantic","example":"lesson2-cansat"}],
  "presentation":{"title":"CanSat CS-1｜参数图 Parametric","subtitle":"质量预算与参数绑定","theme":"dgraph"},
  "selection":{
   "nodes":[
@@ -18,6 +18,6 @@
    {"source":"constraint","target":"mf","kind":"binding","label":"m3","points":[[860,320],[1010,180]],"labelPosition":[900,235]},
    {"source":"constraint","target":"mse","kind":"binding","label":"m4","points":[[860,350],[1010,338]],"labelPosition":[900,315]},
    {"source":"constraint","target":"mc","kind":"binding","label":"m5","points":[[860,390],[1010,498]],"labelPosition":[900,455]}
-  ],"annotations":[{"x":420,"y":540,"text":"Σ 120 + 95 + 45 + 50 + 40 = 350 g · 达到预算上限，无剩余质量余量","color":"#b42318","fontSize":15}]
+  ],"annotations":[{"x":420,"y":540,"text":"教学分配：120 + 95 + 45 + 50 + 40 = 350 g；达到预算上限，无质量余量","color":"#b42318","fontSize":15}]
  },"outputs":{"directory":"/absolute/output","formats":["viewspec","dsl","svg","report"]}
 }

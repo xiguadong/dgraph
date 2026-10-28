@@ -14,10 +14,21 @@
 
 不使用 SysML，只根据以下语义画一张参数图，回答“哪些约束和参数绑定决定工程性能？”
 
-- 质量预算 MassBudget；
-- m_total；
-- m_structure；
-- m_power；
+图上的对象：
+- constraint：质量预算 MassBudget（来源 CanSat.MassBudget）。
+- mt：m_total（来源 CanSat.mTotal）。
+- ms：m_structure（来源 CanSat.mStructure）。
+- mp：m_power（来源 CanSat.mPower）。
+- mf：m_fcu（来源 CanSat.mFCU）。
+- mse：m_sensors（来源 CanSat.mSensors）。
+- mc：m_comms（来源 CanSat.mComms）。
+有依据的关系：
+- constraint → mt：binding total。
+- constraint → ms：binding m1。
+- constraint → mp：binding m2。
+- constraint → mf：binding m3。
+- constraint → mse：binding m4。
+- constraint → mc：binding m5。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +43,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：质量预算 MassBudget、m_total、m_structure、m_power。完整输入见 `input.json`。
+示例语义标签：质量预算 MassBudget、m_total、m_structure、m_power、m_fcu、m_sensors、m_comms。完整输入见 `input.json`。
 
 ## 如何运行
 

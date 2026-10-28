@@ -12,79 +12,8 @@
   ],
   "selection": {
     "layout": "pert",
-    "nodes": [
-      {
-        "id": "n0",
-        "label": "需求基线",
-        "kind": "block",
-        "x": 45,
-        "y": 280,
-        "w": 240,
-        "h": 110,
-        "color": "blue",
-        "sourceId": "Example.pm-pert.n0",
-        "compartment": "ES / EF · 工期"
-      },
-      {
-        "id": "n1",
-        "label": "架构设计",
-        "kind": "block",
-        "x": 350,
-        "y": 280,
-        "w": 240,
-        "h": 110,
-        "color": "teal",
-        "sourceId": "Example.pm-pert.n1",
-        "compartment": "ES / EF · 工期"
-      },
-      {
-        "id": "n2",
-        "label": "详细设计",
-        "kind": "block",
-        "x": 655,
-        "y": 280,
-        "w": 240,
-        "h": 110,
-        "color": "amber",
-        "sourceId": "Example.pm-pert.n2",
-        "compartment": "ES / EF · 工期"
-      },
-      {
-        "id": "n3",
-        "label": "设计评审",
-        "kind": "block",
-        "x": 960,
-        "y": 280,
-        "w": 240,
-        "h": 110,
-        "color": "violet",
-        "sourceId": "Example.pm-pert.n3",
-        "compartment": "ES / EF · 工期"
-      }
-    ],
-    "edges": [
-      {
-        "source": "n0",
-        "target": "n1",
-        "kind": "flow",
-        "color": "red",
-        "label": "关键路径"
-      },
-      {
-        "source": "n1",
-        "target": "n2",
-        "kind": "flow",
-        "color": "red",
-        "label": "关键路径"
-      },
-      {
-        "source": "n2",
-        "target": "n3",
-        "kind": "flow",
-        "color": "red",
-        "label": "关键路径"
-      }
-    ],
+    "nodes": [],
+    "edges": [],
     "groups": [],
     "matrices": [],
     "charts": [],
@@ -98,13 +27,94 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
-    "annotations": [
-      {
-        "x": 65,
-        "y": 540,
-        "text": "红色 = 关键路径 · 节点内显示最早开始 / 完成与工期"
-      }
-    ]
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": {
+      "tasks": [
+        {
+          "id": "A",
+          "label": "需求分析",
+          "duration": 2,
+          "dependencies": [],
+          "x": 50,
+          "y": 230
+        },
+        {
+          "id": "B",
+          "label": "架构设计",
+          "duration": 2,
+          "dependencies": [
+            "A"
+          ],
+          "x": 215,
+          "y": 230
+        },
+        {
+          "id": "C",
+          "label": "详细设计",
+          "duration": 2,
+          "dependencies": [
+            "B"
+          ],
+          "x": 380,
+          "y": 230
+        },
+        {
+          "id": "D",
+          "label": "采购制造",
+          "duration": 4,
+          "dependencies": [
+            "C"
+          ],
+          "x": 545,
+          "y": 230
+        },
+        {
+          "id": "E",
+          "label": "系统集成",
+          "duration": 2,
+          "dependencies": [
+            "D",
+            "H"
+          ],
+          "x": 710,
+          "y": 230
+        },
+        {
+          "id": "F",
+          "label": "系统试验",
+          "duration": 3,
+          "dependencies": [
+            "E"
+          ],
+          "x": 875,
+          "y": 230
+        },
+        {
+          "id": "G",
+          "label": "评审冻结",
+          "duration": 1,
+          "dependencies": [
+            "F"
+          ],
+          "x": 1040,
+          "y": 230
+        },
+        {
+          "id": "H",
+          "label": "地面站软件",
+          "duration": 3,
+          "dependencies": [
+            "B"
+          ],
+          "x": 465,
+          "y": 420
+        }
+      ]
+    },
+    "annotations": []
   },
   "presentation": {
     "title": "CanSat CS-1｜PERT｜依赖与关键路径",

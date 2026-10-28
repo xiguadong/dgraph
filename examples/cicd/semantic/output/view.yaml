@@ -9,66 +9,99 @@ selection:
   layout: "cicd"
   nodes:
     - id: "n0"
-      label: "源码提交"
+      label: "提交\ngit push"
       kind: "block"
-      x: 45
-      y: 265
-      w: 240
-      h: 105
+      x: 35
+      y: 240
+      w: 195
+      h: 90
       color: "blue"
       sourceId: "Example.x-cicd.n0"
     - id: "n1"
-      label: "构建与测试"
+      label: "构建\n编译 / 单测"
       kind: "block"
-      x: 350
-      y: 265
-      w: 240
-      h: 105
+      x: 280
+      y: 240
+      w: 195
+      h: 90
       color: "teal"
       sourceId: "Example.x-cicd.n1"
     - id: "n2"
-      label: "制品发布"
+      label: "测试\n覆盖率"
       kind: "block"
-      x: 655
-      y: 265
-      w: 240
-      h: 105
+      x: 525
+      y: 240
+      w: 195
+      h: 90
       color: "amber"
       sourceId: "Example.x-cicd.n2"
     - id: "n3"
-      label: "部署验证"
+      label: "镜像\n版本化制品"
       kind: "block"
-      x: 960
-      y: 265
-      w: 240
-      h: 105
+      x: 770
+      y: 240
+      w: 195
+      h: 90
       color: "violet"
       sourceId: "Example.x-cicd.n3"
+    - id: "n4"
+      label: "部署\n灰度发布"
+      kind: "block"
+      x: 1015
+      y: 240
+      w: 195
+      h: 90
+      color: "gray"
+      sourceId: "Example.x-cicd.n4"
+    - id: "n5"
+      label: "测试失败\n阻断合并"
+      kind: "block"
+      x: 525
+      y: 435
+      w: 195
+      h: 80
+      color: "red"
+      sourceId: "Example.x-cicd.n5"
+    - id: "n6"
+      label: "部署失败\n回滚上一版"
+      kind: "block"
+      x: 1015
+      y: 435
+      w: 195
+      h: 80
+      color: "red"
+      sourceId: "Example.x-cicd.n6"
   edges:
     - source: "n0"
       target: "n1"
       kind: "flow"
       color: "teal"
-      label: "builds"
-      labelPosition:
-        - 293.5
-        - 230
+      label: "触发"
     - source: "n1"
       target: "n2"
       kind: "flow"
       color: "teal"
-      label: "produces"
-      labelPosition:
-        - 590.5
-        - 230
+      label: "验证"
     - source: "n2"
       target: "n3"
       kind: "flow"
       color: "teal"
-      label: "publishes"
-      labelPosition:
-        - 891.5
-        - 230
+      label: "通过"
+    - source: "n3"
+      target: "n4"
+      kind: "flow"
+      color: "teal"
+      label: "审批"
+    - source: "n2"
+      target: "n5"
+      kind: "flow"
+      color: "red"
+      label: "失败"
+    - source: "n4"
+      target: "n6"
+      kind: "flow"
+      color: "red"
+      label: "失败"
   groups: []
   matrices: []
   charts: []
@@ -82,10 +115,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations:
-    - x: 70
-      y: 520
-      text: "质量关口：tests / signature / approval"
+    - x: 320
+      y: 585
+      text: "质量门禁失败阻断合并；部署失败切回上一版，修复后重试"
 presentation:
   title: "CanSat CS-1｜CI/CD｜构建、关口与发布"
   subtitle: "dgraph · engineering diagram"

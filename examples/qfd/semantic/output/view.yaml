@@ -53,7 +53,7 @@ selection:
         label: "总质量"
         unit: "g ↓"
         target: "≤ 350 g"
-        weight: 25
+        weight: 26
         rank: 5
       - id: "cost"
         label: "成本"
@@ -65,7 +65,7 @@ selection:
         label: "回收速度"
         unit: "m/s ↓"
         target: "≤ 5 m/s"
-        weight: 54
+        weight: 57
         rank: 2
     relations:
       - need: "data-integrity"
@@ -137,6 +137,11 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜QFD 质量屋｜需求到工程特性"

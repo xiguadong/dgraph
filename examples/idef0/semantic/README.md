@@ -14,10 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张IDEF0｜功能、输入、控制与机制，回答“功能的输入、输出、控制和机制分别是什么？”
 
-- 任务数据；
-- 采集大气数据；
-- 采样规范；
-- 传感器与飞控；
+图上的对象：
+- n0：任务数据（来源 Example.se-idef0.n0）。
+- n1：采集大气数据（来源 Example.se-idef0.n1）。
+- n2：采样规范（来源 Example.se-idef0.n2）。
+- n3：传感器与飞控（来源 Example.se-idef0.n3）。
+- n4：遥测数据（来源 Example.se-idef0.n4）。
+有依据的关系：
+- n0 → n1：flow input。
+- n2 → n1：dependency control。
+- n3 → n1：association mechanism。
+- n1 → n4：flow output。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +39,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：任务数据、采集大气数据、采样规范、传感器与飞控。完整输入见 `input.json`。
+示例语义标签：任务数据、采集大气数据、采样规范、传感器与飞控、遥测数据。完整输入见 `input.json`。
 
 ## 如何运行
 

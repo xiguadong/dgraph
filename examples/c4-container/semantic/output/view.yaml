@@ -7,72 +7,9 @@ sources:
     example: "x-c4-container"
 selection:
   layout: "c4-container"
-  nodes:
-    - id: "n0"
-      label: "飞控固件"
-      kind: "component"
-      x: 95
-      y: 280
-      w: 250
-      h: 105
-      color: "blue"
-      sourceId: "Example.x-c4-container.n0"
-      compartment: "deployable container"
-    - id: "n1"
-      label: "遥测服务"
-      kind: "component"
-      x: 390
-      y: 280
-      w: 250
-      h: 105
-      color: "teal"
-      sourceId: "Example.x-c4-container.n1"
-      compartment: "deployable container"
-    - id: "n2"
-      label: "地面 API"
-      kind: "component"
-      x: 685
-      y: 280
-      w: 250
-      h: 105
-      color: "amber"
-      sourceId: "Example.x-c4-container.n2"
-      compartment: "deployable container"
-    - id: "n3"
-      label: "数据存储"
-      kind: "component"
-      x: 980
-      y: 280
-      w: 250
-      h: 105
-      color: "violet"
-      sourceId: "Example.x-c4-container.n3"
-      compartment: "deployable container"
-  edges:
-    - source: "n0"
-      target: "n1"
-      kind: "flow"
-      color: "teal"
-      label: "UART"
-    - source: "n1"
-      target: "n2"
-      kind: "flow"
-      color: "teal"
-      label: "433 MHz"
-    - source: "n2"
-      target: "n3"
-      kind: "flow"
-      color: "teal"
-      label: "SQL / files"
-  groups:
-    - id: "system"
-      label: "CS-1 软件系统"
-      kind: "boundary"
-      x: 70
-      y: 145
-      w: 1140
-      h: 420
-      color: "blue"
+  nodes: []
+  edges: []
+  groups: []
   matrices: []
   charts: []
   timelines: []
@@ -125,29 +62,77 @@ selection:
       - source: "operator"
         target: "web-ui"
         label: "操作"
+        points:
+          - - 100
+- 214
+          - - 350
+- 214
+          - - 350
+- 215
+          - - 390
+- 215
       - source: "scientist"
         target: "web-ui"
         label: "查看数据"
+        points:
+          - - 100
+- 454
+          - - 320
+- 454
+          - - 320
+- 265
+          - - 390
+- 265
       - source: "web-ui"
         target: "mission-service"
         label: "REST"
+        points:
+          - - 630
+- 240
+          - - 720
+- 240
       - source: "web-ui"
         target: "timeseries-db"
         label: "查询"
-      - source: "mission-service"
-        target: "timeseries-db"
-        label: "写入"
+        points:
+          - - 510
+- 300
+          - - 510
+- 390
       - source: "mission-service"
         target: "telemetry-service"
         label: "计划下发"
+        points:
+          - - 840
+- 300
+          - - 840
+- 390
       - source: "receiver"
         target: "telemetry-service"
         label: "串口"
+        points:
+          - - 1010
+- 450
+          - - 960
+- 450
+      - source: "telemetry-service"
+        target: "timeseries-db"
+        label: "写入遥测"
+        points:
+          - - 720
+- 450
+          - - 630
+- 450
   umlClass: null
   sequenceModel: null
   n2Model: null
   dfdModel: null
   bpmnModel: null
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜C4 Container｜可部署容器"

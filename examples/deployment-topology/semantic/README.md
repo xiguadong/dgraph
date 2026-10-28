@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张部署拓扑｜节点与网络，回答“网络、节点、服务和链路如何组成运行拓扑？”
 
-- CS-1 设备；
-- 433 MHz 链路；
-- 地面网关；
-- 分析工作站；
+图上的对象：
+- n0：CS-1 设备（来源 Example.x-topology.n0）。
+- n1：433 MHz 链路（来源 Example.x-topology.n1）。
+- n2：地面网关（来源 Example.x-topology.n2）。
+- n3：分析工作站（来源 Example.x-topology.n3）。
+有依据的关系：
+- n0 → n1：flow RF。
+- n1 → n2：flow Ethernet。
+- n2 → n3：flow HTTPS。
 
 保持来源标识，缺少依据的关系不要补充。
 

@@ -14,10 +14,29 @@
 
 不使用 SysML，只根据以下语义画一张状态机图，回答“系统有哪些状态，事件或守卫如何触发迁移？”
 
-- 待机 Standby；
-- 待发射 Armed；
-- 上升 Ascent；
-- 下降 Descent；
+图上的对象：
+- standby：待机 Standby（来源 CanSat.Standby）。
+- armed：待发射 Armed（来源 CanSat.Armed）。
+- ascent：上升 Ascent（来源 CanSat.Ascent）。
+- descent：下降 Descent（来源 CanSat.Descent）。
+- landed：着陆 Landed（来源 CanSat.Landed）。
+- replay：回放 Replay（来源 CanSat.Replay）。
+- safe：安全模式 Safe（来源 CanSat.Safe）。
+- selftest：自检 Self-test（来源 CanSat.SelfTestState）。
+有依据的关系：
+- standby → selftest：transition 启动。
+- selftest → armed：transition 自检通过。
+- armed → ascent：transition 发射。
+- ascent → descent：transition 开伞。
+- descent → landed：transition 触地。
+- landed → replay：transition 回收连接。
+- standby → safe：transition 。
+- armed → safe：transition 。
+- ascent → safe：transition 。
+- descent → safe：transition 。
+- landed → safe：transition 。
+- replay → safe：transition 。
+- selftest → safe：transition 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +51,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：待机 Standby、待发射 Armed、上升 Ascent、下降 Descent。完整输入见 `input.json`。
+示例语义标签：待机 Standby、待发射 Armed、上升 Ascent、下降 Descent、着陆 Landed、回放 Replay、安全模式 Safe、自检 Self-test。完整输入见 `input.json`。
 
 ## 如何运行
 

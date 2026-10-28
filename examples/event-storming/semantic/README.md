@@ -14,10 +14,31 @@
 
 不使用 SysML，只根据以下语义画一张事件风暴｜业务事件链，回答“事件、命令、聚合和策略如何形成业务叙事？”
 
-- 发射命令；
-- 已进入下降；
-- 遥测已生成；
-- 地面已接收；
+图上的对象：
+- n0：操作员（来源 Example.x-eventstorm.n0）。
+- n3：创建任务（来源 Example.x-eventstorm.n3）。
+- n6：任务已创建（来源 Example.x-eventstorm.n6）。
+- n9：Mission 聚合（来源 Example.x-eventstorm.n9）。
+- n1：遥测服务（来源 Example.x-eventstorm.n1）。
+- n4：接收帧（来源 Example.x-eventstorm.n4）。
+- n7：帧已收录（来源 Example.x-eventstorm.n7）。
+- n10：TelemetryFrame 聚合（来源 Example.x-eventstorm.n10）。
+- n2：科学用户（来源 Example.x-eventstorm.n2）。
+- n5：生成报告（来源 Example.x-eventstorm.n5）。
+- n8：报告已生成（来源 Example.x-eventstorm.n8）。
+- n11：回收看板 · 读模型（来源 Example.x-eventstorm.n11）。
+有依据的关系：
+- n0 → n3：flow 。
+- n1 → n4：flow 。
+- n2 → n5：flow 。
+- n3 → n6：flow 。
+- n4 → n7：flow 。
+- n5 → n8：flow 。
+- n6 → n9：flow 。
+- n7 → n10：flow 。
+- n8 → n11：flow 。
+- n6 → n7：dependency 时间 →。
+- n7 → n8：dependency 时间 →。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +53,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：发射命令、已进入下降、遥测已生成、地面已接收。完整输入见 `input.json`。
+示例语义标签：操作员、创建任务、任务已创建、Mission 聚合、遥测服务、接收帧、帧已收录、TelemetryFrame 聚合、科学用户、生成报告、报告已生成、回收看板 · 读模型。完整输入见 `input.json`。
 
 ## 如何运行
 

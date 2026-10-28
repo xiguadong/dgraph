@@ -1,26 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="interaction-overview">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜UML｜交互概览图</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<g data-group-id="normal"><rect x="390" y="170" width="260" height="150" rx="16" fill="#e4f3ef" fill-opacity="0.35" stroke="#0f766e" stroke-width="1.8"/><text x="406" y="198" font-size="15" fill="#0f766e" text-anchor="start" font-weight="700">采样序列</text></g>
-<g data-group-id="exception"><rect x="700" y="390" width="260" height="150" rx="16" fill="#fdecea" fill-opacity="0.35" stroke="#b42318" stroke-width="1.8"/><text x="716" y="418" font-size="15" fill="#b42318" text-anchor="start" font-weight="700">异常序列</text></g>
-<path d="M 290,283.0882352941176 L 420,260.1470588235294" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 539.921875,280 L 582.421875,360" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 680,422.5 L 730,435.8333333333333" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 680,387.3484848484849 L 1000,322.7020202020202" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 893.28125,425 L 1028.28125,345" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Example.uml-iov.n0" data-kind="block"><title>启动交互</title><rect x="70" y="260" width="220" height="85" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="180.0" y="307.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">启动交互</text></g>
-<g data-node-id="n1" data-source-id="Example.uml-iov.n1" data-kind="block"><title>采样序列</title><rect x="420" y="205" width="200" height="75" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="520.0" y="247.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">采样序列</text></g>
-<g data-node-id="n2" data-source-id="Example.uml-iov.n2" data-kind="block"><title>异常序列</title><rect x="730" y="425" width="200" height="75" rx="6" fill="#fdecea" stroke="#b42318" stroke-width="2"/><text x="830.0" y="467.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">异常序列</text></g>
-<g data-node-id="n3" data-source-id="Example.uml-iov.n3" data-kind="block"><title>回放序列</title><rect x="1000" y="260" width="200" height="85" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1100.0" y="307.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">回放序列</text></g>
-<g data-node-id="n4" data-source-id="Example.uml-iov.n4" data-kind="decision"><title>链路正常？</title><polygon points="605.0,360 680,402.5 605.0,445 530,402.5" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="605.0" y="407.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">链路正常？</text></g>
+<g data-group-id="normal"><rect x="250" y="170" width="270" height="130" rx="16" fill="#e4f3ef" fill-opacity="0.35" stroke="#0f766e" stroke-width="1.8"/><text x="266" y="198" font-size="15" fill="#0f766e" text-anchor="start" font-weight="700">ref</text></g>
+<g data-group-id="retry"><rect x="760" y="370" width="220" height="120" rx="16" fill="#fdf4e1" fill-opacity="0.35" stroke="#a16207" stroke-width="1.8"/><text x="776" y="398" font-size="15" fill="#a16207" text-anchor="start" font-weight="700">ref</text></g>
+<g data-group-id="failure"><rect x="1025" y="370" width="200" height="120" rx="16" fill="#fdecea" fill-opacity="0.35" stroke="#b42318" stroke-width="1.8"/><text x="1041" y="398" font-size="15" fill="#b42318" text-anchor="start" font-weight="700">ref</text></g>
+<path d="M 215,245.83333333333334 L 275,244.65686274509804" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 495,243.57843137254903 L 570,244.31372549019608" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 710,245.3684210526316 L 1030,247.05263157894737" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 640,285 L 640,435 L 775,435" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 965,432.5 L 1040,432.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<g data-node-id="n0" data-source-id="Example.uml-iov.n0" data-kind="block"><title>帧到达</title><rect x="45" y="215" width="170" height="65" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="130.0" y="252.5" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">帧到达</text></g>
+<g data-node-id="n1" data-source-id="Example.uml-iov.n1" data-kind="block"><title>正常接收帧</title><rect x="275" y="215" width="220" height="55" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="385.0" y="247.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">正常接收帧</text></g>
+<g data-node-id="n2" data-source-id="Example.uml-iov.n2" data-kind="decision"><title>CRC 合格？</title><polygon points="640.0,205 710,245.0 640.0,285 570,245.0" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="640.0" y="250.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">CRC 合格？</text></g>
+<g data-node-id="n3" data-source-id="Example.uml-iov.n3" data-kind="block"><title>完成</title><rect x="1030" y="215" width="170" height="65" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="1115.0" y="252.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">完成</text></g>
+<g data-node-id="n4" data-source-id="Example.uml-iov.n4" data-kind="block"><title>丢包重试</title><rect x="775" y="405" width="190" height="55" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="870.0" y="437.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">丢包重试</text></g>
+<g data-node-id="n5" data-source-id="Example.uml-iov.n5" data-kind="block"><title>失败处理</title><rect x="1040" y="405" width="170" height="55" rx="6" fill="#fdecea" stroke="#b42318" stroke-width="2"/><text x="1125.0" y="437.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">失败处理</text></g>
 
 
-<rect x="700.0" y="413.16666666666663" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="709.0" y="429.16666666666663" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">否</text>
-<rect x="835.0" y="339.02525252525254" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="844.0" y="355.02525252525254" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">是</text>
-
+<rect x="850" y="174" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="859" y="190" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">是</text>
+<rect x="650" y="304" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="659" y="320" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">否</text>
+<rect x="960" y="334" width="42" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="981" y="350" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">重试失败</text>
+<text x="340" y="580" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">活动控制流串接交互引用；每个 ref 可展开为序列图</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">How are interaction fragments orchestrated?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

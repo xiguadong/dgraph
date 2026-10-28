@@ -6,8 +6,8 @@
   },
   "sources": [
     {
-      "kind": "sysml",
-      "model": "CanSat"
+      "kind": "semantic",
+      "example": "lesson2-cansat"
     }
   ],
   "presentation": {
@@ -22,9 +22,9 @@
         "label": "待机 Standby",
         "kind": "state",
         "color": "blue",
-        "x": 60,
-        "y": 190,
-        "w": 210,
+        "x": 25,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Standby"
       },
@@ -33,9 +33,9 @@
         "label": "待发射 Armed",
         "kind": "state",
         "color": "blue",
-        "x": 375,
-        "y": 190,
-        "w": 210,
+        "x": 365,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Armed"
       },
@@ -44,9 +44,9 @@
         "label": "上升 Ascent",
         "kind": "state",
         "color": "teal",
-        "x": 690,
-        "y": 190,
-        "w": 210,
+        "x": 535,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Ascent"
       },
@@ -55,9 +55,9 @@
         "label": "下降 Descent",
         "kind": "state",
         "color": "teal",
-        "x": 1005,
-        "y": 190,
-        "w": 210,
+        "x": 705,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Descent"
       },
@@ -66,9 +66,9 @@
         "label": "着陆 Landed",
         "kind": "state",
         "color": "blue",
-        "x": 795,
-        "y": 455,
-        "w": 210,
+        "x": 875,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Landed"
       },
@@ -77,9 +77,9 @@
         "label": "回放 Replay",
         "kind": "state",
         "color": "violet",
-        "x": 430,
-        "y": 455,
-        "w": 210,
+        "x": 1045,
+        "y": 180,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Replay"
       },
@@ -88,79 +88,155 @@
         "label": "安全模式 Safe",
         "kind": "state",
         "color": "red",
-        "x": 65,
-        "y": 455,
-        "w": 210,
+        "x": 535,
+        "y": 445,
+        "w": 145,
         "h": 70,
         "sourceId": "CanSat.Safe"
+      },
+      {
+        "id": "selftest",
+        "label": "自检 Self-test",
+        "kind": "state",
+        "color": "blue",
+        "x": 195,
+        "y": 180,
+        "w": 145,
+        "h": 70,
+        "sourceId": "CanSat.SelfTestState"
       }
     ],
     "edges": [
       {
         "source": "standby",
+        "target": "selftest",
+        "kind": "transition",
+        "label": "启动",
+        "labelPosition": [
+          165,
+          155
+        ]
+      },
+      {
+        "source": "selftest",
         "target": "armed",
         "kind": "transition",
         "label": "自检通过",
         "labelPosition": [
-          300,
-          170
+          335,
+          155
         ]
       },
       {
         "source": "armed",
         "target": "ascent",
         "kind": "transition",
-        "label": "检测发射",
+        "label": "发射",
         "labelPosition": [
-          615,
-          170
+          505,
+          155
         ]
       },
       {
         "source": "ascent",
         "target": "descent",
         "kind": "transition",
-        "color": "teal",
         "label": "开伞",
         "labelPosition": [
-          935,
-          170
+          675,
+          155
         ]
       },
       {
         "source": "descent",
         "target": "landed",
         "kind": "transition",
-        "color": "teal",
         "label": "触地",
-        "points": [
-          [
-            1110,
-            260
-          ],
-          [
-            1110,
-            490
-          ],
-          [
-            1005,
-            490
-          ]
-        ],
         "labelPosition": [
-          1125,
-          380
+          845,
+          155
         ]
       },
       {
         "source": "landed",
         "target": "replay",
         "kind": "transition",
-        "color": "violet",
         "label": "回收连接",
         "labelPosition": [
-          680,
-          435
+          1015,
+          155
+        ]
+      },
+      {
+        "source": "standby",
+        "target": "safe",
+        "kind": "transition",
+        "color": "red",
+        "points": [
+          [
+            97.5,
+            250
+          ],
+          [
+            97.5,
+            295
+          ],
+          [
+            550,
+            295
+          ],
+          [
+            550,
+            445
+          ]
+        ]
+      },
+      {
+        "source": "armed",
+        "target": "safe",
+        "kind": "transition",
+        "color": "red",
+        "points": [
+          [
+            437.5,
+            250
+          ],
+          [
+            437.5,
+            311
+          ],
+          [
+            567,
+            311
+          ],
+          [
+            567,
+            445
+          ]
+        ]
+      },
+      {
+        "source": "ascent",
+        "target": "safe",
+        "kind": "transition",
+        "color": "red",
+        "points": [
+          [
+            607.5,
+            250
+          ],
+          [
+            607.5,
+            327
+          ],
+          [
+            584,
+            327
+          ],
+          [
+            584,
+            445
+          ]
         ]
       },
       {
@@ -168,65 +244,105 @@
         "target": "safe",
         "kind": "transition",
         "color": "red",
-        "label": "vbat < 6.4 V",
         "points": [
           [
-            1005,
-            245
+            777.5,
+            250
           ],
           [
-            920,
-            330
+            777.5,
+            343
           ],
           [
-            170,
-            330
+            601,
+            343
           ],
           [
-            170,
-            455
+            601,
+            445
           ]
-        ],
-        "labelPosition": [
-          480,
-          305
         ]
       },
       {
-        "source": "safe",
-        "target": "standby",
+        "source": "landed",
+        "target": "safe",
         "kind": "transition",
         "color": "red",
-        "label": "电压恢复",
         "points": [
           [
-            115,
-            455
+            947.5,
+            250
           ],
           [
-            40,
-            455
+            947.5,
+            359
           ],
           [
-            40,
-            225
+            618,
+            359
           ],
           [
-            60,
-            225
+            618,
+            445
           ]
-        ],
-        "labelPosition": [
-          55,
-          410
+        ]
+      },
+      {
+        "source": "replay",
+        "target": "safe",
+        "kind": "transition",
+        "color": "red",
+        "points": [
+          [
+            1117.5,
+            250
+          ],
+          [
+            1117.5,
+            375
+          ],
+          [
+            635,
+            375
+          ],
+          [
+            635,
+            445
+          ]
+        ]
+      },
+      {
+        "source": "selftest",
+        "target": "safe",
+        "kind": "transition",
+        "color": "red",
+        "points": [
+          [
+            267.5,
+            250
+          ],
+          [
+            267.5,
+            407
+          ],
+          [
+            669,
+            407
+          ],
+          [
+            669,
+            445
+          ]
         ]
       }
     ],
     "annotations": [
       {
-        "x": 70,
-        "y": 625,
-        "text": "状态是持续条件，迁移由事件或守卫触发；与活动图中的动作步骤保持区分。"
+        "x": 240,
+        "y": 565,
+        "text": "任一状态：vbat < 6.4 V → 安全模式（降低采样率，仅下传心跳）",
+        "color": "#b42318",
+        "fontSize": 17
       }
     ]
   },

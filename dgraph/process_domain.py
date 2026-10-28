@@ -3,6 +3,7 @@
 from html import escape
 from .domain import _rect
 from .svg import PALETTE, _text
+from .routing import relation_label, relation_path, relation_points
 
 
 N2_COLORS = {"electrical": ("#e8f0ff", "#2459a6"), "data": ("#e4f3ef", "#0f766e"), "rf": ("#f1ebfd", "#6d28d9"), "mechanical": ("#eef2f7", "#475569"), "thermal": ("#fdf4e1", "#a16207")}
@@ -43,30 +44,35 @@ def n2_svg(model):
 
 def dfd_svg(model):
     out = ['<g data-dfd="data-flow" data-source-id="Example.dfd">']
-    positions = {}
+    boxes = {}
     for entity in model["entities"]:
         x, y = entity["x"], entity["y"]
-        positions[entity["id"]] = (x + 100, y + 50)
+        boxes[entity["id"]] = (x, y, 200, 100)
+    for process in model["processes"]:
+        boxes[process["id"]] = (process["x"], process["y"], 230, 110)
+    for store in model["stores"]:
+        boxes[store["id"]] = (store["x"], store["y"], 260, 90)
+    for flow in model["flows"]:
+        points = relation_points(flow, boxes)
+        out.append(relation_path(points, "#0f766e"))
+    for entity in model["entities"]:
+        x, y = entity["x"], entity["y"]
         out.append(_rect(x, y, 200, 100, "#f8fafc", "#64748b", 1.8, 5))
         out.append(_text(x + 100, y + 55, entity["label"], 15, "#334155", weight=650))
     for process in model["processes"]:
         x, y = process["x"], process["y"]
-        positions[process["id"]] = (x + 115, y + 55)
         out.append(f'<g data-dfd-process="{escape(process["id"], quote=True)}">')
         out.append(f'<ellipse cx="{x+115}" cy="{y+55}" rx="115" ry="55" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/>')
         out.append(_text(x + 115, y + 60, process["label"], 15, "#334155", weight=650))
         out.append('</g>')
     for store in model["stores"]:
         x, y = store["x"], store["y"]
-        positions[store["id"]] = (x + 130, y + 45)
         out.append(f'<g data-dfd-store="{escape(store["id"], quote=True)}">')
         out.append(f'<path d="M {x} {y+12} H {x+260} M {x} {y+78} H {x+260} M {x+12} {y} V {y+90} M {x+248} {y} V {y+90}" fill="none" stroke="#a16207" stroke-width="2"/>')
         out.append(_text(x + 130, y + 52, store["label"], 15, "#334155", weight=650))
         out.append('</g>')
     for flow in model["flows"]:
-        source, target = positions[flow["source"]], positions[flow["target"]]
-        out.append(f'<path d="M {source[0]} {source[1]} L {target[0]} {target[1]}" fill="none" stroke="#0f766e" stroke-width="1.8" marker-end="url(#arrow)"/>')
-        out.append(_text((source[0] + target[0]) / 2, (source[1] + target[1]) / 2 - 12, flow["label"], 12, "#0f766e", weight=500))
+        out.append(relation_label(relation_points(flow, boxes), flow["label"], "#0f766e"))
     out.append('</g>')
     return "".join(out)
 
@@ -75,10 +81,26 @@ def bpmn_svg(model):
     out = ['<g data-bpmn="process" data-source-id="Example.bpmn">']
     out.append(_rect(40, 135, 1200, 465, "#fbfdff", "#2459a6", 1.8, 14))
     out.append(_text(60, 165, model["pool"], 15, "#2459a6", "start", 700))
-    positions = {}
+    for index, lane in enumerate(model.get("lanes", [])):
+        ly, lh = lane["y"], lane["height"]
+        out.append(f'<g data-bpmn-lane="{escape(lane["id"], quote=True)}">')
+        out.append(_rect(41, ly, 1198, lh, "#f8fafc" if index % 2 else "#fff", "#cbd5e1", 1, 0))
+        out.append(f'<line x1="205" y1="{ly}" x2="205" y2="{ly+lh}" stroke="#cbd5e1"/>')
+        for line_no, line in enumerate(lane["label"].split("\n")):
+            out.append(_text(122, ly + lh / 2 - 8 + line_no * 22, line, 13, "#334155", weight=650 if line_no == 0 else 400))
+        out.append('</g>')
+    boxes = {}
+    for event in model["events"]:
+        boxes[event["id"]] = (event["x"] - 22, event["y"] - 22, 44, 44)
+    for task in model["tasks"]:
+        boxes[task["id"]] = (task["x"], task["y"], 210, 84)
+    for gateway in model["gateways"]:
+        boxes[gateway["id"]] = (gateway["x"], gateway["y"], 130, 84)
+    for flow in model["flows"]:
+        branch = f' data-bpmn-branch="{escape(flow["branch"], quote=True)}"' if flow.get("branch") else ""
+        out.append(relation_path(relation_points(flow, boxes), "#0f766e", extra=branch))
     for event in model["events"]:
         x, y = event["x"], event["y"]
-        positions[event["id"]] = (x, y)
         out.append(f'<g data-bpmn-event="{escape(event["id"], quote=True)}">')
         color = "#0f766e" if event["kind"] == "start" else "#b42318"
         out.append(f'<circle cx="{x}" cy="{y}" r="22" fill="{color}"/>')
@@ -88,21 +110,16 @@ def bpmn_svg(model):
         out.append('</g>')
     for task in model["tasks"]:
         x, y = task["x"], task["y"]
-        positions[task["id"]] = (x + 105, y + 42)
         out.append(_rect(x, y, 210, 84, "#e4f3ef", "#0f766e", 2, 16))
         out.append(_text(x + 105, y + 48, task["label"], 15, "#334155", weight=650))
     for gateway in model["gateways"]:
         x, y = gateway["x"], gateway["y"]
-        positions[gateway["id"]] = (x + 65, y + 42)
         out.append(f'<g data-bpmn-gateway="{escape(gateway["id"], quote=True)}">')
         out.append(f'<polygon points="{x+65},{y} {x+130},{y+42} {x+65},{y+84} {x},{y+42}" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/>')
         out.append(_text(x + 65, y + 48, gateway["label"], 14, "#334155", weight=650))
         out.append('</g>')
     for flow in model["flows"]:
-        source, target = positions[flow["source"]], positions[flow["target"]]
-        branch = f' data-bpmn-branch="{escape(flow["branch"], quote=True)}"' if flow.get("branch") else ""
-        out.append(f'<path{branch} d="M {source[0]} {source[1]} L {target[0]} {target[1]}" fill="none" stroke="#0f766e" stroke-width="1.8" marker-end="url(#arrow)"/>')
         if flow.get("label"):
-            out.append(_text((source[0] + target[0]) / 2, (source[1] + target[1]) / 2 - 12, flow["label"], 12, "#0f766e", weight=500))
+            out.append(relation_label(relation_points(flow, boxes), flow["label"], "#0f766e"))
     out.append('</g>')
     return "".join(out)

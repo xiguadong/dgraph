@@ -1,48 +1,10 @@
 schema: "diagram-ir/v1"
 type: "risk-matrix"
 layout: "risk-matrix"
-nodes:
-  - id: "n0"
-    label: "矩阵读法"
-    kind: "block"
-    x: 55
-    y: 145
-    w: 190
-    h: 75
-    color: "gray"
-    sourceId: "Example.pm-risk.n0"
+nodes: []
 edges: []
 groups: []
-matrices:
-  - id: "pm-risk-matrix"
-    x: 320
-    y: 150
-    cellWidth: 210
-    cellHeight: 85
-    columns:
-      - "质量超支"
-      - "供电不足"
-      - "降落过快"
-    rows:
-      - "质量超支"
-      - "供电不足"
-      - "降落过快"
-    cells:
-      - row: 0
-        column: 1
-        label: "链路中断"
-        color: "amber"
-        sourceId: "Example.pm-risk.cell01"
-      - row: 1
-        column: 2
-        label: "相关"
-        color: "teal"
-        sourceId: "Example.pm-risk.cell12"
-      - row: 2
-        column: 0
-        label: "追溯"
-        color: "violet"
-        sourceId: "Example.pm-risk.cell20"
+matrices: []
 charts: []
 timelines: []
 qfd: null
@@ -54,4 +16,42 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
+riskMatrix:
+  probability:
+    - "极低"
+    - "低"
+    - "中"
+    - "高"
+    - "极高"
+  consequence:
+    - "可忽略"
+    - "轻微"
+    - "中等"
+    - "严重"
+    - "灾难"
+  risks:
+    - id: "R-01"
+      label: "电池低温"
+      probability: 4
+      consequence: 3
+    - id: "R-02"
+      label: "链路失锁"
+      probability: 3
+      consequence: 4
+    - id: "R-03"
+      label: "进度压缩"
+      probability: 4
+      consequence: 4
+    - id: "R-04"
+      label: "开伞失效"
+      probability: 2
+      consequence: 5
+    - id: "R-05"
+      label: "质量超限"
+      probability: 3
+      consequence: 3
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
 annotations: []

@@ -14,10 +14,20 @@
 
 不使用 SysML，只根据以下语义画一张内部块图 IBD，回答“内部部件、端口与接口如何连接？”
 
-- 电源 : Power；
-- 传感器 : Sensors；
-- 飞控 : FlightComputer；
-- 电台 : Comms；
+图上的对象：
+- power：电源 : Power（来源 CanSat.CS1.power）。
+- sensors：传感器 : Sensors（来源 CanSat.CS1.sensors）。
+- fcu：飞控 : FlightComputer（来源 CanSat.CS1.fcu）。
+- comms：电台 : Comms（来源 CanSat.CS1.comms）。
+- ground：地面站（来源 CanSat.GroundStation）。
+- p1：I-01（来源 CanSat.I01）。
+- p2：I-02（来源 CanSat.I02）。
+- p3：I-03（来源 CanSat.I03）。
+有依据的关系：
+- power → fcu：connection 供电。
+- sensors → fcu：flow 采样数据。
+- fcu → comms：flow 遥测帧。
+- comms → ground：flow 433 MHz 下行。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +42,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：电源 : Power、传感器 : Sensors、飞控 : FlightComputer、电台 : Comms。完整输入见 `input.json`。
+示例语义标签：电源 : Power、传感器 : Sensors、飞控 : FlightComputer、电台 : Comms、地面站、I-01、I-02、I-03。完整输入见 `input.json`。
 
 ## 如何运行
 

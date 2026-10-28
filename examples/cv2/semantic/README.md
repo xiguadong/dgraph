@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张DoDAF CV-2｜能力分类，回答“能力如何分解和关联？”
 
-- 探空任务能力；
-- 环境感知；
-- 数据传输；
-- 回收回放；
+图上的对象：
+- n0：探空任务能力（来源 Example.fw-cv2.n0）。
+- n1：环境感知（来源 Example.fw-cv2.n1）。
+- n2：数据传输（来源 Example.fw-cv2.n2）。
+- n3：回收回放（来源 Example.fw-cv2.n3）。
+有依据的关系：
+- n0 → n1：composition 1。
+- n0 → n2：composition 1。
+- n0 → n3：composition 1。
 
 保持来源标识，缺少依据的关系不要补充。
 

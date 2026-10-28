@@ -1,19 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="wbs">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜WBS｜工作分解</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<path d="M 578.3185840707964,220 L 302.56637168141594,410" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/><rect x="573.3185840707964" y="215" width="10" height="10" transform="rotate(45 578.3185840707964 220)" fill="#2459a6" stroke="#2459a6"/>
-<path d="M 638.4955752212389,220 L 631.7699115044247,410" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/><rect x="633.4955752212389" y="215" width="10" height="10" transform="rotate(45 638.4955752212389 220)" fill="#2459a6" stroke="#2459a6"/>
-<path d="M 698.6725663716815,220 L 960.9734513274336,410" fill="none" stroke="#2459a6" stroke-width="2" stroke-dasharray="None" marker-end="none"/><rect x="693.6725663716815" y="215" width="10" height="10" transform="rotate(45 698.6725663716815 220)" fill="#2459a6" stroke="#2459a6"/>
-<g data-node-id="n0" data-source-id="Example.pm-wbs.n0" data-kind="package"><title>CS-1 项目</title><rect x="500" y="135" width="280" height="85" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><path d="M 500 135 H 590 V 115 H 500 Z" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="640.0" y="182.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">CS-1 项目</text></g>
-<g data-node-id="n1" data-source-id="Example.pm-wbs.n1" data-kind="package"><title>需求与设计</title><rect x="80" y="410" width="300" height="100" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><path d="M 80 410 H 170 V 390 H 80 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="230.0" y="465.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">需求与设计</text></g>
-<g data-node-id="n2" data-source-id="Example.pm-wbs.n2" data-kind="package"><title>制造与集成</title><rect x="480" y="410" width="300" height="100" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><path d="M 480 410 H 570 V 390 H 480 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="630.0" y="465.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">制造与集成</text></g>
-<g data-node-id="n3" data-source-id="Example.pm-wbs.n3" data-kind="package"><title>试验与交付</title><rect x="880" y="410" width="300" height="100" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><path d="M 880 410 H 970 V 390 H 880 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="1030.0" y="465.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">试验与交付</text></g>
-<rect x="435.4424778761062" y="299.0" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="444.4424778761062" y="315.0" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">1</text>
-<rect x="630.1327433628319" y="299.0" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="639.1327433628319" y="315.0" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">1</text>
-<rect x="824.8230088495575" y="299.0" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="833.8230088495575" y="315.0" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">1</text>
+<path d="M 526.9402985074627,195 L 240.52238805970148,290" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 135.0,360 L 135.0,420" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 240,360 L 260,360 L 260,545 L 245,545" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 582.9104477611941,195 L 438.2835820895522,290" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 385.0,360 L 385.0,420" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 490,360 L 510,360 L 510,545 L 495,545" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 638.8805970149253,195 L 636.044776119403,290" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 635.0,360 L 635.0,420" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 740,360 L 760,360 L 760,545 L 745,545" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 694.8507462686567,195 L 833.8059701492538,290" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 885.0,360 L 885.0,420" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 990,360 L 1010,360 L 1010,545 L 995,545" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 750.820895522388,195 L 1031.5671641791046,290" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 1135.0,360 L 1135.0,420" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 1240,360 L 1260,360 L 1260,545 L 1245,545" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<g data-node-id="n0" data-source-id="Example.pm-wbs.n0" data-kind="block"><title>CS-1 研制项目</title><rect x="500" y="120" width="280" height="75" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="640.0" y="162.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">CS-1 研制项目</text></g>
+<g data-node-id="n1" data-source-id="Example.pm-wbs.n1" data-kind="block"><title>1.1 需求分析</title><rect x="25" y="290" width="220" height="70" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="135.0" y="330.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">1.1 需求分析</text></g>
+<g data-node-id="n6" data-source-id="Example.pm-wbs.n6" data-kind="block"><title>1.1.1 任务书</title><rect x="25" y="420" width="220" height="60" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="135.0" y="455.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">1.1.1 任务书</text></g>
+<g data-node-id="n11" data-source-id="Example.pm-wbs.n11" data-kind="block"><title>1.1.2 需求基线</title><rect x="25" y="515" width="220" height="60" rx="6" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="135.0" y="550.0" font-size="16" fill="#173d73" text-anchor="middle" font-weight="600">1.1.2 需求基线</text></g>
+<g data-node-id="n2" data-source-id="Example.pm-wbs.n2" data-kind="block"><title>1.2 设计</title><rect x="275" y="290" width="220" height="70" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="385.0" y="330.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.2 设计</text></g>
+<g data-node-id="n7" data-source-id="Example.pm-wbs.n7" data-kind="block"><title>1.2.1 架构设计</title><rect x="275" y="420" width="220" height="60" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="385.0" y="455.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.2.1 架构设计</text></g>
+<g data-node-id="n12" data-source-id="Example.pm-wbs.n12" data-kind="block"><title>1.2.2 详细设计</title><rect x="275" y="515" width="220" height="60" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="385.0" y="550.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.2.2 详细设计</text></g>
+<g data-node-id="n3" data-source-id="Example.pm-wbs.n3" data-kind="block"><title>1.3 采购制造</title><rect x="525" y="290" width="220" height="70" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="635.0" y="330.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.3 采购制造</text></g>
+<g data-node-id="n8" data-source-id="Example.pm-wbs.n8" data-kind="block"><title>1.3.1 器材采购</title><rect x="525" y="420" width="220" height="60" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="635.0" y="455.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.3.1 器材采购</text></g>
+<g data-node-id="n13" data-source-id="Example.pm-wbs.n13" data-kind="block"><title>1.3.2 结构加工</title><rect x="525" y="515" width="220" height="60" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="635.0" y="550.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.3.2 结构加工</text></g>
+<g data-node-id="n4" data-source-id="Example.pm-wbs.n4" data-kind="block"><title>1.4 集成</title><rect x="775" y="290" width="220" height="70" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="885.0" y="330.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.4 集成</text></g>
+<g data-node-id="n9" data-source-id="Example.pm-wbs.n9" data-kind="block"><title>1.4.1 系统集成</title><rect x="775" y="420" width="220" height="60" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="885.0" y="455.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.4.1 系统集成</text></g>
+<g data-node-id="n14" data-source-id="Example.pm-wbs.n14" data-kind="block"><title>1.4.2 总装联调</title><rect x="775" y="515" width="220" height="60" rx="6" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="885.0" y="550.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.4.2 总装联调</text></g>
+<g data-node-id="n5" data-source-id="Example.pm-wbs.n5" data-kind="block"><title>1.5 试验评审</title><rect x="1025" y="290" width="220" height="70" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="1135.0" y="330.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.5 试验评审</text></g>
+<g data-node-id="n10" data-source-id="Example.pm-wbs.n10" data-kind="block"><title>1.5.1 环境试验</title><rect x="1025" y="420" width="220" height="60" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="1135.0" y="455.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.5.1 环境试验</text></g>
+<g data-node-id="n15" data-source-id="Example.pm-wbs.n15" data-kind="block"><title>1.5.2 飞行试验</title><rect x="1025" y="515" width="220" height="60" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="1135.0" y="550.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">1.5.2 飞行试验</text></g>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<text x="350" y="635" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">叶子工作包可估算、分配和验收；WBS 分解工作而非产品</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">How is project work decomposed into deliverable activities?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

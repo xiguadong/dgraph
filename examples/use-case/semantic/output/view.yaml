@@ -3,8 +3,8 @@ type: "use-case"
 intent:
   question: "操作员与科学用户在 CS-1 系统边界上分别使用哪些能力？"
 sources:
-  - kind: "sysml"
-    model: "CanSat"
+  - kind: "semantic"
+    example: "lesson2-cansat"
 presentation:
   title: "CanSat CS-1｜用例图 Use Case"
   subtitle: "参与者、系统边界与目标"
@@ -81,8 +81,8 @@ selection:
       target: "arm"
       kind: "association"
       points:
-        - - 180
-- 280
+        - - 155
+- 263
         - - 390
 - 240
       labelPosition:
@@ -92,10 +92,16 @@ selection:
       target: "collect"
       kind: "association"
       points:
-        - - 180
-- 280
-        - - 660
-- 260
+        - - 155
+- 263
+        - - 190
+- 263
+        - - 190
+- 175
+        - - 780
+- 175
+        - - 780
+- 200
       labelPosition:
         - 280
         - 290
@@ -104,10 +110,16 @@ selection:
       kind: "association"
       color: "teal"
       points:
-        - - 1080
-- 280
-        - - 620
-- 425
+        - - 1105
+- 263
+        - - 1060
+- 263
+        - - 1060
+- 490
+        - - 505
+- 490
+        - - 505
+- 465
       labelPosition:
         - 900
         - 350
@@ -116,8 +128,12 @@ selection:
       kind: "association"
       color: "teal"
       points:
-        - - 1080
-- 280
+        - - 1105
+- 263
+        - - 980
+- 263
+        - - 980
+- 425
         - - 900
 - 425
       labelPosition:

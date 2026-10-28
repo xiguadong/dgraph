@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张影响地图｜目标到交付，回答“目标如何连接到参与者、影响和交付物？”
 
-- 获得可靠探空数据；
-- 科学用户；
-- 提高数据完整性；
-- 本地存储与下传；
+图上的对象：
+- n0：获得可靠探空数据（来源 Example.x-impactmap.n0）。
+- n1：科学用户（来源 Example.x-impactmap.n1）。
+- n2：提高数据完整性（来源 Example.x-impactmap.n2）。
+- n3：本地存储与下传（来源 Example.x-impactmap.n3）。
+有依据的关系：
+- n0 → n1：flow Why。
+- n1 → n2：flow Who。
+- n2 → n3：flow How。
 
 保持来源标识，缺少依据的关系不要补充。
 

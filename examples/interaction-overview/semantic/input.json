@@ -15,58 +15,69 @@
     "nodes": [
       {
         "id": "n0",
-        "label": "启动交互",
+        "label": "帧到达",
         "kind": "block",
-        "x": 70,
-        "y": 260,
-        "w": 220,
-        "h": 85,
+        "x": 45,
+        "y": 215,
+        "w": 170,
+        "h": 65,
         "color": "blue",
         "sourceId": "Example.uml-iov.n0"
       },
       {
         "id": "n1",
-        "label": "采样序列",
+        "label": "正常接收帧",
         "kind": "block",
-        "x": 420,
-        "y": 205,
-        "w": 200,
-        "h": 75,
+        "x": 275,
+        "y": 215,
+        "w": 220,
+        "h": 55,
         "color": "teal",
         "sourceId": "Example.uml-iov.n1"
       },
       {
         "id": "n2",
-        "label": "异常序列",
-        "kind": "block",
-        "x": 730,
-        "y": 425,
-        "w": 200,
-        "h": 75,
-        "color": "red",
+        "label": "CRC 合格？",
+        "kind": "decision",
+        "x": 570,
+        "y": 205,
+        "w": 140,
+        "h": 80,
+        "color": "amber",
         "sourceId": "Example.uml-iov.n2"
       },
       {
         "id": "n3",
-        "label": "回放序列",
+        "label": "完成",
         "kind": "block",
-        "x": 1000,
-        "y": 260,
-        "w": 200,
-        "h": 85,
-        "color": "violet",
+        "x": 1030,
+        "y": 215,
+        "w": 170,
+        "h": 65,
+        "color": "teal",
         "sourceId": "Example.uml-iov.n3"
       },
       {
         "id": "n4",
-        "label": "链路正常？",
-        "kind": "decision",
-        "x": 530,
-        "y": 360,
-        "w": 150,
-        "h": 85,
+        "label": "丢包重试",
+        "kind": "block",
+        "x": 775,
+        "y": 405,
+        "w": 190,
+        "h": 55,
         "color": "amber",
         "sourceId": "Example.uml-iov.n4"
+      },
+      {
+        "id": "n5",
+        "label": "失败处理",
+        "kind": "block",
+        "x": 1040,
+        "y": 405,
+        "w": 170,
+        "h": 55,
+        "color": "red",
+        "sourceId": "Example.uml-iov.n5"
       }
     ],
     "edges": [
@@ -78,50 +89,87 @@
       },
       {
         "source": "n1",
-        "target": "n4",
-        "kind": "flow",
-        "color": "teal"
-      },
-      {
-        "source": "n4",
         "target": "n2",
         "kind": "flow",
-        "color": "teal",
-        "label": "否"
-      },
-      {
-        "source": "n4",
-        "target": "n3",
-        "kind": "flow",
-        "color": "teal",
-        "label": "是"
+        "color": "teal"
       },
       {
         "source": "n2",
         "target": "n3",
         "kind": "flow",
-        "color": "teal"
+        "color": "teal",
+        "label": "是",
+        "labelPosition": [
+          855,
+          190
+        ]
+      },
+      {
+        "source": "n2",
+        "target": "n4",
+        "kind": "flow",
+        "color": "teal",
+        "label": "否",
+        "points": [
+          [
+            640,
+            285
+          ],
+          [
+            640,
+            435
+          ],
+          [
+            775,
+            435
+          ]
+        ],
+        "labelPosition": [
+          655,
+          320
+        ]
+      },
+      {
+        "source": "n4",
+        "target": "n5",
+        "kind": "flow",
+        "color": "teal",
+        "label": "重试失败",
+        "labelPosition": [
+          965,
+          350
+        ]
       }
     ],
     "groups": [
       {
         "id": "normal",
-        "label": "采样序列",
+        "label": "ref",
         "kind": "boundary",
-        "x": 390,
+        "x": 250,
         "y": 170,
-        "w": 260,
-        "h": 150,
+        "w": 270,
+        "h": 130,
         "color": "teal"
       },
       {
-        "id": "exception",
-        "label": "异常序列",
+        "id": "retry",
+        "label": "ref",
         "kind": "boundary",
-        "x": 700,
-        "y": 390,
-        "w": 260,
-        "h": 150,
+        "x": 760,
+        "y": 370,
+        "w": 220,
+        "h": 120,
+        "color": "amber"
+      },
+      {
+        "id": "failure",
+        "label": "ref",
+        "kind": "boundary",
+        "x": 1025,
+        "y": 370,
+        "w": 200,
+        "h": 120,
         "color": "red"
       }
     ],
@@ -137,7 +185,18 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
-    "annotations": []
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
+    "annotations": [
+      {
+        "x": 340,
+        "y": 580,
+        "text": "活动控制流串接交互引用；每个 ref 可展开为序列图"
+      }
+    ]
   },
   "presentation": {
     "title": "CanSat CS-1｜UML｜交互概览图",

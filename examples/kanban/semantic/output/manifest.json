@@ -1,11 +1,11 @@
 {
   "schema": "dgraph-manifest/v1",
   "type": "kanban",
-  "inputSha256": "91fb32fb06f7f69bbe6001de46a66196faf3ea337bb9408a3db0012f0d27a6dc",
+  "inputSha256": "3bbb1897e285ad31a9aac5ac4afb95f695c89e443d14a6112543486999bbbe0d",
   "files": {
-    "view.yaml": "af3ea607aac20f1abe9091fc41ec5415715af2fbab202a09d307aeb66e751708",
-    "diagram.dsl.yaml": "bd1988db069600315943f3127d1f656d51d078c3d493ce08ce4d3b9608e4fcdf",
-    "diagram.svg": "9551d9473c7e16b9c6af91540eb32f7cbf7d749560457a5d3e0d44f5cbf98f8c",
+    "view.yaml": "ec34848277e8050a78e39a56e59509d43a8e65f46fcc3a494a8a1268d968c2a4",
+    "diagram.dsl.yaml": "e38fbea6955d528d07b5390b9f94447ec850bfedf89207f02afa23360fe08423",
+    "diagram.svg": "f9fc31f807131ba347a16be0f509b51bfbe0f42f652c453cb341617047931230",
     "report.json": "2ec23220e29d0f1f0169da32a87498d579158adae3c2fb67292fb24090e3c22b"
   }
 }

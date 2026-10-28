@@ -28,6 +28,11 @@ def to_ir(spec):
         "n2Model": selection.get("n2Model"),
         "dfdModel": selection.get("dfdModel"),
         "bpmnModel": selection.get("bpmnModel"),
+        "riskMatrix": selection.get("riskMatrix"),
+        "dmnModel": selection.get("dmnModel"),
+        "timingModel": selection.get("timingModel"),
+        "tradespaceModel": selection.get("tradespaceModel"),
+        "pertModel": selection.get("pertModel"),
         "annotations": selection.get("annotations", []),
     }
 
@@ -65,7 +70,7 @@ def render_diagram(spec):
         artifacts["mmd"] = str(output / "diagram.mmd")
         manifest["files"]["diagram.mmd"] = sha256(output / "diagram.mmd")
         write_json(output / "manifest.json", manifest)
-    return {"ok": True, "type": normalized["type"], "outputDir": str(output), "artifacts": artifacts, "report": report, "manifest": manifest}
+    return {"ok": report["ok"], "type": normalized["type"], "outputDir": str(output), "artifacts": artifacts, "report": report, "manifest": manifest}
 
 
 __all__ = ["render_diagram", "inspect_svg", "to_ir", "mermaid_source"]

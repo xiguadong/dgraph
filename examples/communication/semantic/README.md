@@ -14,10 +14,16 @@
 
 不使用 SysML，只根据以下语义画一张UML｜通信图，回答“对象之间有哪些交互关系，不强调时间轴时如何表达？”
 
-- 传感器；
-- 飞控；
-- 电台；
-- 地面站；
+图上的对象：
+- n0：传感器（来源 Example.uml-communication.n0）。
+- n1：飞控（来源 Example.uml-communication.n1）。
+- n2：电台（来源 Example.uml-communication.n2）。
+- n3：地面站（来源 Example.uml-communication.n3）。
+有依据的关系：
+- n1 → n0：message 1: read。
+- n0 → n1：return 2: data。
+- n1 → n2：message 3: frame。
+- n2 → n3：message 4: downlink。
 
 保持来源标识，缺少依据的关系不要补充。
 

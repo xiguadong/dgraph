@@ -14,7 +14,7 @@ class VisualSemanticTests(unittest.TestCase):
                 with self.subTest(type=entry["type"]):
                     svg = Path(render_diagram(build_spec(entry, tmp))["artifacts"]["svg"]).read_text()
                     self.assertIn(f'data-layout="{entry["type"]}"', svg)
-                    self.assertIn("Example.", svg)
+                    self.assertIn("data-source-id=", svg)
                     self.assertNotIn("lesson", svg.lower())
 
     def test_representative_figures_use_domain_specific_primitives(self):
@@ -22,7 +22,7 @@ class VisualSemanticTests(unittest.TestCase):
             "opm": 'data-kind="usecase"',
             "dfd": 'data-dfd-store="telemetry-log"',
             "fta": 'data-fta-gate="or"',
-            "cld": "B 调节回路",
+            "cld": "B：剩余能量降低触发降采样",
             "sfd": 'data-kind="stock"',
             "class": 'data-uml-class="Sensor"',
             "object": 'data-kind="object"',

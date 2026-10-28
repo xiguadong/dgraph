@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张SysML v2｜View 与 Viewpoint，回答“如何从关注点形成视点，再选择模型内容形成视图？”
 
-- Concern 关注点；
-- Viewpoint 视点；
-- View 视图；
-- Rendering 渲染；
+图上的对象：
+- n0：Concern 关注点（来源 Example.sysml-v2.n0）。
+- n1：Viewpoint 视点（来源 Example.sysml-v2.n1）。
+- n2：View 视图（来源 Example.sysml-v2.n2）。
+- n3：Rendering 渲染（来源 Example.sysml-v2.n3）。
+有依据的关系：
+- n0 → n1：dependency 。
+- n0 → n2：dependency 。
+- n0 → n3：dependency 。
 
 保持来源标识，缺少依据的关系不要补充。
 

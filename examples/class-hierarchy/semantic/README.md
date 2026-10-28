@@ -14,10 +14,15 @@
 
 不使用 SysML，只根据以下语义画一张类层次｜继承结构，回答“类之间如何继承和特化？”
 
-- Diagram；
-- GraphDiagram；
-- MatrixDiagram；
-- TimelineDiagram；
+图上的对象：
+- n0：«abstract» Frame（来源 Example.x-classhier.n0）。
+- n1：TelemetryFrame（来源 Example.x-classhier.n1）。
+- n2：HousekeepingFrame（来源 Example.x-classhier.n2）。
+- n3：SensorReading（来源 Example.x-classhier.n3）。
+有依据的关系：
+- n1 → n0：generalization 。
+- n2 → n0：generalization 。
+- n1 → n3：composition 1..*。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +37,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：Diagram、GraphDiagram、MatrixDiagram、TimelineDiagram。完整输入见 `input.json`。
+示例语义标签：«abstract» Frame、TelemetryFrame、HousekeepingFrame、SensorReading。完整输入见 `input.json`。
 
 ## 如何运行
 

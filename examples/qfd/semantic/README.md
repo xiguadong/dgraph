@@ -14,7 +14,36 @@
 
 不使用 SysML，只根据以下语义画一张QFD 质量屋｜需求到工程特性，回答“客户需求如何映射为工程特性？”
 
-- 矩阵读法；
+以 `selection.qfd` 为图的语义模型：
+- customerNeeds：data-integrity（数据完整）（importance=5）。
+- customerNeeds：recovery（易回收）（importance=4）。
+- customerNeeds：low-cost（低成本）（importance=3）。
+- customerNeeds：usability（易操作）（importance=2）。
+- engineering：sample-rate（采样率）（unit="Hz ↑"；target="≥ 1 Hz"；weight=50；rank=3）。
+- engineering：downlink（下传距离）（unit="km ↑"；target="≥ 2 km"；weight=72；rank=1）。
+- engineering：mass（总质量）（unit="g ↓"；target="≤ 350 g"；weight=26；rank=5）。
+- engineering：cost（成本）（unit="元 ↓"；target="≤ ¥1200"；weight=31；rank=4）。
+- engineering：recovery-speed（回收速度）（unit="m/s ↓"；target="≤ 5 m/s"；weight=57；rank=2）。
+- relations： → （need="data-integrity"；engineering="sample-rate"；strength=9）。
+- relations： → （need="data-integrity"；engineering="downlink"；strength=9）。
+- relations： → （need="data-integrity"；engineering="mass"；strength=1）。
+- relations： → （need="data-integrity"；engineering="recovery-speed"；strength=3）。
+- relations： → （need="recovery"；engineering="mass"；strength=3）。
+- relations： → （need="recovery"；engineering="cost"；strength=1）。
+- relations： → （need="recovery"；engineering="recovery-speed"；strength=9）。
+- relations： → （need="low-cost"；engineering="sample-rate"；strength=1）。
+- relations： → （need="low-cost"；engineering="downlink"；strength=3）。
+- relations： → （need="low-cost"；engineering="mass"；strength=3）。
+- relations： → （need="low-cost"；engineering="cost"；strength=9）。
+- relations： → （need="usability"；engineering="sample-rate"；strength=1）。
+- relations： → （need="usability"；engineering="downlink"；strength=9）。
+- relations： → （need="usability"；engineering="recovery-speed"；strength=3）。
+- roof： → （left="sample-rate"；right="downlink"；type="minus"）。
+- roof： → （left="sample-rate"；right="mass"；type="minus"）。
+- roof： → （left="sample-rate"；right="cost"；type="minus"）。
+- roof： → （left="downlink"；right="mass"；type="minus"）。
+- roof： → （left="downlink"；right="cost"；type="minus"）。
+- roof： → （left="mass"；right="recovery-speed"；type="plus"）。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -23,13 +52,13 @@
 `input.json` 是纯语义 ViewSpec，本例不需要 `.sysml`。
 
 - `intent.question`：本图回答的问题；
-- `selection.nodes`：图上的对象，保留 `sourceId` 来源标识；
-- `selection.edges`：有依据的关系；
+- `selection.qfd`：本图权威语义，包含领域对象、数值与关系；
+- `selection.nodes/edges`：仅供通用图使用，不能替代上述专用模型；
 - `selection.matrices/charts/timelines`：该图种需要时使用的专用原语；
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：矩阵读法。完整输入见 `input.json`。
+示例语义标签：数据完整、易回收、低成本、易操作。完整输入见 `input.json`。
 
 ## 如何运行
 
@@ -56,7 +85,7 @@ output/
 
 ## 如何改成自己的图
 
-1. 修改节点 `label` 和稳定 `sourceId`，换成自己的对象；
+1. 修改 `selection.qfd` 中的对象、数值与关系，保持内部 ID 引用一致；
 2. 增加对象时同步补充有依据的关系，不编造事实；
 3. 调整对应图元或布局约束后重新运行，不直接编辑 `output/diagram.svg`。
 

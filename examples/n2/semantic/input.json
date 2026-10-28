@@ -212,6 +212,11 @@
     },
     "dfdModel": null,
     "bpmnModel": null,
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
     "annotations": []
   },
   "presentation": {

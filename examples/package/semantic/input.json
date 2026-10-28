@@ -6,8 +6,8 @@
   },
   "sources": [
     {
-      "kind": "sysml",
-      "model": "CanSat"
+      "kind": "semantic",
+      "example": "lesson2-cansat"
     }
   ],
   "presentation": {

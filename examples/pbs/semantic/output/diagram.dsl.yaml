@@ -3,57 +3,80 @@ type: "pbs"
 layout: "pbs"
 nodes:
   - id: "n0"
-    label: "CS-1 产品"
-    kind: "package"
-    x: 500
-    y: 135
-    w: 280
-    h: 85
-    color: "violet"
+    label: "CS-1 探空仪"
+    kind: "block"
+    x: 490
+    y: 130
+    w: 300
+    h: 80
+    color: "blue"
     sourceId: "Example.pm-pbs.n0"
   - id: "n1"
-    label: "结构回收"
-    kind: "package"
-    x: 80
-    y: 410
-    w: 300
-    h: 100
+    label: "结构与回收"
+    kind: "block"
+    x: 40
+    y: 345
+    w: 200
+    h: 90
     color: "blue"
     sourceId: "Example.pm-pbs.n1"
   - id: "n2"
-    label: "航电系统"
-    kind: "package"
-    x: 480
-    y: 410
-    w: 300
-    h: 100
-    color: "blue"
+    label: "电源"
+    kind: "block"
+    x: 280
+    y: 345
+    w: 200
+    h: 90
+    color: "teal"
     sourceId: "Example.pm-pbs.n2"
   - id: "n3"
-    label: "地面设备"
-    kind: "package"
-    x: 880
-    y: 410
-    w: 300
-    h: 100
-    color: "blue"
+    label: "飞控"
+    kind: "block"
+    x: 520
+    y: 345
+    w: 200
+    h: 90
+    color: "amber"
     sourceId: "Example.pm-pbs.n3"
+  - id: "n4"
+    label: "传感器"
+    kind: "block"
+    x: 760
+    y: 345
+    w: 200
+    h: 90
+    color: "violet"
+    sourceId: "Example.pm-pbs.n4"
+  - id: "n5"
+    label: "通信"
+    kind: "block"
+    x: 1000
+    y: 345
+    w: 200
+    h: 90
+    color: "gray"
+    sourceId: "Example.pm-pbs.n5"
 edges:
   - source: "n0"
     target: "n1"
     kind: "composition"
-    color: "blue"
-    label: "1"
+    color: "teal"
   - source: "n0"
     target: "n2"
     kind: "composition"
-    color: "blue"
-    label: "1"
+    color: "teal"
   - source: "n0"
     target: "n3"
     kind: "composition"
-    color: "blue"
-    label: "1"
+    color: "teal"
+  - source: "n0"
+    target: "n4"
+    kind: "composition"
+    color: "teal"
+  - source: "n0"
+    target: "n5"
+    kind: "composition"
+    color: "teal"
 groups: []
 matrices: []
 charts: []
@@ -67,4 +90,12 @@ sequenceModel: null
 n2Model: null
 dfdModel: null
 bpmnModel: null
-annotations: []
+riskMatrix: null
+dmnModel: null
+timingModel: null
+tradespaceModel: null
+pertModel: null
+annotations:
+  - x: 90
+    y: 565
+    text: "地面站是外部系统，不属于 CS-1 产品分解"

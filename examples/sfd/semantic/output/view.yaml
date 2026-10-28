@@ -9,57 +9,61 @@ selection:
   layout: "sfd"
   nodes:
     - id: "n0"
-      label: "电池能量"
+      label: "电池能量 E\nWh · 存量"
       kind: "stock"
-      x: 450
-      y: 275
-      w: 340
-      h: 120
+      x: 325
+      y: 280
+      w: 270
+      h: 100
       color: "blue"
       sourceId: "Example.se-sfd.n0"
     - id: "n1"
-      label: "放电速率"
-      kind: "gate"
-      x: 75
-      y: 290
-      w: 180
-      h: 80
+      label: "放电 P_avg ≤ 2.0 W"
+      kind: "valve"
+      x: 760
+      y: 295
+      w: 70
+      h: 70
       color: "amber"
       sourceId: "Example.se-sfd.n1"
     - id: "n2"
-      label: "剩余任务时间"
+      label: "热耗散"
       kind: "block"
-      x: 930
-      y: 275
-      w: 250
-      h: 100
-      color: "violet"
+      x: 1040
+      y: 295
+      w: 170
+      h: 70
+      color: "gray"
       sourceId: "Example.se-sfd.n2"
     - id: "n3"
-      label: "采样负载"
+      label: "安全模式\n降低采样与功率"
       kind: "block"
-      x: 500
-      y: 490
-      w: 240
-      h: 75
-      color: "teal"
+      x: 490
+      y: 480
+      w: 270
+      h: 85
+      color: "red"
       sourceId: "Example.se-sfd.n3"
   edges:
-    - source: "n1"
-      target: "n0"
+    - source: "n0"
+      target: "n1"
       kind: "flow"
       color: "teal"
       label: "能量流"
-    - source: "n0"
+    - source: "n1"
       target: "n2"
       kind: "flow"
       color: "teal"
-      label: "消耗"
+    - source: "n0"
+      target: "n3"
+      kind: "dependency"
+      color: "teal"
+      label: "电压 < 6.4 V"
     - source: "n3"
       target: "n1"
       kind: "dependency"
       color: "teal"
-      label: "影响速率"
+      label: "控制放电功率"
   groups: []
   matrices: []
   charts: []
@@ -73,7 +77,15 @@ selection:
   n2Model: null
   dfdModel: null
   bpmnModel: null
-  annotations: []
+  riskMatrix: null
+  dmnModel: null
+  timingModel: null
+  tradespaceModel: null
+  pertModel: null
+  annotations:
+    - x: 90
+      y: 600
+      text: "dE/dt = −P_avg；安全模式降低消耗（教学示意）"
 presentation:
   title: "CanSat CS-1｜SFD｜存量与流量"
   subtitle: "dgraph · engineering diagram"

@@ -14,10 +14,19 @@
 
 不使用 SysML，只根据以下语义画一张OPM｜对象—过程对偶，回答“对象与过程如何共同表达概念模型？”
 
-- TelemetryFrame 对象；
-- 采集过程；
-- 飞控对象；
-- 下传过程；
+图上的对象：
+- n0：执行探空任务（来源 Example.opm.n0）。
+- n1：探空仪 待机 / 运行（来源 Example.opm.n1）。
+- n2：科学数据 未采集 / 完整（来源 Example.opm.n2）。
+- n3：电池能量 充足 / 耗尽（来源 Example.opm.n3）。
+- n4：地面站 空闲 / 接收（来源 Example.opm.n4）。
+- n5：操作员 待命 / 监控（来源 Example.opm.n5）。
+有依据的关系：
+- n1 → n0：flow 执行。
+- n0 → n2：flow 产生。
+- n3 → n0：flow 消耗。
+- n0 → n4：flow 影响。
+- n5 → n0：association 操作。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +41,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：TelemetryFrame 对象、采集过程、飞控对象、下传过程。完整输入见 `input.json`。
+示例语义标签：执行探空任务、探空仪 待机 / 运行、科学数据 未采集 / 完整、电池能量 充足 / 耗尽、地面站 空闲 / 接收、操作员 待命 / 监控。完整输入见 `input.json`。
 
 ## 如何运行
 

@@ -10,9 +10,9 @@ QFD_MODEL = {
     "engineering": [
         {"id": "sample-rate", "label": "采样率", "unit": "Hz ↑", "target": "≥ 1 Hz", "weight": 50, "rank": 3},
         {"id": "downlink", "label": "下传距离", "unit": "km ↑", "target": "≥ 2 km", "weight": 72, "rank": 1},
-        {"id": "mass", "label": "总质量", "unit": "g ↓", "target": "≤ 350 g", "weight": 25, "rank": 5},
+        {"id": "mass", "label": "总质量", "unit": "g ↓", "target": "≤ 350 g", "weight": 26, "rank": 5},
         {"id": "cost", "label": "成本", "unit": "元 ↓", "target": "≤ ¥1200", "weight": 31, "rank": 4},
-        {"id": "recovery-speed", "label": "回收速度", "unit": "m/s ↓", "target": "≤ 5 m/s", "weight": 54, "rank": 2},
+        {"id": "recovery-speed", "label": "回收速度", "unit": "m/s ↓", "target": "≤ 5 m/s", "weight": 57, "rank": 2},
     ],
     "relations": [
         {"need": "data-integrity", "engineering": "sample-rate", "strength": 9},
@@ -199,3 +199,133 @@ BPMN_MODEL = {
         {"source": "join", "target": "end"},
     ],
 }
+
+# All numbers below are teaching examples, not measured mission data.
+RISK_MATRIX_MODEL = {
+    "probability": ["极低", "低", "中", "高", "极高"],
+    "consequence": ["可忽略", "轻微", "中等", "严重", "灾难"],
+    "risks": [
+        {"id": "R-01", "label": "电池低温", "probability": 4, "consequence": 3},
+        {"id": "R-02", "label": "链路失锁", "probability": 3, "consequence": 4},
+        {"id": "R-03", "label": "进度压缩", "probability": 4, "consequence": 4},
+        {"id": "R-04", "label": "开伞失效", "probability": 2, "consequence": 5},
+        {"id": "R-05", "label": "质量超限", "probability": 3, "consequence": 3},
+    ],
+}
+DMN_MODEL = {
+    "title": "发射许可 Go / No-Go", "hitPolicy": "F",
+    "inputs": [{"id": "wind", "label": "风速", "unit": "m/s"}, {"id": "voltage", "label": "电池电压", "unit": "V"}, {"id": "selftest", "label": "自检", "unit": "通过 / 失败"}, {"id": "margin", "label": "链路裕度", "unit": "dB"}],
+    "output": {"label": "发射决策"},
+    "rules": [
+        {"id": "1", "conditions": ["> 8", "—", "—", "—"], "result": "No-Go"},
+        {"id": "2", "conditions": ["—", "< 6.4", "—", "—"], "result": "No-Go"},
+        {"id": "3", "conditions": ["—", "—", "失败", "—"], "result": "No-Go"},
+        {"id": "4", "conditions": ["—", "[6.4, 7.0)", "—", "—"], "result": "Hold"},
+        {"id": "5", "conditions": ["—", "—", "—", "< 6"], "result": "Hold"},
+        {"id": "6", "conditions": ["≤ 8", "≥ 7.0", "通过", "≥ 6"], "result": "Go"},
+    ],
+}
+TIMING_MODEL = {
+    "durationMs": 2000, "ticks": [0, 500, 1000, 1500, 2000],
+    "lifelines": [
+        {"id": "sensor", "label": "传感器", "segments": [{"from": 0, "to": 80, "state": "采样"}, {"from": 80, "to": 1000, "state": "等待"}, {"from": 1000, "to": 1080, "state": "采样"}, {"from": 1080, "to": 2000, "state": "等待"}]},
+        {"id": "ground", "label": "地面站", "segments": [{"from": 0, "to": 130, "state": "等待"}, {"from": 130, "to": 230, "state": "处理"}, {"from": 230, "to": 1130, "state": "等待"}, {"from": 1130, "to": 1230, "state": "处理"}, {"from": 1230, "to": 2000, "state": "等待"}]},
+        {"id": "radio", "label": "电台", "segments": [{"from": 0, "to": 80, "state": "空闲"}, {"from": 80, "to": 130, "state": "发送"}, {"from": 130, "to": 1080, "state": "空闲"}, {"from": 1080, "to": 1130, "state": "发送"}, {"from": 1130, "to": 2000, "state": "空闲"}]},
+    ],
+    "constraints": [{"label": "采样周期 T = 1000 ms", "from": 0, "to": 1000}, {"label": "发送 ≤ 50 ms", "from": 80, "to": 130}, {"label": "处理 ≤ 100 ms", "from": 130, "to": 230}],
+}
+TRADESPACE_MODEL = {
+    "x": {"label": "电池质量（g）", "min": 0, "max": 180}, "y": {"label": "可用能量（Wh）", "min": 0, "max": 25},
+    "thresholds": {"maxX": 120, "minY": 10},
+    "alternatives": [
+        {"id": "lipo450", "label": "LiPo 2S 450", "x": 28, "y": 3.3, "cost": 55},
+        {"id": "lipo850", "label": "LiPo 2S 850", "x": 48, "y": 6.3, "cost": 85, "labelDx": -112, "labelDy": -16},
+        {"id": "lifepo", "label": "LiFePO4 2S 700", "x": 52, "y": 4.5, "cost": 110},
+        {"id": "lipo1000", "label": "LiPo 2S 1000", "x": 56, "y": 7.4, "cost": 95, "labelDx": 12, "labelDy": -4},
+        {"id": "lipo3s", "label": "LiPo 3S 850", "x": 66, "y": 9.4, "cost": 110, "labelDx": 12, "labelDy": -12},
+        {"id": "liion18650", "label": "Li-ion 2S 18650", "x": 94, "y": 15.8, "cost": 120},
+        {"id": "liion21700", "label": "Li-ion 2S 21700", "x": 140, "y": 21.6, "cost": 180},
+        {"id": "nimh", "label": "NiMH 2S", "x": 110, "y": 7.2, "cost": 70},
+    ],
+    "paretoIds": ["lipo450", "lipo850", "lipo1000", "lipo3s", "liion18650", "liion21700"],
+}
+PERT_MODEL = {"tasks": [
+    {"id": "A", "label": "需求分析", "duration": 2, "dependencies": [], "x": 50, "y": 230},
+    {"id": "B", "label": "架构设计", "duration": 2, "dependencies": ["A"], "x": 215, "y": 230},
+    {"id": "C", "label": "详细设计", "duration": 2, "dependencies": ["B"], "x": 380, "y": 230},
+    {"id": "D", "label": "采购制造", "duration": 4, "dependencies": ["C"], "x": 545, "y": 230},
+    {"id": "E", "label": "系统集成", "duration": 2, "dependencies": ["D", "H"], "x": 710, "y": 230},
+    {"id": "F", "label": "系统试验", "duration": 3, "dependencies": ["E"], "x": 875, "y": 230},
+    {"id": "G", "label": "评审冻结", "duration": 1, "dependencies": ["F"], "x": 1040, "y": 230},
+    {"id": "H", "label": "地面站软件", "duration": 3, "dependencies": ["B"], "x": 465, "y": 420},
+]}
+
+# The next task may start only after each listed predecessor finishes.
+GANTT_MODEL["tasks"][2]["dependencies"] = ["requirements"]  # procurement overlaps design
+# The RF link is downlink-only in the teaching scenario; no ACK is specified.
+SEQUENCE_MODEL["messages"] = SEQUENCE_MODEL["messages"][:-1]
+# Telemetry service persists frames. A recovery person asks a process to replay,
+# rather than reading a DFD data store directly.
+C4_CONTAINER_MODEL["relations"] = [r for r in C4_CONTAINER_MODEL["relations"] if not (r["source"] == "mission-service" and r["target"] == "timeseries-db")]
+C4_CONTAINER_MODEL["relations"].append({"source": "telemetry-service", "target": "timeseries-db", "label": "写入遥测"})
+DFD_MODEL["entities"][-1]["id"] = "scientist"
+DFD_MODEL["entities"][-1]["label"] = "科学用户"
+DFD_MODEL["processes"].append({"id": "replay", "label": "回放数据", "x": 760, "y": 455})
+DFD_MODEL["flows"] = [flow for flow in DFD_MODEL["flows"] if flow["source"] != "operator"]
+DFD_MODEL["flows"] += [{"source": "telemetry-log", "target": "replay", "label": "存储帧"}, {"source": "replay", "target": "scientist", "label": "回放数据"}]
+
+# Ground-station quality workflow: the telemetry service receives, checks and
+# archives accepted frames; the scientific user analyzes the accepted data.
+BPMN_MODEL = {
+    "pool": "地面站遥测处理",
+    "lanes": [
+        {"id": "telemetry", "label": "遥测服务\n接收 · 质控 · 归档", "y": 180, "height": 205},
+        {"id": "science", "label": "科学分析\n查看 · 分析", "y": 385, "height": 215},
+    ],
+    "events": [
+        {"id": "start", "label": "帧到达", "kind": "start", "lane": "telemetry", "x": 228, "y": 247},
+        {"id": "abnormal-end", "label": "终止", "kind": "end", "lane": "telemetry", "x": 1060, "y": 337},
+        {"id": "end", "label": "完成", "kind": "end", "lane": "science", "x": 1150, "y": 477},
+    ],
+    "tasks": [
+        {"id": "receive", "label": "接收并解码帧", "lane": "telemetry", "x": 290, "y": 205},
+        {"id": "archive", "label": "入库", "lane": "telemetry", "x": 730, "y": 205},
+        {"id": "reject", "label": "标记异常", "lane": "telemetry", "x": 730, "y": 295},
+        {"id": "analyze", "label": "查看与分析", "lane": "science", "x": 840, "y": 435},
+    ],
+    "gateways": [{"id": "quality", "label": "质控合格？", "lane": "telemetry", "x": 520, "y": 205}],
+    "flows": [
+        {"source": "start", "target": "receive", "points": [[250, 247], [290, 247]]},
+        {"source": "receive", "target": "quality", "points": [[500, 247], [520, 247]]},
+        {"source": "quality", "target": "archive", "label": "合格", "points": [[650, 247], [730, 247]]},
+        {"source": "quality", "target": "reject", "label": "不合格", "branch": "unavailable", "points": [[585, 289], [585, 337], [730, 337]]},
+        {"source": "reject", "target": "abnormal-end", "points": [[940, 337], [1038, 337]]},
+        {"source": "archive", "target": "analyze", "points": [[940, 247], [985, 247], [985, 410], [945, 410], [945, 435]]},
+        {"source": "analyze", "target": "end", "points": [[1050, 477], [1128, 477]]},
+    ],
+}
+
+# Explicit boundary-to-boundary routes keep arrows out of labels and symbols.
+C4_CONTAINER_MODEL["relations"][0]["points"] = [[100, 214], [350, 214], [350, 215], [390, 215]]
+C4_CONTAINER_MODEL["relations"][1]["points"] = [[100, 454], [320, 454], [320, 265], [390, 265]]
+for relation in C4_CONTAINER_MODEL["relations"]:
+    routes = {
+        ("web-ui", "mission-service"): [[630, 240], [720, 240]],
+        ("web-ui", "timeseries-db"): [[510, 300], [510, 390]],
+        ("mission-service", "telemetry-service"): [[840, 300], [840, 390]],
+        ("receiver", "telemetry-service"): [[1010, 450], [960, 450]],
+        ("telemetry-service", "timeseries-db"): [[720, 450], [630, 450]],
+    }
+    relation["points"] = routes.get((relation["source"], relation["target"]), relation.get("points", []))
+DFD_MODEL["stores"][0]["x"] = 355
+DFD_MODEL["processes"][-1]["x"] = 710
+for flow in DFD_MODEL["flows"]:
+    routes = {
+        ("sensors", "sampling"): [[255, 305], [310, 305], [310, 310], [355, 310]],
+        ("sampling", "routing"): [[585, 310], [665, 310]],
+        ("routing", "ground"): [[895, 310], [1010, 305]],
+        ("sampling", "telemetry-log"): [[470, 365], [470, 467]],
+        ("telemetry-log", "replay"): [[603, 500], [660, 500], [660, 510], [710, 510]],
+        ("replay", "scientist"): [[940, 510], [1010, 505]],
+    }
+    flow["points"] = routes[(flow["source"], flow["target"])]

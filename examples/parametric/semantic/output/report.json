@@ -1,7 +1,7 @@
 {
   "ok": true,
   "type": "parametric",
-  "question": "总质量约束如何绑定各子系统质量参数，并证明不超过 350 g？",
+  "question": "总质量约束如何绑定子系统质量，并检查 350 g 限值？",
   "issues": [],
   "omissions": []
 }

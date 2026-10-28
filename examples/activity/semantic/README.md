@@ -14,10 +14,24 @@
 
 不使用 SysML，只根据以下语义画一张活动图，回答“动作、判断和控制流如何推进？”
 
-- 开始；
-- 自检；
-- 电压 ≥ 6.4 V？；
-- 采样并打包；
+图上的对象：
+- start：开始（来源 CanSat.Activity.start）。
+- selftest：自检（来源 CanSat.SelfTest）。
+- decision：电压 ≥ 6.4 V？（来源 CanSat.VoltageDecision）。
+- sample：采样并打包（来源 CanSat.SamplePack）。
+- safe：进入安全模式（来源 CanSat.EnterSafe）。
+- send：下传遥测帧（来源 CanSat.Transmit）。
+- heartbeat：仅发送心跳（来源 CanSat.Heartbeat）。
+- store：写入本地存储（来源 CanSat.StoreData）。
+有依据的关系：
+- start → selftest：control 。
+- selftest → decision：control 。
+- decision → sample：control [是]。
+- decision → safe：control [否]。
+- sample → send：control 。
+- safe → heartbeat：control 。
+- send → store：control 。
+- heartbeat → store：control 。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +46,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：开始、自检、电压 ≥ 6.4 V？、采样并打包。完整输入见 `input.json`。
+示例语义标签：开始、自检、电压 ≥ 6.4 V？、采样并打包、进入安全模式、下传遥测帧、仅发送心跳、写入本地存储。完整输入见 `input.json`。
 
 ## 如何运行
 

@@ -14,10 +14,17 @@
 
 不使用 SysML，只根据以下语义画一张ARCADIA｜五层工程分析，回答“如何从运行分析逐层走到物理实现？”
 
-- OAB 运行分析；
-- SAB 系统分析；
-- LAB 逻辑架构；
-- PAB 物理架构；
+图上的对象：
+- n0：OAB 运行分析（来源 Example.fw-arcadia.n0）。
+- n1：SAB 系统分析（来源 Example.fw-arcadia.n1）。
+- n2：LAB 逻辑架构（来源 Example.fw-arcadia.n2）。
+- n3：PAB 物理架构（来源 Example.fw-arcadia.n3）。
+- n4：EPBS 实现分解（来源 Example.fw-arcadia.n4）。
+有依据的关系：
+- n0 → n1：dependency 分析。
+- n1 → n2：dependency 分配。
+- n2 → n3：dependency 细化。
+- n3 → n4：dependency 实现。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +39,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：OAB 运行分析、SAB 系统分析、LAB 逻辑架构、PAB 物理架构。完整输入见 `input.json`。
+示例语义标签：OAB 运行分析、SAB 系统分析、LAB 逻辑架构、PAB 物理架构、EPBS 实现分解。完整输入见 `input.json`。
 
 ## 如何运行
 

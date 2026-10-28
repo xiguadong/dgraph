@@ -14,10 +14,14 @@
 
 不使用 SysML，只根据以下语义画一张UML｜剖面与构造型，回答“构造型如何扩展 UML 元模型？”
 
-- UML Class；
-- «block»；
-- «requirement»；
-- «verification»；
+图上的对象：
+- n0：«metaclass» Class（来源 Example.uml-profile.n0）。
+- n1：«metaclass» Property（来源 Example.uml-profile.n1）。
+- n2：«stereotype» sensor（来源 Example.uml-profile.n2）。
+- n3：«stereotype» telemetry（来源 Example.uml-profile.n3）。
+有依据的关系：
+- n2 → n0：extension «extension»。
+- n3 → n1：extension «extension»。
 
 保持来源标识，缺少依据的关系不要补充。
 
@@ -32,7 +36,7 @@
 - `x/y/w/h`：当前版本的布局约束；
 - `outputs.directory`：由 `draw.py` 自动改为本目录的 `output/`。
 
-示例语义标签：UML Class、«block»、«requirement»、«verification»。完整输入见 `input.json`。
+示例语义标签：«metaclass» Class、«metaclass» Property、«stereotype» sensor、«stereotype» telemetry。完整输入见 `input.json`。
 
 ## 如何运行
 

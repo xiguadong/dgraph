@@ -14,10 +14,11 @@
 
 不使用 SysML，只根据以下语义画一张看板｜工作流与在制品，回答“工作如何流过各阶段，在制品如何受控？”
 
-- 任务卡 A；
-- 任务卡 B；
-- 任务卡 C；
-- 任务卡 D；
+图上的对象：
+- n0：任务卡 A（来源 Example.x-kanban.n0）。
+- n1：任务卡 B（来源 Example.x-kanban.n1）。
+- n2：任务卡 C（来源 Example.x-kanban.n2）。
+- n3：任务卡 D（来源 Example.x-kanban.n3）。
 
 保持来源标识，缺少依据的关系不要补充。
 

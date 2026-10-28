@@ -1,19 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="eta">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜ETA｜事件树分析</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<path d="M 630.0,210 L 630.0,270" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 557.9861111111111,355 L 397.0138888888889,450" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<path d="M 706.7361111111111,355 L 878.2638888888889,450" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Example.x-eta.n0" data-kind="block"><title>电池电压下降</title><rect x="480" y="130" width="300" height="80" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="630.0" y="175.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">电池电压下降</text></g>
-<g data-node-id="n1" data-source-id="Example.x-eta.n1" data-kind="decision"><title>保护生效？</title><polygon points="630.0,270 780,312.5 630.0,355 480,312.5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="630.0" y="317.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">保护生效？</text></g>
-<g data-node-id="n2" data-source-id="Example.x-eta.n2" data-kind="block"><title>降采样</title><rect x="190" y="450" width="270" height="85" rx="6" fill="#fdecea" stroke="#b42318" stroke-width="2"/><text x="325.0" y="497.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">降采样</text></g>
-<g data-node-id="n3" data-source-id="Example.x-eta.n3" data-kind="block"><title>任务可继续</title><rect x="820" y="450" width="270" height="85" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="955.0" y="497.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">任务可继续</text></g>
+<path d="M 220,327.5 L 275,327.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 410.3515625,290 L 547.1484375,205" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 425,350.32608695652175 L 505,374.67391304347825" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 655,368.5526315789474 L 767.8409090909091,325" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 655,423.97058823529414 L 760,461.02941176470586" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 910,472.2457627118644 L 1020,449.8728813559322" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<path d="M 910,505.29661016949154 L 1020,531.3983050847457" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="url(#arrow)"/>
+<g data-node-id="n0" data-source-id="Example.x-eta.n0" data-kind="block"><title>遥测中断</title><rect x="40" y="290" width="180" height="75" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="130.0" y="332.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">遥测中断</text></g>
+<g data-node-id="n1" data-source-id="Example.x-eta.n1" data-kind="decision"><title>重传成功？</title><polygon points="350.0,290 425,327.5 350.0,365 275,327.5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="350.0" y="332.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">重传成功？</text></g>
+<g data-node-id="n2" data-source-id="Example.x-eta.n2" data-kind="block"><title>数据可恢复
+P = 0.80</title><rect x="505" y="130" width="205" height="75" rx="6" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="607.5" y="162.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">数据可恢复</text><text x="607.5" y="182.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">P = 0.80</text></g>
+<g data-node-id="n3" data-source-id="Example.x-eta.n3" data-kind="decision"><title>降级成功？</title><polygon points="580.0,360 655,397.5 580.0,435 505,397.5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="580.0" y="402.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">降级成功？</text></g>
+<g data-node-id="n4" data-source-id="Example.x-eta.n4" data-kind="block"><title>任务降级
+P = 0.10</title><rect x="760" y="250" width="210" height="75" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="865.0" y="282.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">任务降级</text><text x="865.0" y="302.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">P = 0.10</text></g>
+<g data-node-id="n5" data-source-id="Example.x-eta.n5" data-kind="decision"><title>回收成功？</title><polygon points="835.0,450 910,487.5 835.0,525 760,487.5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="835.0" y="492.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">回收成功？</text></g>
+<g data-node-id="n6" data-source-id="Example.x-eta.n6" data-kind="block"><title>数据部分保留
+P = 0.06</title><rect x="1020" y="390" width="220" height="75" rx="6" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="1130.0" y="422.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">数据部分保留</text><text x="1130.0" y="442.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">P = 0.06</text></g>
+<g data-node-id="n7" data-source-id="Example.x-eta.n7" data-kind="block"><title>任务失败
+P = 0.04</title><rect x="1020" y="520" width="220" height="75" rx="6" fill="#fdecea" stroke="#b42318" stroke-width="2"/><text x="1130.0" y="552.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">任务失败</text><text x="1130.0" y="572.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">P = 0.04</text></g>
 
-<rect x="472.5" y="386.5" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="481.5" y="402.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">是</text>
-<rect x="787.5" y="386.5" width="18" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="796.5" y="402.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">否</text>
+<rect x="473.75" y="231.5" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="506.75" y="247.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">成功 0.80</text>
+<rect x="460.0" y="346.5" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="493.0" y="362.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">失败 0.20</text>
+<rect x="706.4204545454545" y="330.7763157894737" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="739.4204545454545" y="346.7763157894737" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">成功 0.50</text>
+<rect x="702.5" y="426.5" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="735.5" y="442.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">失败 0.50</text>
+<rect x="960.0" y="445.0593220338983" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="993.0" y="461.0593220338983" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">成功 0.60</text>
+<rect x="960.0" y="502.3474576271186" width="66" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="993.0" y="518.3474576271186" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">失败 0.40</text>
+<text x="60" y="625" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">各出口概率为沿途分支概率乘积；各后果合计为 1（教学示意）</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">Which subsequent events follow an initiating event?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

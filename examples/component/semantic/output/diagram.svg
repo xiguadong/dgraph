@@ -1,19 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="component">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜UML｜组件与接口</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">dgraph · engineering diagram</text>
 <line x1="48" y1="102" x2="1232" y2="102" stroke="#e2e8f0"/>
-<path d="M 300,332.5 L 365,332.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-<path d="M 605,332.5 L 670,332.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-<path d="M 910,332.5 L 975,332.5" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-<g data-node-id="n0" data-source-id="Example.uml-component.n0" data-kind="component"><title>采样组件</title><rect x="60" y="280" width="240" height="105" rx="5" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="180.0" y="337.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">采样组件</text><path d="M 262 292 h 24 v 20 h -24 Z M 256 296 h 6 v 5 h -6 Z M 256 305 h 6 v 5 h -6 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="1.4"/></g>
-<g data-node-id="n1" data-source-id="Example.uml-component.n1" data-kind="component"><title>遥测组件</title><rect x="365" y="280" width="240" height="105" rx="5" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="485.0" y="337.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">遥测组件</text><path d="M 567 292 h 24 v 20 h -24 Z M 561 296 h 6 v 5 h -6 Z M 561 305 h 6 v 5 h -6 Z" fill="#e4f3ef" stroke="#0f766e" stroke-width="1.4"/></g>
-<g data-node-id="n2" data-source-id="Example.uml-component.n2" data-kind="component"><title>存储组件</title><rect x="670" y="280" width="240" height="105" rx="5" fill="#fdf4e1" stroke="#a16207" stroke-width="2"/><text x="790.0" y="337.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">存储组件</text><path d="M 872 292 h 24 v 20 h -24 Z M 866 296 h 6 v 5 h -6 Z M 866 305 h 6 v 5 h -6 Z" fill="#fdf4e1" stroke="#a16207" stroke-width="1.4"/></g>
-<g data-node-id="n3" data-source-id="Example.uml-component.n3" data-kind="component"><title>地面接收组件</title><rect x="975" y="280" width="240" height="105" rx="5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1095.0" y="337.5" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">地面接收组件</text><path d="M 1177 292 h 24 v 20 h -24 Z M 1171 296 h 6 v 5 h -6 Z M 1171 305 h 6 v 5 h -6 Z" fill="#f1ebfd" stroke="#6d28d9" stroke-width="1.4"/></g>
-<rect x="327.5" y="316.5" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="364.5" y="332.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">provided</text>
-<rect x="632.5" y="316.5" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="669.5" y="332.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">required</text>
-<rect x="937.5" y="316.5" width="74" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="974.5" y="332.5" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="500">consumed</text>
+<path d="M 330,338.1043956043956 L 385,337.1978021978022" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 434,337.16901408450707 L 520,338.38028169014086" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 750,338.1550802139037 L 810,337.19251336898395" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<path d="M 859,337.1651376146789 L 950,338.41743119266056" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="None" marker-end="none"/>
+<g data-node-id="n0" data-source-id="Example.uml-component.n0" data-kind="component"><title>gs.ui</title><rect x="100" y="290" width="230" height="100" rx="5" fill="#e8f0ff" stroke="#2459a6" stroke-width="2"/><text x="215.0" y="345.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">gs.ui</text><path d="M 292 302 h 24 v 20 h -24 Z M 286 306 h 6 v 5 h -6 Z M 286 315 h 6 v 5 h -6 Z" fill="#e8f0ff" stroke="#2459a6" stroke-width="1.4"/></g>
+<g data-node-id="n1" data-source-id="Example.uml-component.n1" data-kind="component"><title>gs.telemetry</title><rect x="520" y="290" width="230" height="100" rx="5" fill="#e4f3ef" stroke="#0f766e" stroke-width="2"/><text x="635.0" y="345.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">gs.telemetry</text><path d="M 712 302 h 24 v 20 h -24 Z M 706 306 h 6 v 5 h -6 Z M 706 315 h 6 v 5 h -6 Z" fill="#e4f3ef" stroke="#0f766e" stroke-width="1.4"/></g>
+<g data-node-id="n2" data-source-id="Example.uml-component.n2" data-kind="component"><title>gs.storage</title><rect x="950" y="290" width="230" height="100" rx="5" fill="#f1ebfd" stroke="#6d28d9" stroke-width="2"/><text x="1065.0" y="345.0" font-size="16" fill="#334155" text-anchor="middle" font-weight="600">gs.storage</text><path d="M 1142 302 h 24 v 20 h -24 Z M 1136 306 h 6 v 5 h -6 Z M 1136 315 h 6 v 5 h -6 Z" fill="#f1ebfd" stroke="#6d28d9" stroke-width="1.4"/></g>
+<g data-node-id="n3" data-source-id="Example.uml-component.n3" data-kind="required-interface"><title></title><path d="M 406,327 A 10.0,10.0 0 0 0 406,347" fill="none" stroke="#2459a6" stroke-width="2.5"/></g>
+<g data-node-id="n4" data-source-id="Example.uml-component.n4" data-kind="provided-interface"><title></title><circle cx="422.0" cy="337.0" r="10.0" fill="#fff" stroke="#0f766e" stroke-width="2"/></g>
+<g data-node-id="n5" data-source-id="Example.uml-component.n5" data-kind="required-interface"><title></title><path d="M 831,327 A 10.0,10.0 0 0 0 831,347" fill="none" stroke="#0f766e" stroke-width="2.5"/></g>
+<g data-node-id="n6" data-source-id="Example.uml-component.n6" data-kind="provided-interface"><title></title><circle cx="847.0" cy="337.0" r="10.0" fill="#fff" stroke="#6d28d9" stroke-width="2"/></g>
+
+
+
+
+<text x="230" y="570" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">ITelemetry                                  IFrameStore · 棒棒糖为提供接口，插座为需要接口</text>
 <text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">Which components and provided or required interfaces interact?</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

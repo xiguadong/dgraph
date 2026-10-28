@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, PingFang SC, Hiragino Sans GB, Noto Sans SC, sans-serif" data-layout="parametric">
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#fff" stroke="#64748b" stroke-width="1.4"/></marker></defs>
 <rect width="1280" height="720" fill="#fff"/>
 <text x="48" y="52" font-size="28" fill="#15202b" text-anchor="start" font-weight="750">CanSat CS-1｜参数图 Parametric</text>
 <text x="48" y="80" font-size="14" fill="#64748b" text-anchor="start" font-weight="400">质量预算与参数绑定</text>
@@ -23,7 +23,7 @@
 <rect x="895" y="219" width="26" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="908" y="235" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">m3</text>
 <rect x="895" y="299" width="26" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="908" y="315" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">m4</text>
 <rect x="895" y="439" width="26" height="21" rx="4" fill="#fff" fill-opacity=".94"/><text x="908" y="455" font-size="13" fill="#2459a6" text-anchor="middle" font-weight="500">m5</text>
-<text x="420" y="540" font-size="15" fill="#b42318" text-anchor="start" font-weight="400">Σ 120 + 95 + 45 + 50 + 40 = 350 g · 达到预算上限，无剩余质量余量</text>
-<text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">总质量约束如何绑定各子系统质量参数，并证明不超过 350 g？</text>
+<text x="420" y="540" font-size="15" fill="#b42318" text-anchor="start" font-weight="400">教学分配：120 + 95 + 45 + 50 + 40 = 350 g；达到预算上限，无质量余量</text>
+<text x="48" y="690" font-size="13" fill="#64748b" text-anchor="start" font-weight="400">总质量约束如何绑定子系统质量，并检查 350 g 限值？</text>
 <text x="1232" y="690" font-size="12" fill="#94a3b8" text-anchor="end" font-weight="400">dgraph · semantic projection</text>
 </svg>

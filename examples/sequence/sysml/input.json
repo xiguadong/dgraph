@@ -6,8 +6,8 @@
   },
   "sources": [
     {
-      "kind": "sysml",
-      "model": "CanSat"
+      "kind": "semantic",
+      "example": "lesson2-cansat"
     }
   ],
   "presentation": {
@@ -175,27 +175,6 @@
           890,
           480
         ]
-      },
-      {
-        "source": "ground",
-        "target": "fcu",
-        "kind": "return",
-        "color": "gray",
-        "label": "6 接收确认（下一场景）",
-        "points": [
-          [
-            1095,
-            560
-          ],
-          [
-            475,
-            560
-          ]
-        ],
-        "labelPosition": [
-          720,
-          540
-        ]
       }
     ],
     "annotations": [
@@ -261,12 +240,6 @@
           "target": "ground",
           "label": "5 433 MHz 下行",
           "kind": "sync"
-        },
-        {
-          "source": "ground",
-          "target": "fcu",
-          "label": "6 接收确认（下一场景）",
-          "kind": "return"
         }
       ]
     }

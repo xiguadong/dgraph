@@ -75,7 +75,7 @@
           "label": "总质量",
           "unit": "g ↓",
           "target": "≤ 350 g",
-          "weight": 25,
+          "weight": 26,
           "rank": 5
         },
         {
@@ -91,7 +91,7 @@
           "label": "回收速度",
           "unit": "m/s ↓",
           "target": "≤ 5 m/s",
-          "weight": 54,
+          "weight": 57,
           "rank": 2
         }
       ],
@@ -208,6 +208,11 @@
     "n2Model": null,
     "dfdModel": null,
     "bpmnModel": null,
+    "riskMatrix": null,
+    "dmnModel": null,
+    "timingModel": null,
+    "tradespaceModel": null,
+    "pertModel": null,
     "annotations": []
   },
   "presentation": {

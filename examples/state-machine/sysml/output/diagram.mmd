@@ -6,10 +6,17 @@ flowchart TD
   landed["着陆 Landed"]
   replay["回放 Replay"]
   safe["安全模式 Safe"]
-  standby -->|自检通过| armed
-  armed -->|检测发射| ascent
+  selftest["自检 Self-test"]
+  standby -->|启动| selftest
+  selftest -->|自检通过| armed
+  armed -->|发射| ascent
   ascent -->|开伞| descent
   descent -->|触地| landed
   landed -->|回收连接| replay
-  descent -->|vbat < 6.4 V| safe
-  safe -->|电压恢复| standby
+  standby --> safe
+  armed --> safe
+  ascent --> safe
+  descent --> safe
+  landed --> safe
+  replay --> safe
+  selftest --> safe
