@@ -172,6 +172,9 @@ sequenceModel:
       target: "fcu"
       label: "6 接收确认（下一场景）"
       kind: "return"
+n2Model: null
+dfdModel: null
+bpmnModel: null
 annotations:
   - x: 70
     y: 625

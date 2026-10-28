@@ -5,7 +5,7 @@ from pathlib import Path
 
 from dgraph.catalog import CATALOG
 from dgraph.render import inspect_svg, render_diagram
-from examples._shared.domain_examples import C4_CONTAINER_MODEL, FTA_MODEL, GANTT_MODEL, QFD_MODEL, SEQUENCE_MODEL, UML_CLASS_MODEL
+from examples._shared.domain_examples import BPMN_MODEL, C4_CONTAINER_MODEL, DFD_MODEL, FTA_MODEL, GANTT_MODEL, N2_MODEL, QFD_MODEL, SEQUENCE_MODEL, UML_CLASS_MODEL
 
 
 def spec(output, kind="block-definition", label="CS-1 <System>"):
@@ -21,6 +21,9 @@ def spec(output, kind="block-definition", label="CS-1 <System>"):
             "c4Container": C4_CONTAINER_MODEL if kind == "c4-container" else None,
             "umlClass": UML_CLASS_MODEL if kind == "class" else None,
             "sequenceModel": SEQUENCE_MODEL if kind == "sequence" else None,
+            "n2Model": N2_MODEL if kind == "n2" else None,
+            "dfdModel": DFD_MODEL if kind == "dfd" else None,
+            "bpmnModel": BPMN_MODEL if kind == "bpmn" else None,
         },
         "presentation": {"title": "A & B", "subtitle": kind},
         "outputs": {"directory": output, "formats": ["viewspec", "dsl", "svg", "report"]},

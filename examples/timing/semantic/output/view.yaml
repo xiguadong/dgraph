@@ -62,6 +62,9 @@ selection:
   c4Container: null
   umlClass: null
   sequenceModel: null
+  n2Model: null
+  dfdModel: null
+  bpmnModel: null
   annotations:
     - x: 320
       y: 565

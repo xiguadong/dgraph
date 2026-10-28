@@ -25,6 +25,9 @@ def to_ir(spec):
         "c4Container": selection.get("c4Container"),
         "umlClass": selection.get("umlClass"),
         "sequenceModel": selection.get("sequenceModel"),
+        "n2Model": selection.get("n2Model"),
+        "dfdModel": selection.get("dfdModel"),
+        "bpmnModel": selection.get("bpmnModel"),
         "annotations": selection.get("annotations", []),
     }
 

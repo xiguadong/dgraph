@@ -46,6 +46,18 @@ def _validate_domain(kind, selection):
         model = selection.get("sequenceModel")
         _require(isinstance(model, dict), "missing-sequenceModel", "sequenceModel is required for UML sequence diagrams.")
         _require(bool(model.get("participants")) and bool(model.get("messages")), "invalid-sequenceModel", "sequenceModel needs participants and ordered messages.")
+    elif kind == "n2":
+        model = selection.get("n2Model")
+        _require(isinstance(model, dict), "missing-n2Model", "n2Model is required for N² diagrams.")
+        _require(bool(model.get("elements")) and isinstance(model.get("links"), list), "invalid-n2Model", "n2Model needs elements and interface links.")
+    elif kind == "dfd":
+        model = selection.get("dfdModel")
+        _require(isinstance(model, dict), "missing-dfdModel", "dfdModel is required for data-flow diagrams.")
+        _require(bool(model.get("processes")) and bool(model.get("stores")) and bool(model.get("flows")), "invalid-dfdModel", "dfdModel needs processes, stores, and flows.")
+    elif kind == "bpmn":
+        model = selection.get("bpmnModel")
+        _require(isinstance(model, dict), "missing-bpmnModel", "bpmnModel is required for BPMN diagrams.")
+        _require(bool(model.get("events")) and bool(model.get("tasks")) and bool(model.get("flows")), "invalid-bpmnModel", "bpmnModel needs events, tasks, and flows.")
 
 
 def validate_spec(spec):

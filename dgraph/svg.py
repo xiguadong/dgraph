@@ -222,6 +222,7 @@ def _timeline(timeline):
 
 from .domain import fta_svg, gantt_svg, qfd_svg
 from .software_domain import c4_container_svg, sequence_svg, uml_class_svg
+from .process_domain import bpmn_svg, dfd_svg, n2_svg
 
 
 def render_svg(spec):
@@ -247,6 +248,12 @@ def render_svg(spec):
         out.append(uml_class_svg(selection["umlClass"]))
     elif spec["type"] == "sequence":
         out.append(sequence_svg(selection["sequenceModel"]))
+    elif spec["type"] == "n2":
+        out.append(n2_svg(selection["n2Model"]))
+    elif spec["type"] == "dfd":
+        out.append(dfd_svg(selection["dfdModel"]))
+    elif spec["type"] == "bpmn":
+        out.append(bpmn_svg(selection["bpmnModel"]))
     else:
         out.extend(_group(group) for group in selection.get("groups", []))
         out.extend(_matrix(matrix) for matrix in selection.get("matrices", []))

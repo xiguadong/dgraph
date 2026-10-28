@@ -122,3 +122,80 @@ SEQUENCE_MODEL = {
         {"source": "ground", "target": "fcu", "label": "6 接收确认（下一场景）", "kind": "return"},
     ],
 }
+
+N2_MODEL = {
+    "elements": [
+        {"id": "structure", "label": "结构"},
+        {"id": "power", "label": "电源"},
+        {"id": "fcu", "label": "飞控"},
+        {"id": "sensors", "label": "传感器"},
+        {"id": "comms", "label": "通信"},
+        {"id": "ground", "label": "地面站", "external": True},
+    ],
+    "links": [
+        {"from": "structure", "to": "power", "kind": "mechanical", "label": "机"},
+        {"from": "structure", "to": "fcu", "kind": "mechanical", "label": "机"},
+        {"from": "structure", "to": "sensors", "kind": "mechanical", "label": "机"},
+        {"from": "structure", "to": "comms", "kind": "mechanical", "label": "机"},
+        {"from": "power", "to": "structure", "kind": "thermal", "label": "热"},
+        {"from": "power", "to": "fcu", "kind": "electrical", "label": "电 I-01", "strong": True},
+        {"from": "power", "to": "sensors", "kind": "electrical", "label": "电"},
+        {"from": "power", "to": "comms", "kind": "electrical", "label": "电"},
+        {"from": "fcu", "to": "power", "kind": "data", "label": "数"},
+        {"from": "fcu", "to": "sensors", "kind": "data", "label": "数"},
+        {"from": "fcu", "to": "comms", "kind": "data", "label": "数 I-03", "strong": True},
+        {"from": "sensors", "to": "structure", "kind": "mechanical", "label": "机"},
+        {"from": "sensors", "to": "fcu", "kind": "data", "label": "数 I-02", "strong": True},
+        {"from": "comms", "to": "structure", "kind": "mechanical", "label": "机"},
+        {"from": "comms", "to": "fcu", "kind": "data", "label": "数"},
+        {"from": "comms", "to": "ground", "kind": "rf", "label": "射 I-04", "strong": True},
+    ],
+}
+
+DFD_MODEL = {
+    "entities": [
+        {"id": "sensors", "label": "传感器", "x": 55, "y": 255},
+        {"id": "ground", "label": "地面站", "x": 1010, "y": 255},
+        {"id": "operator", "label": "回收人员", "x": 1010, "y": 455},
+    ],
+    "processes": [
+        {"id": "sampling", "label": "采样与打包", "x": 355, "y": 255},
+        {"id": "routing", "label": "遥测路由", "x": 665, "y": 255},
+    ],
+    "stores": [
+        {"id": "telemetry-log", "label": "遥测数据存储", "x": 520, "y": 455},
+    ],
+    "flows": [
+        {"source": "sensors", "target": "sampling", "label": "原始采样"},
+        {"source": "sampling", "target": "routing", "label": "遥测帧"},
+        {"source": "routing", "target": "ground", "label": "433 MHz 下行"},
+        {"source": "sampling", "target": "telemetry-log", "label": "同步写入"},
+        {"source": "operator", "target": "telemetry-log", "label": "回收后回放"},
+    ],
+}
+
+BPMN_MODEL = {
+    "pool": "CS-1 任务池",
+    "events": [
+        {"id": "start", "label": "开始", "kind": "start", "x": 90, "y": 310},
+        {"id": "end", "label": "结束", "kind": "end", "x": 1180, "y": 310},
+    ],
+    "tasks": [
+        {"id": "sample", "label": "采集与打包", "x": 220, "y": 270},
+        {"id": "send", "label": "发送遥测", "x": 780, "y": 190},
+        {"id": "store", "label": "写入本地存储", "x": 780, "y": 420},
+    ],
+    "gateways": [
+        {"id": "link-ok", "label": "链路可用？", "x": 530, "y": 270},
+        {"id": "join", "label": "汇合", "x": 1010, "y": 270},
+    ],
+    "flows": [
+        {"source": "start", "target": "sample"},
+        {"source": "sample", "target": "link-ok"},
+        {"source": "link-ok", "target": "send", "label": "是"},
+        {"source": "link-ok", "target": "store", "label": "否", "branch": "unavailable"},
+        {"source": "send", "target": "join"},
+        {"source": "store", "target": "join"},
+        {"source": "join", "target": "end"},
+    ],
+}

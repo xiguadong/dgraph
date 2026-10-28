@@ -9,7 +9,7 @@ from test_render import spec
 class DrawingPrimitiveTests(unittest.TestCase):
     def test_matrix_cells_are_rendered_with_coordinates(self):
         with tempfile.TemporaryDirectory() as tmp:
-            value = spec(tmp, "n2")
+            value = spec(tmp, "risk-matrix")
             value["selection"]["matrices"] = [{
                 "id": "interfaces", "x": 300, "y": 160, "cellWidth": 100, "cellHeight": 60,
                 "columns": ["Power", "FCU"], "rows": ["Power", "FCU"],

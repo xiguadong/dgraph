@@ -76,6 +76,9 @@ selection:
   c4Container: null
   umlClass: null
   sequenceModel: null
+  n2Model: null
+  dfdModel: null
+  bpmnModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜C4 Context｜系统上下文"

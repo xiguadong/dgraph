@@ -117,6 +117,9 @@ selection:
   c4Container: null
   umlClass: null
   sequenceModel: null
+  n2Model: null
+  dfdModel: null
+  bpmnModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜Gantt｜任务、工期与里程碑"

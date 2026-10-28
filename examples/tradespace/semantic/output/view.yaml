@@ -68,6 +68,9 @@ selection:
   c4Container: null
   umlClass: null
   sequenceModel: null
+  n2Model: null
+  dfdModel: null
+  bpmnModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜Tradespace／Pareto｜方案权衡"

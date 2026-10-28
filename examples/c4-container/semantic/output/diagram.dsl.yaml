@@ -139,4 +139,7 @@ c4Container:
       label: "串口"
 umlClass: null
 sequenceModel: null
+n2Model: null
+dfdModel: null
+bpmnModel: null
 annotations: []

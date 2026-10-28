@@ -1,7 +1,7 @@
 """Diagram-specific semantic layouts with independent dgraph identities."""
 
 from dgraph.catalog import CATALOG
-from examples._shared.domain_examples import C4_CONTAINER_MODEL, FTA_MODEL, GANTT_MODEL, QFD_MODEL, SEQUENCE_MODEL, UML_CLASS_MODEL
+from examples._shared.domain_examples import BPMN_MODEL, C4_CONTAINER_MODEL, DFD_MODEL, FTA_MODEL, GANTT_MODEL, N2_MODEL, QFD_MODEL, SEQUENCE_MODEL, UML_CLASS_MODEL
 
 
 QUESTIONS = {entry["type"]: entry["question"] for entry in CATALOG}
@@ -281,7 +281,7 @@ def build_layout(entry):
     return {
         "schema": "diagram-view/v1", "type": entry["type"],
         "intent": {"question": QUESTIONS[entry["type"]]}, "sources": [{"kind": "semantic", "example": entry["slug"]}],
-        "selection": {"layout": entry["type"], "nodes": nodes, "edges": edges, "groups": groups, "matrices": matrices, "charts": charts, "timelines": timelines, "qfd": QFD_MODEL if entry["type"] == "qfd" else None, "gantt": GANTT_MODEL if entry["type"] == "gantt" else None, "faultTree": FTA_MODEL if entry["type"] == "fta" else None, "c4Container": C4_CONTAINER_MODEL if entry["type"] == "c4-container" else None, "umlClass": UML_CLASS_MODEL if entry["type"] == "class" else None, "sequenceModel": SEQUENCE_MODEL if entry["type"] == "sequence" else None, "annotations": annotations},
+        "selection": {"layout": entry["type"], "nodes": nodes, "edges": edges, "groups": groups, "matrices": matrices, "charts": charts, "timelines": timelines, "qfd": QFD_MODEL if entry["type"] == "qfd" else None, "gantt": GANTT_MODEL if entry["type"] == "gantt" else None, "faultTree": FTA_MODEL if entry["type"] == "fta" else None, "c4Container": C4_CONTAINER_MODEL if entry["type"] == "c4-container" else None, "umlClass": UML_CLASS_MODEL if entry["type"] == "class" else None, "sequenceModel": SEQUENCE_MODEL if entry["type"] == "sequence" else None, "n2Model": N2_MODEL if entry["type"] == "n2" else None, "dfdModel": DFD_MODEL if entry["type"] == "dfd" else None, "bpmnModel": BPMN_MODEL if entry["type"] == "bpmn" else None, "annotations": annotations},
         "presentation": {"title": f"CanSat CS-1｜{entry['title']}", "subtitle": "dgraph · engineering diagram", "theme": "dgraph"},
         "outputs": {"directory": "/absolute/output", "formats": ["viewspec", "dsl", "svg", "report"]},
     }

@@ -22,7 +22,7 @@ class AtlasTests(unittest.TestCase):
 
     def test_specialized_figures_use_their_own_primitives(self):
         with tempfile.TemporaryDirectory() as tmp:
-            cases = {"n2": "data-matrix-cell", "qfd": "data-qfd", "risk-matrix": "data-matrix", "burndown": "data-chart-series", "tradespace": "data-chart-series", "gantt": "data-gantt-task", "delivery": "publishes"}
+            cases = {"n2": "data-n2-link", "qfd": "data-qfd", "risk-matrix": "data-matrix", "burndown": "data-chart-series", "tradespace": "data-chart-series", "gantt": "data-gantt-task", "delivery": "publishes"}
             for kind, marker in cases.items():
                 entry = next(item for item in ATLAS_ENTRIES if item["type"] == kind)
                 svg = Path(render_diagram(build_spec(entry, tmp))["artifacts"]["svg"]).read_text()

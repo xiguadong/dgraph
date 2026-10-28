@@ -20,7 +20,7 @@ class VisualSemanticTests(unittest.TestCase):
     def test_representative_figures_use_domain_specific_primitives(self):
         expectations = {
             "opm": 'data-kind="usecase"',
-            "dfd": 'data-kind="datastore"',
+            "dfd": 'data-dfd-store="telemetry-log"',
             "fta": 'data-fta-gate="or"',
             "cld": "B 调节回路",
             "sfd": 'data-kind="stock"',
@@ -28,7 +28,7 @@ class VisualSemanticTests(unittest.TestCase):
             "object": 'data-kind="object"',
             "component": 'data-kind="component"',
             "deployment": 'data-kind="node3d"',
-            "bpmn": 'data-kind="initial"',
+            "bpmn": 'data-bpmn-event="start"',
             "kanban": "WIP",
             "story-map": "Release 1",
             "er": 'data-kind="decision"',

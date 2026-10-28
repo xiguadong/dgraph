@@ -132,4 +132,7 @@ umlClass:
         - - 700
 - 495
 sequenceModel: null
+n2Model: null
+dfdModel: null
+bpmnModel: null
 annotations: []

@@ -138,6 +138,9 @@ selection:
           - - 700
 - 495
   sequenceModel: null
+  n2Model: null
+  dfdModel: null
+  bpmnModel: null
   annotations: []
 presentation:
   title: "CanSat CS-1｜UML｜类图"
