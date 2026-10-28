@@ -100,9 +100,9 @@ UML_CLASS_MODEL = {
         {"id": "TelemetryFrame", "x": 700, "y": 410, "attributes": ["ts: Time", "t, p, rh: float"], "operations": ["crcOk(): bool"]},
     ],
     "relations": [
-        {"id": "manages", "source": "GroundStation", "target": "Mission", "sourceMultiplicity": "1", "targetMultiplicity": "1", "points": [[350, 235], [700, 235]]},
-        {"id": "records", "source": "Mission", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[840, 300], [840, 410]]},
-        {"id": "produces", "source": "Sensor", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[350, 495], [700, 495]]},
+        {"id": "manages", "kind": "association", "source": "GroundStation", "target": "Mission", "sourceMultiplicity": "1", "targetMultiplicity": "1", "points": [[350, 235], [700, 235]]},
+        {"id": "records", "kind": "association", "source": "Mission", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[840, 335], [840, 410]]},
+        {"id": "produces", "kind": "association", "source": "Sensor", "target": "TelemetryFrame", "sourceMultiplicity": "1", "targetMultiplicity": "0..*", "points": [[350, 495], [700, 495]]},
     ],
 }
 

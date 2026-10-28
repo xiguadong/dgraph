@@ -42,10 +42,23 @@ def c4_container_svg(model):
 
 def uml_class_svg(model):
     out = ['<g data-uml="class-diagram">']
-    positions = {}
+    relation_labels = []
+    for relation in model["relations"]:
+        points = relation["points"]
+        kind = relation.get("kind", "association")
+        path = "M " + " L ".join(f"{x},{y}" for x, y in points)
+        dashed = ' stroke-dasharray="6 4"' if kind in {"dependency", "realization"} else ""
+        marker = (' marker-end="url(#triangle)"' if kind in {"generalization", "realization"} else
+                  ' marker-end="url(#arrow)"' if kind == "dependency" else "")
+        out.append(f'<path data-uml-relation="{escape(relation["id"], quote=True)}" data-uml-kind="{escape(kind, quote=True)}" d="{path}" fill="none" stroke="#64748b" stroke-width="1.8"{dashed}{marker}/>')
+        if kind in {"composition", "aggregation"}:
+            x, y = points[0]
+            fill = "#64748b" if kind == "composition" else "#fff"
+            out.append(f'<rect x="{x-6}" y="{y-6}" width="12" height="12" transform="rotate(45 {x} {y})" fill="{fill}" stroke="#64748b"/>')
+        relation_labels.append(relation)
     for item in model["classes"]:
-        x, y, w, h = item["x"], item["y"], 280, 185
-        positions[item["id"]] = (x, y, w, h)
+        x, y = item["x"], item["y"]
+        w, h = item.get("w", 280), item.get("h", 185)
         out.append(f'<g data-uml-class="{escape(item["id"], quote=True)}" data-source-id="Example.uml.{escape(item["id"], quote=True)}">')
         out.append(_rect(x, y, w, h, "#fff", "#2459a6", 1.7, 2))
         out.append(_rect(x, y, w, 38, "#e8f0ff", "#2459a6", 1.7, 2))
@@ -58,15 +71,26 @@ def uml_class_svg(model):
         for index, operation in enumerate(item["operations"]):
             out.append(_text(x + 12, separator + 28 + index * 24, "+ " + operation, 13, "#334155", "start"))
         out.append('</g>')
-    for relation in model["relations"]:
-        source, target = relation["source"], relation["target"]
+    for relation in relation_labels:
         points = relation["points"]
-        path = "M " + " L ".join(f"{x},{y}" for x, y in points)
-        out.append(f'<path data-uml-relation="{escape(relation["id"], quote=True)}" d="{path}" fill="none" stroke="#64748b" stroke-width="1.8"/>')
-        out.append(_text(points[0][0] + 12, points[0][1] - 12, relation["sourceMultiplicity"], 12, "#334155", "start"))
-        out.append(_text(points[-1][0] - 12, points[-1][1] - 12, relation["targetMultiplicity"], 12, "#334155", "end"))
-        mid = ((points[0][0] + points[-1][0]) / 2, (points[0][1] + points[-1][1]) / 2)
-        out.append(_text(mid[0], mid[1] - 14, relation["id"], 13, "#475569", weight=500))
+        for endpoint, adjacent, field in ((points[0], points[1], "sourceMultiplicity"), (points[-1], points[-2], "targetMultiplicity")):
+            if not relation.get(field):
+                continue
+            dx, dy = adjacent[0] - endpoint[0], adjacent[1] - endpoint[1]
+            if abs(dx) >= abs(dy):
+                x, y = endpoint[0] + (11 if dx > 0 else -11), endpoint[1] - 13
+                anchor = "start" if dx > 0 else "end"
+            else:
+                x, y, anchor = endpoint[0] + 11, endpoint[1] + (18 if dy > 0 else -10), "start"
+            out.append(_text(x, y, relation[field], 12, "#334155", anchor))
+        a, b = max(zip(points, points[1:]), key=lambda pair: abs(pair[1][0] - pair[0][0]) + abs(pair[1][1] - pair[0][1]))
+        if abs(b[0] - a[0]) >= abs(b[1] - a[1]):
+            x, y = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2 - 15
+            anchor = "middle"
+        else:
+            x, y = (a[0] + b[0]) / 2 + 18, (a[1] + b[1]) / 2 + 4
+            anchor = "start"
+        out.append(_text(x, y, relation.get("label", relation["id"]), 13, "#475569", anchor, 500))
     out.append('</g>')
     return "".join(out)
 

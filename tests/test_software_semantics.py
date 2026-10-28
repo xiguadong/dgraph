@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+import xml.etree.ElementTree as ET
 
 from dgraph.render import render_diagram
 from dgraph.viewspec import DgraphError, validate_spec
@@ -32,7 +33,12 @@ class SoftwareSemanticTests(unittest.TestCase):
                 self.assertIn(member, svg)
             self.assertIn('data-uml-relation="produces"', svg)
             self.assertIn("0..*", svg)
-            self.assertIn('x="525.0"', svg)
+            root = ET.fromstring(svg)
+            relations = [element for element in root.iter() if "data-uml-relation" in element.attrib]
+            self.assertEqual(3, len(relations))
+            for relation in relations:
+                self.assertEqual("association", relation.attrib["data-uml-kind"])
+                self.assertNotIn("marker-end", relation.attrib)
 
     def test_sequence_has_lifelines_activations_and_ordered_messages(self):
         with tempfile.TemporaryDirectory() as tmp:

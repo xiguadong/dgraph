@@ -19,9 +19,9 @@
 - classes：Mission（x=700；y=150；attributes=["id: String", "startTime: Time"]；operations=["archive()"]）。
 - classes：Sensor（x=70；y=410；attributes=["kind: SensorType", "rateHz: int"]；operations=["sample()"]）。
 - classes：TelemetryFrame（x=700；y=410；attributes=["ts: Time", "t, p, rh: float"]；operations=["crcOk(): bool"]）。
-- relations：manages（source="GroundStation"；target="Mission"；sourceMultiplicity="1"；targetMultiplicity="1"；points=[[350, 235], [700, 235]]）。
-- relations：records（source="Mission"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[840, 300], [840, 410]]）。
-- relations：produces（source="Sensor"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[350, 495], [700, 495]]）。
+- relations：manages（kind="association"；source="GroundStation"；target="Mission"；sourceMultiplicity="1"；targetMultiplicity="1"；points=[[350, 235], [700, 235]]）。
+- relations：records（kind="association"；source="Mission"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[840, 335], [840, 410]]）。
+- relations：produces（kind="association"；source="Sensor"；target="TelemetryFrame"；sourceMultiplicity="1"；targetMultiplicity="0..*"；points=[[350, 495], [700, 495]]）。
 
 保持来源标识，缺少依据的关系不要补充。
 

@@ -1,63 +1,8 @@
 schema: "diagram-ir/v1"
 type: "class"
 layout: "class"
-nodes:
-  - id: "n0"
-    label: "Sensor"
-    kind: "class"
-    x: 90
-    y: 150
-    w: 260
-    h: 120
-    color: "blue"
-    sourceId: "Example.uml-class.n0"
-    compartment: "attributes\nmethods"
-  - id: "n1"
-    label: "TelemetryFrame"
-    kind: "class"
-    x: 480
-    y: 150
-    w: 300
-    h: 120
-    color: "teal"
-    sourceId: "Example.uml-class.n1"
-    compartment: "timestamp\nvalues"
-  - id: "n2"
-    label: "Mission"
-    kind: "class"
-    x: 90
-    y: 420
-    w: 260
-    h: 110
-    color: "violet"
-    sourceId: "Example.uml-class.n2"
-    compartment: "state\ntransitions"
-  - id: "n3"
-    label: "GroundStation"
-    kind: "class"
-    x: 850
-    y: 420
-    w: 280
-    h: 110
-    color: "gray"
-    sourceId: "Example.uml-class.n3"
-    compartment: "receive()"
-edges:
-  - source: "n2"
-    target: "n0"
-    kind: "generalization"
-    color: "teal"
-    label: "uses"
-  - source: "n0"
-    target: "n1"
-    kind: "composition"
-    color: "teal"
-    label: "produces"
-  - source: "n1"
-    target: "n3"
-    kind: "dependency"
-    color: "teal"
-    label: "sent to"
+nodes: []
+edges: []
 groups: []
 matrices: []
 charts: []
@@ -102,6 +47,7 @@ umlClass:
         - "crcOk(): bool"
   relations:
     - id: "manages"
+      kind: "association"
       source: "GroundStation"
       target: "Mission"
       sourceMultiplicity: "1"
@@ -112,16 +58,18 @@ umlClass:
         - - 700
 - 235
     - id: "records"
+      kind: "association"
       source: "Mission"
       target: "TelemetryFrame"
       sourceMultiplicity: "1"
       targetMultiplicity: "0..*"
       points:
         - - 840
-- 300
+- 335
         - - 840
 - 410
     - id: "produces"
+      kind: "association"
       source: "Sensor"
       target: "TelemetryFrame"
       sourceMultiplicity: "1"

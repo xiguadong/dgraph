@@ -3,6 +3,7 @@
 from copy import deepcopy
 import math
 from pathlib import Path
+import re
 
 from .catalog import CATALOG
 
@@ -54,6 +55,87 @@ def _ids(items, code, field):
 def _refs(items, ids, code, field, source="source", target="target"):
     for item in items:
         _require(item.get(source) in ids and item.get(target) in ids, code, f"{field} has a dangling endpoint: {item}.")
+
+
+def _on_rect_boundary(point, box, tolerance=0.5):
+    """A relation endpoint must touch its class, rather than start inside it."""
+    px, py = point
+    x, y, w, h = box
+    within_x = x - tolerance <= px <= x + w + tolerance
+    within_y = y - tolerance <= py <= y + h + tolerance
+    return within_x and within_y and (
+        abs(px - x) <= tolerance or abs(px - (x + w)) <= tolerance
+        or abs(py - y) <= tolerance or abs(py - (y + h)) <= tolerance
+    )
+
+
+def _segment_crosses_rect_interior(start, end, box):
+    """Clip a segment against a slightly inset rectangle to ignore border touches."""
+    x, y, w, h = box
+    inset = 0.001
+    bounds = ((x + inset, x + w - inset), (y + inset, y + h - inset))
+    low, high = 0.0, 1.0
+    for first, last, (minimum, maximum) in zip(start, end, bounds):
+        delta = last - first
+        if abs(delta) < 1e-12:
+            if not minimum < first < maximum:
+                return False
+            continue
+        entering, leaving = (minimum - first) / delta, (maximum - first) / delta
+        low = max(low, min(entering, leaving))
+        high = min(high, max(entering, leaving))
+        if low >= high:
+            return False
+    return low < high and high > 0 and low < 1
+
+
+def _valid_uml_multiplicity(value):
+    if not isinstance(value, str) or not re.fullmatch(r"(?:\d+|\*|\d+\.\.(?:\d+|\*))", value):
+        return False
+    if ".." in value:
+        minimum, maximum = value.split("..", 1)
+        return maximum == "*" or int(minimum) <= int(maximum)
+    return True
+
+
+def _validate_uml_class(model, selection, width, height, code):
+    _require(not selection.get("nodes") and not selection.get("edges"), code,
+             "UML class uses umlClass only; generic nodes/edges would be ignored by the renderer.")
+    classes = _records(model, "classes", code)
+    class_ids = _ids(classes, code, "UML classes")
+    boxes = {}
+    for item in classes:
+        x, y, w, h = item.get("x"), item.get("y"), item.get("w", 280), item.get("h", 185)
+        _require(all(_number(value) for value in (x, y, w, h)) and w >= 180 and h >= 160
+                 and 0 <= x and 0 <= y and x + w <= width and y + h <= height,
+                 code, f"UML class {item['id']} must fit the canvas and its three compartments.")
+        boxes[item["id"]] = (x, y, w, h)
+    relations = _records(model, "relations", code, False)
+    _ids(relations, code, "UML relations")
+    _refs(relations, class_ids, code, "UML class relation")
+    allowed_kinds = {"association", "aggregation", "composition", "generalization", "realization", "dependency"}
+    for relation in relations:
+        relation_id = relation["id"]
+        _require(relation.get("kind", "association") in allowed_kinds, code,
+                 f"UML relation {relation_id} has an unsupported kind.")
+        points = relation.get("points")
+        _require(isinstance(points, list) and len(points) >= 2 and all(
+            isinstance(point, (list, tuple)) and len(point) == 2 and all(_number(value) and 0 <= value <= (width if index == 0 else height)
+            for index, value in enumerate(point)) for point in points), code,
+            f"UML relation {relation_id} needs a route with at least two points inside the canvas.")
+        _require(points[0] != points[-1] and all(a != b for a, b in zip(points, points[1:])), code,
+                 f"UML relation {relation_id} has a zero-length route.")
+        _require(_on_rect_boundary(points[0], boxes[relation["source"]]), code,
+                 f"UML relation {relation_id} source endpoint is not on the source class boundary.")
+        _require(_on_rect_boundary(points[-1], boxes[relation["target"]]), code,
+                 f"UML relation {relation_id} target endpoint is not on the target class boundary.")
+        for class_id, box in boxes.items():
+            _require(not any(_segment_crosses_rect_interior(a, b, box) for a, b in zip(points, points[1:])),
+                     code, f"UML relation {relation_id} crosses the interior of class {class_id}.")
+        for field in ("sourceMultiplicity", "targetMultiplicity"):
+            if field in relation:
+                _require(_valid_uml_multiplicity(relation[field]), code,
+                         f"UML relation {relation_id} has an invalid {field}.")
 
 
 def _tasks(model, code, field, schedule=False):
@@ -141,8 +223,7 @@ def _validate_domain(kind, selection, width, height):
         ids = _ids(_records(model, "actors", code, False) + _records(model, "containers", code), code, "C4 actors and containers")
         _refs(_records(model, "relations", code, False), ids, code, "C4 relation")
     elif kind == "class":
-        ids = _ids(_records(model, "classes", code), code, "UML classes")
-        _refs(_records(model, "relations", code, False), ids, code, "UML class relation")
+        _validate_uml_class(model, selection, width, height, code)
     elif kind == "sequence":
         ids = _ids(_records(model, "participants", code), code, "sequence participants")
         _refs(_records(model, "messages", code), ids, code, "sequence message")

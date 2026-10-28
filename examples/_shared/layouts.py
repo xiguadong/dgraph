@@ -198,8 +198,7 @@ def layout(entry):
         nodes, chart = CHART(slug, labels, False)
         charts = [chart]
     elif kind == "class":
-        nodes = [N(slug, 0, labels[0], 90, 150, 260, 120, "blue", "class", "attributes\nmethods"), N(slug, 1, labels[1], 480, 150, 300, 120, "teal", "class", "timestamp\nvalues"), N(slug, 2, labels[2], 90, 420, 260, 110, "violet", "class", "state\ntransitions"), N(slug, 3, labels[3], 850, 420, 280, 110, "gray", "class", "receive()")]
-        edges = [E("n2", "n0", "generalization", "uses"), E("n0", "n1", "composition", "produces"), E("n1", "n3", "dependency", "sent to")]
+        pass  # The dedicated umlClass model is the sole source of class semantics.
     elif kind == "object":
         nodes = [N(slug, i, label, 80 + i * 305, 285, 250, 100, COLORS[i], "object", "instance snapshot") for i, label in enumerate(labels)]
         edges = CHAIN(4, "association", ["samples", "owns", "receives"])

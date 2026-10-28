@@ -117,6 +117,45 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(DgraphError, "canvas"):
             validate_spec(spec)
 
+    def test_uml_class_relationship_endpoints_and_meaning_are_checked(self):
+        baseline = semantic_spec("class")
+        self.assertEqual([], baseline["selection"]["nodes"])
+        self.assertEqual([], baseline["selection"]["edges"])
+        validate_spec(baseline)
+
+        old_route = copy.deepcopy(baseline)
+        records = next(item for item in old_route["selection"]["umlClass"]["relations"] if item["id"] == "records")
+        records["points"][0] = [840, 300]  # The old diagram started inside Mission.
+        with self.assertRaisesRegex(DgraphError, "source endpoint"):
+            validate_spec(old_route)
+
+        wrong_direction = copy.deepcopy(baseline)
+        wrong_direction["selection"]["umlClass"]["relations"][0]["source"] = "Sensor"
+        with self.assertRaisesRegex(DgraphError, "source endpoint"):
+            validate_spec(wrong_direction)
+
+        crossing = copy.deepcopy(baseline)
+        produces = next(item for item in crossing["selection"]["umlClass"]["relations"] if item["id"] == "produces")
+        produces["points"] = [[350, 495], [550, 495], [550, 250], [840, 250], [840, 410]]
+        with self.assertRaisesRegex(DgraphError, "crosses the interior"):
+            validate_spec(crossing)
+
+        invalid_kind = copy.deepcopy(baseline)
+        invalid_kind["selection"]["umlClass"]["relations"][0]["kind"] = "flow"
+        with self.assertRaisesRegex(DgraphError, "unsupported kind"):
+            validate_spec(invalid_kind)
+
+        invalid_multiplicity = copy.deepcopy(baseline)
+        invalid_multiplicity["selection"]["umlClass"]["relations"][0]["targetMultiplicity"] = "0..-1"
+        with self.assertRaisesRegex(DgraphError, "targetMultiplicity"):
+            validate_spec(invalid_multiplicity)
+
+        conflicting_generic_edges = copy.deepcopy(baseline)
+        conflicting_generic_edges["selection"]["nodes"] = valid_spec("/absolute/output")["selection"]["nodes"]
+        conflicting_generic_edges["selection"]["edges"] = valid_spec("/absolute/output")["selection"]["edges"]
+        with self.assertRaisesRegex(DgraphError, "generic nodes/edges"):
+            validate_spec(conflicting_generic_edges)
+
 
 if __name__ == "__main__":
     unittest.main()

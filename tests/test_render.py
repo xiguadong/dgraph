@@ -13,7 +13,7 @@ def spec(output, kind="block-definition", label="CS-1 <System>"):
         "schema": "diagram-view/v1", "type": kind,
         "intent": {"question": "What is shown?"}, "sources": [],
         "selection": {
-            "nodes": [{"id": "a", "label": label, "kind": "block", "x": 100, "y": 140, "w": 220, "h": 80, "sourceId": "native-a"}],
+            "nodes": [] if kind == "class" else [{"id": "a", "label": label, "kind": "block", "x": 100, "y": 140, "w": 220, "h": 80, "sourceId": "native-a"}],
             "edges": [], "groups": [], "annotations": [],
             "qfd": QFD_MODEL if kind == "qfd" else None,
             "gantt": GANTT_MODEL if kind == "gantt" else None,
