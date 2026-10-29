@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 
-from .artifacts import inspect_svg, sha256, write_artifacts, write_json
+from .artifacts import inspect_svg, write_artifacts
 from .svg import render_svg
 from .viewspec import validate_spec
 
@@ -42,13 +42,17 @@ def mermaid_source(spec):
     if spec["type"] not in {"activity", "state-machine", "package", "block-definition"}:
         return None
     lines = ["flowchart TD"]
+    id_map = {node["id"]: f"n{index}" for index, node in enumerate(spec["selection"]["nodes"])}
     for node in spec["selection"]["nodes"]:
         label = node["label"].replace("\n", "<br/>").replace('"', "'")
-        lines.append(f'  {node["id"]}["{label}"]')
+        lines.append(f'  {id_map[node["id"]]}["{label}"]')
     for edge in spec["selection"].get("edges", []):
         arrow = "-.->" if edge["kind"] in {"dependency", "derive", "verify", "satisfy"} else "-->"
-        label = f'|{edge["label"]}|' if edge.get("label") else ""
-        lines.append(f'  {edge["source"]} {arrow}{label} {edge["target"]}')
+        label = ""
+        if edge.get("label"):
+            safe_label = edge["label"].replace("\n", " ").replace("|", r"\|")
+            label = f"|{safe_label}|"
+        lines.append(f'  {id_map[edge["source"]]} {arrow}{label} {id_map[edge["target"]]}')
     return "\n".join(lines) + "\n"
 
 
@@ -56,7 +60,8 @@ def render_diagram(spec):
     normalized = validate_spec(spec)
     ir = to_ir(normalized)
     svg = render_svg(normalized)
-    output, report, manifest = write_artifacts(normalized, svg, ir)
+    mermaid = mermaid_source(normalized)
+    output, report, manifest = write_artifacts(normalized, svg, ir, mermaid=mermaid)
     artifacts = {
         "viewspec": str(output / "view.yaml"),
         "dsl": str(output / "diagram.dsl.yaml"),
@@ -64,13 +69,9 @@ def render_diagram(spec):
         "report": str(output / "report.json"),
         "manifest": str(output / "manifest.json"),
     }
-    mermaid = mermaid_source(normalized)
     if mermaid:
-        (output / "diagram.mmd").write_text(mermaid, encoding="utf-8")
         artifacts["mmd"] = str(output / "diagram.mmd")
-        manifest["files"]["diagram.mmd"] = sha256(output / "diagram.mmd")
-        write_json(output / "manifest.json", manifest)
-    return {"ok": report["ok"], "type": normalized["type"], "outputDir": str(output), "artifacts": artifacts, "report": report, "manifest": manifest}
+    return {"ok": True, "type": normalized["type"], "outputDir": str(output), "artifacts": artifacts, "report": report, "manifest": manifest}
 
 
 __all__ = ["render_diagram", "inspect_svg", "to_ir", "mermaid_source"]

@@ -112,6 +112,19 @@ class RenderTests(unittest.TestCase):
             self.assertIn("diagram.mmd", manifest["files"])
             self.assertEqual(hashlib.sha256(Path(result["artifacts"]["mmd"]).read_bytes()).hexdigest(), manifest["files"]["diagram.mmd"])
 
+    def test_mermaid_uses_safe_internal_ids_and_escaped_edge_labels(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            value = spec(tmp, "activity")
+            value["selection"]["nodes"].append(
+                {"id": "next node", "label": 'Next "step"', "kind": "block", "x": 500, "y": 140, "w": 220, "h": 80, "sourceId": "next"}
+            )
+            value["selection"]["edges"].append({"source": "a", "target": "next node", "kind": "flow", "label": "yes | no"})
+            result = render_diagram(value)
+            mermaid = Path(result["artifacts"]["mmd"]).read_text()
+            self.assertIn('n0["CS-1 <System>"]', mermaid)
+            self.assertIn('n1["Next \'step\'"]', mermaid)
+            self.assertIn(r"n0 -->|yes \| no| n1", mermaid)
+
 
 if __name__ == "__main__":
     unittest.main()

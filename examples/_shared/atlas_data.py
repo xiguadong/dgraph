@@ -1,5 +1,7 @@
 """Independent engineering-diagram catalog and representative CanSat ViewSpecs."""
 
+from copy import deepcopy
+
 def E(slug, kind, title, labels, template="flow"):
     return {"slug": slug, "type": kind, "title": title, "labels": labels, "template": template}
 
@@ -68,6 +70,6 @@ from examples._shared.layouts import build_layout
 
 
 def build_spec(entry, output_dir):
-    spec = build_layout(entry)
+    spec = deepcopy(build_layout(entry))
     spec["outputs"]["directory"] = output_dir
     return spec

@@ -1,0 +1,56 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q dgraph tests
+      - name: Unit and regression tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest discover -s tests -v
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build wheel
+        run: |
+          python -m pip install build
+          python -m build --wheel
+      - name: Verify bundled compiler
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          wheel = next(Path("dist").glob("*.whl"))
+          assert "macosx_11_0_arm64" in wheel.name, wheel.name
+          with zipfile.ZipFile(wheel) as archive:
+              names = set(archive.namelist())
+              compiler = "dgraph/vendor/sysml/bin/sysml"
+              assert compiler in names
+              assert "dgraph/vendor/sysml/toolchain.json" in names
+              mode = archive.getinfo(compiler).external_attr >> 16
+              assert mode & 0o111
+          PY

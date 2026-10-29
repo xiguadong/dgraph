@@ -2,6 +2,7 @@ from pathlib import Path
 import unittest
 
 from dgraph.catalog import CATALOG
+from examples._shared.readme_router import build_readme
 
 
 class ReadmeRouterTests(unittest.TestCase):
@@ -30,6 +31,10 @@ class ReadmeRouterTests(unittest.TestCase):
         text = (Path(__file__).resolve().parents[1] / "README.md").read_text()
         for heading in ("## 九视图交付", "## 扩展图鉴交付", "## 验证", "## 当前边界"):
             self.assertNotIn(heading, text)
+
+    def test_readme_is_reproducible_from_catalog_router(self):
+        text = (Path(__file__).resolve().parents[1] / "README.md").read_text()
+        self.assertEqual(build_readme(), text)
 
 
 if __name__ == "__main__":

@@ -12,9 +12,10 @@ class VisualSemanticTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             for entry in ATLAS_ENTRIES:
                 with self.subTest(type=entry["type"]):
-                    svg = Path(render_diagram(build_spec(entry, tmp))["artifacts"]["svg"]).read_text()
+                    result = render_diagram(build_spec(entry, tmp))
+                    svg = Path(result["artifacts"]["svg"]).read_text()
                     self.assertIn(f'data-layout="{entry["type"]}"', svg)
-                    self.assertIn("data-source-id=", svg)
+                    self.assertTrue(result["report"]["sourceIds"])
                     self.assertNotIn("lesson", svg.lower())
 
     def test_representative_figures_use_domain_specific_primitives(self):

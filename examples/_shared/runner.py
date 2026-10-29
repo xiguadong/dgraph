@@ -13,12 +13,12 @@ def _input(example_dir):
     return json.loads((example_dir / "input.json").read_text(encoding="utf-8"))
 
 
-def run_semantic(example_dir):
+def run_semantic(example_dir, output_dir=None):
     example_dir = Path(example_dir).resolve()
     spec = _input(example_dir)
     if any(source.get("kind") == "sysml" for source in spec.get("sources", [])):
         raise DgraphError("unverified-sysml-source", "A semantic example cannot claim SysML model provenance without model analysis.")
-    spec["outputs"]["directory"] = str(example_dir / "output")
+    spec["outputs"]["directory"] = str(Path(output_dir).resolve() if output_dir else example_dir / "output")
     return render_diagram(spec)
 
 
@@ -57,20 +57,22 @@ def check_view_provenance(spec, analysis):
     return {"ok": not unresolved, "mode": "sysml-referenced" if not mixed else "mixed", "checked": checked, "unresolved": unresolved}
 
 
-def run_sysml(example_dir):
+def run_sysml(example_dir, output_dir=None, analysis_dir=None):
     example_dir = Path(example_dir).resolve()
     spec = _input(example_dir)
     model = example_dir / "model.sysml"
+    target_output = Path(output_dir).resolve() if output_dir else example_dir / "output"
+    target_analysis = Path(analysis_dir).resolve() if analysis_dir else target_output / "sysml-analysis"
     analysis = analyze_sysml(
         [{"name": model.name, "content": model.read_text(encoding="utf-8")}],
-        str(example_dir / "output" / "sysml-analysis"),
+        str(target_analysis),
     )
     if not analysis["ok"]:
         return {"ok": False, "analysis": analysis}
-    spec["outputs"]["directory"] = str(example_dir / "output")
+    spec["outputs"]["directory"] = str(target_output)
     spec = validate_spec(spec)
     provenance = check_view_provenance(spec, analysis)
-    write_json(example_dir / "output" / "sysml-analysis" / "view-provenance.json", provenance)
+    write_json(target_analysis / "view-provenance.json", provenance)
     if not provenance["ok"]:
         return {"ok": False, "analysis": analysis, "provenance": provenance}
     result = render_diagram(spec)

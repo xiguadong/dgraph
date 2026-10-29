@@ -35,7 +35,8 @@ def build_readme():
 要求 Python 3.10+；随包 SysML 编译器适用于 Apple Silicon macOS。无需第三方 Python 包。
 
 ```bash
-PYTHONPATH=/Users/xigua/life/SE/dgraph python3 -m dgraph
+cd /absolute/path/to/dgraph
+PYTHONPATH=. python3 -m dgraph
 ```
 
 MCP 客户端配置示例（字段名以具体客户端为准）：
@@ -46,7 +47,7 @@ MCP 客户端配置示例（字段名以具体客户端为准）：
     "dgraph": {{
       "command": "python3",
       "args": ["-m", "dgraph"],
-      "env": {{"PYTHONPATH": "/Users/xigua/life/SE/dgraph"}}
+      "env": {{"PYTHONPATH": "/absolute/path/to/dgraph"}}
     }}
   }}
 }}
@@ -160,7 +161,37 @@ SysML 模型回答“系统里有哪些事实”，当前用户意图回答“�
         sysml = f"[SysML 参考](examples/{kind}/sysml/README.md)" if kind in SYSML_TYPES else "—"
         semantic = f"[自然语言参考](examples/{kind}/semantic/README.md)"
         sections.append(f"| {title_for(kind)}<br>`{kind}` | `render_diagram` | {sysml} | {semantic} |")
-    return "\n".join(sections) + "\n"
+    sections.append("""
+## 安全与验证契约
+
+ViewSpec 使用版本化的 `diagram-view/v1` Schema。MCP 的 `dgraph://schema/<type>` 资源返回该图种的 JSON Schema；运行时仍会执行 Schema 无法表达的图种语义、ID 唯一性、引用完整性、坐标边界和领域不变量检查。未知字段会被拒绝，以免拼写错误被静默忽略。节点和边可用 `authority` 标记为 `fact`、`view` 或 `inferred`，报告会汇总已声明与未声明来源。
+
+当前公共输入上限：
+
+- 最多 500 个节点、2,000 条边、250 个分组和 500 条注释；
+- 文本字段最长 4,096 字符，标签和问题字段另有字段级长度限制；
+- `analyze_sysml` 最多接受 128 个文件、单文件 5 MiB、总计 10 MiB；
+- 所有坐标和尺寸必须是有限数值，节点必须位于画布内，尺寸必须大于零。
+
+`outputs.directory` 必须是绝对路径。服务会拒绝文件系统根目录、用户主目录和项目根目录；部署时还可设置 `DGRAPH_OUTPUT_ROOT=/allowed/root`，把所有产物限制在指定目录树内。`analyze_sysml` 和 `render_diagram` 先在隔离暂存目录生成完整结果，再在输出锁保护下替换产物；提交失败会回滚，避免 SVG、报告和 manifest 来自不同批次。
+
+MCP 工具错误返回稳定的 `code`、`phase`、`field`、`path`、`relatedIds`、`suggestion` 和 `retryable` 字段。例如，悬空边返回 `dangling-edge`，并给出具体的 `selection.edges[n]` 路径。`analyze_sysml` 的非法模型会返回 `ok: false`、`status: invalid-model` 和结构化诊断。
+
+SVG 检查覆盖文本和节点越界、节点重叠、重复节点 ID 和来源标识缺失。`report.json` 记录 Schema、语义和 SVG 检查结果，`manifest.json` 对当前批次全部核心产物做 SHA-256 校验。
+
+随包 SysML 编译器是 `aarch64-apple-darwin` 二进制，并作为包数据进入 wheel；构建出的 wheel 标记为 `macosx_11_0_arm64`，避免被不兼容平台误装。不兼容主机会明确返回 `compiler-unavailable`；不会以 `Exec format error` 中断 MCP 服务。
+
+## 测试
+
+项目不依赖第三方 Python 测试框架：
+
+```bash
+PYTHONPATH=. python3 -m unittest discover -s tests -v
+```
+
+CI 在 Python 3.10–3.12 上运行完整非原生测试。依赖随包编译器的 SysML 集成测试仅在匹配的 Apple Silicon 主机执行，其他平台明确跳过。
+""")
+    return "\n".join(sections).rstrip() + "\n"
 
 
 if __name__ == "__main__":

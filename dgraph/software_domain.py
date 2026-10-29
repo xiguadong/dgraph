@@ -7,19 +7,25 @@ from .routing import relation_label, relation_path, relation_points
 
 
 def c4_container_svg(model):
-    out = ['<g data-c4="container">']
+    out = [f'<g data-c4="container" data-source-id="{escape(model.get("sourceId", "domain.c4"), quote=True)}">']
     boundary = model["boundary"]
-    out.append(f'<g data-c4-boundary="{escape(boundary["id"], quote=True)}" data-source-id="Example.c4.boundary">')
+    boundary_source = boundary.get("sourceId", f"c4.boundary.{boundary['id']}")
+    out.append(f'<g data-c4-boundary="{escape(boundary["id"], quote=True)}" data-source-id="{escape(boundary_source, quote=True)}">')
     out.append(_rect(300, 125, 690, 485, "#fbfdff", "#94a3b8", 1.8, 14, 'stroke-dasharray="6 4"'))
     out.append(_text(320, 585, boundary["label"] + "（系统边界）", 13, "#64748b", "start"))
     out.append('</g>')
     boxes = {item["id"]: (item["x"], item["y"], 240, 120) for item in model["containers"]}
     boxes.update({item["id"]: (item["x"] - 20, item["y"], 40, 72) for item in model["actors"]})
-    for relation in model["relations"]:
-        out.append(relation_path(relation_points(relation, boxes)))
+    for relation_index, relation in enumerate(model["relations"]):
+        source_id = relation.get("sourceId", f"c4.relation.{relation_index}.{relation['source']}.{relation['target']}")
+        out.append(relation_path(
+            relation_points(relation, boxes),
+            extra=f'data-source-id="{escape(source_id, quote=True)}"',
+        ))
     for actor in model["actors"]:
         x, y = actor["x"], actor["y"]
-        out.append(f'<g data-c4-actor="{escape(actor["id"], quote=True)}" data-source-id="Example.c4.{escape(actor["id"], quote=True)}">')
+        source_id = actor.get("sourceId", f"c4.actor.{actor['id']}")
+        out.append(f'<g data-c4-actor="{escape(actor["id"], quote=True)}" data-source-id="{escape(source_id, quote=True)}">')
         out.append(f'<circle cx="{x}" cy="{y}" r="12" fill="#fff" stroke="#64748b" stroke-width="2"/>')
         out.append(f'<path d="M{x} {y+12} V {y+45} M {x-20} {y+24} H {x+20} M {x} {y+45} L {x-16} {y+72} M {x} {y+45} L {x+16} {y+72}" fill="none" stroke="#64748b" stroke-width="2"/>')
         out.append(_text(x, y + 100, actor["label"], 16, "#15202b", weight=700))
@@ -28,7 +34,8 @@ def c4_container_svg(model):
     for container in model["containers"]:
         x, y = container["x"], container["y"]
         fill, stroke = PALETTE["gray" if container.get("external") else "blue"]
-        out.append(f'<g data-c4-container="{escape(container["id"], quote=True)}" data-source-id="Example.c4.{escape(container["id"], quote=True)}">')
+        source_id = container.get("sourceId", f"c4.container.{container['id']}")
+        out.append(f'<g data-c4-container="{escape(container["id"], quote=True)}" data-source-id="{escape(source_id, quote=True)}">')
         out.append(_rect(x, y, 240, 120, fill, stroke, 2, 7))
         out.append(_text(x + 120, y + 25, "«外部系统»" if container.get("external") else "«container»", 12, stroke))
         out.append(_text(x + 120, y + 58, container["label"], 17, "#173d73", weight=700))
@@ -50,7 +57,8 @@ def uml_class_svg(model):
         dashed = ' stroke-dasharray="6 4"' if kind in {"dependency", "realization"} else ""
         marker = (' marker-end="url(#triangle)"' if kind in {"generalization", "realization"} else
                   ' marker-end="url(#arrow)"' if kind == "dependency" else "")
-        out.append(f'<path data-uml-relation="{escape(relation["id"], quote=True)}" data-uml-kind="{escape(kind, quote=True)}" d="{path}" fill="none" stroke="#64748b" stroke-width="1.8"{dashed}{marker}/>')
+        source_id = relation.get("sourceId", f"uml.relation.{relation['id']}")
+        out.append(f'<path data-uml-relation="{escape(relation["id"], quote=True)}" data-uml-kind="{escape(kind, quote=True)}" data-source-id="{escape(source_id, quote=True)}" d="{path}" fill="none" stroke="#64748b" stroke-width="1.8"{dashed}{marker}/>')
         if kind in {"composition", "aggregation"}:
             x, y = points[0]
             fill = "#64748b" if kind == "composition" else "#fff"
@@ -59,7 +67,8 @@ def uml_class_svg(model):
     for item in model["classes"]:
         x, y = item["x"], item["y"]
         w, h = item.get("w", 280), item.get("h", 185)
-        out.append(f'<g data-uml-class="{escape(item["id"], quote=True)}" data-source-id="Example.uml.{escape(item["id"], quote=True)}">')
+        source_id = item.get("sourceId", f"uml.class.{item['id']}")
+        out.append(f'<g data-uml-class="{escape(item["id"], quote=True)}" data-source-id="{escape(source_id, quote=True)}">')
         out.append(_rect(x, y, w, h, "#fff", "#2459a6", 1.7, 2))
         out.append(_rect(x, y, w, 38, "#e8f0ff", "#2459a6", 1.7, 2))
         out.append(_text(x + w / 2, y + 25, item["id"], 16, "#15202b", weight=700))
@@ -96,11 +105,12 @@ def uml_class_svg(model):
 
 
 def sequence_svg(model):
-    out = ['<g data-sequence="interaction">']
+    out = [f'<g data-sequence="interaction" data-source-id="{escape(model.get("sourceId", "domain.sequence"), quote=True)}">']
     positions = {item["id"]: item["x"] for item in model["participants"]}
     for participant in model["participants"]:
         x = participant["x"]
-        out.append(f'<g data-sequence-lifeline="{escape(participant["id"], quote=True)}" data-source-id="Example.sequence.{escape(participant["id"], quote=True)}">')
+        source_id = participant.get("sourceId", f"sequence.participant.{participant['id']}")
+        out.append(f'<g data-sequence-lifeline="{escape(participant["id"], quote=True)}" data-source-id="{escape(source_id, quote=True)}">')
         out.append(_rect(x - 85, 130, 170, 58, "#e8f0ff", "#2459a6", 1.8, 3))
         out.append(_text(x, 165, participant["label"], 15, "#15202b", weight=650))
         out.append(f'<line x1="{x}" y1="188" x2="{x}" y2="625" stroke="#94a3b8" stroke-dasharray="5 5"/>')
@@ -117,7 +127,8 @@ def sequence_svg(model):
         else:
             path = f'M {source} {y} H {target}'
         dashed = message["kind"] == "return"
-        out.append(f'<path data-sequence-return="{str(dashed).lower()}" d="{path}" fill="none" stroke="#2459a6" stroke-width="1.8" stroke-dasharray="{("6 4" if dashed else None)}" marker-end="url(#arrow)"/>')
+        source_id = message.get("sourceId", f"sequence.message.{index + 1}")
+        out.append(f'<path data-sequence-return="{str(dashed).lower()}" data-source-id="{escape(source_id, quote=True)}" d="{path}" fill="none" stroke="#2459a6" stroke-width="1.8" stroke-dasharray="{("6 4" if dashed else None)}" marker-end="url(#arrow)"/>')
         if source == target:
             out.append(_text(source + 18, y - 12, message["label"], 13, "#334155", "start"))
         else:

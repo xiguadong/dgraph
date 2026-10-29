@@ -45,7 +45,8 @@ def _node(node):
     fill, stroke = _color(node)
     x, y, w, h = (node[key] for key in ("x", "y", "w", "h"))
     kind = node.get("kind", "block")
-    out = [f'<g data-node-id="{escape(node["id"], quote=True)}" data-source-id="{escape(node["sourceId"], quote=True)}" data-kind="{escape(kind, quote=True)}">']
+    authority = f' data-authority="{escape(node["authority"], quote=True)}"' if node.get("authority") else ""
+    out = [f'<g data-node-id="{escape(node["id"], quote=True)}" data-source-id="{escape(node["sourceId"], quote=True)}" data-kind="{escape(kind, quote=True)}"{authority}>']
     out.append(f"<title>{escape(node.get('details', node['label']))}</title>")
     if kind == "parallel":
         out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="2" fill="#334155"/>')
@@ -154,7 +155,8 @@ def _edge(edge, nodes):
     marker = ("url(#triangle)" if edge["kind"] in {"generalization", "extension"} else
               "none" if edge["kind"] in {"composition", "aggregation", "association", "binding", "connection"} else
               "url(#arrow)")
-    out = [f'<path d="{path}" fill="none" stroke="{stroke}" stroke-width="2" stroke-dasharray="{("6 4" if dashed else None)}" marker-end="{marker}"/>']
+    authority = f' data-authority="{escape(edge["authority"], quote=True)}"' if edge.get("authority") else ""
+    out = [f'<path d="{path}"{authority} fill="none" stroke="{stroke}" stroke-width="2" stroke-dasharray="{("6 4" if dashed else None)}" marker-end="{marker}"/>']
     if edge["kind"] in {"composition", "aggregation"}:
         x, y = points[0]
         out.append(f'<rect x="{x-5}" y="{y-5}" width="10" height="10" transform="rotate(45 {x} {y})" fill="{stroke if edge["kind"] == "composition" else "#fff"}" stroke="{stroke}"/>')

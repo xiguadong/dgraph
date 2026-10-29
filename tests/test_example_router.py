@@ -1,7 +1,9 @@
+import json
 from pathlib import Path
 import unittest
 
 from dgraph.catalog import CATALOG
+from dgraph.viewspec import validate_spec
 
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
@@ -28,6 +30,12 @@ class ExampleLayoutTests(unittest.TestCase):
             folder = EXAMPLES / kind / "sysml"
             for name in ("README.md", "draw.py", "input.json", "model.sysml", "output/diagram.svg", "output/sysml-analysis/report.json"):
                 self.assertTrue((folder / name).is_file(), folder / name)
+
+    def test_every_example_input_satisfies_the_public_contract(self):
+        for entry in CATALOG:
+            path = EXAMPLES / entry["type"] / "semantic" / "input.json"
+            with self.subTest(type=entry["type"]):
+                validate_spec(json.loads(path.read_text(encoding="utf-8")))
 
     def test_no_legacy_output_root_or_generators_remain(self):
         root = EXAMPLES.parent

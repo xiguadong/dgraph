@@ -33,6 +33,7 @@ class MCPTests(unittest.TestCase):
                 {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}},
                 {"jsonrpc": "2.0", "id": 3, "method": "resources/list", "params": {}},
                 {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "render_diagram", "arguments": {"spec": spec(tmp)}}},
+                {"jsonrpc": "2.0", "id": 5, "method": "resources/read", "params": {"uri": "dgraph://schema/gantt"}},
             ])
             self.assertEqual("dgraph", responses[0]["result"]["serverInfo"]["name"])
             tools = {tool["name"] for tool in responses[1]["result"]["tools"]}
@@ -40,11 +41,30 @@ class MCPTests(unittest.TestCase):
             self.assertTrue(responses[2]["result"]["resources"])
             self.assertTrue(responses[3]["result"]["structuredContent"]["ok"])
             self.assertTrue(Path(responses[3]["result"]["structuredContent"]["artifacts"]["svg"]).is_file())
+            schema = json.loads(responses[4]["result"]["contents"][0]["text"])["jsonSchema"]
+            self.assertEqual("diagram-view/v1", schema["x-schemaVersion"])
+            self.assertIn("gantt", schema["properties"]["selection"]["required"])
 
     def test_invalid_tool_returns_structured_error(self):
         responses = self.run_mcp([{"jsonrpc": "2.0", "id": 9, "method": "tools/call", "params": {"name": "missing", "arguments": {}}}])
-        self.assertTrue(responses[0]["result"]["isError"])
+        result = responses[0]["result"]
+        self.assertTrue(result["isError"])
+        self.assertEqual("unknown-tool", result["structuredContent"]["code"])
+        self.assertEqual("dispatch", result["structuredContent"]["phase"])
         self.assertIn("Unknown tool", responses[0]["result"]["content"][0]["text"])
+
+    def test_validation_error_returns_field_and_stage_over_mcp(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            invalid = spec(tmp)
+            invalid["selection"]["edges"] = [{"source": "a", "target": "missing", "kind": "flow"}]
+            responses = self.run_mcp(
+                [{"jsonrpc": "2.0", "id": 10, "method": "tools/call", "params": {"name": "validate_viewspec", "arguments": {"spec": invalid}}}]
+            )
+            result = responses[0]["result"]
+            self.assertTrue(result["isError"])
+            self.assertEqual("dangling-edge", result["structuredContent"]["code"])
+            self.assertEqual("input", result["structuredContent"]["phase"])
+            self.assertEqual("selection.edges[0]", result["structuredContent"]["field"])
 
 
 if __name__ == "__main__":

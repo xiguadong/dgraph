@@ -17,8 +17,9 @@ class AtlasTests(unittest.TestCase):
                     self.assertTrue(result["ok"])
                     svg = Path(result["artifacts"]["svg"])
                     self.assertGreater(svg.stat().st_size, 2500)
-                    self.assertTrue(inspect_svg(svg)["ok"])
-                    self.assertIn("data-source-id=", svg.read_text())
+                    inspection = inspect_svg(svg)
+                    self.assertTrue(inspection["ok"])
+                    self.assertTrue(inspection["sourceIds"])
 
     def test_specialized_figures_use_their_own_primitives(self):
         with tempfile.TemporaryDirectory() as tmp:

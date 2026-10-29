@@ -6,6 +6,7 @@ from pathlib import Path
 from .artifacts import inspect_svg
 from .catalog import CATALOG
 from .render import render_diagram
+from .schema import viewspec_schema
 from .sysml import analyze_sysml
 from .viewspec import DgraphError, validate_spec
 
@@ -13,7 +14,20 @@ from .viewspec import DgraphError, validate_spec
 def _schema(kind):
     properties = {
         "list_diagram_types": {},
-        "analyze_sysml": {"files": {"type": "array", "items": {"type": "object", "properties": {"name": {"type": "string"}, "content": {"type": "string"}}, "required": ["name", "content"]}}, "outputDir": {"type": "string"}},
+        "analyze_sysml": {
+            "files": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 128,
+                "items": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {"name": {"type": "string"}, "content": {"type": "string"}},
+                    "required": ["name", "content"],
+                },
+            },
+            "outputDir": {"type": "string"},
+        },
         "validate_viewspec": {"spec": {"type": "object"}},
         "render_diagram": {"spec": {"type": "object"}},
         "inspect_diagram": {"path": {"type": "string"}},
@@ -47,21 +61,45 @@ def read_resource(uri):
         entry = next((item for item in CATALOG if item["type"] == kind), None)
         if not entry:
             raise DgraphError("resource-not-found", f"Unknown resource: {uri}")
-        value = {"schema": "diagram-view/v1", "type": kind, "status": entry["status"], "question": entry["question"], "required": ["schema", "type", "intent", "selection", "outputs"], "sourceAuthority": "Current user intent selects the view; existing SysML views are references only.", "nodeFields": ["id", "label", "kind", "x", "y", "w", "h", "sourceId"], "edgeFields": ["source", "target", "kind", "label"]}
+        value = {
+            "status": entry["status"],
+            "question": entry["question"],
+            "sourceAuthority": "Current user intent selects the view; existing SysML views are references only.",
+            "jsonSchema": viewspec_schema(kind),
+        }
     else:
         raise DgraphError("resource-not-found", f"Unknown resource: {uri}")
     return json.dumps(value, ensure_ascii=False, indent=2)
 
 
+def _tool_arguments(arguments, allowed, required):
+    if not isinstance(arguments, dict):
+        raise DgraphError("invalid-request", "Tool arguments must be an object.", field="arguments", phase="dispatch")
+    unknown = sorted(set(arguments) - set(allowed))
+    if unknown:
+        raise DgraphError("invalid-request", f"Unknown tool argument(s): {', '.join(unknown)}", field="arguments", phase="dispatch")
+    missing = sorted(set(required) - set(arguments))
+    if missing:
+        raise DgraphError("invalid-request", f"Missing tool argument(s): {', '.join(missing)}", field="arguments", phase="dispatch")
+    return arguments
+
+
 def call_tool(name, arguments):
     if name == "list_diagram_types":
+        _tool_arguments(arguments, set(), set())
         return {"types": CATALOG}
     if name == "analyze_sysml":
+        _tool_arguments(arguments, {"files", "outputDir"}, {"files", "outputDir"})
         return analyze_sysml(arguments.get("files"), arguments.get("outputDir", ""))
     if name == "validate_viewspec":
+        _tool_arguments(arguments, {"spec"}, {"spec"})
         return {"ok": True, "spec": validate_spec(arguments.get("spec"))}
     if name == "render_diagram":
+        _tool_arguments(arguments, {"spec"}, {"spec"})
         return render_diagram(arguments.get("spec"))
     if name == "inspect_diagram":
+        _tool_arguments(arguments, {"path"}, {"path"})
+        if not isinstance(arguments.get("path"), str) or not arguments["path"].strip():
+            raise DgraphError("invalid-request", "inspect_diagram requires a non-empty path.", field="path")
         return inspect_svg(Path(arguments.get("path", "")))
-    raise DgraphError("unknown-tool", f"Unknown tool: {name}")
+    raise DgraphError("unknown-tool", f"Unknown tool: {name}", phase="dispatch")

@@ -6,10 +6,25 @@ build-backend = "setuptools.build_meta"
 name = "dgraph-mcp"
 version = "0.2.0"
 description = "Deterministic SysML and engineering diagram MCP"
+readme = "README.md"
 requires-python = ">=3.10"
 
 [project.scripts]
 dgraph-mcp = "dgraph.server:main"
 
 [tool.setuptools]
-packages = ["dgraph"]
+packages = [
+    "dgraph",
+    "dgraph.vendor",
+    "dgraph.vendor.sysml",
+    "dgraph.vendor.sysml.bin",
+    "dgraph.vendor.sysml.licenses",
+]
+include-package-data = true
+
+[tool.setuptools.package-data]
+dgraph = [
+    "vendor/sysml/bin/sysml",
+    "vendor/sysml/toolchain.json",
+    "vendor/sysml/licenses/*",
+]
